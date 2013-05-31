@@ -12,10 +12,10 @@
 
 #define INVALID_SOCKET	-1
 
-#define EV_SYN 0
-#define EV_KEY 1
-#define EV_ABS 4
-#define EV_MAX 16
+//#define EV_SYN 0
+//#define EV_KEY 1
+//#define EV_ABS 4
+//#define EV_MAX 16
 
 
 typedef bool (*TOUCH_EVENT)(struct input_event& ev);
