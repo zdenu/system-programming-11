@@ -1,0 +1,272 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2208FE2917406359000C325F /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208FE2817406359000C325F /* main.cpp */; };
+		2208FE2B17406359000C325F /* WolframAlphaAPI.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2208FE2A17406359000C325F /* WolframAlphaAPI.1 */; };
+		2208FE38174063A7000C325F /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208FE32174063A7000C325F /* tinystr.cpp */; };
+		2208FE39174063A7000C325F /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208FE34174063A7000C325F /* tinyxml.cpp */; };
+		2208FE3A174063A7000C325F /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208FE36174063A7000C325F /* tinyxmlerror.cpp */; };
+		2208FE3B174063A7000C325F /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208FE37174063A7000C325F /* tinyxmlparser.cpp */; };
+		2208FE4117406445000C325F /* HttpConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208FE3F17406445000C325F /* HttpConnector.cpp */; };
+		2208FE4417406BA2000C325F /* WolframAlphaManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2208FE4217406BA2000C325F /* WolframAlphaManager.cpp */; };
+		228647C6175883C300673D87 /* TouchListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 228647C4175883C300673D87 /* TouchListener.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2208FE2317406359000C325F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				2208FE2B17406359000C325F /* WolframAlphaAPI.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2208FE2517406359000C325F /* WolframAlphaAPI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = WolframAlphaAPI; sourceTree = BUILT_PRODUCTS_DIR; };
+		2208FE2817406359000C325F /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2208FE2A17406359000C325F /* WolframAlphaAPI.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = WolframAlphaAPI.1; sourceTree = "<group>"; };
+		2208FE32174063A7000C325F /* tinystr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinystr.cpp; path = tinyxml/tinystr.cpp; sourceTree = "<group>"; };
+		2208FE33174063A7000C325F /* tinystr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinystr.h; path = tinyxml/tinystr.h; sourceTree = "<group>"; };
+		2208FE34174063A7000C325F /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxml.cpp; path = tinyxml/tinyxml.cpp; sourceTree = "<group>"; };
+		2208FE35174063A7000C325F /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tinyxml.h; path = tinyxml/tinyxml.h; sourceTree = "<group>"; };
+		2208FE36174063A7000C325F /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlerror.cpp; path = tinyxml/tinyxmlerror.cpp; sourceTree = "<group>"; };
+		2208FE37174063A7000C325F /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tinyxmlparser.cpp; path = tinyxml/tinyxmlparser.cpp; sourceTree = "<group>"; };
+		2208FE3F17406445000C325F /* HttpConnector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpConnector.cpp; sourceTree = "<group>"; };
+		2208FE4017406445000C325F /* HttpConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnector.h; sourceTree = "<group>"; };
+		2208FE4217406BA2000C325F /* WolframAlphaManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WolframAlphaManager.cpp; sourceTree = "<group>"; };
+		2208FE4317406BA2000C325F /* WolframAlphaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WolframAlphaManager.h; sourceTree = "<group>"; };
+		22446CBE1758857F00C41D73 /* atomic_value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = atomic_value.h; sourceTree = "<group>"; };
+		228647C4175883C300673D87 /* TouchListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TouchListener.cpp; sourceTree = "<group>"; };
+		228647C5175883C300673D87 /* TouchListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchListener.h; sourceTree = "<group>"; };
+		228647C71758842200673D87 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2208FE2217406359000C325F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2208FE1C17406359000C325F = {
+			isa = PBXGroup;
+			children = (
+				2208FE2717406359000C325F /* WolframAlphaAPI */,
+				2208FE2617406359000C325F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2208FE2617406359000C325F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2208FE2517406359000C325F /* WolframAlphaAPI */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2208FE2717406359000C325F /* WolframAlphaAPI */ = {
+			isa = PBXGroup;
+			children = (
+				2208FE3117406366000C325F /* tinyxml */,
+				2208FE2817406359000C325F /* main.cpp */,
+				2208FE3F17406445000C325F /* HttpConnector.cpp */,
+				2208FE4017406445000C325F /* HttpConnector.h */,
+				2208FE2A17406359000C325F /* WolframAlphaAPI.1 */,
+				2208FE4217406BA2000C325F /* WolframAlphaManager.cpp */,
+				2208FE4317406BA2000C325F /* WolframAlphaManager.h */,
+				228647C4175883C300673D87 /* TouchListener.cpp */,
+				228647C5175883C300673D87 /* TouchListener.h */,
+				22446CBE1758857F00C41D73 /* atomic_value.h */,
+				228647C71758842200673D87 /* thread.h */,
+			);
+			path = WolframAlphaAPI;
+			sourceTree = "<group>";
+		};
+		2208FE3117406366000C325F /* tinyxml */ = {
+			isa = PBXGroup;
+			children = (
+				2208FE32174063A7000C325F /* tinystr.cpp */,
+				2208FE33174063A7000C325F /* tinystr.h */,
+				2208FE34174063A7000C325F /* tinyxml.cpp */,
+				2208FE35174063A7000C325F /* tinyxml.h */,
+				2208FE36174063A7000C325F /* tinyxmlerror.cpp */,
+				2208FE37174063A7000C325F /* tinyxmlparser.cpp */,
+			);
+			name = tinyxml;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2208FE2417406359000C325F /* WolframAlphaAPI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2208FE2E17406359000C325F /* Build configuration list for PBXNativeTarget "WolframAlphaAPI" */;
+			buildPhases = (
+				2208FE2117406359000C325F /* Sources */,
+				2208FE2217406359000C325F /* Frameworks */,
+				2208FE2317406359000C325F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WolframAlphaAPI;
+			productName = WolframAlphaAPI;
+			productReference = 2208FE2517406359000C325F /* WolframAlphaAPI */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2208FE1D17406359000C325F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Christopher Kim";
+			};
+			buildConfigurationList = 2208FE2017406359000C325F /* Build configuration list for PBXProject "WolframAlphaAPI" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2208FE1C17406359000C325F;
+			productRefGroup = 2208FE2617406359000C325F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2208FE2417406359000C325F /* WolframAlphaAPI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2208FE2117406359000C325F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2208FE2917406359000C325F /* main.cpp in Sources */,
+				2208FE38174063A7000C325F /* tinystr.cpp in Sources */,
+				2208FE39174063A7000C325F /* tinyxml.cpp in Sources */,
+				2208FE3A174063A7000C325F /* tinyxmlerror.cpp in Sources */,
+				2208FE3B174063A7000C325F /* tinyxmlparser.cpp in Sources */,
+				2208FE4117406445000C325F /* HttpConnector.cpp in Sources */,
+				2208FE4417406BA2000C325F /* WolframAlphaManager.cpp in Sources */,
+				228647C6175883C300673D87 /* TouchListener.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2208FE2C17406359000C325F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2208FE2D17406359000C325F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2208FE2F17406359000C325F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2208FE3017406359000C325F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2208FE2017406359000C325F /* Build configuration list for PBXProject "WolframAlphaAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2208FE2C17406359000C325F /* Debug */,
+				2208FE2D17406359000C325F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2208FE2E17406359000C325F /* Build configuration list for PBXNativeTarget "WolframAlphaAPI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2208FE2F17406359000C325F /* Debug */,
+				2208FE3017406359000C325F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2208FE1D17406359000C325F /* Project object */;
+}
