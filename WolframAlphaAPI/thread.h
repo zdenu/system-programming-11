@@ -9,7 +9,7 @@
 #pragma once
 
 #include <iostream>
-#include <atomic>
+#include "atomic_value.h"
 
 typedef pthread_t	THREAD_HANDLE;
 typedef uint32_t	THREAD_ID;
@@ -21,10 +21,9 @@ class Thread
 public:
 	Thread()
 	: m_Handle(0)
-	, m_IsRunning(false)
 	, m_pData(nullptr)
 	, m_pFunc(nullptr)
-	, m_pInstance(nullptr) {}
+	, m_pInstance(nullptr) {m_IsRunning.set(false)}
 	~Thread() {}
 	
 public:
@@ -39,7 +38,7 @@ public:
 	static void* threadProc( void* pParam );
 	
 	T* getInstance(void) { return m_pInstance; }
-	bool isRunning(void) { return m_IsRunning; }
+	bool isRunning(void) { return m_IsRunning.get(); }
 	
 private:
 	T*					m_pInstance;
@@ -47,7 +46,7 @@ private:
 	void*				m_pData;
 	
 	THREAD_HANDLE		m_Handle;
-	std::atomic<bool>	m_IsRunning;
+	AtomicValue<bool>	m_IsRunning;
 };
 
 template <typename T>
@@ -56,12 +55,12 @@ bool Thread<T>::start(T* inst, THREAD_FUNC func, void* pData)
 	this->m_pInstance = inst;
 	this->m_pFunc = func;
 	this->m_pData = pData;
-	this->m_IsRunning = true;
+	this->m_IsRunning.set(true);
 	
 	int64_t ret = pthread_create(&m_Handle, nullptr, threadProc, this);
 	if (ret != 0)
 	{
-		m_IsRunning = false;
+		m_IsRunning.set(false);
 		return false;
 	}
 	
@@ -75,7 +74,7 @@ bool Thread<T>::stop(void)
 		return false;
 	
 	pthread_kill(m_Handle, -9);
-	m_IsRunning = false;
+	m_IsRunning.set(false);
 	
 	return true;
 }
@@ -85,7 +84,7 @@ void* Thread<T>::call(void)
 {
 	// @Christopher : need to notify this thread is end?
 	void* pRet = m_pFunc(*m_pInstance, this, m_pData);
-	m_IsRunning = false;
+	m_IsRunning.set(false);
 	
 	return pRet;
 }
