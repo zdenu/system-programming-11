@@ -21,7 +21,7 @@
 
 TouchListener::TouchListener()
 {
-	isThreadRunning.set(true);
+	isThreadRunning = true;
 }
 
 TouchListener::~TouchListener()
@@ -67,7 +67,7 @@ void* TouchListener::touchThread(Thread<TouchListener>*, void* )
 	struct input_event buf[EVENT_BUF_NUM];
 	size_t stSize = sizeof(struct input_event);
 	
-	while (isThreadRunning.get())
+	while (isThreadRunning)
 	{
 		ret = read(fd, buf, (stSize * EVENT_BUF_NUM) );
 		if( ret >= stSize )

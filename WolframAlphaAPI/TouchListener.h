@@ -8,7 +8,7 @@
 #pragma once
 
 #include <linux/input.h>
-#include "atomic_value.h"
+//#include "atomic_value.h"
 #include "thread.h"
 
 
@@ -42,7 +42,7 @@ private:
 	
 	
 private:
-	AtomicValue<bool>	 isThreadRunning;
+	bool	 isThreadRunning;
 	Thread<TouchListener> thread;
 	
 	TOUCH_EVENT	eventHandler[EV_MAX];
