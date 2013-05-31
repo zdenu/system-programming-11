@@ -21,13 +21,14 @@ class Thread
 public:
 	Thread()
 	: m_Handle(0)
-	, m_pData(nullptr)
-	, m_pFunc(nullptr)
-	, m_pInstance(nullptr) {m_IsRunning.set(false)}
+	, m_pData(NULL)
+	, m_pFunc(NULL)
+	, m_pInstance(NULL) {m_IsRunning.set(false)}
 	~Thread() {}
 	
 public:
-	typedef std::function<void*(T&, Thread<T>*, void*)> THREAD_FUNC;
+	typedef Thread<T> THREAD_TYPE;
+	typedef void *(T::*THREAD_FUNC)(THREAD_TYPE*,void*);
 	// THREAD_FUNC : void* T::function(Thread<T>*, void*); Type.
 	
 	bool start(T* inst, THREAD_FUNC func, void* pData);
@@ -57,7 +58,7 @@ bool Thread<T>::start(T* inst, THREAD_FUNC func, void* pData)
 	this->m_pData = pData;
 	this->m_IsRunning.set(true);
 	
-	int64_t ret = pthread_create(&m_Handle, nullptr, threadProc, this);
+	int64_t ret = pthread_create(&m_Handle, NULL, threadProc, this);
 	if (ret != 0)
 	{
 		m_IsRunning.set(false);
