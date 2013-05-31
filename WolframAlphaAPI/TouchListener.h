@@ -7,8 +7,10 @@
 //
 #pragma once
 
+#include <linux/input.h>
 #include "atomic_value.h"
 #include "thread.h"
+
 
 #define INVALID_SOCKET	-1
 

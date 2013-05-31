@@ -73,7 +73,7 @@ bool Thread<T>::stop(void)
 	if (m_Handle == 0)
 		return false;
 	
-	pthread_kill(m_Handle, -9);
+//	pthread_kill(m_Handle, -9);
 	m_IsRunning.set(false);
 	
 	return true;

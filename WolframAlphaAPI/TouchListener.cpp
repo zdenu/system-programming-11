@@ -14,7 +14,6 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <linux/input.h>
 #include "TouchListener.h"
 
 #define EVENT_BUF_NUM 64
