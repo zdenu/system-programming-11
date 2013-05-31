@@ -14,11 +14,10 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <linux/input.h>
+//#include <linux/input.h>
 #include "TouchListener.h"
 
 #define EVENT_BUF_NUM 64
-int event_fd = -1; /* the file descriptor for the device */
 
 
 TouchListener::TouchListener()
@@ -33,7 +32,7 @@ TouchListener::~TouchListener()
 bool TouchListener::initialize(void)
 {
 	const char* device = "/dev/input/event0";
-	if (fd = fopen(device, O_RDONLY) < 0)
+	if ((fd = open(device, O_RDONLY)) < 0)
 	{
 		return false;
 	}
@@ -57,10 +56,14 @@ bool TouchListener::destroy(void)
 	isThreadRunning.set(false);
 	close(fd);
 	fd = INVALID_SOCKET;
+	
+	return true;
 }
 
 void* TouchListener::touchThread(Thread<TouchListener>*, void* )
 {
+
+	
 	size_t ret = 0;
 	struct input_event buf[EVENT_BUF_NUM];
 	size_t stSize = sizeof(struct input_event);
@@ -68,13 +71,9 @@ void* TouchListener::touchThread(Thread<TouchListener>*, void* )
 	while (isThreadRunning.get())
 	{
 		ret = read(fd, buf, (stSize * EVENT_BUF_NUM) );
-		if( read_bytes < stSize )
+		if( ret >= stSize )
 		{
-			printf("%s: read error", device);
-		}
-		else
-		{
-			int eventCnt = ret / stSize;
+			size_t eventCnt = ret / stSize;
 			for (int i = 0 ; i < eventCnt ; ++i)
 			{
 				
@@ -96,8 +95,8 @@ bool TouchListener::handleEV_SYN(struct input_event& ev)
 }
 bool TouchListener::handleEV_KEY(struct input_event& ev)
 {
-	printf("Button code %d", buf[i].code);
-	switch (buf[i].value)
+	printf("Button code %d", ev.code);
+	switch (ev.value)
 	{
 		case 1:
 			printf(": pressed\n");
@@ -107,9 +106,9 @@ bool TouchListener::handleEV_KEY(struct input_event& ev)
 			break;
 		default:
 			printf("Unknown: type %d, code %d, value %d",
-				   buf[i].type,
-				   buf[i].code,
-				   buf[i].value);
+				   ev.type,
+				   ev.code,
+				   ev.value);
 			break;
 	}
 	
@@ -117,22 +116,22 @@ bool TouchListener::handleEV_KEY(struct input_event& ev)
 }
 bool TouchListener::handleEV_ABS(struct input_event& ev)
 {
-	switch (buf[i].code)
+	switch (ev.code)
 	{
 		case ABS_X:
-			printf("X position: %d\n", buf[i].value);
+			printf("X position: %d\n", ev.value);
 			break;
 		case ABS_Y:
-			printf("Y position: %d\n", buf[i].value);
+			printf("Y position: %d\n", ev.value);
 			break;
 		case ABS_PRESSURE:
-			printf("Pressure : %s\n", (buf[i].value > 1)? "yes" : "no" );
+			printf("Pressure : %s\n", (ev.value > 1)? "yes" : "no" );
 			break;
 		default:
 			printf("Touch Unknown: type %d, code %d, value %d\n",
-				   buf[i].type,
-				   buf[i].code,
-				   buf[i].value);
+				   ev.type,
+				   ev.code,
+				   ev.value);
 			break;
 	}
 
