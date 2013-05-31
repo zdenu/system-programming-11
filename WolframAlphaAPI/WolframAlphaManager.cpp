@@ -38,7 +38,7 @@ bool WolframAlphaManager::parseXmlResponse(char* pData)
 	TiXmlDocument doc;
 	doc.Parse(pData, 0, TIXML_ENCODING_UTF8);
 	
-	doc.FirstChild("")
+//	doc.FirstChild("")
 	
 //	if (doc.Parse(pData, 0, TIXML_ENCODING_UTF8) == false)
 //	{

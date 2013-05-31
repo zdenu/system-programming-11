@@ -21,6 +21,8 @@
 
 int main(int argc, const char * argv[])
 {
+	
+	
 	std::string url = "api.wolframalpha.com";
 	std::string req = "/v2/query?input=1%2B2&appid=EUGLWW-4XTP6Q3GK2";
 //integral+x+dx+from+0+to+10

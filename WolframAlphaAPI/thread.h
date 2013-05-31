@@ -23,13 +23,12 @@ public:
 	: m_Handle(0)
 	, m_pData(NULL)
 	, m_pFunc(NULL)
-	, m_pInstance(NULL) {m_IsRunning.set(false)}
+	, m_pInstance(NULL) {m_IsRunning.set(false);}
 	~Thread() {}
 	
 public:
 	typedef Thread<T> THREAD_TYPE;
-	typedef void *(T::*THREAD_FUNC)(THREAD_TYPE*,void*);
-	// THREAD_FUNC : void* T::function(Thread<T>*, void*); Type.
+	typedef void *(T::*THREAD_FUNC)(THREAD_TYPE*, void*);
 	
 	bool start(T* inst, THREAD_FUNC func, void* pData);
 	bool stop(void);
@@ -84,7 +83,7 @@ template <typename T>
 void* Thread<T>::call(void)
 {
 	// @Christopher : need to notify this thread is end?
-	void* pRet = m_pFunc(*m_pInstance, this, m_pData);
+	void* pRet = (m_pInstance->*((m_pFunc)))(this, m_pData);
 	m_IsRunning.set(false);
 	
 	return pRet;
