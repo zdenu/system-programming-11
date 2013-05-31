@@ -9,7 +9,7 @@
 #pragma once
 
 #include <iostream>
-#include "atomic_value.h"
+//#include "atomic_value.h"
 
 typedef pthread_t	THREAD_HANDLE;
 typedef uint32_t	THREAD_ID;
