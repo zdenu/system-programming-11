@@ -8,6 +8,7 @@
 
 #pragma once
 
+#include <stdint.h>
 #include <iostream>
 //#include "atomic_value.h"
 

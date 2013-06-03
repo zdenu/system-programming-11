@@ -52,7 +52,7 @@ bool TouchListener::initialize(void)
 
 bool TouchListener::destroy(void)
 {
-	isThreadRunning.set(false);
+	isThreadRunning = false;
 	close(fd);
 	fd = INVALID_SOCKET;
 	
