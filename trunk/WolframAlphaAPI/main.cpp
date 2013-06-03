@@ -9,7 +9,7 @@
 //http://api.wolframalpha.com/v2/query?input=sigma(k=1+to+8)+of+(x^2)&appid=EUGLWW-4XTP6Q3GK2
 //http://api.wolframalpha.com/v2/query?input=integral+x+dx&appid=EUGLWW-4XTP6Q3GK2
 //http://api.wolframalpha.com/v2/query?input=integral+x+dx+from+0+to+10&appid=EUGLWW-4XTP6Q3GK2
-#include <iostream>
+#include <stdio.h>
 #include <unistd.h>
 //#include "HttpConnector.h"
 //#include "WolframAlphaManager.h"
