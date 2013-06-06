@@ -8,32 +8,39 @@
 #pragma once
 
 #include <string>
+#include <vector>
+#include <map>
+#include "singleton.h"
+#include "thread.h"
 
 #define APP_ID_LENGTH	20
 
-class WolframAlphaManager
+struct stUrlInfo
+{
+	std::string id;
+	std::string url;
+};
+
+typedef std::vector<stUrlInfo> TUrlVector;
+typedef std::vector<std::string> TImgNameVector;
+typedef std::vector<stImageData> TImageVector;
+class WolframAlphaManager : public Singleton<WolframAlphaManager>
 {
 public:
 	WolframAlphaManager(void);
 	~WolframAlphaManager(void);
 	
 public:
-	void setAppId(const char* pAppId) { appId = pAppId; }
-	void setHostName(const char* pHost) { hostName = pHost; }
-	
-	const char* getHostName(void) { return hostName.c_str(); }
-	const char* getRequest(void) { return request.c_str(); }
-	
-	const char* makeRequest(const char* pRequest);
-	
-	bool parseXmlResponse(char* pData);
+	bool sendRequest(const char* expression, int size, TImageVector& imageVector);
 	
 public:
-	// make integral.
-	// make arithmetic.
+//	const char* getRequest(void) { return request.c_str(); }
+	const char* makeRequest(const char* pRequest);
 	
+	bool parseXmlResponse(char* pData, TUrlVector& urlVector);
 	
-	
+private:
+	void parseFromURL(stUrlInfo url, std::string& host, std::string& request);
 	
 private:
 	
@@ -45,9 +52,4 @@ private:
 	};
 	
 	static stMark mark[4];
-	
-private:
-	std::string appId;
-	std::string hostName;
-	std::string request;
 };
