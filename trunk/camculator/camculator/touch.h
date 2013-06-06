@@ -48,6 +48,6 @@ private:
 	
 	int		beforeEvent;
 	dc_t *touch_before;
-
+	
 };
 
