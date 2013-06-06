@@ -7,6 +7,7 @@
 #include <gx.h>
 #include "camera.h"
 
+#pragma pack(1)
 typedef struct stRGB
 {
 	union
@@ -20,25 +21,36 @@ typedef struct stRGB
 		};
 	};
 } stRGB;
+#pragma pack()
+int camera_dev;
 
-void dc_camera(dc_t *target){
-	int camera_dev;
-	int i,j,k=0;
-	stRGB rgbData[240*320];
+void init_camera(){
 	if((camera_dev = open("/dev/camera",O_RDWR))==-1){
 		printf("Can't open dev_cad\n");
 		exit(1);
 	}
-	gx_clear( target, gx_color( 0, 0, 0, 255));
-	read(camera_dev,rgbData,153600);
-	for (i = 0 ; i < 320 ; ++i)
-	{
-		for ( j = 0 ; j < 240 ; ++j)
-		{
-			gx_set_pixel( target, i, j,  gx_color(rgbData[k].r, rgbData[k].g, rgbData[k].b, 255));
-			k++;
-		}            
-	}
+		printf("open dev_camera\n");
+}
+
+void close_camera(){
 	close(camera_dev);
 }
+
+int grayscale(stRGB input){
+	return ((input.r + input.g + input.b)/3)*6.11;
+}
+
+void dc_camera(dc_t *target){
+	int i=0;
+	int tmp;
+	stRGB rgbData[76800];
+//	gx_clear( target, gx_color( 0, 0, 0, 255));
+	read(camera_dev,rgbData,153600);
+	for (i = 0 ;i<76800; i++) {
+			tmp = grayscale(rgbData[i]);
+			gx_set_pixel(target, i%320, i/320, gx_color( tmp,tmp,tmp, 255));
+	} 
+}
+
+
 
