@@ -26,7 +26,7 @@ public:
 	void resumeTouchevent(void);
 	
 	
-	int touch();
+	int touch(dc_t *dc_screen);
 	void removeAllTouchevent();
 	int touch_pause();
 	

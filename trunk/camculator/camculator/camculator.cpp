@@ -83,7 +83,7 @@ void Camculator::main(void)
 
 	while(isRunning)
 	{
-		int e_touch = pTouchHandler->touch();
+		int e_touch = pTouchHandler->touch(dc_screen);
 		if(e_touch == h_touch_home ) {
 			if(now_mode == 0){
 				interface_setting();
@@ -365,13 +365,13 @@ void Camculator::interface_alert(char* msg)
 {
 	png_t   *png;
 	int touch_all;
-	pauseTouchevent();
-	touch_all = addTouchevent(0, 0, 320, 240);
+	pTouchHandler->pauseTouchevent();
+	touch_all = pTouchHandler->addTouchevent(0, 0, 320, 240);
 	gx_bitblt( dc_buffer, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	//gx_to_screen_dc(dc_buffer,dc_screen);
 	//gx_to_screen_dc(before_screen,dc_screen);
 	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	png = gx_png_open( "interface/alert.png");
+	png = (png_t*)gx_png_open( "interface/alert.png");
 	if ( NULL == png)
 		gx_print_error(8, "interface/alert.png");                                         // 실행 중 에러 내용을 출력
 	else
@@ -383,10 +383,10 @@ void Camculator::interface_alert(char* msg)
 		dc_buffer->font_color	= gx_color( 0,    0, 0, 255);
 		gx_text_out( dc_buffer, 100, 120, buff);
 		gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
-		gx_png_close( png);
+		gx_png_close((dc_t*)png);
 	}
-	touch(dc_screen);
-	resumeTouchevent();
+	pTouchHandler->touch(dc_screen);
+	pTouchHandler->resumeTouchevent();
 	//gx_to_screen_dc(dc_screen,before_screen);
 	gx_bitblt( dc_screen, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
 }
@@ -396,8 +396,8 @@ void Camculator::interface_info(void)
 	png_t   *png;
 	gx_bitblt( dc_buffer, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	addTouchevent(0, 0, 320, 240);
-	png = gx_png_open( "interface/info.png");
+	pTouchHandler->addTouchevent(0, 0, 320, 240);
+	png = (png_t*)gx_png_open( "interface/info.png");
 	if ( NULL == png)
 		gx_print_error(8, "interface/info.png");                                         // 실행 중 에러 내용을 출력
 	else
@@ -413,10 +413,10 @@ void Camculator::interface_info(void)
 		gx_text_out( dc_buffer, 175, 173, "PSY");
 		gx_text_out( dc_buffer, 175, 199, "JYJ");
 		gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
-		gx_png_close( png);
+		gx_png_close((dc_t*)png);
 	}
-	touch(dc_screen);
-	resumeTouchevent();
+	pTouchHandler->touch(dc_screen);
+	pTouchHandler->resumeTouchevent();
 	gx_bitblt( dc_screen, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
 }
 
