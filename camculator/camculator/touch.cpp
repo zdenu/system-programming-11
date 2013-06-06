@@ -65,6 +65,26 @@ void TouchHandler::removeTouchevent(int num)
 	eventArray[num].enable = 1;
 }
 
+void TouchHandler::pauseTouchevent()
+{
+	int i;
+	beforeEvent=-1;
+	for(i=0;i<touch_evnet_cnt ;i++) {
+		if(eventArray[i].enable > 0)
+			eventArray[i].enable++;
+	}
+}
+
+void TouchHandler::resumeTouchevent()
+{
+	int i;
+	for(i=0;i<touch_evnet_cnt ;i++) {
+		if(eventArray[i].enable > 0)
+			eventArray[i].enable--;
+	}
+}
+
+
 void TouchHandler::removeAllTouchevent()
 {
 	for(int i = 0 ; i < touch_evnet_cnt ; ++i)
@@ -284,5 +304,6 @@ int TouchHandler::touch_pause()
 
 		}
 	}
-
 }
+
+

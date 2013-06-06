@@ -36,8 +36,8 @@ Camculator::Camculator()
 , dc_screen(NULL)
 , dc_buffer(NULL)
 , before_screen(NULL)
-, malgun14(NULL)
-, malgun18(NULL)
+, font14(NULL)
+, font18(NULL)
 {
 }
 
@@ -60,9 +60,9 @@ bool Camculator::init(void)
 	gx_clear( dc_buffer, gx_color( 0, 0, 0, 255));
 	
 	printf( "font loading\n");
-	if ( NULL == ( malgun14 = gx_open_font(FONT_MALGUN_14)) )
+	if ( NULL == ( font14 = gx_open_font(FONT_MALGUN_14)) )
 		return false;
-	if ( NULL == ( malgun18 = gx_open_font(FONT_MALGUN_18)) )
+	if ( NULL == ( font18 = gx_open_font(FONT_MALGUN_18)) )
 		return false;
 	
 	printf( "running....\n");
@@ -136,20 +136,20 @@ void Camculator::main(void)
 
 void Camculator::interface_Background(int mode)
 {
-	png_t   *back;
-	back = gx_png_create( 320, 240);
+	png_t*	back;
+	back = (png_t*)gx_png_create(320, 240);
 	switch(mode){
 		case HOME :
-			back = gx_png_open( "interface/background/home.png");
+			back = (png_t*)gx_png_open((char*)"interface/background/home.png");
 			//display history//
 			gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 255));
 			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
 			dc_buffer->font	= font14;
 			dc_buffer->font_color	= gx_color( 0, 0, 0, 255);
 			//sprintf( buff, "%s", msg);
-			gx_text_out( dc_buffer, 58, 115, "lim (15x^2/621x)");
-			gx_text_out( dc_buffer, 58, 146, "integral(4x+2)");
-			gx_text_out( dc_buffer, 58, 175, "sum(4x*8)");
+			gx_text_out( dc_buffer, 58, 115, (char*)"lim (15x^2/621x)");
+			gx_text_out( dc_buffer, 58, 146, (char*)"integral(4x+2)");
+			gx_text_out( dc_buffer, 58, 175, (char*)"sum(4x*8)");
 			break;
 		case CAMERA :
 			dc_camera(dc_buffer);
@@ -164,7 +164,7 @@ void Camculator::interface_Background(int mode)
 			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
 			break;
 		case EDIT :
-			back = gx_png_open( "interface/background/edit.png");
+			back = (png_t*)gx_png_open((char*)"interface/background/edit.png");
 			//display edit//
 			gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 255));
 			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
@@ -186,7 +186,7 @@ void Camculator::interface_Background(int mode)
 	}else
 	{
 		//gx_bitblt( dc_screen, 0, 0, ( dc_t *)dc_buffer, 0, 0,320, 48);
-		gx_png_close( back);
+		gx_png_close((dc_t*)back);
 	}
 }
 
@@ -199,38 +199,38 @@ void Camculator::interface_layout(int mode)
 	png_t   *bottom;
 	png_t   *active;
 	int x;
-	top = gx_png_open( "interface/top.png");
-	bottom = gx_png_open( "interface/menu.png");
-	button2 = gx_png_open( "interface/button/home.png");
-	active = gx_png_create( 63, 49);
+	top = (png_t*)gx_png_open( "interface/top.png");
+	bottom = (png_t*)gx_png_open( "interface/menu.png");
+	button2 = (png_t*)gx_png_open( "interface/button/home.png");
+	active = (png_t*)gx_png_create( 63, 49);
 	gx_clear( ( dc_t *)active, gx_color( 255, 255, 255, 100));
 	x = 64*(mode-1);
 	interface_Background(mode);
 	switch(mode){
 		case HOME :
-			title = gx_png_open( "interface/title/home.png");
-			button = gx_png_open( "interface/button/info.png");
-			button2 = gx_png_open( "interface/button/setting.png");
+			title = (png_t*)gx_png_open( "interface/title/home.png");
+			button = (png_t*)gx_png_open( "interface/button/info.png");
+			button2 = (png_t*)gx_png_open( "interface/button/setting.png");
 			break;
 		case CAMERA :
-			title = gx_png_open( "interface/title/camera.png");
-			button = gx_png_open( "interface/button/camera.png");
+			title = (png_t*)gx_png_open( "interface/title/camera.png");
+			button = (png_t*)gx_png_open( "interface/button/camera.png");
 			break;
 		case CROP :
-			title = gx_png_open( "interface/title/crop.png");
-			button = gx_png_open( "interface/button/check.png");
+			title = (png_t*)gx_png_open( "interface/title/crop.png");
+			button = (png_t*)gx_png_open( "interface/button/check.png");
 			break;
 		case LABELING :
-			title = gx_png_open( "interface/title/labeling.png");
-			button = gx_png_open( "interface/button/check.png");
+			title = (png_t*)gx_png_open( "interface/title/labeling.png");
+			button = (png_t*)gx_png_open( "interface/button/check.png");
 			break;
 		case EDIT :
-			title = gx_png_open( "interface/title/edit.png");
-			button = gx_png_open( "interface/button/check.png");
+			title = (png_t*)gx_png_open( "interface/title/edit.png");
+			button = (png_t*)gx_png_open( "interface/button/check.png");
 			break;
 		case RESULT :
-			title = gx_png_open( "interface/title/result.png");
-			button = gx_png_open( "interface/button/send.png");
+			title = (png_t*)gx_png_open( "interface/title/result.png");
+			button = (png_t*)gx_png_open( "interface/button/send.png");
 			break;
 	}
 	if ( top == NULL || title== NULL || button==NULL || bottom == NULL )
@@ -245,15 +245,15 @@ void Camculator::interface_layout(int mode)
 		gx_bitblt( dc_buffer, 0, 191, ( dc_t *)bottom, 0, 0, bottom->width, bottom->height);
 		if(x>0){
 			gx_bitblt( dc_buffer, x, 191, ( dc_t *)active, 0, 0, active->width, active->height);
-			gx_png_close( bottom);
-			gx_png_close( active);
+			gx_png_close((dc_t*)bottom);
+			gx_png_close((dc_t*)active);
 		}
 		
 		gx_bitblt( dc_screen, 0, 0, ( dc_t *)dc_buffer, 0, 0,320, 240);
-		gx_png_close( button2);
-		gx_png_close( top);
-		gx_png_close( title);
-		gx_png_close( button);
+		gx_png_close((dc_t*)button2);
+		gx_png_close((dc_t*)top);
+		gx_png_close((dc_t*)title);
+		gx_png_close((dc_t*)button);
 	}
 }
 
@@ -272,13 +272,13 @@ static void interface_home( void){
 void Camculator::interface_splash(void)
 {
 	bmp_t   *bmp;
-	bmp = gx_bmp_open( "interface/background/splash.bmp");
+	bmp = (bmp_t*)gx_bmp_open( "interface/background/splash.bmp");
 	if ( NULL == bmp)
 		gx_print_error(8, "interface/background/splash.bmp");                                         // 실행 중 에러 내용을 출력
 	else
 	{
 		gx_bitblt( dc_screen, 0, 0, ( dc_t *)bmp, 0, 0, bmp->width, bmp->height);
-		gx_bmp_close( bmp);
+		gx_bmp_close((dc_t*)bmp);
 	}
 }
 void Camculator::interface_loading(int mode)
@@ -287,13 +287,13 @@ void Camculator::interface_loading(int mode)
 	switch(mode) {
 		case START :
 			gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-			png = gx_png_open( "interface/background/loading.png");
+			png = (png_t*)gx_png_open( "interface/background/loading.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading.png");                                         // 실행 중 에러 내용을 출력
 			else
 			{
 				gx_bitblt( dc_screen, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
-				gx_png_close( png);
+				gx_png_close((dc_t*)png);
 			}
 			break;
 		case END :
@@ -311,14 +311,14 @@ void Camculator::interface_setting(void)
 	setting_frame = gx_get_compatible_dc( dc_screen);
 	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	gx_bitblt( setting_frame, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	png = gx_png_open( "interface/setting.png");
-	pauseTouchevent();
-	touch_close = addTouchevent(268, 30, 30, 30);
-	touch_font14 = addTouchevent(136, 69, 170, 30);
-	touch_font18 = addTouchevent(136,103, 170, 30);
-	touch_network = addTouchevent(136, 140, 170, 30);
-	touch_volume = addTouchevent(136, 178, 170, 30);
-	touch_ok = addTouchevent(231, 30, 30, 30);
+	png = (png_t*)gx_png_open( "interface/setting.png");
+	pTouchHandler->pauseTouchevent();
+	touch_close = pTouchHandler->addTouchevent(268, 30, 30, 30);
+	touch_font14 = pTouchHandler->addTouchevent(136, 69, 170, 30);
+	touch_font18 = pTouchHandler->addTouchevent(136,103, 170, 30);
+	touch_network = pTouchHandler->addTouchevent(136, 140, 170, 30);
+	touch_volume = pTouchHandler->addTouchevent(136, 178, 170, 30);
+	touch_ok = pTouchHandler->addTouchevent(231, 30, 30, 30);
 	
 	if ( NULL == png)
 		gx_print_error(8, "interface/setting.png");                                         // 실행 중 에러 내용을 출력
@@ -335,7 +335,7 @@ void Camculator::interface_setting(void)
 			gx_text_out( dc_buffer, 149, 198, "20");
 			gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
 			
-			t_event = touch(dc_screen);
+			t_event = pTouchHandler->touch(dc_screen);
 			if(		   t_event == touch_font14) {
 				
 			} else if (t_event == touch_font18) {
@@ -345,13 +345,13 @@ void Camculator::interface_setting(void)
 			} else if (t_event == touch_volume) {
 				
 			} else if (t_event == touch_ok) {
-				resumeTouchevent();
-				gx_png_close( png);
+				pTouchHandler->resumeTouchevent();
+				gx_png_close((dc_t*)png);
 				gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
 				return;
 			} else if (t_event == touch_close) {
-				resumeTouchevent();
-				gx_png_close( png);
+				pTouchHandler->resumeTouchevent();
+				gx_png_close((dc_t*)png);
 				gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
 				return;
 			}

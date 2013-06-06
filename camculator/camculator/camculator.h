@@ -55,8 +55,8 @@ private:
 	dc_t*	dc_buffer;
 	dc_t*	before_screen;
 	
-	font_t* malgun14;
-	font_t* malgun18;
+	font_t* font14;
+	font_t* font18;
 	
 	bool isRunning;
 

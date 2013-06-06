@@ -21,8 +21,11 @@ public:
 public:
 	bool init(void);
 	int addTouchevent(int x, int y, int width, int height);
-	
 	void removeTouchevent(int num);
+	void pauseTouchevent(void);
+	void resumeTouchevent(void);
+	
+	
 	int touch();
 	void removeAllTouchevent();
 	int touch_pause();
