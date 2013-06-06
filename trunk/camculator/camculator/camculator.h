@@ -24,6 +24,9 @@ public:
 	bool init(void);
 	void main(void);
 	
+	int fontloader14(char* file);
+	int fontloader18(char* file);
+	
 private:
 	void interface_Background(int mode);
 	void interface_layout(int mode);
@@ -31,6 +34,7 @@ private:
 	void interface_splash(void);
 	void interface_alert(char* msg);
 	void interface_info(void);
+	void interface_setting(void);
 	
 	
 	void setTouchEvents(void);
