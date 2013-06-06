@@ -72,7 +72,12 @@ static void interface_Background(int mode){
 		gx_text_out( dc_buffer, 58, 175, "sum(4x*8)");
 		break;
 	case CAMERA :
+		init_camera();
+		while(1){
 		dc_camera(dc_buffer);
+		gx_bitblt(dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
+		}
+		close_camera();
 		break;
 	case CROP :
 		gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
@@ -162,7 +167,7 @@ static void interface_layout(int mode){
 		gx_bitblt( dc_buffer, 281, 7, ( dc_t *)button, 0, 0, button->width, button->height);
 		gx_bitblt( dc_buffer, 4, 6, ( dc_t *)button2, 0, 0, button->width, button->height);
 		gx_bitblt( dc_buffer, 0, 191, ( dc_t *)bottom, 0, 0, bottom->width, bottom->height);
-		if(x>0){
+		if(x>=0){
 			gx_bitblt( dc_buffer, x, 191, ( dc_t *)active, 0, 0, active->width, active->height);
 			gx_png_close( bottom);
 			gx_png_close( active);
@@ -280,7 +285,7 @@ static void interface_alert( char* msg){
 	png_t   *png;
 	int touch_all;
 	pauseTouchevent();
-	touch_all = addTouchevent(0, 0, 320, 240);
+	touch_all = addTouchevent(67, 55, 190, 125);
 	gx_bitblt( dc_buffer, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	//gx_to_screen_dc(dc_buffer,dc_screen);
 	//gx_to_screen_dc(before_screen,dc_screen);
@@ -308,7 +313,8 @@ static void interface_info(void){
 	png_t   *png;
 	gx_bitblt( dc_buffer, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	addTouchevent(0, 0, 320, 240);
+	pauseTouchevent();
+	addTouchevent(14, 16, 293, 211);
 	png = gx_png_open( "interface/info.png");
 	if ( NULL == png)
 		gx_print_error(8, "interface/info.png");                                         // 실행 중 에러 내용을 출력
