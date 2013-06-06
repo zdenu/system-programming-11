@@ -10,7 +10,7 @@
 #define camculator_camculator_h
 
 #include "singleton.h"
-#include "../include/gxlib/gx.h"
+#include "gx.h"
 
 class TouchHandler;
 

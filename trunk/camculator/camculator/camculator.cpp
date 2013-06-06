@@ -4,8 +4,8 @@
 #include "touch.h"
 #include "camera.h"
 
-#include "../include/gxlib/gxjpg.h"
-#include "../include/gxlib/gxpng.h"
+#include "gxjpg.h"
+#include "gxpng.h"
 
 
 /** ----------------------------------------------------------------------------

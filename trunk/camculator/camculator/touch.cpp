@@ -25,14 +25,14 @@ bool TouchHandler::init(void)
 {
 	if ((eventFd = open(TOUCH_EVENT_DEVICE, O_RDONLY)) < 0)
 	{
-		printf("%s: open error", device);
+		printf("%s: open error", TOUCH_EVENT_DEVICE);
 		return false;
 	}
 	printf("open : [%s] \n", TOUCH_EVENT_DEVICE);
 	
 	// run thread.
 	
-	bool ret = touchThreadHandle.start(this, TouchHandler::touchThread, NULL);
+	bool ret = touchThreadHandle.start(this, &TouchHandler::touchThread, NULL);
 	if (ret == false)
 		return false;
 	
@@ -107,7 +107,7 @@ void* TouchHandler::touchThread(Thread<TouchHandler>*, void* )
 		read_bytes = read(eventFd, event_buf, (sizeof(struct input_event)*EVENT_BUF_NUM) );
 		if( read_bytes < sizeof(struct input_event) )
 		{
-			printf("%s: read error", device);
+			printf("%s: read error", TOUCH_EVENT_DEVICE);
 		}
 		else
 		{
@@ -142,7 +142,7 @@ void* TouchHandler::touchThread(Thread<TouchHandler>*, void* )
 						}
 						case ABS_PRESSURE:
 						{
-							for(j = 0; j < touch_evnet_cnt; ++j)
+							for(int j = 0; j < touch_evnet_cnt; ++j)
 							{
 								if( (x > eventArray[j].x) &&
 									(x < eventArray[j].x + eventArray[j].w) &&
@@ -151,7 +151,8 @@ void* TouchHandler::touchThread(Thread<TouchHandler>*, void* )
 								{
 									printf("event occar! : %d\n", j);
 									// TODO : Push to UI Thread.
-									return j;
+									return NULL;
+//									return j;
 								}
 							}
 							break;
@@ -176,18 +177,18 @@ void* TouchHandler::touchThread(Thread<TouchHandler>*, void* )
 	}
 }
 
-int TouchHandler::touch(dc_t *dc_screen){
+int TouchHandler::touch(dc_t *dc_screen)
+{
 	int i,j;
 	size_t read_bytes;
+	int bx = 0, by = 0;
 	int x=0,y=0;
 	struct input_event event_buf[EVENT_BUF_NUM];
 	png_t   *active;
 	
-	
-	
 	while (1)
 	{
-		read_bytes = read(event_fd, event_buf, (sizeof(struct input_event)*EVENT_BUF_NUM) );
+		read_bytes = read(eventFd, event_buf, (sizeof(struct input_event)*EVENT_BUF_NUM) );
 		if( read_bytes < sizeof(struct input_event) )
 		{
 			printf("read error");
@@ -243,10 +244,10 @@ int TouchHandler::touch(dc_t *dc_screen){
 									if(beforeEvent!=j) {
 										gx_bitblt(dc_screen,0,0,touch_before,0,0,320,240);
 										printf("Touch Press event : %d\n", j);
-										active = gx_png_create( eventArray[j].w, eventArray[j].h);
+										active = (png_t*)gx_png_create( eventArray[j].w, eventArray[j].h);
 										gx_clear( ( dc_t *)active, gx_color( 0, 0, 0, 80));
 										gx_bitblt( dc_screen, eventArray[j].x, eventArray[j].y, ( dc_t *)active, 0, 0, active->width, active->height);
-										gx_png_close( active);
+										gx_png_close((dc_t*)active);
 										beforeEvent=j;
 									}
 									//

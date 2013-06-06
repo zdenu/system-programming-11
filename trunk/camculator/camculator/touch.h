@@ -1,6 +1,7 @@
 #pragma once
 
 #include "thread.h"
+#include "gx.h"
 
 typedef struct touchEventArea
 {
@@ -41,7 +42,12 @@ private:
 	
 	bool	isRunning;
 	int		eventFd;
-	bool	isPressed;
+	
+	
+	int		preesed;
+	
+	int		beforeEvent;
+	dc_t *touch_before;
 
 };
 
