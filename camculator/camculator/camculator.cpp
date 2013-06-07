@@ -70,60 +70,40 @@ bool Camculator::init(void)
 	printf( "screen color depth= %d\n", dc_screen->colors);
 	interface_splash();
 	
+	// TODO: make each device thread.
 	pTouchHandler = new TouchHandler;
+	pTouchHandler->init();
 	
 	isRunning = true;
 	
-	// TODO: make each device thread.
+	
 }
 
 void Camculator::main(void)
 {
-	int now_mode=0;
-
 	while(isRunning)
 	{
-		int e_touch = pTouchHandler->touch(dc_screen);
-		if(e_touch == h_touch_home ) {
-			if(now_mode == 0){
-				interface_setting();
-			} else {
-				now_mode = 0;
-				interface_layout(HOME);
+		// get event.
+		stEvent* pEv = popEvent();
+		
+		if (pEv != NULL)
+		{
+			switch(pEv->eventType)
+			{
+				case EVENT_TYPE_TOUCH_PAD:
+				{
+					interfaceDispatcher(pEv);
+					break;
+				}
+				default:
+				{
+					break;
+				}
 			}
-		} else if(e_touch == h_touch_camera )
-		{
-			now_mode = 1;
-			interface_layout(CAMERA);
-		} else if(e_touch == h_touch_crop )
-		{
-			now_mode = 2;
-			interface_alert(const_cast<char*>("Please take photo"));
-			interface_layout(CROP);
-			dc_screen->pen_color     = gx_color( 255, 0, 0, 255);
-			dc_screen->brush_color   = gx_color( 0, 0, 0, 0);
-			gx_rectangle( dc_screen, 100, 100, 200, 200);
+			
+			delete pEv;
 		}
-		else if(e_touch ==  h_touch_labeling )
-		{
-			now_mode = 3;
-			interface_layout(LABELING);
-			interface_loading(START);
-			sleep(1);
-			interface_loading(END);
-		} else if(e_touch ==  h_touch_edit )
-		{
-			now_mode = 4;
-			interface_layout(EDIT);
-		} else if(e_touch ==  h_touch_result )
-		{
-			now_mode = 5;
-			interface_layout(RESULT);
-		} else if(e_touch ==  h_touch_ok )
-		{
-			now_mode = 6;
-			interface_info();
-		}
+		
 		usleep(1);
 	}
 	
@@ -132,6 +112,58 @@ void Camculator::main(void)
 	gx_close();
 }
 
+
+void Camculator::interfaceDispatcher(stEvent* pEv)
+{
+	int now_mode = 0;
+
+	int e_touch = pTouchHandler->touch(dc_screen);
+	
+	int event = *(int*)(pEv->pData);
+	
+	
+	
+	if(e_touch == h_touch_home ) {
+		if(now_mode == 0){
+			interface_setting();
+		} else {
+			now_mode = 0;
+			interface_layout(HOME);
+		}
+	} else if(e_touch == h_touch_camera )
+	{
+		now_mode = 1;
+		interface_layout(CAMERA);
+	} else if(e_touch == h_touch_crop )
+	{
+		now_mode = 2;
+		interface_alert(const_cast<char*>("Please take photo"));
+		interface_layout(CROP);
+		dc_screen->pen_color     = gx_color( 255, 0, 0, 255);
+		dc_screen->brush_color   = gx_color( 0, 0, 0, 0);
+		gx_rectangle( dc_screen, 100, 100, 200, 200);
+	}
+	else if(e_touch ==  h_touch_labeling )
+	{
+		now_mode = 3;
+		interface_layout(LABELING);
+		interface_loading(START);
+		sleep(1);
+		interface_loading(END);
+	} else if(e_touch ==  h_touch_edit )
+	{
+		now_mode = 4;
+		interface_layout(EDIT);
+	} else if(e_touch ==  h_touch_result )
+	{
+		now_mode = 5;
+		interface_layout(RESULT);
+	} else if(e_touch ==  h_touch_ok )
+	{
+		now_mode = 6;
+		interface_info();
+	}
+}
 
 
 void Camculator::interface_Background(int mode)
@@ -223,8 +255,7 @@ void Camculator::interface_layout(int mode)
 		case LABELING :
 			title = (png_t*)gx_png_open( "interface/title/labeling.png");
 			button = (png_t*)gx_png_open( "interface/button/check.png");
-			break;
-		case EDIT :
+			break;		case EDIT :
 			title = (png_t*)gx_png_open( "interface/title/edit.png");
 			button = (png_t*)gx_png_open( "interface/button/check.png");
 			break;
@@ -313,12 +344,12 @@ void Camculator::interface_setting(void)
 	gx_bitblt( setting_frame, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	png = (png_t*)gx_png_open( "interface/setting.png");
 	pTouchHandler->pauseTouchevent();
-	touch_close = pTouchHandler->addTouchevent(268, 30, 30, 30);
-	touch_font14 = pTouchHandler->addTouchevent(136, 69, 170, 30);
-	touch_font18 = pTouchHandler->addTouchevent(136,103, 170, 30);
-	touch_network = pTouchHandler->addTouchevent(136, 140, 170, 30);
-	touch_volume = pTouchHandler->addTouchevent(136, 178, 170, 30);
-	touch_ok = pTouchHandler->addTouchevent(231, 30, 30, 30);
+	pTouchHandler->addTouchevent(268, 30, 30, 30, TOUCH_EVENT_SETTING_CLOSE);
+	pTouchHandler->addTouchevent(136, 69, 170, 30, TOUCH_EVENT_SETTING_FONT14);
+	pTouchHandler->addTouchevent(136,103, 170, 30, TOUCH_EVENT_SETTING_FONT18);
+	pTouchHandler->addTouchevent(136, 140, 170, 30, TOUCH_EVENT_SETTING_NETWORK);
+	pTouchHandler->addTouchevent(136, 178, 170, 30, TOUCH_EVENT_SETTING_VOLUME);
+	pTouchHandler->addTouchevent(231, 30, 30, 30, TOUCH_EVENT_SETTING_OK);
 	
 	if ( NULL == png)
 		gx_print_error(8, "interface/setting.png");                                         // 실행 중 에러 내용을 출력
@@ -366,7 +397,7 @@ void Camculator::interface_alert(char* msg)
 	png_t   *png;
 	int touch_all;
 	pTouchHandler->pauseTouchevent();
-	touch_all = pTouchHandler->addTouchevent(0, 0, 320, 240);
+	pTouchHandler->addTouchevent(0, 0, 320, 240, TOUCH_EVENT_ALERT_ALL);
 	gx_bitblt( dc_buffer, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	//gx_to_screen_dc(dc_buffer,dc_screen);
 	//gx_to_screen_dc(before_screen,dc_screen);
@@ -396,7 +427,7 @@ void Camculator::interface_info(void)
 	png_t   *png;
 	gx_bitblt( dc_buffer, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	pTouchHandler->addTouchevent(0, 0, 320, 240);
+//	pTouchHandler->addTouchevent(0, 0, 320, 240);
 	png = (png_t*)gx_png_open( "interface/info.png");
 	if ( NULL == png)
 		gx_print_error(8, "interface/info.png");                                         // 실행 중 에러 내용을 출력
@@ -423,13 +454,13 @@ void Camculator::interface_info(void)
 
 void Camculator::setTouchEvents(void)
 {
-	h_touch_home		= pTouchHandler->addTouchevent(0, 0, 44, 44);
-	h_touch_camera		= pTouchHandler->addTouchevent(0, 191, 63, 49);
-	h_touch_crop		= pTouchHandler->addTouchevent(64, 191, 63, 49);
-	h_touch_labeling	= pTouchHandler->addTouchevent(127, 191, 63, 49);
-	h_touch_edit		= pTouchHandler->addTouchevent(192, 191, 63, 49);
-	h_touch_result		= pTouchHandler->addTouchevent(254, 191, 63, 49);
-	h_touch_ok			= pTouchHandler->addTouchevent(276, 0, 44, 44);
+	pTouchHandler->addTouchevent(0, 0, 44, 44, TOUCH_EVENT_MAIN_HOME);
+	pTouchHandler->addTouchevent(0, 191, 63, 49, TOUCH_EVENT_MAIN_CAMERA);
+	pTouchHandler->addTouchevent(64, 191, 63, 49, TOUCH_EVENT_MAIN_CROP);
+	pTouchHandler->addTouchevent(127, 191, 63, 49, TOUCH_EVENT_MAIN_LABELING);
+	pTouchHandler->addTouchevent(192, 191, 63, 49, TOUCH_EVENT_MAIN_EDIT);
+	pTouchHandler->addTouchevent(254, 191, 63, 49, TOUCH_EVENT_MAIN_RESULT);
+	pTouchHandler->addTouchevent(276, 0, 44, 44, TOUCH_EVENT_MAIN_OK);
 }
 
 int Camculator::fontloader14(char* file)
@@ -449,3 +480,37 @@ int Camculator::fontloader18(char* file)
 	if ( NULL == ( font18 = gx_open_font(buff) )   )
 		return 1;
 }
+
+void Camculator::pushEvent(stEvent* pEv)
+{
+	queueLock.lock();
+	eventQueue.push(pEv);
+	queueLock.unlock();
+}
+stEvent* Camculator::popEvent(void)
+{
+	stEvent* pEv = NULL;
+	queueLock.lock();
+	if (!eventQueue.empty())
+	{
+		pEv = eventQueue.front();
+		eventQueue.pop();
+	}
+	queueLock.unlock();
+	
+	return pEv;
+}
+
+void Camculator::drawPartScreen(int x, int y, int w, int h, color_t color)
+{
+	png_t* active = (png_t*)gx_png_create(w, h);
+	gx_clear((dc_t *)active, color);
+	gx_bitblt(dc_screen, x, y, (dc_t *)active, 0, 0, w, h);
+	gx_png_close((dc_t*)active);
+}
+
+void Camculator::drawBeforeScreen(void)
+{
+	gx_bitblt(dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
+}
+

@@ -11,19 +11,18 @@
 		226D747C17604E1D004E5697 /* camculator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226D747617604E1D004E5697 /* camculator.cpp */; };
 		226D747D17604E1D004E5697 /* camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226D747717604E1D004E5697 /* camera.cpp */; };
 		226D747F17604E1D004E5697 /* touch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 226D747A17604E1D004E5697 /* touch.cpp */; };
-		226D748E17604E60004E5697 /* fontinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748117604E5F004E5697 /* fontinfo.c */; };
-		226D748F17604E60004E5697 /* gx.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748217604E5F004E5697 /* gx.c */; };
-		226D749017604E60004E5697 /* gxbdf.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748317604E5F004E5697 /* gxbdf.c */; };
-		226D749117604E60004E5697 /* gxbmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748417604E60004E5697 /* gxbmp.c */; };
-		226D749217604E60004E5697 /* gxfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748517604E60004E5697 /* gxfile.c */; };
-		226D749317604E60004E5697 /* gxframe_s3c6410.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748617604E60004E5697 /* gxframe_s3c6410.c */; };
-		226D749417604E60004E5697 /* gximagelist.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748717604E60004E5697 /* gximagelist.c */; };
-		226D749517604E60004E5697 /* gxjpg.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748817604E60004E5697 /* gxjpg.c */; };
-		226D749617604E60004E5697 /* gxlayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748917604E60004E5697 /* gxlayer.c */; };
-		226D749717604E60004E5697 /* gxmosaic.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748A17604E60004E5697 /* gxmosaic.c */; };
-		226D749817604E60004E5697 /* gxpanel.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748B17604E60004E5697 /* gxpanel.c */; };
-		226D749917604E60004E5697 /* gxpng.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748C17604E60004E5697 /* gxpng.c */; };
-		226D749A17604E60004E5697 /* ksc5601.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D748D17604E60004E5697 /* ksc5601.c */; };
+		226D74D91760837D004E5697 /* fontinfo.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74B71760837D004E5697 /* fontinfo.c */; };
+		226D74DA1760837D004E5697 /* gx.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74B91760837D004E5697 /* gx.c */; };
+		226D74DB1760837D004E5697 /* gxbdf.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74BB1760837D004E5697 /* gxbdf.c */; };
+		226D74DC1760837D004E5697 /* gxbmp.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74BD1760837D004E5697 /* gxbmp.c */; };
+		226D74DD1760837D004E5697 /* gxfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74C01760837D004E5697 /* gxfile.c */; };
+		226D74DF1760837D004E5697 /* gximagelist.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74C31760837D004E5697 /* gximagelist.c */; };
+		226D74E01760837D004E5697 /* gxjpg.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74C51760837D004E5697 /* gxjpg.c */; };
+		226D74E11760837D004E5697 /* gxlayer.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74C71760837D004E5697 /* gxlayer.c */; };
+		226D74E21760837D004E5697 /* gxmosaic.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74C91760837D004E5697 /* gxmosaic.c */; };
+		226D74E31760837D004E5697 /* gxpanel.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74CB1760837D004E5697 /* gxpanel.c */; };
+		226D74E41760837D004E5697 /* gxpng.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74CD1760837D004E5697 /* gxpng.c */; };
+		226D74E51760837D004E5697 /* ksc5601.c in Sources */ = {isa = PBXBuildFile; fileRef = 226D74D31760837D004E5697 /* ksc5601.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,46 +45,44 @@
 		226D747817604E1D004E5697 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
 		226D747A17604E1D004E5697 /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
 		226D747B17604E1D004E5697 /* touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch.h; sourceTree = "<group>"; };
-		226D748117604E5F004E5697 /* fontinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fontinfo.c; path = lib/gxlib/fontinfo.c; sourceTree = SOURCE_ROOT; };
-		226D748217604E5F004E5697 /* gx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gx.c; path = lib/gxlib/gx.c; sourceTree = SOURCE_ROOT; };
-		226D748317604E5F004E5697 /* gxbdf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxbdf.c; path = lib/gxlib/gxbdf.c; sourceTree = SOURCE_ROOT; };
-		226D748417604E60004E5697 /* gxbmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxbmp.c; path = lib/gxlib/gxbmp.c; sourceTree = SOURCE_ROOT; };
-		226D748517604E60004E5697 /* gxfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxfile.c; path = lib/gxlib/gxfile.c; sourceTree = SOURCE_ROOT; };
-		226D748617604E60004E5697 /* gxframe_s3c6410.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxframe_s3c6410.c; path = lib/gxlib/gxframe_s3c6410.c; sourceTree = SOURCE_ROOT; };
-		226D748717604E60004E5697 /* gximagelist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gximagelist.c; path = lib/gxlib/gximagelist.c; sourceTree = SOURCE_ROOT; };
-		226D748817604E60004E5697 /* gxjpg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxjpg.c; path = lib/gxlib/gxjpg.c; sourceTree = SOURCE_ROOT; };
-		226D748917604E60004E5697 /* gxlayer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxlayer.c; path = lib/gxlib/gxlayer.c; sourceTree = SOURCE_ROOT; };
-		226D748A17604E60004E5697 /* gxmosaic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxmosaic.c; path = lib/gxlib/gxmosaic.c; sourceTree = SOURCE_ROOT; };
-		226D748B17604E60004E5697 /* gxpanel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxpanel.c; path = lib/gxlib/gxpanel.c; sourceTree = SOURCE_ROOT; };
-		226D748C17604E60004E5697 /* gxpng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxpng.c; path = lib/gxlib/gxpng.c; sourceTree = SOURCE_ROOT; };
-		226D748D17604E60004E5697 /* ksc5601.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ksc5601.c; path = lib/gxlib/ksc5601.c; sourceTree = SOURCE_ROOT; };
-		226D749B17604E68004E5697 /* fontinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fontinfo.h; path = include/gxlib/fontinfo.h; sourceTree = SOURCE_ROOT; };
-		226D749C17604E68004E5697 /* gx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gx.h; path = include/gxlib/gx.h; sourceTree = SOURCE_ROOT; };
-		226D749D17604E68004E5697 /* gxbdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxbdf.h; path = include/gxlib/gxbdf.h; sourceTree = SOURCE_ROOT; };
-		226D749E17604E68004E5697 /* gxbmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxbmp.h; path = include/gxlib/gxbmp.h; sourceTree = SOURCE_ROOT; };
-		226D749F17604E68004E5697 /* gxcolor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxcolor.h; path = include/gxlib/gxcolor.h; sourceTree = SOURCE_ROOT; };
-		226D74A017604E68004E5697 /* gxfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxfile.h; path = include/gxlib/gxfile.h; sourceTree = SOURCE_ROOT; };
-		226D74A117604E68004E5697 /* gximagelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gximagelist.h; path = include/gxlib/gximagelist.h; sourceTree = SOURCE_ROOT; };
-		226D74A217604E68004E5697 /* gxjpg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxjpg.h; path = include/gxlib/gxjpg.h; sourceTree = SOURCE_ROOT; };
-		226D74A317604E68004E5697 /* gxlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxlayer.h; path = include/gxlib/gxlayer.h; sourceTree = SOURCE_ROOT; };
-		226D74A417604E68004E5697 /* gxmosaic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxmosaic.h; path = include/gxlib/gxmosaic.h; sourceTree = SOURCE_ROOT; };
-		226D74A517604E68004E5697 /* gxpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxpanel.h; path = include/gxlib/gxpanel.h; sourceTree = SOURCE_ROOT; };
-		226D74A617604E68004E5697 /* gxpng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxpng.h; path = include/gxlib/gxpng.h; sourceTree = SOURCE_ROOT; };
-		226D74A717604E68004E5697 /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jconfig.h; path = include/gxlib/jconfig.h; sourceTree = SOURCE_ROOT; };
-		226D74A817604E68004E5697 /* jerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jerror.h; path = include/gxlib/jerror.h; sourceTree = SOURCE_ROOT; };
-		226D74A917604E68004E5697 /* jmorecfg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jmorecfg.h; path = include/gxlib/jmorecfg.h; sourceTree = SOURCE_ROOT; };
-		226D74AA17604E68004E5697 /* jpeglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jpeglib.h; path = include/gxlib/jpeglib.h; sourceTree = SOURCE_ROOT; };
-		226D74AB17604E68004E5697 /* ksc5601.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ksc5601.h; path = include/gxlib/ksc5601.h; sourceTree = SOURCE_ROOT; };
-		226D74AC17604E68004E5697 /* png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = png.h; path = include/gxlib/png.h; sourceTree = SOURCE_ROOT; };
-		226D74AD17604E68004E5697 /* pngconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pngconf.h; path = include/gxlib/pngconf.h; sourceTree = SOURCE_ROOT; };
-		226D74AE17604E68004E5697 /* touch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = touch.h; path = include/gxlib/touch.h; sourceTree = SOURCE_ROOT; };
-		226D74AF17604E68004E5697 /* zconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zconf.h; path = include/gxlib/zconf.h; sourceTree = SOURCE_ROOT; };
-		226D74B017604E68004E5697 /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zlib.h; path = include/gxlib/zlib.h; sourceTree = SOURCE_ROOT; };
 		226D74B217604EE8004E5697 /* lock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lock.h; sourceTree = "<group>"; };
 		226D74B317604EE8004E5697 /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 		226D74B417604EE8004E5697 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
 		226D74B517604F0D004E5697 /* camculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = camculator.h; sourceTree = "<group>"; };
 		226D74B617605031004E5697 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		226D74B71760837D004E5697 /* fontinfo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fontinfo.c; path = gxlib/fontinfo.c; sourceTree = SOURCE_ROOT; };
+		226D74B81760837D004E5697 /* fontinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fontinfo.h; path = gxlib/fontinfo.h; sourceTree = SOURCE_ROOT; };
+		226D74B91760837D004E5697 /* gx.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gx.c; path = gxlib/gx.c; sourceTree = SOURCE_ROOT; };
+		226D74BA1760837D004E5697 /* gx.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gx.h; path = gxlib/gx.h; sourceTree = SOURCE_ROOT; };
+		226D74BB1760837D004E5697 /* gxbdf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxbdf.c; path = gxlib/gxbdf.c; sourceTree = SOURCE_ROOT; };
+		226D74BC1760837D004E5697 /* gxbdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxbdf.h; path = gxlib/gxbdf.h; sourceTree = SOURCE_ROOT; };
+		226D74BD1760837D004E5697 /* gxbmp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxbmp.c; path = gxlib/gxbmp.c; sourceTree = SOURCE_ROOT; };
+		226D74BE1760837D004E5697 /* gxbmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxbmp.h; path = gxlib/gxbmp.h; sourceTree = SOURCE_ROOT; };
+		226D74BF1760837D004E5697 /* gxcolor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxcolor.h; path = gxlib/gxcolor.h; sourceTree = SOURCE_ROOT; };
+		226D74C01760837D004E5697 /* gxfile.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxfile.c; path = gxlib/gxfile.c; sourceTree = SOURCE_ROOT; };
+		226D74C11760837D004E5697 /* gxfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxfile.h; path = gxlib/gxfile.h; sourceTree = SOURCE_ROOT; };
+		226D74C31760837D004E5697 /* gximagelist.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gximagelist.c; path = gxlib/gximagelist.c; sourceTree = SOURCE_ROOT; };
+		226D74C41760837D004E5697 /* gximagelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gximagelist.h; path = gxlib/gximagelist.h; sourceTree = SOURCE_ROOT; };
+		226D74C51760837D004E5697 /* gxjpg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxjpg.c; path = gxlib/gxjpg.c; sourceTree = SOURCE_ROOT; };
+		226D74C61760837D004E5697 /* gxjpg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxjpg.h; path = gxlib/gxjpg.h; sourceTree = SOURCE_ROOT; };
+		226D74C71760837D004E5697 /* gxlayer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxlayer.c; path = gxlib/gxlayer.c; sourceTree = SOURCE_ROOT; };
+		226D74C81760837D004E5697 /* gxlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxlayer.h; path = gxlib/gxlayer.h; sourceTree = SOURCE_ROOT; };
+		226D74C91760837D004E5697 /* gxmosaic.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxmosaic.c; path = gxlib/gxmosaic.c; sourceTree = SOURCE_ROOT; };
+		226D74CA1760837D004E5697 /* gxmosaic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxmosaic.h; path = gxlib/gxmosaic.h; sourceTree = SOURCE_ROOT; };
+		226D74CB1760837D004E5697 /* gxpanel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxpanel.c; path = gxlib/gxpanel.c; sourceTree = SOURCE_ROOT; };
+		226D74CC1760837D004E5697 /* gxpanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxpanel.h; path = gxlib/gxpanel.h; sourceTree = SOURCE_ROOT; };
+		226D74CD1760837D004E5697 /* gxpng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gxpng.c; path = gxlib/gxpng.c; sourceTree = SOURCE_ROOT; };
+		226D74CE1760837D004E5697 /* gxpng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gxpng.h; path = gxlib/gxpng.h; sourceTree = SOURCE_ROOT; };
+		226D74CF1760837D004E5697 /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jconfig.h; path = gxlib/jconfig.h; sourceTree = SOURCE_ROOT; };
+		226D74D01760837D004E5697 /* jerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jerror.h; path = gxlib/jerror.h; sourceTree = SOURCE_ROOT; };
+		226D74D11760837D004E5697 /* jmorecfg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jmorecfg.h; path = gxlib/jmorecfg.h; sourceTree = SOURCE_ROOT; };
+		226D74D21760837D004E5697 /* jpeglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jpeglib.h; path = gxlib/jpeglib.h; sourceTree = SOURCE_ROOT; };
+		226D74D31760837D004E5697 /* ksc5601.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ksc5601.c; path = gxlib/ksc5601.c; sourceTree = SOURCE_ROOT; };
+		226D74D41760837D004E5697 /* ksc5601.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ksc5601.h; path = gxlib/ksc5601.h; sourceTree = SOURCE_ROOT; };
+		226D74D51760837D004E5697 /* png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = png.h; path = gxlib/png.h; sourceTree = SOURCE_ROOT; };
+		226D74D61760837D004E5697 /* pngconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pngconf.h; path = gxlib/pngconf.h; sourceTree = SOURCE_ROOT; };
+		226D74D71760837D004E5697 /* zconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zconf.h; path = gxlib/zconf.h; sourceTree = SOURCE_ROOT; };
+		226D74D81760837D004E5697 /* zlib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zlib.h; path = gxlib/zlib.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,12 +117,12 @@
 			children = (
 				226D74B117604E9E004E5697 /* util */,
 				226D748017604E55004E5697 /* gxlib */,
-				226D747617604E1D004E5697 /* camculator.cpp */,
 				226D747717604E1D004E5697 /* camera.cpp */,
 				226D747817604E1D004E5697 /* camera.h */,
 				226D747A17604E1D004E5697 /* touch.cpp */,
 				226D747B17604E1D004E5697 /* touch.h */,
 				226D746D17604DB6004E5697 /* main.cpp */,
+				226D747617604E1D004E5697 /* camculator.cpp */,
 				226D74B517604F0D004E5697 /* camculator.h */,
 				226D74B617605031004E5697 /* define.h */,
 			);
@@ -135,41 +132,39 @@
 		226D748017604E55004E5697 /* gxlib */ = {
 			isa = PBXGroup;
 			children = (
-				226D749B17604E68004E5697 /* fontinfo.h */,
-				226D749C17604E68004E5697 /* gx.h */,
-				226D749D17604E68004E5697 /* gxbdf.h */,
-				226D749E17604E68004E5697 /* gxbmp.h */,
-				226D749F17604E68004E5697 /* gxcolor.h */,
-				226D74A017604E68004E5697 /* gxfile.h */,
-				226D74A117604E68004E5697 /* gximagelist.h */,
-				226D74A217604E68004E5697 /* gxjpg.h */,
-				226D74A317604E68004E5697 /* gxlayer.h */,
-				226D74A417604E68004E5697 /* gxmosaic.h */,
-				226D74A517604E68004E5697 /* gxpanel.h */,
-				226D74A617604E68004E5697 /* gxpng.h */,
-				226D74A717604E68004E5697 /* jconfig.h */,
-				226D74A817604E68004E5697 /* jerror.h */,
-				226D74A917604E68004E5697 /* jmorecfg.h */,
-				226D74AA17604E68004E5697 /* jpeglib.h */,
-				226D74AB17604E68004E5697 /* ksc5601.h */,
-				226D74AC17604E68004E5697 /* png.h */,
-				226D74AD17604E68004E5697 /* pngconf.h */,
-				226D74AE17604E68004E5697 /* touch.h */,
-				226D74AF17604E68004E5697 /* zconf.h */,
-				226D74B017604E68004E5697 /* zlib.h */,
-				226D748117604E5F004E5697 /* fontinfo.c */,
-				226D748217604E5F004E5697 /* gx.c */,
-				226D748317604E5F004E5697 /* gxbdf.c */,
-				226D748417604E60004E5697 /* gxbmp.c */,
-				226D748517604E60004E5697 /* gxfile.c */,
-				226D748617604E60004E5697 /* gxframe_s3c6410.c */,
-				226D748717604E60004E5697 /* gximagelist.c */,
-				226D748817604E60004E5697 /* gxjpg.c */,
-				226D748917604E60004E5697 /* gxlayer.c */,
-				226D748A17604E60004E5697 /* gxmosaic.c */,
-				226D748B17604E60004E5697 /* gxpanel.c */,
-				226D748C17604E60004E5697 /* gxpng.c */,
-				226D748D17604E60004E5697 /* ksc5601.c */,
+				226D74B71760837D004E5697 /* fontinfo.c */,
+				226D74B81760837D004E5697 /* fontinfo.h */,
+				226D74B91760837D004E5697 /* gx.c */,
+				226D74BA1760837D004E5697 /* gx.h */,
+				226D74BB1760837D004E5697 /* gxbdf.c */,
+				226D74BC1760837D004E5697 /* gxbdf.h */,
+				226D74BD1760837D004E5697 /* gxbmp.c */,
+				226D74BE1760837D004E5697 /* gxbmp.h */,
+				226D74BF1760837D004E5697 /* gxcolor.h */,
+				226D74C01760837D004E5697 /* gxfile.c */,
+				226D74C11760837D004E5697 /* gxfile.h */,
+				226D74C31760837D004E5697 /* gximagelist.c */,
+				226D74C41760837D004E5697 /* gximagelist.h */,
+				226D74C51760837D004E5697 /* gxjpg.c */,
+				226D74C61760837D004E5697 /* gxjpg.h */,
+				226D74C71760837D004E5697 /* gxlayer.c */,
+				226D74C81760837D004E5697 /* gxlayer.h */,
+				226D74C91760837D004E5697 /* gxmosaic.c */,
+				226D74CA1760837D004E5697 /* gxmosaic.h */,
+				226D74CB1760837D004E5697 /* gxpanel.c */,
+				226D74CC1760837D004E5697 /* gxpanel.h */,
+				226D74CD1760837D004E5697 /* gxpng.c */,
+				226D74CE1760837D004E5697 /* gxpng.h */,
+				226D74CF1760837D004E5697 /* jconfig.h */,
+				226D74D01760837D004E5697 /* jerror.h */,
+				226D74D11760837D004E5697 /* jmorecfg.h */,
+				226D74D21760837D004E5697 /* jpeglib.h */,
+				226D74D31760837D004E5697 /* ksc5601.c */,
+				226D74D41760837D004E5697 /* ksc5601.h */,
+				226D74D51760837D004E5697 /* png.h */,
+				226D74D61760837D004E5697 /* pngconf.h */,
+				226D74D71760837D004E5697 /* zconf.h */,
+				226D74D81760837D004E5697 /* zlib.h */,
 			);
 			name = gxlib;
 			sourceTree = "<group>";
@@ -239,19 +234,18 @@
 				226D747C17604E1D004E5697 /* camculator.cpp in Sources */,
 				226D747D17604E1D004E5697 /* camera.cpp in Sources */,
 				226D747F17604E1D004E5697 /* touch.cpp in Sources */,
-				226D748E17604E60004E5697 /* fontinfo.c in Sources */,
-				226D748F17604E60004E5697 /* gx.c in Sources */,
-				226D749017604E60004E5697 /* gxbdf.c in Sources */,
-				226D749117604E60004E5697 /* gxbmp.c in Sources */,
-				226D749217604E60004E5697 /* gxfile.c in Sources */,
-				226D749317604E60004E5697 /* gxframe_s3c6410.c in Sources */,
-				226D749417604E60004E5697 /* gximagelist.c in Sources */,
-				226D749517604E60004E5697 /* gxjpg.c in Sources */,
-				226D749617604E60004E5697 /* gxlayer.c in Sources */,
-				226D749717604E60004E5697 /* gxmosaic.c in Sources */,
-				226D749817604E60004E5697 /* gxpanel.c in Sources */,
-				226D749917604E60004E5697 /* gxpng.c in Sources */,
-				226D749A17604E60004E5697 /* ksc5601.c in Sources */,
+				226D74D91760837D004E5697 /* fontinfo.c in Sources */,
+				226D74DA1760837D004E5697 /* gx.c in Sources */,
+				226D74DB1760837D004E5697 /* gxbdf.c in Sources */,
+				226D74DC1760837D004E5697 /* gxbmp.c in Sources */,
+				226D74DD1760837D004E5697 /* gxfile.c in Sources */,
+				226D74DF1760837D004E5697 /* gximagelist.c in Sources */,
+				226D74E01760837D004E5697 /* gxjpg.c in Sources */,
+				226D74E11760837D004E5697 /* gxlayer.c in Sources */,
+				226D74E21760837D004E5697 /* gxmosaic.c in Sources */,
+				226D74E31760837D004E5697 /* gxpanel.c in Sources */,
+				226D74E41760837D004E5697 /* gxpng.c in Sources */,
+				226D74E51760837D004E5697 /* ksc5601.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +342,7 @@
 				226D747517604DB6004E5697 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

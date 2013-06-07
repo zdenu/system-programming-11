@@ -55,13 +55,13 @@ public:
 		}
 	}
 	
-	static T& getSingleton( void )
+	static T& get( void )
 	{
 		assert( ms_Singleton );
 		return ( *ms_Singleton );
 	}
 	
-	static T* getSingletonPtr( void )
+	static T* getPtr( void )
 	{
 		return ms_Singleton;
 	}
