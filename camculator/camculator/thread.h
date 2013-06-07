@@ -94,7 +94,7 @@ void* Thread<T>::call(void)
 template <typename T>
 void* Thread<T>::threadProc( void* pParam )
 {
-	std::cout << "in threadproc" << std::endl;
+//	std::cout << "in threadproc" << std::endl;
 	sleep(5);
 	Thread<T>* pThread = (Thread<T>*)pParam;
 	return pThread->call();

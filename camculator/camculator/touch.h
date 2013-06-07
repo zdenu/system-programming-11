@@ -34,7 +34,7 @@ public:
 	void resumeTouchevent(void);
 	
 	
-	int touch(dc_t *dc_screen);
+//	int touch(dc_t *dc_screen);
 	void removeAllTouchevent();
 	int touch_pause();
 	

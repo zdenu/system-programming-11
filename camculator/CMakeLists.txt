@@ -28,7 +28,7 @@ INCLUDE_DIRECTORIES( "/usr/local/arm/arm-none-linux-gnueabi/include" )
 
 LINK_DIRECTORIES( "/usr/local/arm/arm-none-linux-gnueabi/lib" )
 
-ADD_DEFINITIONS( "-w" )
+ADD_DEFINITIONS( "-w" "-Os" )
 
 AUX_SOURCE_DIRECTORY( ${CAMCULATOR_DIRECTORY} SRC )
 AUX_SOURCE_DIRECTORY( ${TINYXML_DIRECTORY} TINYXML_SRC )
