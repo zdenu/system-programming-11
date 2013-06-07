@@ -7,37 +7,60 @@
 #include "gx.h"
 #include "camera.h"
 
-typedef struct stRGB
+Camera::Camera(void)
+: cameraFd(INVALID_DATA)
 {
-	union
-	{
-		unsigned short value;
-		struct
-		{
-		unsigned char r : 5;
-		unsigned char g : 6;
-		unsigned char b : 5;
-		};
-	};
-} stRGB;
-
-void dc_camera(dc_t *target){
-	int camera_dev;
-	int i,j,k=0;
-	stRGB rgbData[240*320];
-	if((camera_dev = open("/dev/camera",O_RDWR))==-1){
-		printf("Can't open dev_cad\n");
-		exit(1);
-	}
-	gx_clear( target, gx_color( 0, 0, 0, 255));
-	read(camera_dev,rgbData,153600);
-	for (i = 0 ; i < 320 ; ++i)
-	{
-		for ( j = 0 ; j < 240 ; ++j)
-		{
-			gx_set_pixel( target, i, j,  gx_color(rgbData[k].r, rgbData[k].g, rgbData[k].b, 255));
-			k++;
-		}            
-	}
-	close(camera_dev);
 }
+
+bool Camera::init(dc_t* dc_buffer, font_t* pFont)
+{
+	State::init(dc_buffer, pFont);
+
+	// camera doesn't use background png.
+	if (back != NULL)
+	{
+		gx_png_close((dc_t*)back);
+		back = NULL;
+	}
+	
+	cameraFd = ::open(CAMERA_DEVICE, O_RDWR);
+	if (cameraFd == INVALID_DATA)
+		return false;
+	
+	title = (png_t*)gx_png_open((char*)"interface/title/camera.png");
+	button = (png_t*)gx_png_open((char*)"interface/button/camera.png");
+	
+}
+
+bool Camera::makeBackground(dc_t *dc_buffer)
+{
+	if (State::makeBackground(dc_buffer) == false)
+		return false;
+	
+	read(cameraFd, dc_buffer->mapped, 240 * 320 * 2);
+	
+	return true;
+}
+
+bool Camera::makeScreen(dc_t *dc_buffer, dc_t *dc_screen)
+{
+	if (this->makeBackground(dc_buffer) == false)
+		return false;
+	
+	if (State::makeScreen(dc_buffer, dc_screen) == false)
+		return false;
+	
+	
+	drawScreen(dc_buffer, dc_screen);
+	
+	return true;
+}
+
+bool Camera::close(void)
+{
+	State::close();
+	
+	::close(cameraFd);
+}
+
+

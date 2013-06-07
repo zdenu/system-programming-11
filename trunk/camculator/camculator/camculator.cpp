@@ -2,11 +2,15 @@
 #include "camculator.h"
 
 #include "touch.h"
-#include "camera.h"
+
 
 #include "gxjpg.h"
 #include "gxpng.h"
 
+// each states.
+#include "state.h"
+#include "home.h"
+#include "camera.h"
 
 /** ----------------------------------------------------------------------------
 @brief  버퍼 크기 정의
@@ -26,20 +30,16 @@ template<> Camculator* Singleton<Camculator>::ms_Singleton = 0;
 
 Camculator::Camculator()
 : isRunning(false)
-, h_touch_home(INVALID_HANDLE)
-, h_touch_camera(INVALID_HANDLE)
-, h_touch_crop(INVALID_HANDLE)
-, h_touch_labeling(INVALID_HANDLE)
-, h_touch_edit(INVALID_HANDLE)
-, h_touch_result(INVALID_HANDLE)
-, h_touch_ok(INVALID_HANDLE)
 , dc_screen(NULL)
 , dc_buffer(NULL)
 , before_screen(NULL)
+, setting_frame(NULL)
 , font14(NULL)
 , font18(NULL)
-, screenMode(TOUCH_EVENT_MAIN_HOME)
+, currentState(TOUCH_EVENT_MAIN_HOME)
+, isSettingInitialized(false)
 {
+	memset(pState, 0x00, sizeof(pState));
 }
 
 Camculator::~Camculator()
@@ -70,6 +70,16 @@ bool Camculator::init(void)
 	printf( "screen widht= %d\n"      , dc_screen->width);
 	printf( "screen color depth= %d\n", dc_screen->colors);
 	interface_splash();
+
+	// TODO: create each states.
+	pState[SCREEN_TYPE_HOME] = new Home;
+	pState[SCREEN_TYPE_CAMERA] = new Camera;
+	
+	for (int i = 0 ; i < SCREEN_TYPE_MAX ; ++i)
+	{
+		if (pState[i] != NULL)
+			pState[i]->init(dc_buffer, font14);
+	}
 	
 	// TODO: make each device thread.
 	pTouchHandler = new TouchHandler;
@@ -77,7 +87,8 @@ bool Camculator::init(void)
 	
 	isRunning = true;
 	
-	
+	// draw home screen.
+	pState[SCREEN_TYPE_HOME]->drawScreen(dc_buffer, dc_screen);
 }
 
 void Camculator::main(void)
@@ -96,6 +107,8 @@ void Camculator::main(void)
 					interfaceDispatcher(pEv);
 					break;
 				}
+				case EVENT_TYPE_HTTP_RESPONSE:
+					break;
 				default:
 				{
 					break;
@@ -104,7 +117,6 @@ void Camculator::main(void)
 			
 			delete pEv;
 		}
-		
 		usleep(1);
 	}
 	
@@ -116,56 +128,26 @@ void Camculator::main(void)
 
 void Camculator::interfaceDispatcher(stEvent* pEv)
 {
-	int now_mode = 0;
+	// recv ENUM_TOUCH_EVENT.
 	int event = *(int*)(pEv->pData);
 	
-	if (event == TOUCH_EVENT_MAIN_HOME)
+	beforeState = currentState;
+	currentState = getCurrentState(event);
+	interface_layout(event, currentState);
+	
+	
+	if (event == TOUCH_EVENT_MAIN_CROP)
 	{
-		if(screenMode == TOUCH_EVENT_MAIN_HOME)
-		{
-			interface_setting();
-		}
-		else {
-			screenMode = event;
-				interface_layout(event);
-		}
-	}
-	else if (event == TOUCH_EVENT_MAIN_CAMERA)
-	{
-		now_mode = 1;
-		interface_layout(event);
-	}
-	else if (event == TOUCH_EVENT_MAIN_CROP)
-	{
-		now_mode = 2;
 		interface_alert(const_cast<char*>("Please take photo"));
-		interface_layout(event);
 		dc_screen->pen_color     = gx_color( 255, 0, 0, 255);
 		dc_screen->brush_color   = gx_color( 0, 0, 0, 0);
-		gx_rectangle( dc_screen, 100, 100, 200, 200);
+		gx_rectangle(dc_screen, 100, 100, 200, 200);
 	}
 	else if (event == TOUCH_EVENT_MAIN_LABELING)
 	{
-		now_mode = 3;
-		interface_layout(event);
 		interface_loading(START);
 		sleep(1);
 		interface_loading(END);
-	}
-	else if (event == TOUCH_EVENT_MAIN_EDIT)
-	{
-		now_mode = 4;
-		interface_layout(event);
-	}
-	else if (event == TOUCH_EVENT_MAIN_RESULT)
-	{
-		now_mode = 5;
-		interface_layout(event);
-	}
-	else if (event == TOUCH_EVENT_MAIN_OK)
-	{
-		now_mode = 6;
-		interface_info();
 	}
 }
 
@@ -174,8 +156,8 @@ void Camculator::interface_Background(int mode)
 {
 	png_t*	back;
 	back = (png_t*)gx_png_create(320, 240);
-	switch(mode){
-		case TOUCH_EVENT_MAIN_HOME :
+	switch(mode) {
+		case TOUCH_EVENT_MAIN_HOME:
 			back = (png_t*)gx_png_open((char*)"interface/background/home.png");
 			//display history//
 			gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 255));
@@ -225,71 +207,139 @@ void Camculator::interface_Background(int mode)
 		gx_png_close((dc_t*)back);
 	}
 }
-
-void Camculator::interface_layout(int mode)
+void Camculator::initSettingLayout(void)
 {
-	png_t   *top;
-	png_t   *title;
-	png_t   *button;
-	png_t   *button2;
-	png_t   *bottom;
-	png_t   *active;
-	int x;
-	top = (png_t*)gx_png_open( "interface/top.png");
-	bottom = (png_t*)gx_png_open( "interface/menu.png");
-	button2 = (png_t*)gx_png_open( "interface/button/home.png");
-	active = (png_t*)gx_png_create( 63, 49);
-	gx_clear( ( dc_t *)active, gx_color( 255, 255, 255, 100));
-	x = 64*(mode-1);
-	interface_Background(mode);
-	switch(mode){
-		case TOUCH_EVENT_MAIN_HOME:
-			title = (png_t*)gx_png_open( "interface/title/home.png");
-			button = (png_t*)gx_png_open( "interface/button/info.png");
-			button2 = (png_t*)gx_png_open( "interface/button/setting.png");
-			break;
-		case TOUCH_EVENT_MAIN_CAMERA:
-			title = (png_t*)gx_png_open( "interface/title/camera.png");
-			button = (png_t*)gx_png_open( "interface/button/camera.png");
-			break;
-		case TOUCH_EVENT_MAIN_CROP:
-			title = (png_t*)gx_png_open( "interface/title/crop.png");
-			button = (png_t*)gx_png_open( "interface/button/check.png");
-			break;
-		case TOUCH_EVENT_MAIN_LABELING:
-			title = (png_t*)gx_png_open( "interface/title/labeling.png");
-			button = (png_t*)gx_png_open( "interface/button/check.png");
-			break;
-		case TOUCH_EVENT_MAIN_EDIT:
-			title = (png_t*)gx_png_open( "interface/title/edit.png");
-			button = (png_t*)gx_png_open( "interface/button/check.png");
-			break;
-		case TOUCH_EVENT_MAIN_RESULT:
-			title = (png_t*)gx_png_open( "interface/title/result.png");
-			button = (png_t*)gx_png_open( "interface/button/send.png");
-			break;
+	if (isSettingInitialized == true)
+		return;
+	
+	png_t* png;
+	int t_event;
+	setting_frame = gx_get_compatible_dc(dc_screen);
+	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
+	gx_bitblt( setting_frame, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
+	png = (png_t*)gx_png_open( "interface/setting.png");
+
+	gx_bitblt( setting_frame, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+	
+	isSettingInitialized = true;
+}
+
+void Camculator::interface_layout(int mode, int state)
+{
+	
+	if (currentState == SCREEN_TYPE_SETTING)
+	{
+		initSettingLayout();
+		// draw settings.
+		gx_bitblt( dc_buffer, 0, 0, setting_frame, 0, 0, 320, 240);
+		dc_buffer->font	= font14;
+		dc_buffer->font_color	= gx_color( 90, 90, 90, 255);
+		gx_text_out( dc_buffer, 149, 89, "font14");
+		gx_text_out( dc_buffer, 149, 124, "font18");
+		gx_text_out( dc_buffer, 149, 158, "WIFI");
+		gx_text_out( dc_buffer, 149, 198, "20");
+		gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
+		
+		if(mode == TOUCH_EVENT_SETTING_FONT14)
+		{
+			
+		}
+		else if (mode == TOUCH_EVENT_SETTING_FONT18)
+		{
+			
+		}
+		else if (mode == TOUCH_EVENT_SETTING_NETWORK)
+		{
+			
+		}
+		else if (mode == TOUCH_EVENT_SETTING_VOLUME)
+		{
+			
+		}
+		else if (mode == TOUCH_EVENT_SETTING_OK)
+		{
+			// disable setting events.
+			disableSettingEvent();
+			gx_png_close((dc_t*)png);
+			gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
+		}
+		else if (mode == TOUCH_EVENT_SETTING_CLOSE)
+		{
+			// disable setting events.
+			disableSettingEvent();
+			gx_png_close((dc_t*)png);
+			gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
+		}
 	}
-	if ( top == NULL || title== NULL || button==NULL || bottom == NULL )
-		gx_print_error(8, "layout pngs");                                       // 실행 중 에러 내용을 출력
+	else if (currentState == TOUCH_EVENT_MAIN_OK)
+	{
+		interface_info();
+	}
 	else
 	{
-		//gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 0));
-		gx_bitblt( dc_buffer, 0, 0, ( dc_t *)top, 0, 0, top->width, top->height);
-		gx_bitblt( dc_buffer, 98, 8, ( dc_t *)title, 0, 0, title->width, title->height);
-		gx_bitblt( dc_buffer, 281, 7, ( dc_t *)button, 0, 0, button->width, button->height);
-		gx_bitblt( dc_buffer, 4, 6, ( dc_t *)button2, 0, 0, button->width, button->height);
-		gx_bitblt( dc_buffer, 0, 191, ( dc_t *)bottom, 0, 0, bottom->width, bottom->height);
-		if(x > 0){
-			gx_bitblt( dc_buffer, x, 191, ( dc_t *)active, 0, 0, active->width, active->height);
-			gx_png_close((dc_t*)bottom);
-			gx_png_close((dc_t*)active);
+		png_t   *top;
+		png_t   *title;
+		png_t   *button;
+		png_t   *button2;
+		png_t   *bottom;
+		png_t   *active;
+		int x;
+		top = (png_t*)gx_png_open( "interface/top.png");
+		bottom = (png_t*)gx_png_open( "interface/menu.png");
+		button2 = (png_t*)gx_png_open( "interface/button/home.png");
+		active = (png_t*)gx_png_create( 63, 49);
+		gx_clear( ( dc_t *)active, gx_color( 255, 255, 255, 100));
+		x = 64*(mode-1);
+		interface_Background(mode);
+		switch(mode){
+			case TOUCH_EVENT_MAIN_HOME:
+				title = (png_t*)gx_png_open( "interface/title/home.png");
+				button = (png_t*)gx_png_open( "interface/button/info.png");
+				button2 = (png_t*)gx_png_open( "interface/button/setting.png");
+				break;
+			case TOUCH_EVENT_MAIN_CAMERA:
+				title = (png_t*)gx_png_open( "interface/title/camera.png");
+				button = (png_t*)gx_png_open( "interface/button/camera.png");
+				break;
+			case TOUCH_EVENT_MAIN_CROP:
+				title = (png_t*)gx_png_open( "interface/title/crop.png");
+				button = (png_t*)gx_png_open( "interface/button/check.png");
+				break;
+			case TOUCH_EVENT_MAIN_LABELING:
+				title = (png_t*)gx_png_open( "interface/title/labeling.png");
+				button = (png_t*)gx_png_open( "interface/button/check.png");
+				break;
+			case TOUCH_EVENT_MAIN_EDIT:
+				title = (png_t*)gx_png_open( "interface/title/edit.png");
+				button = (png_t*)gx_png_open( "interface/button/check.png");
+				break;
+			case TOUCH_EVENT_MAIN_RESULT:
+				title = (png_t*)gx_png_open( "interface/title/result.png");
+				button = (png_t*)gx_png_open( "interface/button/send.png");
+				break;
 		}
-		
-		gx_bitblt( dc_screen, 0, 0, ( dc_t *)dc_buffer, 0, 0,320, 240);
-		gx_png_close((dc_t*)button2);
-		gx_png_close((dc_t*)top);
-		gx_png_close((dc_t*)title);
-		gx_png_close((dc_t*)button);
+		if ( top == NULL || title== NULL || button==NULL || bottom == NULL )
+			gx_print_error(8, "layout pngs");                                       // 실행 중 에러 내용을 출력
+		else
+		{
+			//gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 0));
+			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)top, 0, 0, top->width, top->height);
+			gx_bitblt( dc_buffer, 98, 8, ( dc_t *)title, 0, 0, title->width, title->height);
+			gx_bitblt( dc_buffer, 281, 7, ( dc_t *)button, 0, 0, button->width, button->height);
+			gx_bitblt( dc_buffer, 4, 6, ( dc_t *)button2, 0, 0, button->width, button->height);
+			gx_bitblt( dc_buffer, 0, 191, ( dc_t *)bottom, 0, 0, bottom->width, bottom->height);
+			if(x > 0){
+				gx_bitblt( dc_buffer, x, 191, ( dc_t *)active, 0, 0, active->width, active->height);
+				gx_png_close((dc_t*)bottom);
+				gx_png_close((dc_t*)active);
+			}
+			
+			gx_bitblt( dc_screen, 0, 0, ( dc_t *)dc_buffer, 0, 0,320, 240);
+			gx_png_close((dc_t*)button2);
+			gx_png_close((dc_t*)top);
+			gx_png_close((dc_t*)title);
+			gx_png_close((dc_t*)button);
+		}
 	}
 }
 
@@ -338,61 +388,11 @@ void Camculator::interface_loading(int mode)
 	}
 }
 
-void Camculator::interface_setting(void)
+void Camculator::interface_setting(int mode)
 {
-	png_t   *png;
-	int touch_font14,touch_font18,touch_network,touch_volume,touch_ok,touch_close;
-	int t_event;
-	dc_t *setting_frame;
-	setting_frame = gx_get_compatible_dc( dc_screen);
-	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	gx_bitblt( setting_frame, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	png = (png_t*)gx_png_open( "interface/setting.png");
-	pTouchHandler->pauseTouchevent();
-	pTouchHandler->addTouchevent(268, 30, 30, 30, TOUCH_EVENT_SETTING_CLOSE);
-	pTouchHandler->addTouchevent(136, 69, 170, 30, TOUCH_EVENT_SETTING_FONT14);
-	pTouchHandler->addTouchevent(136,103, 170, 30, TOUCH_EVENT_SETTING_FONT18);
-	pTouchHandler->addTouchevent(136, 140, 170, 30, TOUCH_EVENT_SETTING_NETWORK);
-	pTouchHandler->addTouchevent(136, 178, 170, 30, TOUCH_EVENT_SETTING_VOLUME);
-	pTouchHandler->addTouchevent(231, 30, 30, 30, TOUCH_EVENT_SETTING_OK);
-	
-	if ( NULL == png)
-		gx_print_error(8, "interface/setting.png");                                         // 실행 중 에러 내용을 출력
-	else
-	{
-		gx_bitblt( setting_frame, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
-		while(1){
-			gx_bitblt( dc_buffer, 0, 0, setting_frame, 0, 0, 320, 240);
-			dc_buffer->font	= font14;
-			dc_buffer->font_color	= gx_color( 90, 90, 90, 255);
-			gx_text_out( dc_buffer, 149, 89, "font14");
-			gx_text_out( dc_buffer, 149, 124, "font18");
-			gx_text_out( dc_buffer, 149, 158, "WIFI");
-			gx_text_out( dc_buffer, 149, 198, "20");
-			gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
-			
-			t_event = pTouchHandler->touch(dc_screen);
-			if(		   t_event == touch_font14) {
-				
-			} else if (t_event == touch_font18) {
-				
-			} else if (t_event == touch_network) {
-				
-			} else if (t_event == touch_volume) {
-				
-			} else if (t_event == touch_ok) {
-				pTouchHandler->resumeTouchevent();
-				gx_png_close((dc_t*)png);
-				gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
-				return;
-			} else if (t_event == touch_close) {
-				pTouchHandler->resumeTouchevent();
-				gx_png_close((dc_t*)png);
-				gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
-				return;
-			}
-		}
-	}
+	// disable all touch event.
+	// enable main touch event.
+	// enable setting touch event.
 	
 }
 
@@ -457,7 +457,7 @@ void Camculator::interface_info(void)
 }
 
 
-void Camculator::setTouchEvents(void)
+void Camculator::initTouchEvents(void)
 {
 	pTouchHandler->addTouchevent(0, 0, 44, 44, TOUCH_EVENT_MAIN_HOME);
 	pTouchHandler->addTouchevent(0, 191, 63, 49, TOUCH_EVENT_MAIN_CAMERA);
@@ -466,6 +466,13 @@ void Camculator::setTouchEvents(void)
 	pTouchHandler->addTouchevent(192, 191, 63, 49, TOUCH_EVENT_MAIN_EDIT);
 	pTouchHandler->addTouchevent(254, 191, 63, 49, TOUCH_EVENT_MAIN_RESULT);
 	pTouchHandler->addTouchevent(276, 0, 44, 44, TOUCH_EVENT_MAIN_OK);
+	
+	pTouchHandler->addTouchevent(268, 30, 30, 30, TOUCH_EVENT_SETTING_CLOSE);
+	pTouchHandler->addTouchevent(136, 69, 170, 30, TOUCH_EVENT_SETTING_FONT14);
+	pTouchHandler->addTouchevent(136,103, 170, 30, TOUCH_EVENT_SETTING_FONT18);
+	pTouchHandler->addTouchevent(136, 140, 170, 30, TOUCH_EVENT_SETTING_NETWORK);
+	pTouchHandler->addTouchevent(136, 178, 170, 30, TOUCH_EVENT_SETTING_VOLUME);
+	pTouchHandler->addTouchevent(231, 30, 30, 30, TOUCH_EVENT_SETTING_OK);
 }
 
 int Camculator::fontloader14(char* file)
@@ -517,5 +524,67 @@ void Camculator::drawPartScreen(int x, int y, int w, int h, color_t color)
 void Camculator::drawBeforeScreen(void)
 {
 	gx_bitblt(dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
+}
+
+int Camculator::getCurrentState(int mode)
+{
+	int ret = SCREEN_TYPE_MAX;
+	
+	if ((mode == TOUCH_EVENT_MAIN_HOME) &&
+		(currentState == SCREEN_TYPE_HOME))
+	{
+		ret = SCREEN_TYPE_SETTING;
+	}
+	else if ((mode == TOUCH_EVENT_MAIN_OK) &&
+			 (currentState == SCREEN_TYPE_HOME))
+	{
+		ret = SCREEN_TYPE_INFO;
+	}
+	else
+	{
+		switch (mode)
+		{
+			case TOUCH_EVENT_SETTING_OPEN:
+			case TOUCH_EVENT_SETTING_CLOSE:
+			case TOUCH_EVENT_SETTING_FONT14:
+			case TOUCH_EVENT_SETTING_FONT18:
+			case TOUCH_EVENT_SETTING_NETWORK:
+			case TOUCH_EVENT_SETTING_VOLUME:
+			case TOUCH_EVENT_SETTING_OK:
+				ret = SCREEN_TYPE_SETTING;
+				break;
+			case TOUCH_EVENT_MAIN_HOME:
+				ret = SCREEN_TYPE_HOME:
+				break;
+			case TOUCH_EVENT_MAIN_CAMERA:
+				ret = SCREEN_TYPE_CAMERA;
+				break;
+			case TOUCH_EVENT_MAIN_CROP:
+				ret = SCREEN_TYPE_CROP;
+				break;
+			case TOUCH_EVENT_MAIN_EDIT:
+				ret = SCREEN_TYPE_EDIT;
+				break;
+			case TOUCH_EVENT_MAIN_LABELING:
+				ret = SCREEN_TYPE_LABELING;
+				break;
+			case TOUCH_EVENT_MAIN_RESULT:
+				ret = SCREEN_TYPE_RESULT;
+				break;
+		}
+	}
+	
+	return ret;
+}
+
+void Camculator::disableSettingEvent(void)
+{
+	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_OPEN);
+	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_CLOSE);
+	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_FONT14);
+	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_FONT18);
+	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_NETWORK);
+	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_VOLUME);
+	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_OK);
 }
 
