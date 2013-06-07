@@ -77,6 +77,8 @@ private:
 	font_t* font14;
 	font_t* font18;
 	
+	int screenMode;
+	
 	bool isRunning;
 
 };

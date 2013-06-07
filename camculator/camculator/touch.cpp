@@ -114,7 +114,6 @@ void* TouchHandler::touchThread(Thread<TouchHandler>*, void* )
 		{
 			for (int i = 0 ; i < read_bytes/sizeof(INPUT_EVENT) ; ++i)
 			{
-				
 				dispatchTouchEvent(buf[i]);
 			}
 		}

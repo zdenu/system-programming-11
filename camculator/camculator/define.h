@@ -111,6 +111,7 @@ struct stEvent
 	void*	pData;			// type에 따라서 달라진다.
 	int32_t	dataSize;
 	
+	
 };
 
 struct stImageData

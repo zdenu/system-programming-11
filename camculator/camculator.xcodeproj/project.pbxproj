@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		226D746A17604DB6004E5697 /* camculator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = camculator; sourceTree = BUILT_PRODUCTS_DIR; };
 		226D746D17604DB6004E5697 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		226D747617604E1D004E5697 /* camculator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camculator.cpp; sourceTree = "<group>"; };
+		226D747617604E1D004E5697 /* camculator.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = camculator.cpp; sourceTree = "<group>"; };
 		226D747717604E1D004E5697 /* camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera.cpp; sourceTree = "<group>"; };
 		226D747817604E1D004E5697 /* camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera.h; sourceTree = "<group>"; };
 		226D747A17604E1D004E5697 /* touch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = touch.cpp; sourceTree = "<group>"; };
