@@ -38,6 +38,7 @@ Camculator::Camculator()
 , before_screen(NULL)
 , font14(NULL)
 , font18(NULL)
+, screenMode(TOUCH_EVENT_MAIN_HOME)
 {
 }
 
@@ -116,49 +117,52 @@ void Camculator::main(void)
 void Camculator::interfaceDispatcher(stEvent* pEv)
 {
 	int now_mode = 0;
-
-	int e_touch = pTouchHandler->touch(dc_screen);
-	
 	int event = *(int*)(pEv->pData);
 	
-	
-	
-	if(e_touch == h_touch_home ) {
-		if(now_mode == 0){
+	if (event == TOUCH_EVENT_MAIN_HOME)
+	{
+		if(screenMode == TOUCH_EVENT_MAIN_HOME)
+		{
 			interface_setting();
-		} else {
-			now_mode = 0;
-			interface_layout(HOME);
 		}
-	} else if(e_touch == h_touch_camera )
+		else {
+			screenMode = event;
+				interface_layout(event);
+		}
+	}
+	else if (event == TOUCH_EVENT_MAIN_CAMERA)
 	{
 		now_mode = 1;
-		interface_layout(CAMERA);
-	} else if(e_touch == h_touch_crop )
+		interface_layout(event);
+	}
+	else if (event == TOUCH_EVENT_MAIN_CROP)
 	{
 		now_mode = 2;
 		interface_alert(const_cast<char*>("Please take photo"));
-		interface_layout(CROP);
+		interface_layout(event);
 		dc_screen->pen_color     = gx_color( 255, 0, 0, 255);
 		dc_screen->brush_color   = gx_color( 0, 0, 0, 0);
 		gx_rectangle( dc_screen, 100, 100, 200, 200);
 	}
-	else if(e_touch ==  h_touch_labeling )
+	else if (event == TOUCH_EVENT_MAIN_LABELING)
 	{
 		now_mode = 3;
-		interface_layout(LABELING);
+		interface_layout(event);
 		interface_loading(START);
 		sleep(1);
 		interface_loading(END);
-	} else if(e_touch ==  h_touch_edit )
+	}
+	else if (event == TOUCH_EVENT_MAIN_EDIT)
 	{
 		now_mode = 4;
-		interface_layout(EDIT);
-	} else if(e_touch ==  h_touch_result )
+		interface_layout(event);
+	}
+	else if (event == TOUCH_EVENT_MAIN_RESULT)
 	{
 		now_mode = 5;
-		interface_layout(RESULT);
-	} else if(e_touch ==  h_touch_ok )
+		interface_layout(event);
+	}
+	else if (event == TOUCH_EVENT_MAIN_OK)
 	{
 		now_mode = 6;
 		interface_info();
@@ -171,7 +175,7 @@ void Camculator::interface_Background(int mode)
 	png_t*	back;
 	back = (png_t*)gx_png_create(320, 240);
 	switch(mode){
-		case HOME :
+		case TOUCH_EVENT_MAIN_HOME :
 			back = (png_t*)gx_png_open((char*)"interface/background/home.png");
 			//display history//
 			gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 255));
@@ -183,19 +187,19 @@ void Camculator::interface_Background(int mode)
 			gx_text_out( dc_buffer, 58, 146, (char*)"integral(4x+2)");
 			gx_text_out( dc_buffer, 58, 175, (char*)"sum(4x*8)");
 			break;
-		case CAMERA :
+		case TOUCH_EVENT_MAIN_CAMERA :
 			dc_camera(dc_buffer);
 			break;
-		case CROP :
+		case TOUCH_EVENT_MAIN_CROP :
 			gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
 			gx_rectangle( dc_buffer, 50, 50, 100, 100);
 			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
 			break;
-		case LABELING :
+		case TOUCH_EVENT_MAIN_LABELING :
 			gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
 			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
 			break;
-		case EDIT :
+		case TOUCH_EVENT_MAIN_EDIT :
 			back = (png_t*)gx_png_open((char*)"interface/background/edit.png");
 			//display edit//
 			gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 255));
@@ -208,7 +212,7 @@ void Camculator::interface_Background(int mode)
 			gx_text_out( dc_buffer, 9, 145, "sum(4x*8)");
 			gx_text_out( dc_buffer, 9, 178, "sum(4x*8)");
 			break;
-		case RESULT :
+		case TOUCH_EVENT_MAIN_RESULT :
 			gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
 			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
 			break;
@@ -239,27 +243,28 @@ void Camculator::interface_layout(int mode)
 	x = 64*(mode-1);
 	interface_Background(mode);
 	switch(mode){
-		case HOME :
+		case TOUCH_EVENT_MAIN_HOME:
 			title = (png_t*)gx_png_open( "interface/title/home.png");
 			button = (png_t*)gx_png_open( "interface/button/info.png");
 			button2 = (png_t*)gx_png_open( "interface/button/setting.png");
 			break;
-		case CAMERA :
+		case TOUCH_EVENT_MAIN_CAMERA:
 			title = (png_t*)gx_png_open( "interface/title/camera.png");
 			button = (png_t*)gx_png_open( "interface/button/camera.png");
 			break;
-		case CROP :
+		case TOUCH_EVENT_MAIN_CROP:
 			title = (png_t*)gx_png_open( "interface/title/crop.png");
 			button = (png_t*)gx_png_open( "interface/button/check.png");
 			break;
-		case LABELING :
+		case TOUCH_EVENT_MAIN_LABELING:
 			title = (png_t*)gx_png_open( "interface/title/labeling.png");
 			button = (png_t*)gx_png_open( "interface/button/check.png");
-			break;		case EDIT :
+			break;
+		case TOUCH_EVENT_MAIN_EDIT:
 			title = (png_t*)gx_png_open( "interface/title/edit.png");
 			button = (png_t*)gx_png_open( "interface/button/check.png");
 			break;
-		case RESULT :
+		case TOUCH_EVENT_MAIN_RESULT:
 			title = (png_t*)gx_png_open( "interface/title/result.png");
 			button = (png_t*)gx_png_open( "interface/button/send.png");
 			break;
@@ -274,7 +279,7 @@ void Camculator::interface_layout(int mode)
 		gx_bitblt( dc_buffer, 281, 7, ( dc_t *)button, 0, 0, button->width, button->height);
 		gx_bitblt( dc_buffer, 4, 6, ( dc_t *)button2, 0, 0, button->width, button->height);
 		gx_bitblt( dc_buffer, 0, 191, ( dc_t *)bottom, 0, 0, bottom->width, bottom->height);
-		if(x>0){
+		if(x > 0){
 			gx_bitblt( dc_buffer, x, 191, ( dc_t *)active, 0, 0, active->width, active->height);
 			gx_png_close((dc_t*)bottom);
 			gx_png_close((dc_t*)active);
