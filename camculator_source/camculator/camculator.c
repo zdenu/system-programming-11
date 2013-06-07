@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <dirent.h>
 #include <gx.h>
 #include <gxjpg.h>
 #include <gxpng.h>
@@ -9,7 +10,7 @@
 #include "camera.h"
 
 /** ----------------------------------------------------------------------------
-@brief  ¹öÆÛ Å©±â Á¤ÀÇ
+@brief  ë²„í¼ í¬ê¸° ì •ì˜
 @remark
  -----------------------------------------------------------------------------*/
 #define MAX_BUFF_SIZE   1024
@@ -17,7 +18,7 @@
 
 
 /** ----------------------------------------------------------------------------
-@brief  Áö¿ª º¯¼ö Á¤ÀÇ
+@brief  ì§€ì—­ ë³€ìˆ˜ ì •ì˜
 @remark
  -----------------------------------------------------------------------------*/
 static dc_t         *dc_screen;                                        
@@ -25,6 +26,12 @@ static dc_t         *dc_buffer;
 static dc_t			*before_screen;								
 static font_t 		*font14;
 static font_t 		*font18;
+
+//ì„¤ì • 
+static char font14_name[50];
+static char font18_name[50];
+static char network[100];
+static int  volume;
 
 static char  buff[MAX_BUFF_SIZE];                                       
 static char  fb_dev_name[MAX_DEV_NANE];
@@ -40,15 +47,17 @@ static char  fb_dev_name[MAX_DEV_NANE];
 
 
 int fontloader14(char* file){
-	char buff[30];
+	char buff[50];
 	sprintf(buff,"font/14pt/%s",file);
+	strcpy(font14_name,file);
 	printf( "font loading\n");
 	if ( NULL == ( font14 = gx_open_font(buff) )  ) 
 		return 1;
 }
 int fontloader18(char* file){
-	char buff[30];
+	char buff[50];
 	sprintf(buff,"font/18pt/%s",file);
+	strcpy(font18_name,file);
 	printf( "font loading\n");
 	if ( NULL == ( font18 = gx_open_font(buff) )   )
 		return 1;
@@ -72,12 +81,10 @@ static void interface_Background(int mode){
 		gx_text_out( dc_buffer, 58, 175, "sum(4x*8)");
 		break;
 	case CAMERA :
-		init_camera();
-		while(1){
+		//
 		dc_camera(dc_buffer);
-		gx_bitblt(dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
-		}
-		close_camera();
+		//gx_bitblt(dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
+		//
 		break;
 	case CROP :
 		gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
@@ -107,7 +114,7 @@ static void interface_Background(int mode){
 		break;
 	}
 	if ( back == NULL){
-		gx_print_error(8,"background");                                       // ½ÇÇà Áß ¿¡·¯ ³»¿ëÀ» Ãâ·Â
+		gx_print_error(8,"background");                                       // ì‹¤í–‰ ì¤‘ ì—ëŸ¬ ë‚´ìš©ì„ ì¶œë ¥
 	}else
 	{
 		//gx_bitblt( dc_screen, 0, 0, ( dc_t *)dc_buffer, 0, 0,320, 48);
@@ -158,7 +165,7 @@ static void interface_layout(int mode){
 		break;
 	}
 	if ( top == NULL || title== NULL || button==NULL || bottom == NULL )
-		gx_print_error(8, "layout pngs");                                       // ½ÇÇà Áß ¿¡·¯ ³»¿ëÀ» Ãâ·Â
+		gx_print_error(8, "layout pngs");                                       // ì‹¤í–‰ ì¤‘ ì—ëŸ¬ ë‚´ìš©ì„ ì¶œë ¥
 	else
 	{
 		//gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 0));
@@ -181,29 +188,36 @@ static void interface_layout(int mode){
 	}
 }
 
-//µÎ°¡Áö ¹æ¹ýÀÌ ÀÖ´Âµ¥ ¼Óµµ Å×½ºÆ® ÇØºÁ¾ßÇÔ.
-/*
-static void interface_home( void){
-    dc_t       *dc_comp;
-    dc_comp = gx_get_compatible_dc(dc_screen);             // dc_screenÀÇ Å¬·ÐÀ» ¸¸µê
-
-    gx_open_file( dc_comp, "interface/home.png");                   // ÆÄÀÏÀ» open
-    gx_bitblt( dc_screen, 0, 0, dc_comp, 0, 0, dc_screen->width, dc_screen->height);
+static void interface_movie( char* file, int max, int fps){
+	png_t   *png;
+	char namebuff[20];
+	int i;
+	fps = 1000000/fps;
+	pauseTouchevent();
+	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
+	for(i=0;i<max;i++) {
+	sprintf(namebuff,"%s%04d.png",file,(i+1));
+	png = gx_png_open(namebuff);
+		if ( NULL == png)
+			gx_print_error(8, namebuff);                                         
+		else
+		{
+			gx_bitblt( dc_buffer, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
+			gx_bitblt( dc_buffer, 0, 0, (dc_t*)png, 0, 0, 320, 240);
+			gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
+			gx_png_close( png);
+			usleep(fps);
+		}
+	}
+	resumeTouchevent();
+	gx_bitblt( dc_screen, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
 }
- */
-
 
 static void interface_splash( void){
-	bmp_t   *bmp;
-	bmp = gx_bmp_open( "interface/background/splash.bmp");
-	if ( NULL == bmp)
-		gx_print_error(8, "interface/background/splash.bmp");                                         // ½ÇÇà Áß ¿¡·¯ ³»¿ëÀ» Ãâ·Â
-	else
-	{
-		gx_bitblt( dc_screen, 0, 0, ( dc_t *)bmp, 0, 0, bmp->width, bmp->height);
-		gx_bmp_close( bmp);
-	}
+	interface_movie("interface/intro/intro", 99 , 24);
+	sleep(1);
 }
+
 static void interface_loading(int mode){
 	png_t   *png;
 	switch(mode) {
@@ -211,7 +225,7 @@ static void interface_loading(int mode){
 		gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 		png = gx_png_open( "interface/background/loading.png");
 		if ( NULL == png)
-			gx_print_error(8, "interface/background/loading.png");                                         // ½ÇÇà Áß ¿¡·¯ ³»¿ëÀ» Ãâ·Â
+			gx_print_error(8, "interface/background/loading.png");                                         // ì‹¤í–‰ ì¤‘ ì—ëŸ¬ ë‚´ìš©ì„ ì¶œë ¥
 		else
 		{
 			gx_bitblt( dc_screen, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
@@ -224,10 +238,17 @@ static void interface_loading(int mode){
 	}
 }
 
+
+
 static void interface_setting(){
 		png_t   *png;
 		int touch_font14,touch_font18,touch_network,touch_volume,touch_ok,touch_close;
 		int t_event;
+		int idx14=0,idx18=0;
+		DIR *dirp14;
+		struct dirent *direntp14;
+		DIR *dirp18;
+		struct dirent *direntp18;
 		dc_t *setting_frame;
 		setting_frame = gx_get_compatible_dc( dc_screen);
 		gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
@@ -240,9 +261,25 @@ static void interface_setting(){
 		touch_network = addTouchevent(136, 140, 170, 30);
 		touch_volume = addTouchevent(136, 178, 170, 30);
 		touch_ok = addTouchevent(231, 30, 30, 30);
-		
+			
+		dirp14 = opendir("font/14pt");
+		while((direntp14 = readdir(dirp14))!= NULL){
+			idx14++;
+			if(strcmp(direntp14->d_name,font14_name)==0){
+					break;
+			}
+		}
+
+		dirp18 = opendir("font/18pt");
+		while((direntp18 = readdir(dirp18))!= NULL){
+			idx18++;
+			if(strcmp(direntp18->d_name,font18_name)==0){
+					break;
+			}
+		}
+
 		if ( NULL == png)
-			gx_print_error(8, "interface/setting.png");                                         // ½ÇÇà Áß ¿¡·¯ ³»¿ëÀ» Ãâ·Â
+			gx_print_error(8, "interface/setting.png");                              
 		else
 		{
 		gx_bitblt( setting_frame, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
@@ -250,21 +287,37 @@ static void interface_setting(){
 				gx_bitblt( dc_buffer, 0, 0, setting_frame, 0, 0, 320, 240);
 				dc_buffer->font	= font14;
 				dc_buffer->font_color	= gx_color( 90, 90, 90, 255);
-				gx_text_out( dc_buffer, 149, 89, "font14");
-				gx_text_out( dc_buffer, 149, 124, "font18");
-				gx_text_out( dc_buffer, 149, 158, "WIFI");
-				gx_text_out( dc_buffer, 149, 198, "20");
+				gx_text_out( dc_buffer, 149, 89, font14_name);
+				gx_text_out( dc_buffer, 149, 124, font18_name);
+				gx_text_out( dc_buffer, 149, 158, network);
+				gx_text_out( dc_buffer, 149, 198, volume);
 				gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
 			
 				t_event = touch(dc_screen);
 				if(		   t_event == touch_font14) {
-								
+					if((direntp14 = readdir(dirp14))!= NULL){
+						fontloader14(direntp14->d_name);	
+					} else {
+						dirp18 = opendir("font/14pt");
+						direntp14 = readdir(dirp14);
+						fontloader14(direntp14->d_name);
+					}
 				} else if (t_event == touch_font18) {
-					
+					if((direntp18 = readdir(dirp18))!= NULL){
+						fontloader18(direntp18->d_name);	
+					} else {
+						dirp18 = opendir("font/18pt");
+						direntp18 = readdir(dirp18);
+						fontloader18(direntp18->d_name);
+					}
 				} else if (t_event == touch_network) {
-					
+					if(strcmp(network,"WIFI") == 0){
+						strcpy(network,"LINE");
+					}else{
+						strcpy(network,"WIFI");
+					}
 				} else if (t_event == touch_volume) {
-					
+					volume++;
 				} else if (t_event == touch_ok) {
 					resumeTouchevent();
 					gx_png_close( png);
@@ -292,7 +345,7 @@ static void interface_alert( char* msg){
 	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	png = gx_png_open( "interface/alert.png");
 	if ( NULL == png)
-		gx_print_error(8, "interface/alert.png");                                         // ½ÇÇà Áß ¿¡·¯ ³»¿ëÀ» Ãâ·Â
+		gx_print_error(8, "interface/alert.png");                                         // ì‹¤í–‰ ì¤‘ ì—ëŸ¬ ë‚´ìš©ì„ ì¶œë ¥
 	else
 	{
 		//100,120
@@ -317,7 +370,7 @@ static void interface_info(void){
 	addTouchevent(14, 16, 293, 211);
 	png = gx_png_open( "interface/info.png");
 	if ( NULL == png)
-		gx_print_error(8, "interface/info.png");                                         // ½ÇÇà Áß ¿¡·¯ ³»¿ëÀ» Ãâ·Â
+		gx_print_error(8, "interface/info.png");                                         // ì‹¤í–‰ ì¤‘ ì—ëŸ¬ ë‚´ìš©ì„ ì¶œë ¥
 	else
 	{
 		gx_bitblt( dc_buffer, 0, 0, (dc_t*)png, 0, 0, 320, 240);
@@ -349,16 +402,16 @@ int   main  ( int argc, char *argv[]){
 	int h_touch_home, h_touch_camera, h_touch_crop, h_touch_labeling, h_touch_edit, h_touch_result,h_touch_ok;
 	int e_touch;
 	int now_mode=0;
-	if( 2 > argc){                                                      //  ÀÎ¼ö°¡ ¾ø´Ù¸é Frame BufferÀÇ ±âº» Device NameÀº /dev/fb
+	if( 2 > argc){                                                      //  ì¸ìˆ˜ê°€ ì—†ë‹¤ë©´ Frame Bufferì˜ ê¸°ë³¸ Device Nameì€ /dev/fb
 		strcpy( fb_dev_name, "/dev/fb");
 	} else {
 		strcpy( fb_dev_name, argv[1]);
 	}
 
-	if  ( GX_SUCCESS != gx_open( fb_dev_name)           )   return 1;   // gxLib ÃÊ±âÈ­
-	if  ( NULL == ( dc_screen = gx_get_screen_dc() ) 	)   return 1;   // È­¸é Ãâ·ÂÀ» À§ÇÑ screen DC ±¸ÇÔ
+	if  ( GX_SUCCESS != gx_open( fb_dev_name)           )   return 1;   // gxLib ì´ˆê¸°í™”
+	if  ( NULL == ( dc_screen = gx_get_screen_dc() ) 	)   return 1;   // í™”ë©´ ì¶œë ¥ì„ ìœ„í•œ screen DC êµ¬í•¨
 	if  ( NULL == ( dc_buffer
-			= gx_get_compatible_dc( dc_screen) ))   return 1;   // È­¸é ±ôºýÀÓÀ» ¾ø¾Ö±â À§ÇÑ ¹öÆÛ DC
+			= gx_get_compatible_dc( dc_screen) ))   return 1;   // í™”ë©´ ê¹œë¹¡ìž„ì„ ì—†ì• ê¸° ìœ„í•œ ë²„í¼ DC
 	if  ( NULL == ( before_screen
 			= gx_get_compatible_dc( dc_screen) ))   return 1; 
 
@@ -369,8 +422,9 @@ int   main  ( int argc, char *argv[]){
 	if  ( NULL == fontloader18("malgun18.bdf") ) return 1;
 
 	printf( "running....\n");
-	printf( "screen widht= %d\n"      , dc_screen->width);              // È­¸é Æø°ú ³ÐÀÌ¸¦ Ãâ·Â
+	printf( "screen widht= %d\n"      , dc_screen->width);              // í™”ë©´ í­ê³¼ ë„“ì´ë¥¼ ì¶œë ¥
 	printf( "screen color depth= %d\n", dc_screen->colors);
+	strcpy(network,"WIFI");
 	interface_splash();
 	initTouchevent("/dev/input/event0",dc_screen);
 	h_touch_home = addTouchevent(0, 0, 44, 44);
@@ -395,7 +449,9 @@ int   main  ( int argc, char *argv[]){
 				}
 			} else if(e_touch == h_touch_camera ){
 				now_mode = 1;
+				init_camera();
 				interface_layout(CAMERA);
+				close_camera();
 			} else if(e_touch == h_touch_crop) {
 				now_mode = 2;
 				interface_alert("Please take photo");
