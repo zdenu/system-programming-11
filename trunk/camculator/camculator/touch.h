@@ -1,7 +1,12 @@
 #pragma once
 
+#include <linux/input.h>
+
 #include "thread.h"
 #include "gx.h"
+
+
+typedef struct input_event INPUT_EVENT;
 
 typedef struct touchEventArea
 {
@@ -21,8 +26,10 @@ public:
 	
 public:
 	bool init(void);
-	int addTouchevent(int x, int y, int width, int height);
-	void removeTouchevent(int num);
+	int addTouchevent(int x, int y, int width, int height, int evType);
+	int disableTouchEvent(int evType);
+	int enableTouchEvent(int evType);
+	
 	void pauseTouchevent(void);
 	void resumeTouchevent(void);
 	
@@ -34,20 +41,27 @@ public:
 private:
 	void* touchThread(Thread<TouchHandler>*, void* );
 	
+	bool dispatchTouchEvent(INPUT_EVENT& ev);
+	
 private:
-	touchEventArea eventArray[MAX_TOUCH_EVENT];
+	touchEventArea eventArray[TOUCH_EVENT_MAX];
 	int touch_evnet_cnt;
 	
 	Thread<TouchHandler> touchThreadHandle;
 	
 	bool	isRunning;
 	int		eventFd;
-	
-	
-	int		preesed;
+	int		preesed; // need to remove.
+	int		pressed;
 	
 	int		beforeEvent;
 	dc_t *touch_before;
+	
+private:
+	int beforeX;
+	int beforeY;
+	int currentX;
+	int currentY;
 	
 };
 

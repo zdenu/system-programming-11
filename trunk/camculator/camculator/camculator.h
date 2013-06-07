@@ -9,8 +9,13 @@
 #ifndef camculator_camculator_h
 #define camculator_camculator_h
 
+#include <queue>
 #include "singleton.h"
 #include "gx.h"
+#include "lock.h"
+
+
+typedef std::queue<stEvent*>	TEventQueue;
 
 class TouchHandler;
 
@@ -27,7 +32,17 @@ public:
 	int fontloader14(char* file);
 	int fontloader18(char* file);
 	
+	
+	void drawPartScreen(int x, int y, int w, int h, color_t color);
+	void drawBeforeScreen(void);
+	
+	void pushEvent(stEvent* pEv);
+	stEvent* popEvent(void);
+	
 private:
+	
+	void interfaceDispatcher(stEvent* pEv);
+	
 	void interface_Background(int mode);
 	void interface_layout(int mode);
 	void interface_loading(int mode);
@@ -41,6 +56,10 @@ private:
 	
 private:
 	TouchHandler* pTouchHandler;
+	
+
+	Lock		queueLock;
+	TEventQueue	eventQueue;
 	
 private:
 	int h_touch_home;

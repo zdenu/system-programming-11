@@ -4,7 +4,7 @@
 
 #CROSS_PREFIX	= mipsel-linux
 #CROSS_PREFIX	= arm-linux
-CROSS_PREFIX   = arm-iwmmxt-linux-gnueabi
+CROSS_PREFIX   = arm-none-linux-gnueabi
 
 ## 사용자 소스
 TARGET			= camculator

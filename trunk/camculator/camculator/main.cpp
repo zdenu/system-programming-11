@@ -13,9 +13,9 @@ int main(int argc, const char * argv[])
 {
 	Camculator::createSingleton();
 	
-	Camculator::getSingleton().init();
+	Camculator::get().init();
 	
-	Camculator::getSingleton().main();
+	Camculator::get().main();
 	
 	Camculator::destroySingleton();
 
