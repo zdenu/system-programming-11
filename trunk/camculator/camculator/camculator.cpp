@@ -88,7 +88,7 @@ bool Camculator::init(void)
 	for (int i = 0 ; i < SCREEN_TYPE_MAX ; ++i)
 	{
 		if (pState[i] != NULL)
-			pState[i]->init(dc_buffer, font14);
+			pState[i]->init(dc_buffer, font14, (ENUM_SCREEN_TYPE)i);
 	}
 
 	interface_splash();
@@ -98,7 +98,7 @@ bool Camculator::init(void)
 	// draw home screen.
 	currentState = SCREEN_TYPE_HOME;
 	pCurrentState = pState[SCREEN_TYPE_HOME];
-	pCurrentState->makeScreen(dc_buffer, dc_screen);
+	pCurrentState->makeScreen(dc_buffer, dc_screen, NULL);
 	
 }
 
@@ -131,7 +131,7 @@ void Camculator::main(void)
 		}
 		else
 		{
-			pCurrentState->makeScreen(dc_buffer, dc_screen);
+			pCurrentState->makeScreen(dc_buffer, dc_screen, NULL);
 		}
 		
 		pCurrentState->drawScreen(dc_buffer, dc_screen);
@@ -150,68 +150,37 @@ void Camculator::interfaceDispatcher(stEvent* pEv)
 	int event = *(int*)(pEv->pData);
 	
 	// dispatching about touch event.
-	pCurrentState->dispatchTouchEvent((ENUM_TOUCH_EVENT)event);
+	void* pParam = NULL;
+
+	pCurrentState->dispatchTouchEvent((ENUM_TOUCH_EVENT)event, &pParam);
 	
+	printf("pParam : %x\n", pParam);
 	// get screen type by event.
-	int state = getCurrentScreenType(event);
+	int nextState = getNextScreenType(event);
 	
-	if (state != SCREEN_TYPE_MAX)
+	if (nextState != SCREEN_TYPE_MAX)
 	{
-		currentState = state;
+		currentState = nextState;
 		
-		if (pState[state] != NULL)
-			pCurrentState = pState[state];
+		if (pState[currentState] != NULL)
+		{
+			pCurrentState->disableTouchEvents();
+			pCurrentState = pState[currentState];
+			pCurrentState->enableTouchEvents();
+		}
 		
 	}
-	printf("State : %d\n", state);
+	printf("State : %d\n", currentState);
 	
 	
 	
-	pCurrentState->makeScreen(dc_buffer, dc_screen);
+	pCurrentState->makeScreen(dc_buffer, dc_screen, pParam);
+	
+	if (pParam != NULL)
+		delete pParam;
 	
 }
 
-
-void Camculator::interface_Background(int mode)
-{
-//	png_t*	back;
-//	back = (png_t*)gx_png_create(320, 240);
-//	switch(mode) {
-//		case TOUCH_EVENT_MAIN_CROP :
-//			gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
-//			gx_rectangle( dc_buffer, 50, 50, 100, 100);
-//			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
-//			break;
-//		case TOUCH_EVENT_MAIN_LABELING :
-//			gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
-//			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
-//			break;
-//		case TOUCH_EVENT_MAIN_EDIT :
-//			back = (png_t*)gx_png_open((char*)"interface/background/edit.png");
-//			//display edit//
-//			gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 255));
-//			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
-//			dc_buffer->font	= font14;
-//			dc_buffer->font_color	= gx_color( 0, 0, 0, 255);
-//			//sprintf( buff, "%s", msg);
-//			gx_text_out( dc_buffer, 9, 75 , "lim (15x^2/621x)");
-//			gx_text_out( dc_buffer, 9, 108, "integral(4x+2)");
-//			gx_text_out( dc_buffer, 9, 145, "sum(4x*8)");
-//			gx_text_out( dc_buffer, 9, 178, "sum(4x*8)");
-//			break;
-//		case TOUCH_EVENT_MAIN_RESULT :
-//			gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
-//			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
-//			break;
-//	}
-//	if ( back == NULL){
-//		gx_print_error(8,"background");                                       // 실행 중 에러 내용을 출력
-//	}else
-//	{
-//		//gx_bitblt( dc_screen, 0, 0, ( dc_t *)dc_buffer, 0, 0,320, 48);
-//		gx_png_close((dc_t*)back);
-//	}
-}
 void Camculator::initSettingLayout(void)
 {
 	if (isSettingInitialized == true)
@@ -295,7 +264,7 @@ void Camculator::interface_layout(int mode, int state)
 		active = (png_t*)gx_png_create( 63, 49);
 		gx_clear( ( dc_t *)active, gx_color( 255, 255, 255, 100));
 		x = 64*(mode-1);
-		interface_Background(mode);
+//		interface_Background(mode);
 		switch(mode){
 			case TOUCH_EVENT_MAIN_HOME:
 				title = (png_t*)gx_png_open( "interface/title/home.png");
@@ -347,17 +316,6 @@ void Camculator::interface_layout(int mode, int state)
 		}
 	}
 }
-
-//두가지 방법이 있는데 속도 테스트 해봐야함.
-/*
-static void interface_home( void){
-    dc_t       *dc_comp;
-    dc_comp = gx_get_compatible_dc(dc_screen);             // dc_screen의 클론을 만듦
-
-    gx_open_file( dc_comp, "interface/home.png");                   // 파일을 open
-    gx_bitblt( dc_screen, 0, 0, dc_comp, 0, 0, dc_screen->width, dc_screen->height);
-}
- */
 
 
 void Camculator::interface_splash(void)
@@ -536,7 +494,7 @@ void Camculator::drawBeforeScreen(void)
 	gx_bitblt(dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
 }
 
-int Camculator::getCurrentScreenType(int mode)
+int Camculator::getNextScreenType(int mode)
 {
 	int ret = SCREEN_TYPE_MAX;
 	
@@ -564,7 +522,10 @@ int Camculator::getCurrentScreenType(int mode)
 //				ret = SCREEN_TYPE_SETTING;
 //				break;
 			case TOUCH_EVENT_MAIN_HOME:
-				ret = SCREEN_TYPE_HOME;
+				if (currentState == SCREEN_TYPE_HOME)
+					ret = SCREEN_TYPE_SETTING;
+				else
+					ret = SCREEN_TYPE_HOME;
 				break;
 			case TOUCH_EVENT_MAIN_CAMERA:
 				ret = SCREEN_TYPE_CAMERA;
@@ -581,6 +542,20 @@ int Camculator::getCurrentScreenType(int mode)
 			case TOUCH_EVENT_MAIN_RESULT:
 				ret = SCREEN_TYPE_RESULT;
 				break;
+			case TOUCH_EVENT_MAIN_OK:
+			{
+				if (currentState == SCREEN_TYPE_HOME)
+					ret = SCREEN_TYPE_INFO;
+				else if (currentState == SCREEN_TYPE_CAMERA)
+					ret = SCREEN_TYPE_CROP;
+				else if (currentState == SCREEN_TYPE_CROP)
+					ret = SCREEN_TYPE_LABELING;
+				else if (currentState == SCREEN_TYPE_LABELING)
+					ret = SCREEN_TYPE_EDIT;
+				else if (currentState == SCREEN_TYPE_EDIT)
+					ret = SCREEN_TYPE_RESULT;
+				break;
+			}
 		}
 	}
 	

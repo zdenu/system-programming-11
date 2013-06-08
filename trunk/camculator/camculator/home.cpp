@@ -18,9 +18,9 @@ Home::~Home()
 {
 	
 }
-bool Home::init(dc_t* dc_buffer, font_t* pFont)
+bool Home::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
-	State::init(dc_buffer, pFont);
+	State::init(dc_buffer, pFont, state);
 	
 	if (back != NULL)
 		gx_png_close((dc_t*)back);
@@ -35,9 +35,9 @@ bool Home::init(dc_t* dc_buffer, font_t* pFont)
 	button2 = (png_t*)gx_png_open((char*)"interface/button/setting.png");
 }
 
-bool Home::makeBackground(dc_t *dc_buffer)
+bool Home::makeBackground(dc_t *dc_buffer, void* pParam)
 {
-	if (State::makeBackground(dc_buffer) == false)
+	if (State::makeBackground(dc_buffer, pParam) == false)
 		return false;
 	
 	if (dc_buffer == NULL || back == NULL)
@@ -47,12 +47,12 @@ bool Home::makeBackground(dc_t *dc_buffer)
 	gx_bitblt(dc_buffer, 0, 0, (dc_t *)back, 0, 0, back->width, back->height);	
 }
 
-bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
+bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
-	if (this->makeBackground(dc_buffer) == false)
+	if (this->makeBackground(dc_buffer, pParam) == false)
 		return false;
 	
-	if (State::makeScreen(dc_buffer, dc_screen) == false)
+	if (State::makeScreen(dc_buffer, dc_screen, pParam) == false)
 		return false;
 	
 	gx_text_out( dc_buffer, 58, 115, (char*)"lim (15x^2/621x)");
@@ -62,7 +62,7 @@ bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
 }
 
 
-int Home::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent)
+int Home::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam)
 {
 	// 
 	return true;

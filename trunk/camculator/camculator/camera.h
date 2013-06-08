@@ -13,16 +13,17 @@ public:
 	virtual ~Camera(void);
 	
 public:
-	virtual bool init(dc_t* dc_buffer, font_t* pFont);
-	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen);
+	virtual bool init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state);
+	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual bool close(void);
 	
-	virtual int dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent);
+	virtual int dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam);
 	
 protected:
-	virtual bool makeBackground(dc_t* dc_buffer);
+	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);
 	
 private:
+	dc_t* dc_camera;
 	int cameraFd;
 };
 

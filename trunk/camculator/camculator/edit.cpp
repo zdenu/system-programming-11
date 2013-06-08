@@ -16,9 +16,9 @@ Edit::~Edit()
 {
 }
 
-bool Edit::init(dc_t* dc_buffer, font_t* pFont)
+bool Edit::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
-	State::init(dc_buffer, pFont);
+	State::init(dc_buffer, pFont, state);
 	
 	if (back != NULL)
 		gx_png_close((dc_t*)back);
@@ -29,9 +29,10 @@ bool Edit::init(dc_t* dc_buffer, font_t* pFont)
 	
 	return true;
 }
-bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
+bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
-	State::makeScreen(dc_buffer, dc_screen);
+	this->makeBackground(dc_buffer, pParam);
+	State::makeScreen(dc_buffer, dc_screen, pParam);
 	
 	gx_text_out( dc_buffer, 9, 75 , "lim (15x^2/621x)");
 	gx_text_out( dc_buffer, 9, 108, "integral(4x+2)");
@@ -40,14 +41,14 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
 
 	return true;
 }
-int Edit::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent)
+int Edit::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam)
 {
 	return true;
 }
 
-bool Edit::makeBackground(dc_t* dc_buffer)
+bool Edit::makeBackground(dc_t* dc_buffer, void* pParam)
 {
-	State::makeBackground(dc_buffer);
+	State::makeBackground(dc_buffer, pParam);
 
 	gx_clear( ( dc_t *)dc_buffer, gx_color( 0, 0, 0, 255));
 	gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);	

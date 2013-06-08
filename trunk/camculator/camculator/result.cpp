@@ -16,29 +16,29 @@ Result::~Result()
 {
 }
 
-bool Result::init(dc_t* dc_buffer, font_t* pFont)
+bool Result::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
-	State::init(dc_buffer, pFont);
+	State::init(dc_buffer, pFont, state);
 	
 	title = (png_t*)gx_png_open( "interface/title/result.png");
 	button = (png_t*)gx_png_open( "interface/button/send.png");
 
 	return true;
 }
-bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
+bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
-	
-	State::makeScreen(dc_buffer, dc_screen);
+	this->makeBackground(dc_buffer, pParam);
+	State::makeScreen(dc_buffer, dc_screen, pParam);
 	return true;
 }
-int Result::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent)
+int Result::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam)
 {
 	return true;
 }
 
-bool Result::makeBackground(dc_t* dc_buffer)
+bool Result::makeBackground(dc_t* dc_buffer, void* pParam)
 {
-	State::makeBackground(dc_buffer);
+	State::makeBackground(dc_buffer, pParam);
 	
 	gx_clear( ( dc_t *)back, gx_color( 255, 255, 255, 255));
 	gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
