@@ -20,20 +20,23 @@ public:
 	
 public:
 	virtual bool init(dc_t* dc_buffer, font_t* pFont);
-	
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen);
 	virtual bool close(void);
 	
 	
 
-	bool dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent);
+	virtual int dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent) = 0;
+	
+	virtual void disableTouchEvents(void);
+	virtual void enableTouchEvents(void);
 	
 	ENUM_SCREEN_TYPE getScreenType(void)		{ return state; }
 	void setScreenType(ENUM_SCREEN_TYPE state)	{ this->state = state; }
 	
+	bool drawScreen(dc_t* dc_buffer, dc_t* dc_screen);
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer);
-	bool drawScreen(dc_t* dc_buffer, dc_t* dc_screen);
+
 	void setFont(dc_t* dc_buffer);
 	
 protected:

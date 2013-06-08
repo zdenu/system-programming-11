@@ -1,23 +1,24 @@
 //
-//  home.h
+//  result.h
 //  camculator
 //
-//  Created by Christopher Kim on 6/7/13.
+//  Created by Christopher Kim on 6/8/13.
 //  Copyright (c) 2013 Christopher Kim. All rights reserved.
 //
 
-#ifndef __camculator__home__
-#define __camculator__home__
+#ifndef __camculator__result__
+#define __camculator__result__
+
 
 #include "define.h"
 #include "state.h"
 
 
-class Home : public State
+class Result : public State
 {
 public:
-	Home(void);
-	virtual ~Home(void);
+	Result(void);
+	virtual ~Result(void);
 	
 public:
 	virtual bool init(dc_t* dc_buffer, font_t* pFont);
@@ -28,4 +29,5 @@ protected:
 	virtual bool makeBackground(dc_t* dc_buffer);
 };
 
-#endif /* defined(__camculator__home__) */
+
+#endif /* defined(__camculator__result__) */

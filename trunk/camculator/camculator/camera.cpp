@@ -12,6 +12,10 @@ Camera::Camera(void)
 {
 }
 
+Camera::~Camera(void)
+{
+}
+
 bool Camera::init(dc_t* dc_buffer, font_t* pFont)
 {
 	State::init(dc_buffer, pFont);
@@ -50,9 +54,6 @@ bool Camera::makeScreen(dc_t *dc_buffer, dc_t *dc_screen)
 	if (State::makeScreen(dc_buffer, dc_screen) == false)
 		return false;
 	
-	
-	drawScreen(dc_buffer, dc_screen);
-	
 	return true;
 }
 
@@ -61,6 +62,11 @@ bool Camera::close(void)
 	State::close();
 	
 	::close(cameraFd);
+}
+
+int Camera::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent)
+{
+	return true;
 }
 
 

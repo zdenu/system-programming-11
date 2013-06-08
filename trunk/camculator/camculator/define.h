@@ -39,8 +39,8 @@ typedef UCHAR			BYTE;
 #define TOUCH_EVENT_DEVICE		"/dev/input/event0"
 #define CAMERA_DEVICE			"/dev/camera"
 
-#define FONT_MALGUN_14			"font/malgun14.bdf"
-#define FONT_MALGUN_18			"font/malgun18.bdf"
+#define FONT_MALGUN_14			"font/14pt/malgun14.bdf"
+#define FONT_MALGUN_18			"font/18pt/malgun18.bdf"
 
 #define WOLFRAM_ALPHA_APP_ID	"EUGLWW-4XTP6Q3GK2"
 #define WOLFRAM_ALPHA_HOST		"api.wolframalpha.com"
@@ -64,8 +64,8 @@ enum ENUM_SCREEN_TYPE
 {
 	SCREEN_TYPE_HOME = 0,
 	SCREEN_TYPE_CAMERA,
-	SCREEN_TYPE_LABELING,
 	SCREEN_TYPE_CROP,
+	SCREEN_TYPE_LABELING,
 	SCREEN_TYPE_EDIT,
 	SCREEN_TYPE_RESULT,
 	SCREEN_TYPE_INFO,

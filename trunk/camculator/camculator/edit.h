@@ -1,31 +1,32 @@
+//
+//  edit.h
+//  camculator
+//
+//  Created by Christopher Kim on 6/8/13.
+//  Copyright (c) 2013 Christopher Kim. All rights reserved.
+//
 
-
-#ifndef __camculator__camera__
-#define __camculator__camera__
+#ifndef __camculator__edit__
+#define __camculator__edit__
 
 #include "define.h"
 #include "state.h"
 
-class Camera : public State
+
+class Edit : public State
 {
 public:
-	Camera(void);
-	virtual ~Camera(void);
+	Edit(void);
+	virtual ~Edit(void);
 	
 public:
 	virtual bool init(dc_t* dc_buffer, font_t* pFont);
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen);
-	virtual bool close(void);
-	
 	virtual int dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent);
 	
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer);
-	
-private:
-	int cameraFd;
 };
 
-#endif /* defined(__camculator__camera__) */
 
-
+#endif /* defined(__camculator__edit__) */

@@ -39,6 +39,11 @@ public:
 	void pushEvent(stEvent* pEv);
 	stEvent* popEvent(void);
 	
+	dc_t* getScreen(void) { return dc_screen; }
+	dc_t* getBeforeScreen(void) { return before_screen; }
+	
+	TouchHandler* getTouchHandler(void) { return pTouchHandler; }
+	
 private:
 	void initSettingLayout(void);
 	
@@ -53,13 +58,14 @@ private:
 	void interface_alert(char* msg);
 	void interface_info(void);
 	
-	void initTouchEvents(int state);
+	void initTouchEvents(void);
 	
-	int getCurrentState(int mode);
+	int getCurrentScreenType(int mode);
 	
 	void disableSettingEvent(void);
 	
 private:
+	State* pCurrentState;
 	
 	State* pState[SCREEN_TYPE_MAX];
 	

@@ -9,6 +9,15 @@
 #include "home.h"
 
 
+Home::Home()
+{
+	
+}
+
+Home::~Home()
+{
+	
+}
 bool Home::init(dc_t* dc_buffer, font_t* pFont)
 {
 	State::init(dc_buffer, pFont);
@@ -17,21 +26,11 @@ bool Home::init(dc_t* dc_buffer, font_t* pFont)
 		gx_png_close((dc_t*)back);
 	
 	back = (png_t*)gx_png_open((char*)"interface/background/home.png");
-		
-	gx_text_out( dc_buffer, 58, 115, (char*)"lim (15x^2/621x)");
-	gx_text_out( dc_buffer, 58, 146, (char*)"integral(4x+2)");
-	gx_text_out( dc_buffer, 58, 175, (char*)"sum(4x*8)");
-
-	// Examples.
-	gx_text_out( dc_buffer, 58, 115, (char*)"lim (15x^2/621x)");
-	gx_text_out( dc_buffer, 58, 146, (char*)"integral(4x+2)");
-	gx_text_out( dc_buffer, 58, 175, (char*)"sum(4x*8)");
-	
 	title = (png_t*)gx_png_open( "interface/title/home.png");
 	button = (png_t*)gx_png_open( "interface/button/info.png");
 	
 	if (button2 != NULL)
-		gx_png_close((dc_t*)button2)
+		gx_png_close((dc_t*)button2);
 		
 	button2 = (png_t*)gx_png_open((char*)"interface/button/setting.png");
 }
@@ -56,5 +55,15 @@ bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
 	if (State::makeScreen(dc_buffer, dc_screen) == false)
 		return false;
 	
-	drawScreen(dc_buffer, dc_screen);
+	gx_text_out( dc_buffer, 58, 115, (char*)"lim (15x^2/621x)");
+	gx_text_out( dc_buffer, 58, 146, (char*)"integral(4x+2)");
+	gx_text_out( dc_buffer, 58, 175, (char*)"sum(4x*8)");
+	
+}
+
+
+int Home::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent)
+{
+	// 
+	return true;
 }
