@@ -6,7 +6,7 @@
 #include "gx.h"
 
 
-typedef struct input_event INPUT_EVENT;
+//typedef struct input_event INPUT_EVENT;
 
 typedef struct touchEventArea
 {
@@ -25,7 +25,7 @@ public:
 	~TouchHandler();
 	
 public:
-	bool init(void);
+	bool init(dc_t* dc_screen);
 	int addTouchevent(int x, int y, int width, int height, int evType);
 	int disableTouchEvent(int evType);
 	int enableTouchEvent(int evType);
@@ -41,7 +41,7 @@ public:
 private:
 	void* touchThread(Thread<TouchHandler>*, void* );
 	
-	bool dispatchTouchEvent(INPUT_EVENT& ev);
+	bool dispatchTouchEvent(struct input_event& ev);
 	
 private:
 	touchEventArea eventArray[TOUCH_EVENT_MAX];
@@ -51,17 +51,10 @@ private:
 	
 	bool	isRunning;
 	int		eventFd;
-	int		preesed; // need to remove.
 	int		pressed;
 	
 	int		beforeEvent;
-	dc_t *touch_before;
-	
-private:
-	int beforeX;
-	int beforeY;
-	int currentX;
-	int currentY;
-	
+	dc_t	*touch_before;
+		
 };
 

@@ -7,6 +7,8 @@
 //
 
 #include "state.h"
+#include "touch.h"
+#include "camculator.h"
 
 State::State()
 : top(NULL)
@@ -121,4 +123,26 @@ bool State::close(void)
 		gx_png_close((dc_t*)back);
 		back = NULL;
 	}
+}
+
+void State::disableTouchEvents(void)
+{
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_MAIN_HOME);
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_MAIN_CAMERA);
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_MAIN_CROP);
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_MAIN_LABELING);
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_MAIN_EDIT);
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_MAIN_RESULT);
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_MAIN_OK);
+}
+void State::enableTouchEvents(void)
+{
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_MAIN_HOME);
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_MAIN_CAMERA);
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_MAIN_CROP);
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_MAIN_LABELING);
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_MAIN_EDIT);
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_MAIN_RESULT);
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_MAIN_OK);
+	
 }
