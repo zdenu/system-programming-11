@@ -60,7 +60,7 @@ private:
 	
 	void initTouchEvents(void);
 	
-	int getCurrentScreenType(int mode);
+	int getNextScreenType(int mode);
 	
 	void disableSettingEvent(void);
 	

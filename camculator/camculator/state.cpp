@@ -27,7 +27,7 @@ State::~State()
 
 
 
-bool State::init(dc_t* dc_buffer, font_t* pFont)
+bool State::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	top			= (png_t*)gx_png_open("interface/top.png");
 	bottom		= (png_t*)gx_png_open("interface/menu.png");
@@ -35,6 +35,7 @@ bool State::init(dc_t* dc_buffer, font_t* pFont)
 	back		= (png_t*)gx_png_create(320, 240);
 	active		= (png_t*)gx_png_create(63, 49);
 	font		= pFont;
+	this->state = state;
 
 	gx_clear((dc_t *)active, gx_color(255, 255, 255, 100));
 }
@@ -45,12 +46,12 @@ void State::setFont(dc_t* dc_buffer)
 	dc_buffer->font_color = gx_color( 0, 0, 0, 255);
 }
 
-bool State::makeBackground(dc_t *dc_buffer)
+bool State::makeBackground(dc_t *dc_buffer, void* pParam)
 {
 	return true;
 }
 
-bool State::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
+bool State::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
 	if ((top == NULL) ||
 		(title == NULL) ||
@@ -66,14 +67,14 @@ bool State::makeScreen(dc_t* dc_buffer, dc_t* dc_screen)
 	{
 		setFont(dc_buffer);
 		
-		int x = 64 * (touchEvent - 1);
+		int x = 64 * (state - 1);
 		gx_bitblt(dc_buffer, 0, 0, (dc_t *)top, 0, 0, top->width, top->height);
 		gx_bitblt(dc_buffer, 98, 8, (dc_t *)title, 0, 0, title->width, title->height);
 		gx_bitblt(dc_buffer, 281, 7, (dc_t *)button, 0, 0, button->width, button->height);
 		gx_bitblt(dc_buffer, 4, 6, (dc_t *)button2, 0, 0, button->width, button->height);
 		gx_bitblt(dc_buffer, 0, 191, (dc_t *)bottom, 0, 0, bottom->width, bottom->height);
 		
-		if(x > 0)
+		if(x >= 0)
 			gx_bitblt( dc_buffer, x, 191, ( dc_t *)active, 0, 0, active->width, active->height);
 	}
 }

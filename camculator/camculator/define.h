@@ -15,6 +15,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#include "gx.h"
+
 typedef bool			BOOL;
 typedef int16_t			SHORT;
 typedef int32_t			INT;
@@ -33,7 +35,7 @@ typedef UCHAR			BYTE;
 
 #define MAX_TOUCH_EVENT		10
 #define EVENT_BUF_NUM		64
-
+#define SCREEN_BUFFER_SIZE	240 * 320 * 2
 
 #define FRAME_BUFFER_DEVICE		"/dev/fb"
 #define TOUCH_EVENT_DEVICE		"/dev/input/event0"
@@ -85,6 +87,7 @@ enum ENUM_TOUCH_EVENT
 	TOUCH_EVENT_MAIN_EDIT,				// mode, state
 	TOUCH_EVENT_MAIN_RESULT,			// mode, state
 	TOUCH_EVENT_MAIN_OK,				// mode, state	//
+	
 	// used in setting.
 	TOUCH_EVENT_SETTING_OPEN,			// mode, state
 	TOUCH_EVENT_SETTING_CLOSE,			// mode
@@ -110,6 +113,8 @@ enum ENUM_EVENT_TYPE
 	EVENT_TYPE_MAX,
 };
 
+#pragma pack(1)
+
 struct stEvent
 {
 	stEvent(void)
@@ -125,10 +130,30 @@ struct stEvent
 	
 };
 
+struct stTouchData
+{
+	stTouchData(void){}
+	
+	int x;
+	int y;
+};
+
 struct stImageData
 {
+	stImageData(void) : pBuffer(NULL), size(NULL){}
+	~stImageData(void) { if (pBuffer != NULL) delete [] pBuffer; }
 	char*	pBuffer;
 	int32_t size;
 };
+
+struct stCameraData
+{
+	stCameraData(void) : dc_camera(NULL){}
+	~stCameraData(void) { if (dc_camera != NULL) gx_release_dc(dc_camera); }
+	
+	dc_t* dc_camera;
+};
+
+#pragma pack()
 
 #endif

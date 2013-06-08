@@ -5,9 +5,6 @@
 #include "thread.h"
 #include "gx.h"
 
-
-//typedef struct input_event INPUT_EVENT;
-
 typedef struct touchEventArea
 {
 	touchEventArea() : x(0), y(0), w(0), h(0), enable(0){}
