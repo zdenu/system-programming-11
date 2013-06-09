@@ -7,6 +7,10 @@
 #include <iostream>
 #include "BlobLabeling.h"
 
+#define RED_MASK 0xF800
+#define GREEN_MASK 0x07E0
+#define BLUE_MASK 0x001F
+
 #define TEMPLATE_NUM 39
 #define TEMPLATE_FONT 1
 
@@ -20,6 +24,37 @@ int definedIntStartFlg = 0;
 int definedIntEndFlg = 0;
 string definedIntVariable;
 
+
+
+IplImage* rgb565to888(unsigned short *rgb565Data ,int width, int height)
+{
+    IplImage *rgb888Image = cvCreateImage(cvSize(width, height), IPL_DEPTH_8U, 3);
+    int rgb565Step = width;
+
+    uchar* rgb888Data = (uchar*)rgb888Image->imageData;
+
+    float factor5Bit = 255.0 / 31.0;
+    float factor6Bit = 255.0 / 63.0;
+    for(int i = 0; i < height; i++)
+	    {
+		for(int j = 0; j < width; j++)
+		{
+		    unsigned short rgb565 = rgb565Data[i*rgb565Step + j];
+		    uchar r5 = (rgb565 & RED_MASK)   >> 11;
+		    uchar g6 = (rgb565 & GREEN_MASK) >> 5;
+		    uchar b5 = (rgb565 & BLUE_MASK);
+		    // round answer to closest intensity in 8-bit space...
+		    uchar r8 = floor((r5 * factor5Bit) + 0.5);
+		    uchar g8 = floor((g6 * factor6Bit) + 0.5);
+		    uchar b8 = floor((b5 * factor5Bit) + 0.5);
+			
+		    rgb888Data[i*rgb888Image->widthStep + j]       = r8;
+		    rgb888Data[i*rgb888Image->widthStep + (j + 1)] = g8;
+		    rgb888Data[i*rgb888Image->widthStep + (j + 2)] = b8;
+		}
+	    }
+   return rgb888Image;
+}
 
 int matching(IplImage *srcImage, double* error)
 {
@@ -149,7 +184,7 @@ int main( int argc, char** argv )
     IplImage* pLabeledImg = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, 3);
     IplImage* pGrayImg_inv = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, pGrayImg->nChannels);
 
-
+		
     IplConvKernel *element1;
     element1 = cvCreateStructuringElementEx (3, 3, 2, 2, CV_SHAPE_RECT, NULL);
     IplConvKernel *element2;
