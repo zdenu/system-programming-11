@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ $1 = "arm" ]
+then
+ arm-linux-g++ -o $2 $3 -I/usr/local/arm/include/opencv2 -I/usr/local/arm/include/opencv -I/usr/local/arm/include -L/usr/local/arm/lib -lopencv_highgui -lopencv_imgproc -lopencv_core  
+else
+ g++ -o $2 $3 -I/usr/local/include/opencv2 -I/usr/local/include/opencv -I/usr/local/include -L/usr/local/lib -lopencv_highgui -lopencv_imgproc -lopencv_core  
+fi
+
+
+

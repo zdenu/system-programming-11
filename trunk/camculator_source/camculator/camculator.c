@@ -8,6 +8,7 @@
 #include <gxpng.h>
 #include "touch.h"
 #include "camera.h"
+#include "mp3.h"
 
 /** ----------------------------------------------------------------------------
 @brief  버퍼 크기 정의
@@ -144,22 +145,27 @@ static void interface_layout(int mode){
 		button2 = gx_png_open( "interface/button/setting.png");
 		break;
 	case CAMERA :
+		MP3_play("/mnt/usb/sound/voice/takephoto.mp3");	
 		title = gx_png_open( "interface/title/camera.png");
 		button = gx_png_open( "interface/button/camera.png");
 		break;
 	case CROP :
+		MP3_play("/mnt/usb/sound/voice/crop1.mp3");	
 		title = gx_png_open( "interface/title/crop.png");
 		button = gx_png_open( "interface/button/check.png");
 		break;
 	case LABELING :
+		MP3_play("/mnt/usb/sound/voice/labeling.mp3");	
 		title = gx_png_open( "interface/title/labeling.png");
 		button = gx_png_open( "interface/button/check.png");
 		break;
 	case EDIT :
+		MP3_play("/mnt/usb/sound/voice/edit.mp3");	
 		title = gx_png_open( "interface/title/edit.png");
 		button = gx_png_open( "interface/button/check.png");
 		break;
 	case RESULT :
+		MP3_play("/mnt/usb/sound/voice/result.mp3");	
 		title = gx_png_open( "interface/title/result.png");
 		button = gx_png_open( "interface/button/send.png");
 		break;
@@ -194,7 +200,7 @@ static void interface_movie( char* file, int max, int fps){
 	int i;
 	fps = 1000000/fps;
 	pauseTouchevent();
-	gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
+	//gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 	for(i=0;i<max;i++) {
 	sprintf(namebuff,"%s%04d.png",file,(i+1));
 	png = gx_png_open(namebuff);
@@ -202,20 +208,22 @@ static void interface_movie( char* file, int max, int fps){
 			gx_print_error(8, namebuff);                                         
 		else
 		{
-			gx_bitblt( dc_buffer, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
-			gx_bitblt( dc_buffer, 0, 0, (dc_t*)png, 0, 0, 320, 240);
-			gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
+		//	gx_bitblt( dc_buffer, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
+		//	gx_bitblt( dc_buffer, 0, 0, (dc_t*)png, 0, 0, 320, 240);
+		//	gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
+			gx_bitblt( dc_screen, 0, 0, (dc_t*)png, 0, 0, 320, 240);
 			gx_png_close( png);
 			usleep(fps);
 		}
 	}
 	resumeTouchevent();
-	gx_bitblt( dc_screen, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
+	//gx_bitblt( dc_screen, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
 }
 
 static void interface_splash( void){
+	MP3_play("/mnt/usb/sound/boot.mp3");	  
 	interface_movie("interface/intro/intro", 99 , 24);
-	sleep(1);
+	sleep(2);
 }
 
 static void interface_loading(int mode){
@@ -421,6 +429,7 @@ int   main  ( int argc, char *argv[]){
 	if  ( NULL == fontloader14("malgun14.bdf") ) return 1;
 	if  ( NULL == fontloader18("malgun18.bdf") ) return 1;
 
+	MP3_initialize();
 	printf( "running....\n");
 	printf( "screen widht= %d\n"      , dc_screen->width);              // 화면 폭과 넓이를 출력
 	printf( "screen color depth= %d\n", dc_screen->colors);
@@ -435,6 +444,7 @@ int   main  ( int argc, char *argv[]){
 	h_touch_result = addTouchevent(254, 191, 63, 49);
 	h_touch_ok = addTouchevent(276, 0, 44, 44);
 	//sleep(1);
+	MP3_play("/mnt/usb/sound/voice/welcome.mp3");	
 	interface_layout(HOME);
 	now_mode = 0;
 	//usleep(1000);
