@@ -4,12 +4,11 @@
 
 #CROSS_PREFIX	= mipsel-linux
 #CROSS_PREFIX	= arm-linux
-CROSS_PREFIX   = arm-none-linux-gnueabi
+CROSS_PREFIX   = arm-linux
 
 ## 사용자 소스
 TARGET			= camculator
-SRCS				= camculator.c touch.c camera.c
-
+SRCS			= camculator.c touch.c camera.c mp3.c
 
 #---------------------------------------------------------------------
 ## 소스레벨의 라이브러리

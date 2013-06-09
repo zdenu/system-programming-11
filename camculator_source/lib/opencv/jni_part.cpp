@@ -275,107 +275,107 @@ JNIEXPORT jstring JNICALL Java_kr_ac_ajou_ddozzip_calmera_OpencvActivity_FindFea
 
 	CvScalar color = cvScalar(255, 0, 0);
 
-	if((tImage[0][0] = cvLoadImage("/sdcard/calmera_img/0_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[0][1] = cvLoadImage("/sdcard/calmera_img/0_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[0][0] = cvLoadImage("ocr_templete/0_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[0][1] = cvLoadImage("ocr_templete/0_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[1][0] = cvLoadImage("/sdcard/calmera_img/1_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[1][1] = cvLoadImage("/sdcard/calmera_img/1_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[1][0] = cvLoadImage("ocr_templete/1_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[1][1] = cvLoadImage("ocr_templete/1_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[2][0] = cvLoadImage("/sdcard/calmera_img/2_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[2][1] = cvLoadImage("/sdcard/calmera_img/2_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[2][0] = cvLoadImage("ocr_templete/2_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[2][1] = cvLoadImage("ocr_templete/2_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[3][0] = cvLoadImage("/sdcard/calmera_img/3_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[3][1] = cvLoadImage("/sdcard/calmera_img/3_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[3][0] = cvLoadImage("ocr_templete/3_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[3][1] = cvLoadImage("ocr_templete/3_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[4][0] = cvLoadImage("/sdcard/calmera_img/4_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[4][1] = cvLoadImage("/sdcard/calmera_img/4_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[4][0] = cvLoadImage("ocr_templete/4_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[4][1] = cvLoadImage("ocr_templete/4_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[5][0] = cvLoadImage("/sdcard/calmera_img/5_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[5][1] = cvLoadImage("/sdcard/calmera_img/5_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[5][0] = cvLoadImage("ocr_templete/5_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[5][1] = cvLoadImage("ocr_templete/5_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[6][0] = cvLoadImage("/sdcard/calmera_img/6_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[6][1] = cvLoadImage("/sdcard/calmera_img/6_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[6][0] = cvLoadImage("ocr_templete/6_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[6][1] = cvLoadImage("ocr_templete/6_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[7][0] = cvLoadImage("/sdcard/calmera_img/7_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[7][1] = cvLoadImage("/sdcard/calmera_img/7_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[7][0] = cvLoadImage("ocr_templete/7_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[7][1] = cvLoadImage("ocr_templete/7_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[8][0] = cvLoadImage("/sdcard/calmera_img/8_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[8][1] = cvLoadImage("/sdcard/calmera_img/8_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[8][0] = cvLoadImage("ocr_templete/8_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[8][1] = cvLoadImage("ocr_templete/8_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[9][0] = cvLoadImage("/sdcard/calmera_img/9_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[9][1] = cvLoadImage("/sdcard/calmera_img/9_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[9][0] = cvLoadImage("ocr_templete/9_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[9][1] = cvLoadImage("ocr_templete/9_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[10][0] = cvLoadImage("/sdcard/calmera_img/plus_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[10][1] = cvLoadImage("/sdcard/calmera_img/plus_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[10][0] = cvLoadImage("ocr_templete/plus_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[10][1] = cvLoadImage("ocr_templete/plus_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[11][0] = cvLoadImage("/sdcard/calmera_img/minus_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
-//	if((tImage[11][1] = cvLoadImage("/sdcard/calmera_img/minus_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+	if((tImage[11][0] = cvLoadImage("ocr_templete/minus_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
+//	if((tImage[11][1] = cvLoadImage("ocr_templete/minus_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL) ;
 
-	if((tImage[12][0] = cvLoadImage("/sdcard/calmera_img/divide_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[12][1] = cvLoadImage("/sdcard/calmera_img/divide_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[12][0] = cvLoadImage("ocr_templete/divide_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[12][1] = cvLoadImage("ocr_templete/divide_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[13][0] = cvLoadImage("/sdcard/calmera_img/pi_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-	if((tImage[13][1] = cvLoadImage("/sdcard/calmera_img/pi_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[13][0] = cvLoadImage("ocr_templete/pi_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[13][1] = cvLoadImage("ocr_templete/pi_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[14][0] = cvLoadImage("/sdcard/calmera_img/bracket_l_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[14][1] = cvLoadImage("/sdcard/calmera_img/bracket_l_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[14][0] = cvLoadImage("ocr_templete/bracket_l_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[14][1] = cvLoadImage("ocr_templete/bracket_l_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[15][0] = cvLoadImage("/sdcard/calmera_img/bracket_r_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[15][1] = cvLoadImage("/sdcard/calmera_img/bracket_r_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[15][0] = cvLoadImage("ocr_templete/bracket_r_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[15][1] = cvLoadImage("ocr_templete/bracket_r_2.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[16][0] = cvLoadImage("/sdcard/calmera_img/A.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[16][1] = cvLoadImage("/sdcard/calmera_img/A.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[16][0] = cvLoadImage("ocr_templete/A.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[16][1] = cvLoadImage("ocr_templete/A.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[17][0] = cvLoadImage("/sdcard/calmera_img/L.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[17][1] = cvLoadImage("/sdcard/calmera_img/L.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[17][0] = cvLoadImage("ocr_templete/L.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[17][1] = cvLoadImage("ocr_templete/L.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[18][0] = cvLoadImage("/sdcard/calmera_img/t_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[18][1] = cvLoadImage("/sdcard/calmera_img/t.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[18][0] = cvLoadImage("ocr_templete/t_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[18][1] = cvLoadImage("ocr_templete/t.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[19][0] = cvLoadImage("/sdcard/calmera_img/i_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[19][1] = cvLoadImage("/sdcard/calmera_img/I.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[19][0] = cvLoadImage("ocr_templete/i_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[19][1] = cvLoadImage("ocr_templete/I.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[20][0] = cvLoadImage("/sdcard/calmera_img/c_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[20][1] = cvLoadImage("/sdcard/calmera_img/C.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[20][0] = cvLoadImage("ocr_templete/c_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[20][1] = cvLoadImage("ocr_templete/C.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[21][0] = cvLoadImage("/sdcard/calmera_img/s_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[21][1] = cvLoadImage("/sdcard/calmera_img/S.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[21][0] = cvLoadImage("ocr_templete/s_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[21][1] = cvLoadImage("ocr_templete/S.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[22][0] = cvLoadImage("/sdcard/calmera_img/o_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[22][1] = cvLoadImage("/sdcard/calmera_img/O.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[22][0] = cvLoadImage("ocr_templete/o_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[22][1] = cvLoadImage("ocr_templete/O.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[23][0] = cvLoadImage("/sdcard/calmera_img/dot.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-//	if((tImage[23][1] = cvLoadImage("/sdcard/calmera_img/dot.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[23][0] = cvLoadImage("ocr_templete/dot.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+//	if((tImage[23][1] = cvLoadImage("ocr_templete/dot.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[24][0] = cvLoadImage("/sdcard/calmera_img/m_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[24][0] = cvLoadImage("ocr_templete/m_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[25][0] = cvLoadImage("/sdcard/calmera_img/n_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[25][0] = cvLoadImage("ocr_templete/n_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[26][0] = cvLoadImage("/sdcard/calmera_img/d_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[26][0] = cvLoadImage("ocr_templete/d_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[27][0] = cvLoadImage("/sdcard/calmera_img/e_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[27][0] = cvLoadImage("ocr_templete/e_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[28][0] = cvLoadImage("/sdcard/calmera_img/f_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[28][0] = cvLoadImage("ocr_templete/f_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[29][0] = cvLoadImage("/sdcard/calmera_img/dx_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[29][0] = cvLoadImage("ocr_templete/dx_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[30][0] = cvLoadImage("/sdcard/calmera_img/diff_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[30][0] = cvLoadImage("ocr_templete/diff_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[31][0] = cvLoadImage("/sdcard/calmera_img/Large_c_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[31][0] = cvLoadImage("ocr_templete/Large_c_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[32][0] = cvLoadImage("/sdcard/calmera_img/arrow_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[32][0] = cvLoadImage("ocr_templete/arrow_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[33][0] = cvLoadImage("/sdcard/calmera_img/y_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[33][0] = cvLoadImage("ocr_templete/y_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[34][0] = cvLoadImage("/sdcard/calmera_img/x_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[34][0] = cvLoadImage("ocr_templete/x_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[35][0] = cvLoadImage("/sdcard/calmera_img/a_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[35][0] = cvLoadImage("ocr_templete/a_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[36][0] = cvLoadImage("/sdcard/calmera_img/integral_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[36][0] = cvLoadImage("ocr_templete/integral_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[37][0] = cvLoadImage("/sdcard/calmera_img/sigma_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[37][0] = cvLoadImage("ocr_templete/sigma_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
-	if((tImage[37][0] = cvLoadImage("/sdcard/calmera_img/root_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[37][0] = cvLoadImage("ocr_templete/root_1.jpg" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
 
 	for(int i = 0; i < TEMPLATE_NUM; i++)  {
