@@ -135,11 +135,14 @@ void* TouchHandler::touchThread(Thread<TouchHandler>*, void* )
 										printf("Touch Release event : %d\n", j);
 										//gx_bitblt(dc_screen ,eventArray[j].x, eventArray[j].y, ( dc_t *)touch_before, 0, 0, eventArray[j].w, eventArray[j].h);
 										stEvent* pEv = new stEvent;
+										stTouchData* pTouchData = new stTouchData;
 										pEv->eventType = EVENT_TYPE_TOUCH_PAD;
-										char* buffer = new char[sizeof(int)];
-										memcpy(buffer, &j, sizeof(int));
-										pEv->pData = buffer;
+										pTouchData->x = x;
+										pTouchData->y = y;
+										pTouchData->touchType = j;
 										
+										pEv->pData = pTouchData;
+																				
 										Camculator::get().pushEvent(pEv);
 
 									}

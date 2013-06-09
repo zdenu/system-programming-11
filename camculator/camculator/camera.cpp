@@ -9,11 +9,16 @@
 
 Camera::Camera(void)
 : cameraFd(INVALID_DATA)
+, dc_camera(NULL)
 {
 }
 
 Camera::~Camera(void)
 {
+	if (dc_camera != NULL)
+		gx_release_dc(dc_camera);
+	
+	dc_camera = NULL;
 }
 
 bool Camera::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
@@ -66,13 +71,13 @@ bool Camera::close(void)
 	::close(cameraFd);
 }
 
-int Camera::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam)
+int Camera::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam)
 {	
-	if (touchEvent == TOUCH_EVENT_MAIN_OK)
+	if (pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
 	{
 		stCameraData* pCamData = new stCameraData;
 		
-		pCamData->dc_camera = gx_get_compatible_dc(dc_camera);
+		pCamData->dc_camera = gx_get_compatible_dc(dc_buffer);
 		read(cameraFd, pCamData->dc_camera->mapped, SCREEN_BUFFER_SIZE);
 
 						

@@ -29,9 +29,15 @@ bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
 	this->makeBackground(dc_buffer, pParam);
 	State::makeScreen(dc_buffer, dc_screen, pParam);
+	
+	
+	if (pParam != NULL)
+	{
+		// draw now loading....
+	}
 	return true;
 }
-int Result::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam)
+int Result::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam)
 {
 	return true;
 }

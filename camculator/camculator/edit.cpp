@@ -5,8 +5,10 @@
 //  Created by Christopher Kim on 6/8/13.
 //  Copyright (c) 2013 Christopher Kim. All rights reserved.
 //
-
+#include "define.h"
 #include "edit.h"
+
+#include "WolframAlphaManager.h"
 
 Edit::Edit()
 {
@@ -41,8 +43,14 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 
 	return true;
 }
-int Edit::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam)
+int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam)
 {
+	if(pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
+	{
+		char expression[1024] = {"\0"};
+		// send http request.
+		
+	}
 	return true;
 }
 

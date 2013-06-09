@@ -50,6 +50,7 @@ private:
 private:
 	
 	void interfaceDispatcher(stEvent* pEv);
+	void httpResponseDispatcher(stEvent* pEv);
 	
 	void interface_Background(int mode);
 	void interface_layout(int mode, int state);

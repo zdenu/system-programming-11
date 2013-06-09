@@ -1,24 +1,22 @@
 //
-//  result.h
+//  labeling.h
 //  camculator
 //
-//  Created by Christopher Kim on 6/8/13.
+//  Created by Christopher Kim on 6/9/13.
 //  Copyright (c) 2013 Christopher Kim. All rights reserved.
 //
 
-#ifndef __camculator__result__
-#define __camculator__result__
-
+#ifndef __camculator__labeling__
+#define __camculator__labeling__
 
 #include "define.h"
 #include "state.h"
 
-
-class Result : public State
+class Labeling : public State
 {
 public:
-	Result(void);
-	virtual ~Result(void);
+	Labeling(void);
+	virtual ~Labeling(void);
 	
 public:
 	virtual bool init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state);
@@ -30,4 +28,4 @@ protected:
 };
 
 
-#endif /* defined(__camculator__result__) */
+#endif /* defined(__camculator__labeling__) */

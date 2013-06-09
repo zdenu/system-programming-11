@@ -38,8 +38,7 @@ public:
 private:
 	void* touchThread(Thread<TouchHandler>*, void* );
 	
-	bool dispatchTouchEvent(struct input_event& ev);
-	
+
 private:
 	touchEventArea eventArray[TOUCH_EVENT_MAX];
 	int touch_evnet_cnt;

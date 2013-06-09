@@ -17,7 +17,7 @@ public:
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual bool close(void);
 	
-	virtual int dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam);
+	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam);
 	
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);
