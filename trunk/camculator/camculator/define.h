@@ -88,6 +88,8 @@ enum ENUM_TOUCH_EVENT
 	TOUCH_EVENT_MAIN_RESULT,			// mode, state
 	TOUCH_EVENT_MAIN_OK,				// mode, state	//
 	
+	TOUCH_EVENT_CROP_CLICK,
+	
 	// used in setting.
 	TOUCH_EVENT_SETTING_OPEN,			// mode, state
 	TOUCH_EVENT_SETTING_CLOSE,			// mode
@@ -132,8 +134,9 @@ struct stEvent
 
 struct stTouchData
 {
-	stTouchData(void){}
+	stTouchData(void): x(0), y(0){}
 	
+	int touchType;
 	int x;
 	int y;
 };

@@ -39,6 +39,9 @@
 		22885E731762FFA7001D6425 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E6E1762FFA7001D6425 /* tinyxml.cpp */; };
 		22885E741762FFA7001D6425 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E701762FFA7001D6425 /* tinyxmlerror.cpp */; };
 		22885E751762FFA7001D6425 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E711762FFA7001D6425 /* tinyxmlparser.cpp */; };
+		22885E7817642A85001D6425 /* labeling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E7617642A84001D6425 /* labeling.cpp */; };
+		22885E7D176448D7001D6425 /* HttpConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E79176448D6001D6425 /* HttpConnector.cpp */; };
+		22885E7E176448D7001D6425 /* WolframAlphaManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E7B176448D6001D6425 /* WolframAlphaManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -125,6 +128,12 @@
 		22885E6F1762FFA7001D6425 /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		22885E701762FFA7001D6425 /* tinyxmlerror.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlerror.cpp; sourceTree = "<group>"; };
 		22885E711762FFA7001D6425 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
+		22885E7617642A84001D6425 /* labeling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = labeling.cpp; sourceTree = "<group>"; };
+		22885E7717642A84001D6425 /* labeling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = labeling.h; sourceTree = "<group>"; };
+		22885E79176448D6001D6425 /* HttpConnector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HttpConnector.cpp; sourceTree = "<group>"; };
+		22885E7A176448D6001D6425 /* HttpConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpConnector.h; sourceTree = "<group>"; };
+		22885E7B176448D6001D6425 /* WolframAlphaManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WolframAlphaManager.cpp; sourceTree = "<group>"; };
+		22885E7C176448D7001D6425 /* WolframAlphaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WolframAlphaManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +234,10 @@
 		22885E4C1761D6EB001D6425 /* state */ = {
 			isa = PBXGroup;
 			children = (
+				22885E79176448D6001D6425 /* HttpConnector.cpp */,
+				22885E7A176448D6001D6425 /* HttpConnector.h */,
+				22885E7B176448D6001D6425 /* WolframAlphaManager.cpp */,
+				22885E7C176448D7001D6425 /* WolframAlphaManager.h */,
 				22885E491761D21F001D6425 /* state.cpp */,
 				22885E4A1761D21F001D6425 /* state.h */,
 				22885E4D1761D6FA001D6425 /* home.cpp */,
@@ -233,6 +246,8 @@
 				226D747817604E1D004E5697 /* camera.h */,
 				22885E501761F9D4001D6425 /* crop.cpp */,
 				22885E511761F9D4001D6425 /* crop.h */,
+				22885E7617642A84001D6425 /* labeling.cpp */,
+				22885E7717642A84001D6425 /* labeling.h */,
 				22885E561762FA06001D6425 /* edit.cpp */,
 				22885E571762FA07001D6425 /* edit.h */,
 				22885E531762F928001D6425 /* result.cpp */,
@@ -354,6 +369,9 @@
 				22885E731762FFA7001D6425 /* tinyxml.cpp in Sources */,
 				22885E741762FFA7001D6425 /* tinyxmlerror.cpp in Sources */,
 				22885E751762FFA7001D6425 /* tinyxmlparser.cpp in Sources */,
+				22885E7817642A85001D6425 /* labeling.cpp in Sources */,
+				22885E7D176448D7001D6425 /* HttpConnector.cpp in Sources */,
+				22885E7E176448D7001D6425 /* WolframAlphaManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

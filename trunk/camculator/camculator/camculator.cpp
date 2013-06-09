@@ -88,7 +88,7 @@ bool Camculator::init(void)
 	for (int i = 0 ; i < SCREEN_TYPE_MAX ; ++i)
 	{
 		if (pState[i] != NULL)
-			pState[i]->init(dc_buffer, font14, (ENUM_SCREEN_TYPE)i);
+			pState[i]->init(dc_screen, font14, (ENUM_SCREEN_TYPE)i);
 	}
 
 	interface_splash();
@@ -120,7 +120,10 @@ void Camculator::main(void)
 					break;
 				}
 				case EVENT_TYPE_HTTP_RESPONSE:
+				{
+					// go to screen type
 					break;
+				}
 				default:
 				{
 					break;
@@ -147,16 +150,14 @@ void Camculator::main(void)
 void Camculator::interfaceDispatcher(stEvent* pEv)
 {
 	// recv ENUM_TOUCH_EVENT.
-	int event = *(int*)(pEv->pData);
-	
-	// dispatching about touch event.
+	stTouchData* pTouchEv = (stTouchData*)(pEv->pData);
 	void* pParam = NULL;
 
-	pCurrentState->dispatchTouchEvent((ENUM_TOUCH_EVENT)event, &pParam);
+	pCurrentState->dispatchTouchEvent(dc_screen, pTouchEv, &pParam);
 	
 	printf("pParam : %x\n", pParam);
 	// get screen type by event.
-	int nextState = getNextScreenType(event);
+	int nextState = getNextScreenType(pTouchEv->touchType);
 	
 	if (nextState != SCREEN_TYPE_MAX)
 	{
@@ -172,14 +173,19 @@ void Camculator::interfaceDispatcher(stEvent* pEv)
 	}
 	printf("State : %d\n", currentState);
 	
-	
-	
 	pCurrentState->makeScreen(dc_buffer, dc_screen, pParam);
 	
 	if (pParam != NULL)
 		delete pParam;
 	
 }
+
+
+void Camculator::httpResponseDispatcher(stEvent* pEv)
+{
+	
+}
+
 
 void Camculator::initSettingLayout(void)
 {

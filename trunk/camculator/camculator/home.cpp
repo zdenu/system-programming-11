@@ -62,7 +62,7 @@ bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 }
 
 
-int Home::dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam)
+int Home::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam)
 {
 	// 
 	return true;

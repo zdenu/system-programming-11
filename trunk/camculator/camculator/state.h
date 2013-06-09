@@ -25,7 +25,7 @@ public:
 	
 	
 
-	virtual int dispatchTouchEvent(ENUM_TOUCH_EVENT touchEvent, void** pParam) = 0;
+	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam) = 0;
 	
 	virtual void disableTouchEvents(void);
 	virtual void enableTouchEvents(void);

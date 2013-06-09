@@ -84,7 +84,7 @@ bool State::drawScreen(dc_t* dc_buffer, dc_t* dc_screen)
 	if (dc_buffer == NULL || dc_screen == NULL)
 		return false;
 	
-	gx_bitblt(dc_screen, 0, 0, (dc_t *)dc_buffer, 0, 0,320, 240);
+	gx_bitblt(dc_screen, 0, 0, (dc_t *)dc_buffer, 0, 0, 320, 240);
 }
 
 bool State::close(void)
