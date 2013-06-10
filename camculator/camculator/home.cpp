@@ -20,19 +20,31 @@ Home::~Home()
 }
 bool Home::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
+	printf("home init start.\n");
 	State::init(dc_buffer, pFont, state);
 	
 	if (back != NULL)
+	{
 		gx_png_close((dc_t*)back);
+		back = NULL;
+		printf("set back NULL\n");
+	}
 	
 	back = (png_t*)gx_png_open((char*)"interface/background/home.png");
 	title = (png_t*)gx_png_open( "interface/title/home.png");
 	button = (png_t*)gx_png_open( "interface/button/info.png");
 	
+	printf("set home img complete\n");
+	
 	if (button2 != NULL)
+	{
 		gx_png_close((dc_t*)button2);
+		button2 = NULL;
+		printf("set button2 img NULL.\n");
+	}
 		
 	button2 = (png_t*)gx_png_open((char*)"interface/button/setting.png");
+	printf("button2 load complete.\n");
 }
 
 bool Home::makeBackground(dc_t *dc_buffer, void* pParam)

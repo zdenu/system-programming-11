@@ -39,6 +39,7 @@ private:
 	UINT firstY;
 	UINT secondX;
 	UINT secondY;
+	dc_t* pData;
 };
 
 

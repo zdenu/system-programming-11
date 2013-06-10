@@ -16,6 +16,7 @@ State::State()
 , button(NULL)
 , button2(NULL)
 , active(NULL)
+, back(NULL)
 {
 	
 }
@@ -29,6 +30,7 @@ State::~State()
 
 bool State::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
+	printf("state init start.\n");
 	top			= (png_t*)gx_png_open("interface/top.png");
 	bottom		= (png_t*)gx_png_open("interface/menu.png");
 	button2		= (png_t*)gx_png_open("interface/button/home.png");
@@ -38,6 +40,7 @@ bool State::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 	this->state = state;
 
 	gx_clear((dc_t *)active, gx_color(255, 255, 255, 100));
+	printf("state init end.");
 }
 
 void State::setFont(dc_t* dc_buffer)

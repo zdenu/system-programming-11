@@ -17,12 +17,11 @@ Camera::~Camera(void)
 {
 	if (dc_camera != NULL)
 		gx_release_dc(dc_camera);
-	
-	dc_camera = NULL;
 }
 
 bool Camera::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
+	printf("camera init start.\n");
 	State::init(dc_buffer, pFont, state);
 
 	// camera doesn't use background png.
@@ -38,9 +37,6 @@ bool Camera::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 	
 	title = (png_t*)gx_png_open((char*)"interface/title/camera.png");
 	button = (png_t*)gx_png_open((char*)"interface/button/camera.png");
-	
-	dc_camera = gx_get_compatible_dc(dc_buffer);
-	
 }
 
 bool Camera::makeBackground(dc_t *dc_buffer, void* pParam)
@@ -79,9 +75,7 @@ int Camera::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void**
 		
 		pCamData->dc_camera = gx_get_compatible_dc(dc_buffer);
 		read(cameraFd, pCamData->dc_camera->mapped, SCREEN_BUFFER_SIZE);
-
-						
-		printf("pCamData : %x\n", pCamData);
+		
 		(*pParam) = pCamData;
 	}
 	
