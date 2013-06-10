@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Christopher Kim. All rights reserved.
 //
 
+#include "define.h"
 #include "crop.h"
 #include "gx.h"
 #include "camculator.h"
@@ -132,11 +133,12 @@ int Crop::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 	else if (pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
 	{
 		// crop and go to labeling.
-		stCameraData* pCamData = new stCameraData;
-		pCamData->dc_camera = gx_get_compatible_dc(dc_buffer);
-		
+		stCropData* pCropData = new stCropData;
+		pCropData->dc_crop = gx_png_create(secondX - firstX, secondY - firstY);
 		// crop data.
-		gx_bitblt(pCamData->dc_camera, 0, 0, dc_buffer, firstX, firstY, secondX - firstX, secondY - firstY);
+		gx_bitblt(pCropData->dc_crop, 0, 0, dc_buffer, firstX, firstY, secondX - firstX, secondY - firstY);
+		
+		(*pParam) = pCropData;
 	}
 	
 	return true;

@@ -28,16 +28,26 @@ bool Labeling::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 }
 bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
+	// TODO : Show On Loading.....
+	
+	
+	// TODO : send data to open CV.
+	
+	
 	this->makeBackground(dc_buffer, pParam);
 	State::makeScreen(dc_buffer, dc_screen, pParam);
 	
 	if (pParam != NULL)
 	{
-		stCameraData* pCamData = (stCameraData*)pParam;
-		int startX = (320 - (pCamData->dc_camera->width)) / 2;
-		int startY = (240 - (pCamData->dc_camera->height)) / 2;
+//		stCameraData* pCamData = (stCameraData*)pParam;
+//		int startX = (320 - (pCamData->dc_camera->width)) / 2;
+//		int startY = (240 - (pCamData->dc_camera->height)) / 2;
+//		
+//		gx_bitblt(dc_buffer, startX, startY, pCamData->dc_camera, 0, 0, pCamData->dc_camera->width, pCamData->dc_camera->height);
 		
-		gx_bitblt(dc_buffer, startX, startY, pCamData->dc_camera, 0, 0, pCamData->dc_camera->width, pCamData->dc_camera->height);
+		// TODO : show on Loading...
+		
+		
 	}
 	
 	return true;
