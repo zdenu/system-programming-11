@@ -157,6 +157,14 @@ struct stCameraData
 	dc_t* dc_camera;
 };
 
+struct stCropData
+{
+	stCropData(void) : dc_crop(NULL){}
+	~stCropData(void) { if (dc_crop != NULL) gx_png_close(dc_crop); }
+	
+	dc_t* dc_crop;
+};
+
 #pragma pack()
 
 #endif

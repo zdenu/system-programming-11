@@ -17,6 +17,7 @@
 #include <string>
 #include <iostream>
 #include "BlobLabeling.h"
+#include "gx.h"
 
 #define RED_MASK 0xF800
 #define GREEN_MASK 0x07E0
