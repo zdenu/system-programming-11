@@ -16,6 +16,9 @@
 #include "labeling.h"
 #include "result.h"
 
+#include "opencv.h"
+#include "mp3.h"
+
 /** ----------------------------------------------------------------------------
 @brief  버퍼 크기 정의
 @remark
@@ -43,6 +46,7 @@ Camculator::Camculator()
 , currentState(TOUCH_EVENT_MAIN_HOME)
 , isSettingInitialized(false)
 , pTouchHandler(NULL)
+, pOpenCV(NULL)
 {
 	memset(pState, 0x00, sizeof(pState));
 }
@@ -74,6 +78,9 @@ bool Camculator::init(void)
 	pTouchHandler = new TouchHandler;
 	pTouchHandler->init(dc_screen);
 	initTouchEvents();
+	
+	pOpenCV = new OpenCV;
+	pOpenCV->init();
 		
 	printf( "running....\n");
 	printf( "screen widht= %d\n"      , dc_screen->width);
@@ -331,19 +338,19 @@ void Camculator::interface_layout(int mode, int state)
 	}
 }
 
-
-void Camculator::interface_splash(void)
-{
-	bmp_t   *bmp;
-	bmp = (bmp_t*)gx_bmp_open( "interface/background/splash.bmp");
-	if ( NULL == bmp)
-		gx_print_error(8, "interface/background/splash.bmp");                                         // 실행 중 에러 내용을 출력
-	else
-	{
-		gx_bitblt( dc_screen, 0, 0, ( dc_t *)bmp, 0, 0, bmp->width, bmp->height);
-		gx_bmp_close((dc_t*)bmp);
-	}
-}
+//
+//void Camculator::interface_splash(void)
+//{
+//	bmp_t   *bmp;
+//	bmp = (bmp_t*)gx_bmp_open( "interface/background/splash.bmp");
+//	if ( NULL == bmp)
+//		gx_print_error(8, "interface/background/splash.bmp");                                         // 실행 중 에러 내용을 출력
+//	else
+//	{
+//		gx_bitblt( dc_screen, 0, 0, ( dc_t *)bmp, 0, 0, bmp->width, bmp->height);
+//		gx_bmp_close((dc_t*)bmp);
+//	}
+//}
 void Camculator::interface_loading(int mode)
 {
 	png_t   *png;
@@ -586,5 +593,40 @@ void Camculator::disableSettingEvent(void)
 	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_NETWORK);
 	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_VOLUME);
 	pTouchHandler->disableTouchEvent(TOUCH_EVENT_SETTING_OK);
+}
+
+
+void Camculator::interface_movie( char* file, int max, int fps)
+{
+	png_t   *png;
+	char namebuff[20];
+	int i;
+	fps = 1000000/fps;
+//	pauseTouchevent();
+	//gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
+	for(i=0;i<max;i++) {
+		sprintf(namebuff,"%s%04d.png",file,(i+1));
+		png = (png_t*)gx_png_open(namebuff);
+		if ( NULL == png)
+			gx_print_error(8, namebuff);
+		else
+		{
+			//	gx_bitblt( dc_buffer, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
+			//	gx_bitblt( dc_buffer, 0, 0, (dc_t*)png, 0, 0, 320, 240);
+			//	gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
+			gx_bitblt( dc_screen, 0, 0, (dc_t*)png, 0, 0, 320, 240);
+			gx_png_close((dc_t*)png);
+			usleep(fps);
+		}
+	}
+//	resumeTouchevent();
+	//gx_bitblt( dc_screen, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
+}
+
+void Camculator::interface_splash(void)
+{
+	MP3_play("/mnt/usb/sound/boot.mp3");
+	interface_movie("interface/intro/intro", 99 , 24);
+	sleep(2);
 }
 

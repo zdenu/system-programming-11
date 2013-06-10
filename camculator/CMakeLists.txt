@@ -43,7 +43,7 @@ AUX_SOURCE_DIRECTORY( ${GXLIB_DIRECTORY} GXLIB_SRC )
 AUX_SOURCE_DIRECTORY( ${GIFLIB_DIRECTORY} GIFLIB_SRC )
 AUX_SOURCE_DIRECTORY( ${OPENCV_LABELING_DIRECTORY} OPENCV_SRC )
 
-LINK_LIBRARIES( pthread jpeg png z opencv_highgui opencv_imgproc opencv_core )
+LINK_LIBRARIES( pthread jpeg png z opencv_highgui opencv_imgproc opencv_core rt )
 
 ADD_EXECUTABLE( ${PROJECT_NAME} ${SRC} ${GXLIB_SRC} ${TINYXML_SRC} ${GIFLIB_SRC} ${OPENCV_SRC} )
 

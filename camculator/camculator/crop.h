@@ -23,6 +23,10 @@ public:
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam);
 	
+	
+	virtual void disableTouchEvents(void);
+	virtual void enableTouchEvents(void);
+	
 	void setPhotoData(char* pBuffer, int size){}
 	
 protected:

@@ -44,6 +44,7 @@
 		22885E7E176448D7001D6425 /* WolframAlphaManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E7B176448D6001D6425 /* WolframAlphaManager.cpp */; };
 		22885E801765E5B5001D6425 /* opencv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E7F1765E5B4001D6425 /* opencv.cpp */; };
 		22885E841765E5C5001D6425 /* BlobLabeling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E821765E5C5001D6425 /* BlobLabeling.cpp */; };
+		22885E881765F304001D6425 /* mp3.c in Sources */ = {isa = PBXBuildFile; fileRef = 22885E861765F304001D6425 /* mp3.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -139,6 +140,9 @@
 		22885E7F1765E5B4001D6425 /* opencv.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = opencv.cpp; sourceTree = "<group>"; };
 		22885E821765E5C5001D6425 /* BlobLabeling.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BlobLabeling.cpp; sourceTree = "<group>"; };
 		22885E831765E5C5001D6425 /* BlobLabeling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlobLabeling.h; sourceTree = "<group>"; };
+		22885E851765E9B5001D6425 /* opencv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = opencv.h; sourceTree = "<group>"; };
+		22885E861765F304001D6425 /* mp3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mp3.c; sourceTree = "<group>"; };
+		22885E871765F304001D6425 /* mp3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mp3.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 				226D747A17604E1D004E5697 /* touch.cpp */,
 				226D747B17604E1D004E5697 /* touch.h */,
 				22885E7F1765E5B4001D6425 /* opencv.cpp */,
+				22885E851765E9B5001D6425 /* opencv.h */,
 				226D746D17604DB6004E5697 /* main.cpp */,
 				226D747617604E1D004E5697 /* camculator.cpp */,
 				226D74B517604F0D004E5697 /* camculator.h */,
@@ -231,6 +236,8 @@
 		226D74B117604E9E004E5697 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				22885E861765F304001D6425 /* mp3.c */,
+				22885E871765F304001D6425 /* mp3.h */,
 				226D74B217604EE8004E5697 /* lock.h */,
 				226D74B317604EE8004E5697 /* singleton.h */,
 				226D74B417604EE8004E5697 /* thread.h */,
@@ -390,6 +397,7 @@
 				22885E7E176448D7001D6425 /* WolframAlphaManager.cpp in Sources */,
 				22885E801765E5B5001D6425 /* opencv.cpp in Sources */,
 				22885E841765E5C5001D6425 /* BlobLabeling.cpp in Sources */,
+				22885E881765F304001D6425 /* mp3.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

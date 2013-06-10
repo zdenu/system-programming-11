@@ -17,6 +17,7 @@
 
 typedef std::queue<stEvent*>	TEventQueue;
 
+class OpenCV;
 class TouchHandler;
 
 class Camculator : public Singleton<Camculator>
@@ -43,6 +44,7 @@ public:
 	dc_t* getBeforeScreen(void) { return before_screen; }
 	
 	TouchHandler* getTouchHandler(void) { return pTouchHandler; }
+	OpenCV* getOpenCV(void) { return pOpenCV; }
 	
 private:
 	void initSettingLayout(void);
@@ -52,10 +54,14 @@ private:
 	void interfaceDispatcher(stEvent* pEv);
 	void httpResponseDispatcher(stEvent* pEv);
 	
+	void interface_movie( char* file, int max, int fps);
+	void interface_splash(void);
+	
+	
 	void interface_Background(int mode);
 	void interface_layout(int mode, int state);
 	void interface_loading(int mode);
-	void interface_splash(void);
+	
 	void interface_alert(char* msg);
 	void interface_info(void);
 	
@@ -70,7 +76,8 @@ private:
 	
 	State* pState[SCREEN_TYPE_MAX];
 	
-	TouchHandler* pTouchHandler;
+	TouchHandler*	pTouchHandler;
+	OpenCV*			pOpenCV;
 	
 
 	Lock		queueLock;
