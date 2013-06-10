@@ -8,6 +8,9 @@
 
 #include "crop.h"
 #include "gx.h"
+#include "camculator.h"
+#include "touch.h"
+
 
 Crop::Crop()
 : isPhotoExist(false)
@@ -146,4 +149,15 @@ void Crop::resetCropPoints(void)
 	firstY = 0;
 	secondX = 0;
 	secondY = 0;
+}
+
+void Crop::disableTouchEvents(void)
+{
+	State::disableTouchEvents();
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_CROP_CLICK);
+}
+void Crop::enableTouchEvents(void)
+{
+	State::enableTouchEvents();
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_CROP_CLICK);
 }
