@@ -16,6 +16,7 @@ Crop::Crop()
 , firstY(0)
 , secondX(0)
 , secondY(0)
+, pData(NULL)
 {
 }
 
@@ -26,6 +27,7 @@ Crop::~Crop()
 
 bool Crop::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
+	printf("crop init start.\n");
 	State::init(dc_buffer, pFont, state);
 	
 	title = (png_t*)gx_png_open( "interface/title/crop.png");
@@ -38,29 +40,26 @@ bool Crop::makeBackground(dc_t* dc_buffer, void* pParam)
 {
 	State::makeBackground(dc_buffer, pParam);
 	
-	
 	if (pParam != NULL)
 	{
-		// clear black.
-		gx_clear(dc_buffer, gx_color(0, 0, 0, 255));
-		
-		printf("crop data is exist(pParam : %x).\n", pParam);
 		stCameraData* pCamData = (stCameraData*)pParam;
 		
-		printf("crop dc_camera : width: %d, height: %d, bytes: %d, bytes_per_line: %d \n",
-			   pCamData->dc_camera->width,
-			   pCamData->dc_camera->height,
-			   pCamData->dc_camera->bytes,
-			   pCamData->dc_camera->bytes_per_line);
-		
-		gx_bitblt(dc_buffer, 0, 0, pCamData->dc_camera, 0, 0, pCamData->dc_camera->width, pCamData->dc_camera->height);
+		pData = gx_get_compatible_dc(pCamData->dc_camera);
+		gx_bitblt(pData, 0, 0, pCamData->dc_camera, 0, 0, pCamData->dc_camera->width, pCamData->dc_camera->height);
+		gx_bitblt(dc_buffer, 0, 0, pData, 0, 0, pData->width, pData->height);
 		
 	}
 	else
 	{
-		gx_clear((dc_t *)back, gx_color( 255, 255, 255, 255));
-		gx_rectangle( dc_buffer, 50, 50, 100, 100);
-		gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);		
+		if (pData == NULL)
+		{
+			gx_clear((dc_t *)back, gx_color( 255, 255, 255, 255));
+			gx_rectangle( dc_buffer, 50, 50, 100, 100);
+			gx_bitblt( dc_buffer, 0, 0, ( dc_t *)back, 0, 0, back->width, back->height);
+		}
+		else
+			gx_bitblt(dc_buffer, 0, 0, pData, 0, 0, pData->width, pData->height);
+
 	}
 	return true;
 }
@@ -79,15 +78,17 @@ bool Crop::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 //	else
 	{
 		dc_buffer->pen_color     = gx_color( 255, 0, 0, 255);
-		dc_buffer->brush_color   = gx_color( 0, 0, 0, 0);
+		dc_buffer->brush_color   = gx_color( 255, 0, 0, 0);
 		
 		if (touchCnt == 1)
 		{
 			// set pixel to firstX, firstY.
 			gx_set_pixel(dc_buffer, firstX, firstY, dc_buffer->pen_color);
+			gx_circle(dc_buffer, firstX, firstY, 3);
 		}
 		else if (touchCnt == 2)
 		{
+			gx_circle(dc_buffer, secondX, secondY, 3);
 			gx_rectangle(dc_buffer, firstX, firstY, secondX, secondY);
 		}
 	}
@@ -118,6 +119,12 @@ int Crop::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 			firstY = pTouchEvent->y;
 			touchCnt = 1;
 		}
+		
+		printf("CROP::TouchCount- firstX: %d, firstY: %d, secondX: %d, secondY: %d, touchCnt: %d\n",
+			   firstX,
+			   firstY,
+			   secondX,
+			   secondY);
 	}
 	else if (pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
 	{

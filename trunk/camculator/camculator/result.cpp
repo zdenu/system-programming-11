@@ -18,6 +18,7 @@ Result::~Result()
 
 bool Result::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
+	printf("result init start.\n");
 	State::init(dc_buffer, pFont, state);
 	
 	title = (png_t*)gx_png_open( "interface/title/result.png");

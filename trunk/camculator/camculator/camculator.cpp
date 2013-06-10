@@ -13,6 +13,7 @@
 #include "camera.h"
 #include "crop.h"
 #include "edit.h"
+#include "labeling.h"
 #include "result.h"
 
 /** ----------------------------------------------------------------------------
@@ -81,14 +82,20 @@ bool Camculator::init(void)
 	// TODO: create each states.
 	pState[SCREEN_TYPE_HOME]	= new Home;
 	pState[SCREEN_TYPE_CAMERA]	= new Camera;
+	pState[SCREEN_TYPE_LABELING] = new Labeling;
 	pState[SCREEN_TYPE_CROP]	= new Crop;
 	pState[SCREEN_TYPE_EDIT]	= new Edit;
 	pState[SCREEN_TYPE_RESULT]	= new Result;
 	
+	printf("create states complete.\n");
+	
 	for (int i = 0 ; i < SCREEN_TYPE_MAX ; ++i)
 	{
 		if (pState[i] != NULL)
-			pState[i]->init(dc_screen, font14, (ENUM_SCREEN_TYPE)i);
+		{
+			pState[i]->init(dc_buffer, font14, (ENUM_SCREEN_TYPE)i);
+			printf("%d state init complete.\n", i);
+		}
 	}
 
 	interface_splash();
@@ -96,6 +103,7 @@ bool Camculator::init(void)
 	isRunning = true;
 	
 	// draw home screen.
+	pState[SCREEN_TYPE_HOME]->init(dc_buffer, font14, SCREEN_TYPE_HOME);
 	currentState = SCREEN_TYPE_HOME;
 	pCurrentState = pState[SCREEN_TYPE_HOME];
 	pCurrentState->makeScreen(dc_buffer, dc_screen, NULL);
@@ -435,6 +443,7 @@ void Camculator::initTouchEvents(void)
 	pTouchHandler->addTouchevent(192, 191, 63, 49, TOUCH_EVENT_MAIN_EDIT);
 	pTouchHandler->addTouchevent(254, 191, 63, 49, TOUCH_EVENT_MAIN_RESULT);
 	pTouchHandler->addTouchevent(276, 0, 44, 44, TOUCH_EVENT_MAIN_OK);
+	pTouchHandler->addTouchevent(0, 49, 320, 142, TOUCH_EVENT_CROP_CLICK);
 	
 //	pTouchHandler->addTouchevent(268, 30, 30, 30, TOUCH_EVENT_SETTING_CLOSE);
 //	pTouchHandler->addTouchevent(136, 69, 170, 30, TOUCH_EVENT_SETTING_FONT14);

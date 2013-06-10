@@ -20,6 +20,7 @@ Edit::~Edit()
 
 bool Edit::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
+	printf("edit init start.\n");
 	State::init(dc_buffer, pFont, state);
 	
 	if (back != NULL)
