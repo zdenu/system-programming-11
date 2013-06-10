@@ -125,7 +125,7 @@ IplImage* img_resize(IplImage* src_img, int height)
 {
     IplImage* des_img;
     float scale;
-         //세로 285에 맞춤
+         //세로  맞춤
 	 scale = height/float(src_img->height);
     des_img=cvCreateImage(cvSize((src_img->width)*scale,(src_img->height)*scale),src_img->depth,src_img->nChannels);
     cvResize(src_img,des_img,CV_INTER_LINEAR);
@@ -146,29 +146,22 @@ IplImage* img_resizeto_screen(IplImage* src_img)
 
 int main( int argc, char** argv )
 {
-	 Mat MatRgb = imread( argv[1], 1 );
-    Mat MatGr;
-
-    IplImage rgbImg = MatRgb;
-    IplImage grayImg = MatGr;
-    IplImage* pGrayImg = &grayImg;
-    IplImage* pRgbImg = &rgbImg;
+	 IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
+    IplImage* pGrayImg = cvCreateImage(cvGetSize(pRgbImg),IPL_DEPTH_8U,1);
+	  
 
     IplImage labeledImg;
-    Mat* pMatLabeled;
-    Mat MatLabeled;
+    //Mat* pMatLabeled;
+    //Mat MatLabeled;
     vector<KeyPoint> v;
 
-	string formula;
-	string strTemp = "";
-	string outFormula;
+	 string formula;
+	 string strTemp = "";
+	 string outFormula;
 
 	 //흑백 변환 
-    cvtColor(MatRgb, MatGr, CV_BGR2GRAY);
-
-    //IplImage로 변환
-    grayImg = Mat(MatGr);
-	 pGrayImg = &grayImg;
+	printf( "Gray scale Process\n" );
+	cvCvtColor(pRgbImg,pGrayImg,CV_BGR2GRAY);
 
 	printf( "Image resize Process\n" );
 	//300 , 400, 500 ,700 ,800 ~ height resize for templete
@@ -193,6 +186,7 @@ int main( int argc, char** argv )
 	printf( "Filter Process\n" );
 	// 팽창/
     cvDilate( pGrayImg, pGrayImg, element1, 1); 
+
     	  //스무스
     cvSmooth(pGrayImg,pGrayImg, CV_MEDIAN, 3);
     cvThreshold( pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
@@ -249,7 +243,7 @@ int main( int argc, char** argv )
 	if((tImage[35][0] = cvLoadImage("ocr_templete/a_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[36][0] = cvLoadImage("ocr_templete/integral_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[37][0] = cvLoadImage("ocr_templete/sigma_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-	if((tImage[37][0] = cvLoadImage("ocr_templete/root_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[38][0] = cvLoadImage("ocr_templete/root_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
 	//템플릿 이진화.
 /*
