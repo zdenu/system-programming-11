@@ -327,7 +327,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 				case 11:
 					strcpy(letter, "-");
 					if(((objCenterPosition[i][0] - objCenterPosition[i-1][0])<5)&&((objCenterPosition[i][0] - objCenterPosition[i-1][0])>-5)){
+						if(formula.length()>1) {
 						formula.erase(formula.length() -1 ,1 );
+						}
 						formula +=  "=";
 					}
 					else
@@ -374,7 +376,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 					strcpy(letter, "C");
 					strTemp = formula.substr(formula.length()-2,formula.length());
 					if((strTemp=="Se")||(strTemp=="SC")){
-						formula.erase(formula.length() -2 ,2);
+						if(formula.length()>2) {
+						formula.erase(formula.length() -2 ,2 );
+						}
 						formula +=  "sec";
 					}
 					else
@@ -384,7 +388,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 					strcpy(letter, "S");
 					strTemp = formula.substr(formula.length()-2,formula.length());
 					if((strTemp=="CO")||(strTemp=="C0")||(strTemp=="cO")||(strTemp=="c0")){
-						formula.erase(formula.length() -2 ,2);
+						if(formula.length()>2) {
+						formula.erase(formula.length() -2 ,2 );
+						}
 						formula +=  "cos";
 					}
 					else
@@ -398,7 +404,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 					strcpy(letter, ".");
 					
 					if(((objCenterPosition[i][0] - objCenterPosition[i-1][0])<10)&&((objCenterPosition[i][0] - objCenterPosition[i-1][0])>-10)){
-						formula.erase(formula.length() - 2, 2);
+						if(formula.length()>2) {
+						formula.erase(formula.length() -2 ,2 );
+						}
 						formula +=  "i";
 					}
 					else
@@ -407,7 +415,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 					if(formula.length()>=6){
 						strTemp = formula.substr(formula.length()-6,formula.length());
 						if(strTemp == ".^.^.^"){
-							formula.erase(formula.length() -6 ,6);
+							if(formula.length()>6) {
+						formula.erase(formula.length() -6 ,6 );
+						}
 							formula +=  "integral";
 							objCenterPosition[0][0] = objCenterPosition[i-1][0];
 						}
@@ -423,7 +433,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 					strcpy(letter, "n");
 					strTemp = formula.substr(formula.length()-2,formula.length());
 					if((strTemp=="SI")||(strTemp=="Si")||(strTemp=="sI")||(strTemp=="si")||(strTemp=="S1")||(strTemp=="s1")){
-						formula.erase(formula.length() -2 ,2);
+						if(formula.length()>2) {
+						formula.erase(formula.length() -2 ,2 );
+						}
 						formula +=  "sin";
 					}
 					else
@@ -448,14 +460,18 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 					break;
 				case 30:
 					strcpy(letter, "'");
-					formula.erase(formula.length() -1 ,1 );
+					if(formula.length()>1) {
+						formula.erase(formula.length() -1 ,1 );
+						}
 					formula +=  "'";
 					break;
 				case 31:
 					strcpy(letter, "C");
 					strTemp = formula.substr(formula.length()-1,formula.length());
 					if((strTemp=="SC")||(strTemp=="Se")){
-						formula.erase(formula.length() -2 ,2);
+						if(formula.length()>2) {
+						formula.erase(formula.length() -2 ,2 );
+						}
 						formula +=  "sec";
 					}
 					else
@@ -503,14 +519,18 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 			//printf("%s",letter);
 			if(((objCenterPosition[0][1]-objCenterPosition[i][1])>40)&&definedIntStartFlg){ // 정적분
 				strTemp = formula.substr(formula.length()-10,formula.length()-1);
-				formula.erase(formula.length() - 2, 2);
+				if(formula.length()>2) {
+						formula.erase(formula.length() -2 ,2 );
+						}
 				//if(strTemp == "integral ")
 				definedInt[0] = letter;
 				definedIntStartFlg = 0;
 				definedIntEndFlg = 1;
 			}else if(((objCenterPosition[0][1]-objCenterPosition[i][1])<-40)&&definedIntStartFlg){ // 정적분
 				strTemp = formula.substr(formula.length()-10,formula.length()-1);
-				formula.erase(formula.length() - 1, 1);
+				if(formula.length()>1) {
+						formula.erase(formula.length() -1 ,1 );
+						}
 				//if(strTemp == "integral ")
 				definedInt[1] = letter;
 			}else if(definedIntStartFlg){
