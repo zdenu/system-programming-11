@@ -14,11 +14,12 @@ public:
 	bool init();
 	void close();
 	void keysignal(int sig);
+	void swsignal(int sig);
 	
 private:
 
 private:
 	int		eventFd;
-		
+	int 		sweventFd;
 };
 
