@@ -47,19 +47,20 @@ bool OpenCV::init(void)
 	return true;
 }
 
-IplImage* OpenCV::rgb565to888(unsigned short *rgb565Data ,int width, int height)
+IplImage* OpenCV::rgb565to888(dc_t *rgb565Data ,int width, int height)
 {
-    IplImage *rgb888Image = cvCreateImage(cvSize(width, height), IPL_DEPTH_8U, 3);
+  	 Mat mat(height,width,CV_8UC3);
+	 color_t     clr_get;
+	 IplImage rgb888Image;
     int rgb565Step = width;
 	
-    uchar* rgb888Data = (uchar*)rgb888Image->imageData;
-	
-    float factor5Bit = 255.0 / 31.0;
-    float factor6Bit = 255.0 / 63.0;
+   // float factor5Bit = 255.0 / 31.0;
+   // float factor6Bit = 255.0 / 63.0;
     for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
 		{
+/*
 		    unsigned short rgb565 = rgb565Data[i*rgb565Step + j];
 		    uchar r5 = (rgb565 & RED_MASK)   >> 11;
 		    uchar g6 = (rgb565 & GREEN_MASK) >> 5;
@@ -71,10 +72,15 @@ IplImage* OpenCV::rgb565to888(unsigned short *rgb565Data ,int width, int height)
 			
 		    rgb888Data[i*rgb888Image->widthStep + j]       = r8;
 		    rgb888Data[i*rgb888Image->widthStep + (j + 1)] = g8;
-		    rgb888Data[i*rgb888Image->widthStep + (j + 2)] = b8;
+		    rgb888Data[i*rgb888Image->widthStep + (j + 2)] = b8;*/
+			gx_get_pixel( rgb565Data, j,i, &clr_get);
+			image.at<Vec3b>(i,j)[2] = clr_get.red;
+			image.at<Vec3b>(i,j)[1] = clr_get.green;
+			image.at<Vec3b>(i,j)[0] = clr_get.blue;
 		}
 	}
-	return rgb888Image;
+	rgb888Image = mat;
+	return &rgb888Image;
 }
 
 int OpenCV::matching(IplImage *srcImage, double* error)
@@ -169,7 +175,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 {
 //	IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
 	
-	 IplImage* pRgbImg = rgb565to888((unsigned short*)pData->mapped, width, height);
+	 IplImage* pRgbImg = rgb565to888(pData, width, height);
     IplImage* pGrayImg = cvCreateImage(cvGetSize(pRgbImg),IPL_DEPTH_8U,1);
 	
 	 
