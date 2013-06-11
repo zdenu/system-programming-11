@@ -537,6 +537,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	printf("template matching complete.\n");
 	//printf("\n");
 	//*pMatGr = pLabeledImg;
+	cvSaveImage("binary.bmp", pLabeledImg);
 	pLabeledImg = img_resizeto_screen(pLabeledImg);
 	//imshow( "Result", pLabeledImg );
 	//레이블 결과 저장
