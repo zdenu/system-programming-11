@@ -1,6 +1,5 @@
 #include "opencv.h"
 
-
 bool OpenCV::init(void)
 {
 	printf( "Load templete...\n" );
@@ -170,10 +169,10 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 {
 //	IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
 	
-	IplImage* pRgbImg = rgb565to888((unsigned short*)pData->mapped, width, height);
+	 IplImage* pRgbImg = rgb565to888((unsigned short*)pData->mapped, width, height);
     IplImage* pGrayImg = cvCreateImage(cvGetSize(pRgbImg),IPL_DEPTH_8U,1);
 	
-	
+	 
     IplImage labeledImg;
     //Mat* pMatLabeled;
     //Mat MatLabeled;
@@ -183,6 +182,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	string strTemp = "";
 	string outFormula;
 	
+	cvSaveImage("original.bmp", pRgbImg);
 	//흑백 변환
 	printf( "Gray scale Process\n" );
 	cvCvtColor(pRgbImg,pGrayImg,CV_BGR2GRAY);
