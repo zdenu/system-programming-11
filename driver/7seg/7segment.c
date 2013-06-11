@@ -1,13 +1,22 @@
-#include "asm/ioctl.h"
-#include "asm/hardware.h"
-#include "asm/uaccess.h"
-#include "asm/io.h"
+#include <linux/init.h>
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/fs.h>
+#include <linux/errno.h>
+#include <linux/types.h>
+#include <asm/fcntl.h>
+#include <linux/ioport.h>
+
+#include <asm/ioctl.h>
+#include <asm/hardware.h>
+#include <asm/uaccess.h>
+#include <asm/io.h>
 
 
-#define DRIVER_AUTHOR			"G11"
-#define DRIVER_DESC				"7 Segment test"
+#define DRIVER_AUTHOR				"G11"
+#define DRIVER_DESC					"7 Segment test"
 #define SEGMENT_MODULE_VERSION	"7 Segment PORT V0.1"
-#define	SEGMENT_NAME			"7 Segment"
+#define	SEGMENT_NAME				"7 Segment"
 #define	SEGMENT_MAJOR_NUMBER	0
 
 #define SEGMENT_ADDRESS			0x14800000
@@ -98,7 +107,7 @@ ssize_t segment_write(struct file *inode, const char *gdata, size_t length, loff
 
 	unsigned char data[6];
 	unsigned char digit[6]={0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
-	unsigned int i,j,num,ret;
+	unsigned int i,j,num,ret,k;
 	unsigned char key[6];
 	unsigned int count=0,temp1,temp2;
 
@@ -116,7 +125,7 @@ ssize_t segment_write(struct file *inode, const char *gdata, size_t length, loff
 			for(i=0;i<6;i++) { 
 				*segment_grid = ~digit[i];
 				*segment_data = data[i];
-				mdelay(1);
+				for(k=0;k<65536;k++);
 			}
 		}
 		count--;
