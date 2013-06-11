@@ -40,7 +40,7 @@ public:
 	bool Labeling(dc_t* pData, int width, int height, std::string& strData);
 	
 protected:
-	IplImage* rgb565to888(unsigned short *rgb565Data ,int width, int height);
+	IplImage* rgb565to888(dc_t *rgb565Data ,int width, int height);
 	IplImage* img_resize(IplImage* src_img, int height);
 	IplImage* img_resizeto_screen(IplImage* src_img);
 	int matching(IplImage *srcImage, double* error);
