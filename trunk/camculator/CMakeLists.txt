@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED( VERSION 2.8 )
+CMAKE_MINIMUM_REQUIRED( VERSION 2.6 )
 
 SET( CMAKE_C_COMPILER "arm-none-linux-gnueabi-gcc" )
 SET( CMAKE_CXX_COMPILER "arm-none-linux-gnueabi-g++" )
