@@ -1,10 +1,10 @@
 CMAKE_MINIMUM_REQUIRED( VERSION 2.8 )
 
-SET( CMAKE_C_COMPILER "arm-linux-gcc" )
-SET( CMAKE_CXX_COMPILER "arm-linux-g++" )
-SET( LDFLAGS "-L/usr/local/arm/lib" )
-SET( CPPFLAGS "-I/usr/local/arm/include" )
-SET( CFLAGS "-I/usr/local/arm/include" )
+SET( CMAKE_C_COMPILER "arm-none-linux-gnueabi-gcc" )
+SET( CMAKE_CXX_COMPILER "arm-none-linux-gnueabi-g++" )
+SET( LDFLAGS "-L/usr/local/arm/arm-none-linux-gnueabi/lib" )
+SET( CPPFLAGS "-I/usr/local/arm/arm-none-linux-gnueabi/include" )
+SET( CFLAGS "-I/usr/local/arm/arm-none-linux-gnueabi/include" )
 SET( PROJECT_NAME camc )
 
 PROJECT( ${PROJECT_NAME} )
@@ -29,11 +29,11 @@ INCLUDE_DIRECTORIES( ${CAMCULATOR_DIRECTORY} )
 INCLUDE_DIRECTORIES( ${GXLIB_DIRECTORY} )
 INCLUDE_DIRECTORIES( ${GIFLIB_DIRECTORY} )
 INCLUDE_DIRECTORIES( ${OPENCV_LABELING_DIRECTORY} )
-INCLUDE_DIRECTORIES( "/usr/local/arm/include" )
-INCLUDE_DIRECTORIES( "/usr/local/arm/include/opencv" )
-INCLUDE_DIRECTORIES( "/usr/local/arm/include/opencv2" )
+INCLUDE_DIRECTORIES( "/usr/local/arm/arm-none-linux-gnueabi/include" )
+INCLUDE_DIRECTORIES( "/usr/local/arm/arm-none-linux-gnueabi/include/opencv" )
+INCLUDE_DIRECTORIES( "/usr/local/arm/arm-none-linux-gnueabi/include/opencv2" )
 
-LINK_DIRECTORIES( "/usr/local/arm/lib" )
+LINK_DIRECTORIES( "/usr/local/arm/arm-none-linux-gnueabi/lib" )
 
 ADD_DEFINITIONS( "-w" "-Os" )
 

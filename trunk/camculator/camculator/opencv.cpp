@@ -74,9 +74,9 @@ IplImage* OpenCV::rgb565to888(dc_t *rgb565Data ,int width, int height)
 		    rgb888Data[i*rgb888Image->widthStep + (j + 1)] = g8;
 		    rgb888Data[i*rgb888Image->widthStep + (j + 2)] = b8;*/
 			gx_get_pixel( rgb565Data, j,i, &clr_get);
-			image.at<Vec3b>(i,j)[2] = clr_get.red;
-			image.at<Vec3b>(i,j)[1] = clr_get.green;
-			image.at<Vec3b>(i,j)[0] = clr_get.blue;
+			mat.at<Vec3b>(i,j)[2] = clr_get.red;
+			mat.at<Vec3b>(i,j)[1] = clr_get.green;
+			mat.at<Vec3b>(i,j)[0] = clr_get.blue;
 		}
 	}
 	rgb888Image = mat;
