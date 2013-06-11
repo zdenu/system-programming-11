@@ -53,9 +53,9 @@ IplImage* OpenCV::rgb565to888(dc_t *rgb565Data ,int width, int height)
 	 color_t     clr_get;
 	 IplImage rgb888Image;
     int rgb565Step = width;
-	
    // float factor5Bit = 255.0 / 31.0;
    // float factor6Bit = 255.0 / 63.0;
+	printf("1\n");
     for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
@@ -79,6 +79,7 @@ IplImage* OpenCV::rgb565to888(dc_t *rgb565Data ,int width, int height)
 			mat.at<Vec3b>(i,j)[0] = clr_get.blue;
 		}
 	}
+	printf("2\n");
 	rgb888Image = mat;
 	return &rgb888Image;
 }
