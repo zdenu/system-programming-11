@@ -45,13 +45,14 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	State::makeScreen(dc_buffer, dc_screen, pParam);
 	//Line Max 32char
 	string tmp(txt);
+	tmp.insert(cursor,"|",0,1);
 	//replace space
 	//replace_if(tmp.begin(), tmp.end(), bind2nd(equal_to<char>(), ' '), '_');
 	string l1,l2,l3,l4;
-	l1 = txt.substr(0,32);
-	l2 = txt.substr(33,32);
-	l3 = txt.substr(65,32);
-	l4 = txt.substr(97,32);
+	l1 = tmp.substr(0,32);
+	l2 = tmp.substr(33,32);
+	l3 = tmp.substr(65,32);
+	l4 = tmp.substr(97,32);
 	//line1 
 	gx_text_out( dc_buffer, 9, 75 , l1.c_Str());
 	//line2
