@@ -42,6 +42,7 @@ typedef UCHAR			BYTE;
 #define FRAME_BUFFER_DEVICE		"/dev/fb"
 #define TOUCH_EVENT_DEVICE		"/dev/input/event0"
 #define KEY_EVENT_DEVICE		"/dev/keypad"
+#define SW_EVENT_DEVICE		"/dev/sw"
 #define CAMERA_DEVICE			"/dev/camera"
 
 #define FONT_MALGUN_14			"font/14pt/malgun14.bdf"

@@ -172,8 +172,8 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam)
 			this->inputKey("9","9","9","g","h","i","*","*","*");
 		break;
      case 4:
-			this->inputKey(" "," "," "," "," "," "," "," "," ");
 		// space
+			this->inputKey(" "," "," "," "," "," "," "," "," ");
 		break;
      case 5:
 		//4 jkl /
@@ -227,6 +227,24 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam)
 		}
 		break;
      case 16:
+		//del
+		if(cursor<txt.length()-1){
+			txt.erase(cursor,1);
+		}
+		break;
+		case 17: //sw1 ->
+		step = 0;
+		if(cursor<txt.length()){
+			cursor++;
+		}
+		break;
+		case 18://sw2 <-
+		step = 0;
+		if(cursor>0){
+			cursor--;
+		}
+		break;
+		case 19://sw3
 		//mode
 		step = 0;
 		if(keymode<3){
@@ -234,9 +252,9 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam)
 		} else {
 			keymode = 0;		
 		}
+		step = 0;
 		break;
 	}
-
 	return 0;
 }
 

@@ -201,7 +201,7 @@ static void interface_movie( char* file, int max, int fps){
 	fps = 1000000/fps;
 	pauseTouchevent();
 	//gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-	for(i=0;i<max;i++) {
+	for(i=1;i<max+1;i++) {
 	sprintf(namebuff,"%s%04d.png",file,(i+1));
 	png = gx_png_open(namebuff);
 		if ( NULL == png)

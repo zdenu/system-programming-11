@@ -12,7 +12,7 @@
 #define BLUE_MASK 0x001F
 
 #define TEMPLATE_NUM 39
-#define TEMPLATE_FONT 1
+#define TEMPLATE_FONT 2
 
 using namespace cv;
 using namespace std;
@@ -158,21 +158,22 @@ int main( int argc, char** argv )
 	 string formula;
 	 string strTemp = "";
 	 string outFormula;
-
+	 imshow( "Original", pRgbImg );
 	 //흑백 변환 
 	printf( "Gray scale Process\n" );
 	cvCvtColor(pRgbImg,pGrayImg,CV_BGR2GRAY);
+	imshow( "Gray", pGrayImg );
 
 	printf( "Image resize Process\n" );
 	//300 , 400, 500 ,700 ,800 ~ height resize for templete
-	 pGrayImg = img_resize(pGrayImg, 700);
-	 //imshow( "RESIZE", pGrayImg ); //arm에선 작동안함..
+	 pGrayImg = img_resize(pGrayImg, 400);
+	 imshow( "RESIZE", pGrayImg ); //arm에선 작동안함..
 
 	printf ("Binary Process\n" );
 	 //binary Process 반전
     cvThreshold(pGrayImg, pGrayImg, 127.0, 255.0, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
  	 //threshold(pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
-	 //imshow( "Binary", pGrayImg );
+	 imshow( "Binary", pGrayImg );
 
     IplImage* pLabeledImg = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, 3);
     IplImage* pGrayImg_inv = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, pGrayImg->nChannels);
@@ -185,16 +186,23 @@ int main( int argc, char** argv )
 	
 	printf( "Filter Process\n" );
 	// 팽창/
-    cvDilate( pGrayImg, pGrayImg, element1, 1); 
+   cvDilate( pGrayImg, pGrayImg, element1, 1); 
+	imshow( "Dilate", pGrayImg );
+
 
     	  //스무스
     cvSmooth(pGrayImg,pGrayImg, CV_MEDIAN, 3);
     cvThreshold( pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+	
+	imshow( "cvSmooth", pGrayImg );
 	// 침식
     cvErode(pGrayImg, pGrayImg, element2, 1);  
+	imshow( "Erode", pGrayImg );
     	//반전에 반전 (원본)
-   cvNot(pGrayImg,pGrayImg_inv);
+   cvNot(pGrayImg, pGrayImg_inv);
    cvCvtColor( pGrayImg_inv, pLabeledImg, CV_GRAY2RGB);
+	
+	imshow( "Filtered", pGrayImg_inv );
 
 	printf ("Labeling Process\n" );
 	CBlobLabeling blob;
@@ -224,6 +232,7 @@ int main( int argc, char** argv )
 	if((tImage[16][0] = cvLoadImage("ocr_templete/A.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[17][0] = cvLoadImage("ocr_templete/L.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[18][0] = cvLoadImage("ocr_templete/t_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[18][1] = cvLoadImage("ocr_templete/t_2.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[19][0] = cvLoadImage("ocr_templete/i_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[20][0] = cvLoadImage("ocr_templete/c_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[21][0] = cvLoadImage("ocr_templete/s_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
@@ -246,7 +255,7 @@ int main( int argc, char** argv )
 	if((tImage[38][0] = cvLoadImage("ocr_templete/root_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 
 	//템플릿 이진화.
-/*
+
 	for(int i = 0; i < TEMPLATE_NUM; i++)  {
 		for(int j = 0; j < TEMPLATE_FONT; j++){
 			if(tImage[i][j] != NULL){
@@ -254,7 +263,7 @@ int main( int argc, char** argv )
 			}
 		}
 	}
-*/
+
 	printf( "Templete matching...\n" );
     for(int i = 0; i < blob.m_nBlobs; i++)
     {
@@ -549,13 +558,14 @@ int main( int argc, char** argv )
     }
 	//printf("\n");
 	//*pMatGr = pLabeledImg;
+	imshow( "Labeled", pLabeledImg );
 	pLabeledImg = img_resizeto_screen(pLabeledImg);
-	//imshow( "Result", pLabeledImg );
+	imshow( "Result", pLabeledImg );
 	//레이블 결과 저장
 	cvSaveImage("lable_result.bmp", pLabeledImg);
 
 	cout << formula << endl;
-  //waitKey(0);
+  waitKey(0);
 	cvReleaseImage(&pGrayImg);
 	cvReleaseImage(&pLabeledImg);
   return 0;
