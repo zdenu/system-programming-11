@@ -58,46 +58,6 @@ cv.h
 highgui.h
 -
 
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/Define.h
-stdio.h
--
-stdint.h
--
-stdlib.h
--
-string.h
--
-unistd.h
--
-string
--
-string
--
-gx.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
-
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.h
-sys/socket.h
--
-map
--
-string
--
-
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.cpp
-Define.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/Define.h
-WolframAlphaManager.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
-HttpConnector.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.h
-tinyxml/tinyxml.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/tinyxml/tinyxml.h
-camculator.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
-util.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.h
-
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
 string
 -
@@ -159,18 +119,6 @@ define.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
 state.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
-
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.cpp
-define.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
-crop.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.h
-gx.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
-camculator.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
-touch.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h
 
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.h
 define.h
@@ -291,16 +239,6 @@ thread.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/thread.h
 gx.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
-
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.h
-define.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
-giflib/gif_lib.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/giflib/gif_lib.h
-giflib/gif_lib_private.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/giflib/gif_lib_private.h
-stdarg.h
--
 
 /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
 bits/types.h
@@ -578,12 +516,6 @@ linux/thread_info.h
 asm/arch/smp.h
 -
 
-/usr/local/arm/arm-none-linux-gnueabi/include/asm/socket.h
-asm/sockios.h
--
-
-/usr/local/arm/arm-none-linux-gnueabi/include/asm/sockios.h
-
 /usr/local/arm/arm-none-linux-gnueabi/include/asm/spinlock.h
 
 /usr/local/arm/arm-none-linux-gnueabi/include/asm/spinlock_types.h
@@ -718,22 +650,6 @@ bits/wordsize.h
 
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/sigthread.h
 
-/usr/local/arm/arm-none-linux-gnueabi/include/bits/sockaddr.h
-
-/usr/local/arm/arm-none-linux-gnueabi/include/bits/socket.h
-stddef.h
--
-limits.h
--
-sys/types.h
--
-bits/sockaddr.h
--
-asm/socket.h
--
-
-/usr/local/arm/arm-none-linux-gnueabi/include/bits/socket2.h
-
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/stdio-ldbl.h
 
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/stdio-lock.h
@@ -783,10 +699,6 @@ bits/typesizes.h
 -
 
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/typesizes.h
-
-/usr/local/arm/arm-none-linux-gnueabi/include/bits/uio.h
-sys/types.h
--
 
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/unistd.h
 
@@ -2384,18 +2296,6 @@ time.h
 bits/time.h
 -
 
-/usr/local/arm/arm-none-linux-gnueabi/include/sys/socket.h
-features.h
--
-sys/uio.h
--
-stddef.h
--
-bits/socket.h
--
-bits/socket2.h
--
-
 /usr/local/arm/arm-none-linux-gnueabi/include/sys/sysmacros.h
 features.h
 -
@@ -2440,14 +2340,6 @@ signal.h
 sys/procfs.h
 -
 bits/sigcontext.h
--
-
-/usr/local/arm/arm-none-linux-gnueabi/include/sys/uio.h
-features.h
--
-sys/types.h
--
-bits/uio.h
 -
 
 /usr/local/arm/arm-none-linux-gnueabi/include/sys/user.h
@@ -2529,46 +2421,4 @@ xlocale.h
 -
 
 /usr/local/arm/arm-none-linux-gnueabi/include/xlocale.h
-
-giflib/gif_hash.h
-unistd.h
--
-stdint.h
--
-
-giflib/gif_lib.h
-stdbool.h
--
-
-giflib/gif_lib_private.h
-gif_lib.h
-giflib/gif_lib.h
-gif_hash.h
-giflib/gif_hash.h
-
-tinyxml/tinystr.h
-assert.h
--
-string.h
--
-
-tinyxml/tinyxml.h
-ctype.h
--
-stdio.h
--
-stdlib.h
--
-string.h
--
-assert.h
--
-string
--
-iostream
--
-sstream
--
-tinystr.h
-tinyxml/tinystr.h
 
