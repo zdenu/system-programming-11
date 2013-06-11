@@ -47,10 +47,7 @@ protected:
 private:
 	IplImage *tImage[TEMPLATE_NUM][2];
 	int objCenterPosition[TEMPLATE_NUM][2];
-	string definedInt[2];
-	int definedIntStartFlg;
-	int definedIntEndFlg;
-	string definedIntVariable;
+
 
 };
 

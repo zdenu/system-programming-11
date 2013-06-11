@@ -19,11 +19,6 @@ using namespace std;
 
 IplImage *tImage[TEMPLATE_NUM][2];
 int objCenterPosition[TEMPLATE_NUM][2];
-string definedInt[2];
-int definedIntStartFlg = 0;
-int definedIntEndFlg = 0;
-string definedIntVariable;
-
 
 
 IplImage* rgb565to888(unsigned short *rgb565Data ,int width, int height)
@@ -146,6 +141,10 @@ IplImage* img_resizeto_screen(IplImage* src_img)
 
 int main( int argc, char** argv )
 {
+	 string definedInt1,definedInt2;
+	 int definedIntStartFlg = 0;
+	 int definedIntEndFlg = 0;
+	 string definedIntVariable;
 	 IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
     IplImage* pGrayImg = cvCreateImage(cvGetSize(pRgbImg),IPL_DEPTH_8U,1);
 	  
@@ -159,10 +158,19 @@ int main( int argc, char** argv )
 	 string strTemp = "";
 	 string outFormula;
 	 imshow( "Original", pRgbImg );
+	
+	//밝게
+	//cvAddS(pRgbImg, CV_RGB(100,100,100), pRgbImg, NULL);
+	
+ 	imshow( "Light", pRgbImg );
 	 //흑백 변환 
 	printf( "Gray scale Process\n" );
 	cvCvtColor(pRgbImg,pGrayImg,CV_BGR2GRAY);
 	imshow( "Gray", pGrayImg );
+	
+//히스토그램
+	// cvEqualizeHist(pGrayImg, pGrayImg);
+//	imshow( "Histogram", pRgbImg );
 
 	printf( "Image resize Process\n" );
 	//300 , 400, 500 ,700 ,800 ~ height resize for templete
@@ -171,12 +179,24 @@ int main( int argc, char** argv )
 
 	printf ("Binary Process\n" );
 	 //binary Process 반전
-    cvThreshold(pGrayImg, pGrayImg, 127.0, 255.0, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
+	 cvAdaptiveThreshold(pGrayImg, pGrayImg, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY_INV, 51, 10);
+    //cvThreshold(pGrayImg, pGrayImg, 10.0, 255.0, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
  	 //threshold(pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
 	 imshow( "Binary", pGrayImg );
 
-    IplImage* pLabeledImg = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, 3);
-    IplImage* pGrayImg_inv = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, pGrayImg->nChannels);
+	  //여백 넣기
+    IplImage* pGrayImg2 = cvCreateImage(cvSize(pGrayImg->width+20, pGrayImg->height+20), 8, pGrayImg->nChannels);
+	 //cvSet(pGrayImg2,CV_RGB(255,255,255));
+	 cvSetImageROI(pGrayImg2, cvRect(20,20,pGrayImg->width-20,pGrayImg->height-20));
+	 cvSetImageROI(pGrayImg, cvRect(10,10,pGrayImg->width-20,pGrayImg->height-20));
+	 cvCopy(pGrayImg,pGrayImg2);
+	 cvResetImageROI(pGrayImg2);
+	 imshow( "ADD ", pGrayImg2 );
+	 cvReleaseImage(&pGrayImg);
+	 
+
+    IplImage* pLabeledImg = cvCreateImage(cvSize(pGrayImg2->width, pGrayImg2->height), 8, 3);
+    IplImage* pGrayImg_inv = cvCreateImage(cvSize(pGrayImg2->width, pGrayImg2->height), 8, pGrayImg2->nChannels);
 
 		
     IplConvKernel *element1;
@@ -186,27 +206,27 @@ int main( int argc, char** argv )
 	
 	printf( "Filter Process\n" );
 	// 팽창/
-   cvDilate( pGrayImg, pGrayImg, element1, 1); 
-	imshow( "Dilate", pGrayImg );
+   cvDilate( pGrayImg2, pGrayImg2, element1, 1); 
+	imshow( "Dilate", pGrayImg2 );
 
 
     	  //스무스
-    cvSmooth(pGrayImg,pGrayImg, CV_MEDIAN, 3);
-    cvThreshold( pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    cvSmooth(pGrayImg2,pGrayImg2, CV_MEDIAN, 3);
+    cvThreshold( pGrayImg2, pGrayImg2, 127, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
 	
-	imshow( "cvSmooth", pGrayImg );
+	imshow( "cvSmooth", pGrayImg2 );
 	// 침식
-    cvErode(pGrayImg, pGrayImg, element2, 1);  
-	imshow( "Erode", pGrayImg );
+    cvErode(pGrayImg2, pGrayImg2, element2, 1);  
+	imshow( "Erode", pGrayImg2 );
     	//반전에 반전 (원본)
-   cvNot(pGrayImg, pGrayImg_inv);
+   cvNot(pGrayImg2, pGrayImg_inv);
    cvCvtColor( pGrayImg_inv, pLabeledImg, CV_GRAY2RGB);
 	
 	imshow( "Filtered", pGrayImg_inv );
 
 	printf ("Labeling Process\n" );
 	CBlobLabeling blob;
-   blob.SetParam( pGrayImg, 5 );
+   blob.SetParam( pGrayImg2, 5 );
 
    blob.DoLabeling();
 	CvScalar color = cvScalar(255, 0, 0);
@@ -227,7 +247,8 @@ int main( int argc, char** argv )
 	if((tImage[12][0] = cvLoadImage("ocr_templete/divide_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[13][0] = cvLoadImage("ocr_templete/pi_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[13][1] = cvLoadImage("ocr_templete/pi_2.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-	if((tImage[14][0] = cvLoadImage("ocr_templete/bracket_l_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[14][0] = cvLoadImage("ocr_templete/bracket_l_2.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	if((tImage[14][1] = cvLoadImage("ocr_templete/bracket_l_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[15][0] = cvLoadImage("ocr_templete/bracket_r_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[16][0] = cvLoadImage("ocr_templete/A.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[17][0] = cvLoadImage("ocr_templete/L.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
@@ -244,7 +265,7 @@ int main( int argc, char** argv )
 	if((tImage[27][0] = cvLoadImage("ocr_templete/e_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[28][0] = cvLoadImage("ocr_templete/f_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[29][0] = cvLoadImage("ocr_templete/dx_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-	if((tImage[30][0] = cvLoadImage("ocr_templete/diff_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	//if((tImage[30][0] = cvLoadImage("ocr_templete/diff_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[31][0] = cvLoadImage("ocr_templete/Large_c_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[32][0] = cvLoadImage("ocr_templete/arrow_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[33][0] = cvLoadImage("ocr_templete/y_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
@@ -265,21 +286,22 @@ int main( int argc, char** argv )
 	}
 
 	printf( "Templete matching...\n" );
+
     for(int i = 0; i < blob.m_nBlobs; i++)
     {
     	CvPoint pt1 = cvPoint(blob.m_recBlobs[i].x-5, blob.m_recBlobs[i].y-5);
     	CvPoint pt2 = cvPoint(pt1.x + blob.m_recBlobs[i].width + 10, pt1.y + blob.m_recBlobs[i].height + 10);
-
     	if((blob.m_recBlobs[i].x-5<= 0)||(blob.m_recBlobs[i].y-5<= 0)){
     		//size error
     	} else{
 			//각 레이블 표시
 			// 이미지 매칭
 			IplImage* pLabeledImg_obj = cvCreateImage(cvSize(pt2.x-pt1.x, pt2.y-pt1.y), 8, pGrayImg_inv->nChannels);
+			
 			int nMatchValue;
 			double error;
 			cvSetImageROI(pGrayImg_inv,cvRect(pt1.x,pt1.y,pt2.x-pt1.x,pt2.y-pt1.y));
-
+			
 			cvCopy(pGrayImg_inv, pLabeledImg_obj);
 			cvResetImageROI(pGrayImg_inv);
 
@@ -287,261 +309,308 @@ int main( int argc, char** argv )
 			objCenterPosition[i][0] = (pt2.x-pt1.x)/2 + pt1.x;
 			objCenterPosition[i][1] = (pt2.y-pt1.y)/2 + pt1.y;
 			nMatchValue = matching(pLabeledImg_obj, &error);
-
+			
 			cvDrawRect(pLabeledImg, pt1, pt2, color ,6);
-
 			//CvFont point_font;
 			//cvInitFont(&point_font,CV_FONT_HERSHEY_SIMPLEX, 1, 1, 0, 1, 8);
 			char text[20];
-			char letter[5];
-
+			string letter = "";
+			
 			if((objCenterPosition[0][1]-objCenterPosition[i][1])>20){ // 자승 처리
 				formula += "^";
 			}
 
-
+			
 			switch(nMatchValue){
 
 			case 0:
-					strcpy(letter, "0");
+						
+					letter =  "0";
 					formula +=  "0";
 					break;
 			case 1:
-					strcpy(letter, "1");
+					letter =  "1";
 					formula +=  "1";
 					break;
 			case 2:
-					strcpy(letter, "2");
+					letter =  "2";
 					formula +=  "2";
 					break;
 			case 3:
-					strcpy(letter, "3");
+					letter =  "3";
 					formula +=  "3";
 					break;
 			case 4:
-					strcpy(letter, "4");
+					letter =  "4";
 					formula +=  "4";
 					break;
 			case 5:
-					strcpy(letter, "5");
+					letter =  "5";
 					formula +=  "5";
 					break;
 			case 6:
-					strcpy(letter, "6");
+					letter =  "6";
 					formula +=  "6";
 					break;
 			case 7:
-					strcpy(letter, "7");
+					letter =  "7";
 					formula +=  "7";
 					break;
 			case 8:
-					strcpy(letter, "8");
+					letter =  "8";
 					formula +=  "8";
 					break;
 			case 9:
-					strcpy(letter, "9");
+					letter =  "9";
 					formula +=  "9";
 					break;
 			case 10:
-					strcpy(letter, "+");
+					letter =  "+";
 					formula +=  "+";
 					break;
 			case 11:
-					strcpy(letter, "-");
+					letter =  "-";
 					if(((objCenterPosition[i][0] - objCenterPosition[i-1][0])<5)&&((objCenterPosition[i][0] - objCenterPosition[i-1][0])>-5)){
+						if(formula.length()>0){
 						formula.erase(formula.length() -1 ,1 );
+						}
 						formula +=  "=";
 					}
 					else
 						formula +=  "-";
 					break;
 			case 12:
-					strcpy(letter, "/");
+					letter =  "/";
 					formula +=  "/";
 					break;
 			case 13:
-					strcpy(letter, "pi");
+					letter =  "pi";
 					formula +=  "pi";
 					break;
 			case 14:
-					strcpy(letter, "(");
+					letter =  "(";
 					formula +=  "(";
 					break;
 			case 15:
-					strcpy(letter, ")");
+					letter =  ")";
 					formula +=  ")";
 					break;
 
 			case 16:
-					strcpy(letter, "A");
+					letter =  "A";
 					formula +=  "A";
 					break;
 			case 17:
-					strcpy(letter, "L");
+					letter =  "L";
 					formula +=  "L";
 					break;
 			case 18:
-					strcpy(letter, "t");
+					letter =  "t";
 					formula +=  "t";
+					if(formula.length()>0){
 					strTemp = formula.substr(formula.length()-1,formula.length());
+					}
 					//if(strTemp == "d")
 						//definedIntEndFlg = 1;
 						definedIntVariable = "t";
 					break;
 			case 19:
-					strcpy(letter, "I");
+					letter =  "I";
 					formula +=  "I";
 					break;
 			case 20:
-					strcpy(letter, "C");
-					strTemp = formula.substr(formula.length()-2,formula.length());
-					if((strTemp=="Se")||(strTemp=="SC")){
-						formula.erase(formula.length() -2 ,2);
-						formula +=  "sec";
-					}
-					else
-					formula +=  "C";
+					letter =  "C";
+					if(formula.length()>1){
+						strTemp = formula.substr(formula.length()-2,formula.length());
+						if((strTemp=="Se")||(strTemp=="SC")){
+							if(formula.length()>1){
+							formula.erase(formula.length() -2 ,2 );
+							}
+							formula +=  "sec";
+						}
+						else
+						formula +=  "C";
+						} else {
+							formula +=  "C";
+						}
 					break;
 			case 21:
-					strcpy(letter, "S");
+					letter =  "S";
+					if(formula.length()>1){
 					strTemp = formula.substr(formula.length()-2,formula.length());
 					if((strTemp=="CO")||(strTemp=="C0")||(strTemp=="cO")||(strTemp=="c0")){
-						formula.erase(formula.length() -2 ,2);
+						if(formula.length()>1){
+						formula.erase(formula.length() -2 ,2 );
+						}
 						formula +=  "cos";
 					}
 					else
 						formula +=  "S";
+					} else {
+					formula +=  "S";
+					}
 					break;
 			case 22:
-					strcpy(letter, "O");
+					letter =  "O";
 					formula +=  "O";
 					break;
 			case 23:
-					strcpy(letter, ".");
-
+					letter =  ".";
 					if(((objCenterPosition[i][0] - objCenterPosition[i-1][0])<10)&&((objCenterPosition[i][0] - objCenterPosition[i-1][0])>-10)){
-						formula.erase(formula.length() - 2, 2);
+						if(formula.length()>1){
+						formula.erase(formula.length() -2 ,2 );
+						}
 						formula +=  "i";
 					}
 					else
 						formula +=  ".";
-
 					if(formula.length()>=6){
 						strTemp = formula.substr(formula.length()-6,formula.length());
 						if(strTemp == ".^.^.^"){
-							formula.erase(formula.length() -6 ,6);
+							if(formula.length()>5){
+						formula.erase(formula.length() -6 ,6 );
+						}
 							formula +=  "integral";
 							objCenterPosition[0][0] = objCenterPosition[i-1][0];
 						}
 
 					}
-
 					break;
 			case 24:
-					strcpy(letter, "m");
+					letter =  "m";
 					formula +=  "m";
 					break;
 			case 25:
-					strcpy(letter, "n");
-					strTemp = formula.substr(formula.length()-2,formula.length());
-					if((strTemp=="SI")||(strTemp=="Si")||(strTemp=="sI")||(strTemp=="si")||(strTemp=="S1")||(strTemp=="s1")){
-						formula.erase(formula.length() -2 ,2);
-						formula +=  "sin";
+					letter =  "n";
+					if(formula.length()>1){
+						strTemp = formula.substr(formula.length()-2,formula.length());
+						if((strTemp=="SI")||(strTemp=="Si")||(strTemp=="sI")||(strTemp=="si")||(strTemp=="S1")||(strTemp=="s1")){
+							if(formula.length()>1){
+							formula.erase(formula.length() -2 ,2 );
+							}
+							formula +=  "sin";
+						}
+						else
+						formula +=  "n";
+					} else {
+						formula +=  "n";					
 					}
-					else
-					formula +=  "n";
 					break;
 			case 26:
-					strcpy(letter, "d");
+					letter =  "d";
 					formula +=  "d";
 					break;
 			case 27:
-					strcpy(letter, "e");
+					letter =  "e";
 					formula +=  "e";
 					break;
 			case 28:
-					strcpy(letter, "f");
+					letter =  "f";
 					formula +=  "f";
 					break;
 			case 29:
-					strcpy(letter, "dx");
+					letter =  "dx";
 					formula +=  "dx";
 					//definedIntEndFlg = 1;
 					break;
 			case 30:
-					strcpy(letter, "'");
-					formula.erase(formula.length() -1 ,1 );
+					letter =  "'";
+					/*if(formula.length()>0){
+						formula.erase(formula.length() -1 ,1 );
+						}*/
 					formula +=  "'";
 					break;
 			case 31:
-					strcpy(letter, "C");
-					strTemp = formula.substr(formula.length()-1,formula.length());
-					if((strTemp=="SC")||(strTemp=="Se")){
-						formula.erase(formula.length() -2 ,2);
-						formula +=  "sec";
-					}
-					else
+					letter =  "C";
+					if(formula.length()>0){
+						strTemp = formula.substr(formula.length()-1,formula.length());
+						if((strTemp=="SC")||(strTemp=="Se")){
+							if(formula.length()>1){
+							formula.erase(formula.length() -2 ,2 );
+							}
+							formula +=  "sec";
+						}
+						else
+							formula +=  "C";
+					} else {
 						formula +=  "C";
+					}
 					break;
 			case 32:
-					strcpy(letter, "->");
+					letter =  "->";
 					formula +=  "->";
 					break;
 			case 33:
-					strcpy(letter, "y");
+					letter =  "y";
 					formula +=  "y";
+					if(formula.length()>0){
 					strTemp = formula.substr(formula.length()-1,formula.length());
+					}
 					//if(strTemp == "d")
 						//definedIntEndFlg = 1;
 						definedIntVariable = "y";
 					break;
 			case 34:
-					strcpy(letter, "x");
+					letter =  "x";
 					formula +=  "x";
+					if(formula.length()>0){
 					strTemp = formula.substr(formula.length()-1,formula.length());
+					}
 					//if(strTemp == "d")
 						//definedIntEndFlg = 1;
 						definedIntVariable = "x";
 					break;
 			case 35:
-					strcpy(letter, "a");
+					letter =  "a";
 					formula +=  "a";
 					break;
 			case 36:
-					strcpy(letter, "integral");
+					letter =  "integral";
 					formula +=  "integral ";
 					definedIntStartFlg = 1;
 					break;
 			case 37:
-					strcpy(letter, "sigma");
+					letter =  "sigma";
 					formula +=  "sigma ";
 					break;
 			case 38:
-					strcpy(letter, "root");
+					letter =  "root";
 					formula +=  "root ";
 					break;
 			}
-			
 			//printf("%s",letter);
+////////////////////////////////////////////////////////////////////////////////
 			if(((objCenterPosition[0][1]-objCenterPosition[i][1])>40)&&definedIntStartFlg){ // 정적분
-				strTemp = formula.substr(formula.length()-10,formula.length()-1);
-				formula.erase(formula.length() - 2, 2);
+				if(formula.length()>10){
+					strTemp = formula.substr(formula.length()-10,formula.length()-1);
+				}
+				if(formula.length()>1){
+						formula.erase(formula.length() -2 ,2 );
+				}
 				//if(strTemp == "integral ")
-					definedInt[0] = letter;
+						cout<<letter<<endl;
+						definedInt1 = letter;
+						cout<<definedInt1<<endl;
+					//letter =  ")");
 					definedIntStartFlg = 0;
 					definedIntEndFlg = 1;
 			}else if(((objCenterPosition[0][1]-objCenterPosition[i][1])<-40)&&definedIntStartFlg){ // 정적분
-				strTemp = formula.substr(formula.length()-10,formula.length()-1);
-				formula.erase(formula.length() - 1, 1);
+				if(formula.length()>10){
+					
+					strTemp = formula.substr(formula.length()-10,formula.length()-1);
+				}
+				if(formula.length()>0){
+						formula.erase(formula.length() -1 ,1 );
+					}
 				//if(strTemp == "integral ")
-					definedInt[1] = letter;
+				definedInt2 = letter;
 			}else if(definedIntStartFlg){
+				
 				if(nMatchValue != 36) definedIntStartFlg = 0;
 				definedIntEndFlg = 0;
 			}
-
-
-			sprintf(text,"[%s]",letter);
+/////////////////////////////////////////////////////////////////////////////////
+			sprintf(text,"[%s]",letter.c_str());
 			pt1.y = pt1.y-5;
 			//cvPutText(pLabeledImg,text, pt1, &point_font, CV_RGB(255,0,255));
 
@@ -554,8 +623,10 @@ int main( int argc, char** argv )
     }
 
     if(definedIntEndFlg){
-    	formula += " from " + definedIntVariable + "=" + definedInt[1] + " to " + definedInt[0];
+    	formula += " from " + definedIntVariable + "=" + definedInt1 + " to " + definedInt2;
     }
+
+
 	//printf("\n");
 	//*pMatGr = pLabeledImg;
 	imshow( "Labeled", pLabeledImg );
@@ -566,7 +637,7 @@ int main( int argc, char** argv )
 
 	cout << formula << endl;
   waitKey(0);
-	cvReleaseImage(&pGrayImg);
+	cvReleaseImage(&pGrayImg2);
 	cvReleaseImage(&pLabeledImg);
   return 0;
 }

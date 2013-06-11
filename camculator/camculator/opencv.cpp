@@ -34,7 +34,7 @@ bool OpenCV::init(void)
 	if((tImage[27][0] = cvLoadImage("ocr_templete/e_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[28][0] = cvLoadImage("ocr_templete/f_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[29][0] = cvLoadImage("ocr_templete/dx_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
-	if((tImage[30][0] = cvLoadImage("ocr_templete/diff_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
+	//if((tImage[30][0] = cvLoadImage("ocr_templete/diff_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[31][0] = cvLoadImage("ocr_templete/Large_c_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[32][0] = cvLoadImage("ocr_templete/arrow_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
 	if((tImage[33][0] = cvLoadImage("ocr_templete/y_1.bmp" , CV_LOAD_IMAGE_GRAYSCALE )) == NULL);
@@ -139,7 +139,11 @@ IplImage* OpenCV::img_resizeto_screen(IplImage* src_img)
 bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 {
 //	IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
-	
+	string definedInt[2];
+	int definedIntStartFlg;
+	int definedIntEndFlg;
+	string definedIntVariable;
+
 	 Mat mat(height,width,CV_8UC3);
 	 color_t     clr_get;
     //int rgb565Step = width;
@@ -186,6 +190,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	string outFormula;
 	
 	cvSaveImage("original.bmp", pRgbImg);
+	//밝게
+	cvAddS(pRgbImg, CV_RGB(100,100,100), pRgbImg, NULL);
+
 	//흑백 변환
 	printf( "Gray scale Process\n" );
 	cvCvtColor(pRgbImg,pGrayImg,CV_BGR2GRAY);
@@ -197,12 +204,23 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	
 	printf ("Binary Process\n" );
 	//binary Process 반전
-    cvThreshold(pGrayImg, pGrayImg, 127.0, 255.0, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
+    //cvThreshold(pGrayImg, pGrayImg, 127.0, 255.0, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
+	cvAdaptiveThreshold(pGrayImg, pGrayImg, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY_INV, 51, 10);
 	//threshold(pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
 	//imshow( "Binary", pGrayImg );
 	
-    IplImage* pLabeledImg = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, 3);
-    IplImage* pGrayImg_inv = cvCreateImage(cvSize(pGrayImg->width, pGrayImg->height), 8, pGrayImg->nChannels);
+	  //여백 넣기
+    IplImage* pGrayImg2 = cvCreateImage(cvSize(pGrayImg->width+20, pGrayImg->height+20), 8, pGrayImg->nChannels);
+	 //cvSet(pGrayImg2,CV_RGB(255,255,255));
+	 cvSetImageROI(pGrayImg2, cvRect(20,20,pGrayImg->width-20,pGrayImg->height-20));
+	 cvSetImageROI(pGrayImg, cvRect(10,10,pGrayImg->width-20,pGrayImg->height-20));
+	 cvCopy(pGrayImg,pGrayImg2);
+	 cvResetImageROI(pGrayImg2);
+	 imshow( "ADD ", pGrayImg2 );
+	 cvReleaseImage(&pGrayImg);
+
+    IplImage* pLabeledImg = cvCreateImage(cvSize(pGrayImg2->width, pGrayImg2->height), 8, 3);
+    IplImage* pGrayImg2_inv = cvCreateImage(cvSize(pGrayImg2->width, pGrayImg2->height), 8, pGrayImg2->nChannels);
 	
 	
     IplConvKernel *element1;
@@ -212,25 +230,25 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	
 	printf( "Filter Process\n" );
 	// 팽창/
-    cvDilate( pGrayImg, pGrayImg, element1, 1);
+    cvDilate( pGrayImg2, pGrayImg2, element1, 1);
 	
 	//스무스
-    cvSmooth(pGrayImg,pGrayImg, CV_MEDIAN, 3);
-    cvThreshold( pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
+    cvSmooth(pGrayImg2,pGrayImg2, CV_MEDIAN, 3);
+    cvThreshold( pGrayImg2, pGrayImg2, 127, 255, CV_THRESH_BINARY | CV_THRESH_OTSU);
 	// 침식
-    cvErode(pGrayImg, pGrayImg, element2, 1);
+    cvErode(pGrayImg2, pGrayImg2, element2, 1);
 	//반전에 반전 (원본)
-	cvNot(pGrayImg,pGrayImg_inv);
-	cvCvtColor( pGrayImg_inv, pLabeledImg, CV_GRAY2RGB);
+	cvNot(pGrayImg2,pGrayImg2_inv);
+	cvCvtColor( pGrayImg2_inv, pLabeledImg, CV_GRAY2RGB);
 	
 	printf ("Labeling Process\n" );
 	CBlobLabeling blob;
-	blob.SetParam( pGrayImg, 5 );
+	blob.SetParam( pGrayImg2, 5 );
 	
 	blob.DoLabeling();
 	CvScalar color = cvScalar(255, 0, 0);
 	
-	
+	cvSaveImage("binary.bmp", pGrayImg2);
 	
 	//템플릿 이진화.
 	/*
@@ -253,13 +271,13 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
     	} else{
 			//각 레이블 표시
 			// 이미지 매칭
-			IplImage* pLabeledImg_obj = cvCreateImage(cvSize(pt2.x-pt1.x, pt2.y-pt1.y), 8, pGrayImg_inv->nChannels);
+			IplImage* pLabeledImg_obj = cvCreateImage(cvSize(pt2.x-pt1.x, pt2.y-pt1.y), 8, pGrayImg2_inv->nChannels);
 			int nMatchValue;
 			double error;
-			cvSetImageROI(pGrayImg_inv,cvRect(pt1.x,pt1.y,pt2.x-pt1.x,pt2.y-pt1.y));
+			cvSetImageROI(pGrayImg2_inv,cvRect(pt1.x,pt1.y,pt2.x-pt1.x,pt2.y-pt1.y));
 			
-			cvCopy(pGrayImg_inv, pLabeledImg_obj);
-			cvResetImageROI(pGrayImg_inv);
+			cvCopy(pGrayImg2_inv, pLabeledImg_obj);
+			cvResetImageROI(pGrayImg2_inv);
 			
 			//여기서 위치정보 판별
 			objCenterPosition[i][0] = (pt2.x-pt1.x)/2 + pt1.x;
@@ -557,7 +575,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	printf("template matching complete.\n");
 	//printf("\n");
 	//*pMatGr = pLabeledImg;
-	cvSaveImage("binary.bmp", pLabeledImg);
+	
 	pLabeledImg = img_resizeto_screen(pLabeledImg);
 	//imshow( "Result", pLabeledImg );
 	//레이블 결과 저장
@@ -566,7 +584,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	printf("%s\n", formula.c_str());
 	strData.append(formula);
 	//waitKey(0);
-	cvReleaseImage(&pGrayImg);
+	cvReleaseImage(&pGrayImg2);
 	cvReleaseImage(&pLabeledImg);
 	return 0;
 }
