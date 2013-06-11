@@ -5,9 +5,9 @@
 
 
 #define DRIVER_AUTHOR			"G11"
-#define DRIVER_DESC				"7Segment test"
-#define SEGMENT_MODULE_VERSION	"7Segment PORT V0.1"
-#define	SEGMENT_NAME			"7Segment"
+#define DRIVER_DESC				"7 Segment test"
+#define SEGMENT_MODULE_VERSION	"7 Segment PORT V0.1"
+#define	SEGMENT_NAME			"7 Segment"
 #define	SEGMENT_MAJOR_NUMBER	0
 
 #define SEGMENT_ADDRESS			0x14800000
