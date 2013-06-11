@@ -1,22 +1,13 @@
-#include <linux/init.h>
-#include <linux/module.h>
-#include <linux/kernel.h>
-#include <linux/fs.h>
-#include <linux/types.h>
-#include <linux/ioport.h>
-#include <linux/errno.h>
-#include <linux/delay.h>
+#include "asm/ioctl.h"
+#include "asm/hardware.h"
+#include "asm/uaccess.h"
+#include "asm/io.h"
 
-#include <asm/io.h>
-#include <asm/ioctl.h>
-#include <asm/hardware.h>
-#include <asm/uaccess.h>
-#include <asm/fcntl.h>
 
 #define DRIVER_AUTHOR			"G11"
-#define DRIVER_DESC				"7 Segment test"
-#define SEGMENT_MODULE_VERSION	"7 Segment PORT V0.1"
-#define	SEGMENT_NAME			"7 Segment"
+#define DRIVER_DESC				"7Segment test"
+#define SEGMENT_MODULE_VERSION	"7Segment PORT V0.1"
+#define	SEGMENT_NAME			"7Segment"
 #define	SEGMENT_MAJOR_NUMBER	0
 
 #define SEGMENT_ADDRESS			0x14800000
@@ -111,9 +102,9 @@ ssize_t segment_write(struct file *inode, const char *gdata, size_t length, loff
 	unsigned char key[6];
 	unsigned int count=0,temp1,temp2;
 
-	ret = copy_from_user(&key,gdata,12);
+	ret = copy_from_user(&key,gdata,6);
 	if (ret < 0) return -1;
-	count = 10;
+	count = 100000;
 	while(count>0) {
 		data[5]=Getsegmentcode(key[5]);
 		data[4]=Getsegmentcode(key[4]);
