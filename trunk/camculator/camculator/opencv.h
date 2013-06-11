@@ -24,7 +24,7 @@
 #define BLUE_MASK 0x001F
 
 #define TEMPLATE_NUM 39
-#define TEMPLATE_FONT 1
+#define TEMPLATE_FONT 2
 
 using namespace cv;
 using namespace std;
