@@ -5,7 +5,7 @@ CC     = arm-linux-gcc
 
 obj-m := sw.o
 
-KDIR := /home/hanback1/best-1/SM2-P320/linux-2.6.25-sm2_p320
+KDIR := ~/kernel_work/linux-2.6.25-sm2_p320
 
 PWD := $(shell pwd)
 

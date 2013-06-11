@@ -41,9 +41,6 @@ int sw_open(struct inode *minode, struct file *mfile)
 		request_region(sw_ioremap, SW_ADDR_RANGE, SW_NAME);
 	else
 		printk("driver: unable to register this!\n");
-
-	buzzer_addr = (unsigned char *)(sw_ioremap);
-
 	sw_usage = 1;
 	return 0;
 }
@@ -103,7 +100,7 @@ struct file_operations sw_fops = {
 int sw_init(void) 
 {
 	int result;
-	result = register_chrdev(SW_MAJOR, SW_NAME, &SW_fops);
+	result = register_chrdev(SW_MAJOR, SW_NAME, &sw_fops);
 	
 	if(result < 0) {
 		printk(KERN_WARNING"Can't get any major\n");

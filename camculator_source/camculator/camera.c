@@ -41,24 +41,7 @@ int grayscale(stRGB input){
 }
 
 void dc_camera(dc_t *target){
-	//int i=0;
-	//int tmp;
-	//int             ndx;
-   //unsigned short *ptr;
-	//stRGB rgbData[240*320];
-//	gx_clear( target, gx_color( 0, 0, 0, 255));
 	read(camera_dev,target->mapped, 240*320*2);
-   /*ptr = (unsigned short *)target->mapped;
-   for ( ndx = 0; ndx < target->dots; ndx++)
-      *ptr++ = rgbData[ndx];
-	*/
-	//memcpy((char*)target->mapped , rgbData, 240*320*2);
-	//unsigned short *ptr;
-//   dc->mapped = rgbData;
-	/*for (i = 0 ;i<76800; i++) {
-			tmp = grayscale(rgbData[i]);
-			gx_set_pixel(target, i%320, i/320, gx_color( tmp,tmp,tmp, 255));
-	} */
 }
 
 

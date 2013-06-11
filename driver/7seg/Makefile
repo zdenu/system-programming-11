@@ -5,7 +5,7 @@ CC     = arm-linux-gcc
 
 obj-m := 7segment.o
 
-KDIR := ~/linux-2.6.25-sm2_p320
+KDIR := ~/kernel_work/linux-2.6.25-sm2_p320
 
 PWD := $(shell pwd)
 

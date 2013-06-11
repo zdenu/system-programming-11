@@ -193,7 +193,12 @@ static void interface_layout(int mode){
 		gx_png_close( button);
 	}
 }
-
+static void save_screen(){
+	gx_bitblt( before_screen, 0, 0, dc_screen, 0, 0, 320, 240);
+}
+static void restore_screen(){
+	gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
+}
 static void interface_movie( char* file, int max, int fps){
 	png_t   *png;
 	char namebuff[20];
@@ -269,8 +274,11 @@ static void interface_setting(){
 		touch_network = addTouchevent(136, 140, 170, 30);
 		touch_volume = addTouchevent(136, 178, 170, 30);
 		touch_ok = addTouchevent(231, 30, 30, 30);
-			
+
 		dirp14 = opendir("font/14pt");
+		if(dirp14 == NULL){
+			printf("dir open err");		
+		}
 		while((direntp14 = readdir(dirp14))!= NULL){
 			idx14++;
 			if(strcmp(direntp14->d_name,font14_name)==0){
@@ -278,14 +286,17 @@ static void interface_setting(){
 			}
 		}
 
-		dirp18 = opendir("font/18pt");
+		dirp18 = opendir("./font/18pt");
+		if(dirp18 == NULL){
+			printf("dir open err");		
+		}
 		while((direntp18 = readdir(dirp18))!= NULL){
 			idx18++;
 			if(strcmp(direntp18->d_name,font18_name)==0){
 					break;
 			}
 		}
-
+		
 		if ( NULL == png)
 			gx_print_error(8, "interface/setting.png");                              
 		else
@@ -306,7 +317,8 @@ static void interface_setting(){
 					if((direntp14 = readdir(dirp14))!= NULL){
 						fontloader14(direntp14->d_name);	
 					} else {
-						dirp18 = opendir("font/14pt");
+						closedir(dirp14);
+						dirp14 = opendir("font/14pt");
 						direntp14 = readdir(dirp14);
 						fontloader14(direntp14->d_name);
 					}
@@ -314,6 +326,7 @@ static void interface_setting(){
 					if((direntp18 = readdir(dirp18))!= NULL){
 						fontloader18(direntp18->d_name);	
 					} else {
+						closedir(dirp18);
 						dirp18 = opendir("font/18pt");
 						direntp18 = readdir(dirp18);
 						fontloader18(direntp18->d_name);
@@ -460,7 +473,10 @@ int   main  ( int argc, char *argv[]){
 			} else if(e_touch == h_touch_camera ){
 				now_mode = 1;
 				init_camera();
-				interface_layout(CAMERA);
+				while(1) {
+					interface_layout(CAMERA);
+					usleep(1);				
+				}				
 				close_camera();
 			} else if(e_touch == h_touch_crop) {
 				now_mode = 2;
