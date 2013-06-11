@@ -162,7 +162,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 		    rgb888Data[i*rgb888Image->widthStep + j]       = r8;
 		    rgb888Data[i*rgb888Image->widthStep + (j + 1)] = g8;
 		    rgb888Data[i*rgb888Image->widthStep + (j + 2)] = b8;*/
-			gx_get_pixel( rgb565Data, j,i, &clr_get);
+			gx_get_pixel( pData, j,i, &clr_get);
 			mat.at<Vec3b>(i,j)[2] = clr_get.red;
 			mat.at<Vec3b>(i,j)[1] = clr_get.green;
 			mat.at<Vec3b>(i,j)[0] = clr_get.blue;
