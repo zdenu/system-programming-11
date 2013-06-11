@@ -1,0 +1,935 @@
+Tcamculator
+v5
+r1
+cCheck dependencies
+cCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk
+c00000000519EC2F300000000000000AA
+t1369359091
+s170
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/BlobLabeling.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/HttpConnector.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/WolframAlphaManager.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.LinkFileList
+c0000000051B5BF380000000000001819
+t1370865464
+s6169
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/crop.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/dgif_lib.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/edit.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/egif_lib.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/fontinfo.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gif_err.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gif_font.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gif_hash.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gifalloc.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gx.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxbdf.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxbmp.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxfile.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gximagelist.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxjpg.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxlayer.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxmosaic.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxpanel.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxpng.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/home.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/ksc5601.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/labeling.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/mp3-C7BD298EEF26042A.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/mp3-CF6BB42146FACE3E.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/mp3.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/opencv.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/quantize.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/result.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/state.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/test.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinystr.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinyxml.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinyxmlerror.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinyxmlparser.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.o
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug/camculator
+t2
+s0
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.cpp
+c0000000051AD830D0000000000001F81
+t1370325773
+s8065
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.cpp
+c0000000051B5962B0000000000000F3A
+t1370854955
+s3898
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp
+c0000000051B5BBAF000000000000460B
+t1370864559
+s17931
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+c0000000051B5BA5E0000000000000747
+t1370864222
+s1863
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp
+c0000000051B5AA6900000000000006F1
+t1370860137
+s1777
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.cpp
+c0000000051B5BF480000000000000DEC
+t1370865480
+s3564
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+c0000000051B5BF360000000000000C9B
+t1370865462
+s3227
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.cpp
+c0000000051B59FDD00000000000005ED
+t1370857437
+s1517
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/home.cpp
+c0000000051B5A43D00000000000006D4
+t1370858557
+s1748
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/labeling.cpp
+c0000000051B5ADB70000000000000574
+t1370860983
+s1396
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp
+c0000000051B5BD600000000000000171
+t1370864992
+s369
+i"define.h"
+i"camculator.h"
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.c
+c0000000051B5BD5700000000000007B0
+t1370864983
+s1968
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.cpp
+c0000000051B5BB8F00000000000007AF
+t1370864527
+s1967
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.cpp
+c0000000051B5BD5D0000000000004468
+t1370864989
+s17512
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/result.cpp
+c0000000051B59FE40000000000000451
+t1370857444
+s1105
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.cpp
+c0000000051B5A5A10000000000000F04
+t1370858913
+s3844
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/test.cpp
+c0000000051B51D3200000000000045F2
+t1370823986
+s17906
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp
+c0000000051B5B8A9000000000000142D
+t1370863785
+s5165
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/dgif_lib.c
+c000000004FE0563D0000000000009EEC
+t1340102205
+s40684
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/egif_lib.c
+c000000004FE056500000000000009569
+t1340102224
+s38249
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_err.c
+c000000004FDE20280000000000000B91
+t1339957288
+s2961
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_font.c
+c000000004FDE5EA00000000000002F59
+t1339973280
+s12121
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_hash.c
+c000000004FDC844A000000000000118F
+t1339851850
+s4495
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gifalloc.c
+c000000004FDF05D800000000000032AC
+t1340016088
+s12972
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/quantize.c
+c000000004FDC91830000000000003121
+t1339855235
+s12577
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/fontinfo.c
+c000000004F0D76D50000000000001DBC
+t1326282453
+s7612
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.c
+c0000000051B3313800000000000107CA
+t1370698040
+s67530
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbdf.c
+c0000000051B1C59C00000000000016C4
+t1370604956
+s5828
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.c
+c000000004F0D76D5000000000000783E
+t1326282453
+s30782
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxfile.c
+c000000004F0D76D50000000000000B44
+t1326282453
+s2884
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.c
+c000000004F0D76D50000000000000768
+t1326282453
+s1896
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxjpg.c
+c000000004F0D76D50000000000003E98
+t1326282453
+s16024
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxlayer.c
+c000000004F0D76D50000000000001E0C
+t1326282453
+s7692
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxmosaic.c
+c000000004F0D76D500000000000010E6
+t1326282453
+s4326
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpanel.c
+c000000004F0D76D50000000000002067
+t1326282453
+s8295
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.c
+c0000000051B5A212000000000000483F
+t1370858002
+s18495
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/ksc5601.c
+c000000004F0D76D500000000000100EC
+t1326282453
+s65772
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/opencv/BlobLabeling.cpp
+c0000000050CA16D60000000000002211
+t1355421398
+s8721
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinystr.cpp
+c00000000505C1C170000000000000A2A
+t1348213783
+s2602
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxml.cpp
+c0000000050C1D51E0000000000008E7E
+t1354880286
+s36478
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxmlerror.cpp
+c00000000505C1C1700000000000006F4
+t1348213783
+s1780
+
+N/Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxmlparser.cpp
+c0000000051A84A4D0000000000009149
+t1369983565
+s37193
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/home.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/labeling.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/result.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/test.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/dgif_lib.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/egif_lib.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_err.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_font.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_hash.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gifalloc.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/quantize.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/fontinfo.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbdf.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxfile.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxjpg.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxlayer.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxmosaic.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpanel.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/ksc5601.c
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/opencv/BlobLabeling.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinystr.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxml.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxmlerror.cpp
+r0
+
+CBuild AST from /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxmlparser.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies74b698c8f665b741^4c1899c8f665b741^---0#1#0#--18"Check dependencies36"11678363-F6F7-419F-87B3-FA5490F624A1-
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/BlobLabeling.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/opencv/BlobLabeling.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/HttpConnector.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/WolframAlphaManager.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s392558280.605448
+e392558281.966439
+r0
+xCompileC
+xBuild/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.o
+x/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead
+o#include <fontinfo.h>
+o         ^~~~~~~~~~~~
+o         "fontinfo.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbmp.h>
+o         ^~~~~~~~~
+o         "gxbmp.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbdf.h>
+o         ^~~~~~~~~
+o         "gxbdf.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead
+o#include <gximagelist.h>
+o         ^~~~~~~~~~~~~~~
+o         "gximagelist.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpng.h>
+o         ^~~~~~~~~
+o         "gxpng.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead
+o#include <gxmosaic.h>
+o         ^~~~~~~~~~~~
+o         "gxmosaic.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead
+o#include <gxlayer.h>
+o         ^~~~~~~~~~~
+o         "gxlayer.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpanel.h>
+o         ^~~~~~~~~~~
+o         "gxpanel.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:4:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h:3:10: fatal error: 'linux/input.h' file not found
+o#include <linux/input.h>
+o         ^
+o12 errors generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection103"Compile /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp36239bc8f665b741^9d7ff7c9f665b741^-4662"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead#include <fontinfo.h>         ^~~~~~~~~~~~         "fontinfo.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead#include <gxbmp.h>         ^~~~~~~~~         "gxbmp.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead#include <gxbdf.h>         ^~~~~~~~~         "gxbdf.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead#include <gximagelist.h>         ^~~~~~~~~~~~~~~         "gximagelist.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead#include <gxpng.h>         ^~~~~~~~~         "gxpng.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:1:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead#include <gxmosaic.h>         ^~~~~~~~~~~~         "gxmosaic.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead#include <gxlayer.h>         ^~~~~~~~~~~         "gxlayer.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead#include <gxpanel.h>         ^~~~~~~~~~~         "gxpanel.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp:4:/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h:3:10: fatal error: 'linux/input.h' file not found#include <linux/input.h>         ^12 errors generated.-0#0#0#-19%DVTDocumentLocation2@111"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp0000000000000000^3377"CompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.o camculator/camculator.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/laogram/Project/private/system-programming-11/trunk/camculator    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-generated-files.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-own-target-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-all-target-headers.hmap -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-project-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources/x86_64 -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources -F/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug -MMD -MT dependencies -MF /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.d --serialize-diagnostics /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.dia -c /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.cpp -o /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camculator.o36"43219E3E-5429-408A-8347-CF6864A454B2-
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s392558280.605938
+e392558280.849551
+r0
+xCompileC
+xBuild/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.o
+x/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead
+o#include <fontinfo.h>
+o         ^~~~~~~~~~~~
+o         "fontinfo.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbmp.h>
+o         ^~~~~~~~~
+o         "gxbmp.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbdf.h>
+o         ^~~~~~~~~
+o         "gxbdf.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead
+o#include <gximagelist.h>
+o         ^~~~~~~~~~~~~~~
+o         "gximagelist.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpng.h>
+o         ^~~~~~~~~
+o         "gxpng.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead
+o#include <gxmosaic.h>
+o         ^~~~~~~~~~~~
+o         "gxmosaic.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead
+o#include <gxlayer.h>
+o         ^~~~~~~~~~~
+o         "gxlayer.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpanel.h>
+o         ^~~~~~~~~~~
+o         "gxpanel.h"
+o11 errors generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection99"Compile /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cppfa479bc8f665b741^0fd1dcc8f665b741^-3646"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead#include <fontinfo.h>         ^~~~~~~~~~~~         "fontinfo.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead#include <gxbmp.h>         ^~~~~~~~~         "gxbmp.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead#include <gxbdf.h>         ^~~~~~~~~         "gxbdf.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead#include <gximagelist.h>         ^~~~~~~~~~~~~~~         "gximagelist.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead#include <gxpng.h>         ^~~~~~~~~         "gxpng.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead#include <gxmosaic.h>         ^~~~~~~~~~~~         "gxmosaic.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead#include <gxlayer.h>         ^~~~~~~~~~~         "gxlayer.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead#include <gxpanel.h>         ^~~~~~~~~~~         "gxpanel.h"11 errors generated.11(36%IDEClangDiagnosticActivityLogMessage2@71"'fontinfo.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#1(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^3#9#3#9#47#0#29"Lexical or Preprocessor Issue1(3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^3#9#3#21#47#12#-2@68"'gxbmp.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#1(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^138#9#138#9#10056#0#29"Lexical or Preprocessor Issue1(3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^138#9#138#18#10056#9#-2@65"'gx.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#2(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2@107"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^138#9#138#9#10056#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h0000000000000000^3#9#3#9#51#0#29"Lexical or Preprocessor Issue1(3@99"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h0000000000000000^3#9#3#15#51#6#-2@68"'gxbdf.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#1(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^139#9#139#9#10076#0#29"Lexical or Preprocessor Issue1(3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^139#9#139#18#10076#9#-2@74"'gximagelist.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#1(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^140#9#140#9#10096#0#29"Lexical or Preprocessor Issue1(3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^140#9#140#24#10096#15#-2@65"'gx.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#2(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2@107"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^140#9#140#9#10096#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@105"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h0000000000000000^7#9#7#9#127#0#29"Lexical or Preprocessor Issue1(3@105"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h0000000000000000^7#9#7#15#127#6#-2@68"'gxpng.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#2(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2@107"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^140#9#140#9#10096#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@105"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h0000000000000000^8#9#8#9#144#0#29"Lexical or Preprocessor Issue1(3@105"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h0000000000000000^8#9#8#18#144#9#-2@65"'gx.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#3(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2@107"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^140#9#140#9#10096#0#21"Clang LLVM 1.0 Notice--2@114"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@105"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h0000000000000000^8#9#8#9#144#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@99"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h0000000000000000^7#9#7#9#113#0#29"Lexical or Preprocessor Issue1(3@99"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h0000000000000000^7#9#7#15#113#6#-2@71"'gxmosaic.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#1(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^141#9#141#9#10122#0#29"Lexical or Preprocessor Issue1(3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^141#9#141#21#10122#12#-2@70"'gxlayer.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#1(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^142#9#142#9#10145#0#29"Lexical or Preprocessor Issue1(3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^142#9#142#20#10145#11#-2@70"'gxpanel.h' file not found with <angled> include; use "quotes" instead-392558280#18446744073709551615#0#1(2@116"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp:7:-392558280#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic3@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^6#9#6#9#139#0#21"Clang LLVM 1.0 Notice--2#27"com.apple.dt.IDE.diagnostic3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^143#9#143#9#10167#0#29"Lexical or Preprocessor Issue1(3@96"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h0000000000000000^143#9#143#20#10167#11#-0#0#0#-19%DVTDocumentLocation4@107"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp0000000000000000^3353"CompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.o camculator/camera.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/laogram/Project/private/system-programming-11/trunk/camculator    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-generated-files.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-own-target-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-all-target-headers.hmap -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-project-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources/x86_64 -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources -F/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug -MMD -MT dependencies -MF /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.d --serialize-diagnostics /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.dia -c /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp -o /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/camera.o36"F7809A8D-A763-4BAB-8420-A17FADAD9B67-
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/crop.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/dgif_lib.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/dgif_lib.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/edit.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/egif_lib.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/egif_lib.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/fontinfo.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/fontinfo.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gif_err.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_err.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gif_font.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_font.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gif_hash.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gif_hash.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gifalloc.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/gifalloc.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gx.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxbdf.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbdf.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxbmp.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxfile.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxfile.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gximagelist.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxjpg.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxjpg.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxlayer.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxlayer.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxmosaic.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxmosaic.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxpanel.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpanel.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/gxpng.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/home.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/home.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/ksc5601.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/ksc5601.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/labeling.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/labeling.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s392558280.605420
+e392558281.555855
+r0
+xCompileC
+xBuild/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.o
+x/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead
+o#include <fontinfo.h>
+o         ^~~~~~~~~~~~
+o         "fontinfo.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbmp.h>
+o         ^~~~~~~~~
+o         "gxbmp.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbdf.h>
+o         ^~~~~~~~~
+o         "gxbdf.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead
+o#include <gximagelist.h>
+o         ^~~~~~~~~~~~~~~
+o         "gximagelist.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpng.h>
+o         ^~~~~~~~~
+o         "gxpng.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead
+o#include <gxmosaic.h>
+o         ^~~~~~~~~~~~
+o         "gxmosaic.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead
+o#include <gxlayer.h>
+o         ^~~~~~~~~~~
+o         "gxlayer.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpanel.h>
+o         ^~~~~~~~~~~
+o         "gxpanel.h"
+o11 errors generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Compile /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cppcb2b9bc8f665b741^825892c9f665b741^-4330"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead#include <fontinfo.h>         ^~~~~~~~~~~~         "fontinfo.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead#include <gxbmp.h>         ^~~~~~~~~         "gxbmp.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead#include <gxbdf.h>         ^~~~~~~~~         "gxbdf.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead#include <gximagelist.h>         ^~~~~~~~~~~~~~~         "gximagelist.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead#include <gxpng.h>         ^~~~~~~~~         "gxpng.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead#include <gxmosaic.h>         ^~~~~~~~~~~~         "gxmosaic.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead#include <gxlayer.h>         ^~~~~~~~~~~         "gxlayer.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead#include <gxpanel.h>         ^~~~~~~~~~~         "gxpanel.h"11 errors generated.-0#0#0#-19%DVTDocumentLocation2@105"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp0000000000000000^3341"CompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.o camculator/main.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/laogram/Project/private/system-programming-11/trunk/camculator    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-generated-files.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-own-target-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-all-target-headers.hmap -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-project-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources/x86_64 -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources -F/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug -MMD -MT dependencies -MF /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.d --serialize-diagnostics /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.dia -c /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp -o /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/main.o36"D3D42C6B-E0C5-4161-B955-02939FFE5821-
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/mp3-C7BD298EEF26042A.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/mp3-CF6BB42146FACE3E.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/mp3.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/opencv.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/quantize.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/giflib/quantize.c normal x86_64 c com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/result.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/result.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/state.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/test.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/test.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinystr.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinystr.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinyxml.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxml.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinyxmlerror.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxmlerror.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/tinyxmlparser.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/tinyxml/tinyxmlparser.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.o /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s392558280.606231
+e392558281.966543
+r0
+xCompileC
+xBuild/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.o
+x/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead
+o#include <fontinfo.h>
+o         ^~~~~~~~~~~~
+o         "fontinfo.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbmp.h>
+o         ^~~~~~~~~
+o         "gxbmp.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead
+o#include <gxbdf.h>
+o         ^~~~~~~~~
+o         "gxbdf.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead
+o#include <gximagelist.h>
+o         ^~~~~~~~~~~~~~~
+o         "gximagelist.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpng.h>
+o         ^~~~~~~~~
+o         "gxpng.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead
+o#include <gx.h>
+o         ^~~~~~
+o         "gx.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead
+o#include <gxmosaic.h>
+o         ^~~~~~~~~~~~
+o         "gxmosaic.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead
+o#include <gxlayer.h>
+o         ^~~~~~~~~~~
+o         "gxlayer.h"
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead
+o#include <gxpanel.h>
+o         ^~~~~~~~~~~
+o         "gxpanel.h"
+oIn file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:10:
+o/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h:3:10: fatal error: 'linux/input.h' file not found
+o#include <linux/input.h>
+o         ^
+o12 errors generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cppde599bc8f665b741^8b8bf7c9f665b741^-4628"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:4:10: error: 'fontinfo.h' file not found with <angled> include; use "quotes" instead#include <fontinfo.h>         ^~~~~~~~~~~~         "fontinfo.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:10: error: 'gxbmp.h' file not found with <angled> include; use "quotes" instead#include <gxbmp.h>         ^~~~~~~~~         "gxbmp.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:139:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxbmp.h:4:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:140:10: error: 'gxbdf.h' file not found with <angled> include; use "quotes" instead#include <gxbdf.h>         ^~~~~~~~~         "gxbdf.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:10: error: 'gximagelist.h' file not found with <angled> include; use "quotes" instead#include <gximagelist.h>         ^~~~~~~~~~~~~~~         "gximagelist.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:10: error: 'gxpng.h' file not found with <angled> include; use "quotes" instead#include <gxpng.h>         ^~~~~~~~~         "gxpng.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:141:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gximagelist.h:9:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gxpng.h:8:10: error: 'gx.h' file not found with <angled> include; use "quotes" instead#include <gx.h>         ^~~~~~         "gx.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:9:In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h:18:/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:142:10: error: 'gxmosaic.h' file not found with <angled> include; use "quotes" instead#include <gxmosaic.h>         ^~~~~~~~~~~~         "gxmosaic.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:143:10: error: 'gxlayer.h' file not found with <angled> include; use "quotes" instead#include <gxlayer.h>         ^~~~~~~~~~~         "gxlayer.h"/Users/laogram/Project/private/system-programming-11/trunk/camculator/gxlib/gx.h:144:10: error: 'gxpanel.h' file not found with <angled> include; use "quotes" instead#include <gxpanel.h>         ^~~~~~~~~~~         "gxpanel.h"In file included from /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp:10:/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h:3:10: fatal error: 'linux/input.h' file not found#include <linux/input.h>         ^12 errors generated.-0#0#0#-19%DVTDocumentLocation2@106"file://localhost/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp0000000000000000^3347"CompileC Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.o camculator/touch.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/laogram/Project/private/system-programming-11/trunk/camculator    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch x86_64 -fmessage-length=0 -std=gnu++11 -stdlib=libc++ -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wempty-body -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wconstant-conversion -Wint-conversion -Wenum-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk -fasm-blocks -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.8 -g -fvisibility-inlines-hidden -Wno-sign-conversion -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-generated-files.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-own-target-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-all-target-headers.hmap -iquote /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/camculator-project-headers.hmap -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources/x86_64 -I/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/DerivedSources -F/Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug -MMD -MT dependencies -MF /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.d --serialize-diagnostics /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.dia -c /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp -o /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Intermediates/camculator.build/Debug/camculator.build/Objects-normal/x86_64/touch.o36"A11432B4-1ADC-43D3-B727-B352BAB9CAEB-
+
+CLd /Users/laogram/Project/private/system-programming-11/trunk/camculator/Build/Products/Debug/camculator normal x86_64
+r0
+

@@ -1,0 +1,223 @@
+The system is: Darwin - 12.3.0 - i386
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-gcc 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-g++ 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1475875313/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1475875313.dir/build.make CMakeFiles/cmTryCompileExec1475875313.dir/build
+/usr/local/bin/cmake -E cmake_progress_report /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1475875313.dir/testCCompiler.c.o
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-gcc    -o CMakeFiles/cmTryCompileExec1475875313.dir/testCCompiler.c.o   -c /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec1475875313
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1475875313.dir/link.txt --verbose=1
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-gcc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec1475875313.dir/testCCompiler.c.o  -o cmTryCompileExec1475875313  
+/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/ld: warning: cannot find entry symbol arch_paths_first; defaulting to 000000000000829c
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3903187404/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3903187404.dir/build.make CMakeFiles/cmTryCompileExec3903187404.dir/build
+/usr/local/bin/cmake -E cmake_progress_report /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-gcc    -o CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec3903187404
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3903187404.dir/link.txt --verbose=1
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-gcc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3903187404   
+Using built-in specs.
+Target: arm-none-linux-gnueabi
+Configured with: /Users/Sidhant/Projects/arm/arm-2010q1-202-arm-none-linux-gnueabi/gcc-4.4-2010q1/configure --target=arm-none-linux-gnueabi --prefix=/Users/Sidhant/arm-linux/tools --with-sysroot=/Users/Sidhant/arm-linux/sysroot --enable-__cxa_atexit --disable-libssp --disable-libgomp --disable-libmudflap --enable-languages=c,c++
+Thread model: posix
+gcc version 4.4.1 (GCC) 
+COMPILER_PATH=/Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../libexec/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/
+LIBRARY_PATH=/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../lib/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec3903187404'
+ /Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/collect2 --sysroot=/Users/Sidhant/arm-linux/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec3903187404 /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crt1.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crti.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtbegin.o -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1 -L/Users/laogram/Downloads/tools/bin/../lib/gcc -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtend.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crtn.o
+/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/ld: warning: cannot find entry symbol arch_paths_first; defaulting to 000000000000829c
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec3903187404/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec3903187404.dir/build.make CMakeFiles/cmTryCompileExec3903187404.dir/build]
+  ignore line: [/usr/local/bin/cmake -E cmake_progress_report /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-gcc    -o CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-2.8/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec3903187404]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3903187404.dir/link.txt --verbose=1]
+  ignore line: [/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-gcc      -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o  -o cmTryCompileExec3903187404   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [Target: arm-none-linux-gnueabi]
+  ignore line: [Configured with: /Users/Sidhant/Projects/arm/arm-2010q1-202-arm-none-linux-gnueabi/gcc-4.4-2010q1/configure --target=arm-none-linux-gnueabi --prefix=/Users/Sidhant/arm-linux/tools --with-sysroot=/Users/Sidhant/arm-linux/sysroot --enable-__cxa_atexit --disable-libssp --disable-libgomp --disable-libmudflap --enable-languages=c,c++]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.4.1 (GCC) ]
+  ignore line: [COMPILER_PATH=/Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../libexec/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../lib/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec3903187404']
+  link line: [ /Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/collect2 --sysroot=/Users/Sidhant/arm-linux/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec3903187404 /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crt1.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crti.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtbegin.o -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1 -L/Users/laogram/Downloads/tools/bin/../lib/gcc -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtend.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crtn.o]
+    arg [/Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/collect2] ==> ignore
+    arg [--sysroot=/Users/Sidhant/arm-linux/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec3903187404] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crt1.o] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crti.o] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtbegin.o] ==> ignore
+    arg [-L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1] ==> dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1]
+    arg [-L/Users/laogram/Downloads/tools/bin/../lib/gcc] ==> dir [/Users/laogram/Downloads/tools/bin/../lib/gcc]
+    arg [-L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib] ==> dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib]
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec3903187404.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtend.o] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crtn.o] ==> ignore
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  collapse dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1] ==> [/Users/laogram/Downloads/tools/lib/gcc/arm-none-linux-gnueabi/4.4.1]
+  collapse dir [/Users/laogram/Downloads/tools/bin/../lib/gcc] ==> [/Users/laogram/Downloads/tools/lib/gcc]
+  collapse dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib] ==> [/Users/laogram/Downloads/tools/arm-none-linux-gnueabi/lib]
+  implicit libs: [c]
+  implicit dirs: [/Users/laogram/Downloads/tools/lib/gcc/arm-none-linux-gnueabi/4.4.1;/Users/laogram/Downloads/tools/lib/gcc;/Users/laogram/Downloads/tools/arm-none-linux-gnueabi/lib]
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3130350379/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3130350379.dir/build.make CMakeFiles/cmTryCompileExec3130350379.dir/build
+/usr/local/bin/cmake -E cmake_progress_report /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec3130350379.dir/testCXXCompiler.cxx.o
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-g++     -o CMakeFiles/cmTryCompileExec3130350379.dir/testCXXCompiler.cxx.o -c /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec3130350379
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3130350379.dir/link.txt --verbose=1
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-g++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/cmTryCompileExec3130350379.dir/testCXXCompiler.cxx.o  -o cmTryCompileExec3130350379  
+/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/ld: warning: cannot find entry symbol arch_paths_first; defaulting to 00000000000082ec
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec2365395632/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec2365395632.dir/build.make CMakeFiles/cmTryCompileExec2365395632.dir/build
+/usr/local/bin/cmake -E cmake_progress_report /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-g++     -o CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec2365395632
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2365395632.dir/link.txt --verbose=1
+/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-g++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2365395632   
+Using built-in specs.
+Target: arm-none-linux-gnueabi
+Configured with: /Users/Sidhant/Projects/arm/arm-2010q1-202-arm-none-linux-gnueabi/gcc-4.4-2010q1/configure --target=arm-none-linux-gnueabi --prefix=/Users/Sidhant/arm-linux/tools --with-sysroot=/Users/Sidhant/arm-linux/sysroot --enable-__cxa_atexit --disable-libssp --disable-libgomp --disable-libmudflap --enable-languages=c,c++
+Thread model: posix
+gcc version 4.4.1 (GCC) 
+COMPILER_PATH=/Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../libexec/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/
+LIBRARY_PATH=/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../lib/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2365395632' '-shared-libgcc'
+ /Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/collect2 --sysroot=/Users/Sidhant/arm-linux/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec2365395632 /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crt1.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crti.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtbegin.o -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1 -L/Users/laogram/Downloads/tools/bin/../lib/gcc -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtend.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crtn.o
+/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/ld: warning: cannot find entry symbol arch_paths_first; defaulting to 00000000000082ec
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:/usr/bin/make "cmTryCompileExec2365395632/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec2365395632.dir/build.make CMakeFiles/cmTryCompileExec2365395632.dir/build]
+  ignore line: [/usr/local/bin/cmake -E cmake_progress_report /Users/laogram/Project/private/system-programming-11/trunk/camculator/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-g++     -o CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-2.8/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec2365395632]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec2365395632.dir/link.txt --verbose=1]
+  ignore line: [/Users/laogram/Downloads/tools/bin/arm-none-linux-gnueabi-g++       -Wl,-search_paths_first -Wl,-headerpad_max_install_names -v CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o  -o cmTryCompileExec2365395632   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [Target: arm-none-linux-gnueabi]
+  ignore line: [Configured with: /Users/Sidhant/Projects/arm/arm-2010q1-202-arm-none-linux-gnueabi/gcc-4.4-2010q1/configure --target=arm-none-linux-gnueabi --prefix=/Users/Sidhant/arm-linux/tools --with-sysroot=/Users/Sidhant/arm-linux/sysroot --enable-__cxa_atexit --disable-libssp --disable-libgomp --disable-libmudflap --enable-languages=c,c++]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 4.4.1 (GCC) ]
+  ignore line: [COMPILER_PATH=/Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../libexec/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/bin/]
+  ignore line: [LIBRARY_PATH=/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/:/Users/laogram/Downloads/tools/bin/../lib/gcc/:/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec2365395632' '-shared-libgcc']
+  link line: [ /Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/collect2 --sysroot=/Users/Sidhant/arm-linux/sysroot --eh-frame-hdr -dynamic-linker /lib/ld-linux.so.3 -X -m armelf_linux_eabi -o cmTryCompileExec2365395632 /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crt1.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crti.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtbegin.o -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1 -L/Users/laogram/Downloads/tools/bin/../lib/gcc -L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib -search_paths_first -headerpad_max_install_names CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtend.o /Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crtn.o]
+    arg [/Users/laogram/Downloads/tools/bin/../libexec/gcc/arm-none-linux-gnueabi/4.4.1/collect2] ==> ignore
+    arg [--sysroot=/Users/Sidhant/arm-linux/sysroot] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib/ld-linux.so.3] ==> ignore
+    arg [-X] ==> ignore
+    arg [-m] ==> ignore
+    arg [armelf_linux_eabi] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec2365395632] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crt1.o] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crti.o] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtbegin.o] ==> ignore
+    arg [-L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1] ==> dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1]
+    arg [-L/Users/laogram/Downloads/tools/bin/../lib/gcc] ==> dir [/Users/laogram/Downloads/tools/bin/../lib/gcc]
+    arg [-L/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib] ==> dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib]
+    arg [-search_paths_first] ==> ignore
+    arg [-headerpad_max_install_names] ==> ignore
+    arg [CMakeFiles/cmTryCompileExec2365395632.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/crtend.o] ==> ignore
+    arg [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib/crtn.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1] ==> [/Users/laogram/Downloads/tools/lib/gcc/arm-none-linux-gnueabi/4.4.1]
+  collapse dir [/Users/laogram/Downloads/tools/bin/../lib/gcc] ==> [/Users/laogram/Downloads/tools/lib/gcc]
+  collapse dir [/Users/laogram/Downloads/tools/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/../../../../arm-none-linux-gnueabi/lib] ==> [/Users/laogram/Downloads/tools/arm-none-linux-gnueabi/lib]
+  implicit libs: [stdc++;m;c]
+  implicit dirs: [/Users/laogram/Downloads/tools/lib/gcc/arm-none-linux-gnueabi/4.4.1;/Users/laogram/Downloads/tools/lib/gcc;/Users/laogram/Downloads/tools/arm-none-linux-gnueabi/lib]
+
+
