@@ -15,6 +15,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#include <string>
+
 #include "gx.h"
 
 typedef bool			BOOL;
@@ -39,6 +41,7 @@ typedef UCHAR			BYTE;
 
 #define FRAME_BUFFER_DEVICE		"/dev/fb"
 #define TOUCH_EVENT_DEVICE		"/dev/input/event0"
+#define KEY_EVENT_DEVICE		"/dev/keypad"
 #define CAMERA_DEVICE			"/dev/camera"
 
 #define FONT_MALGUN_14			"font/14pt/malgun14.bdf"
@@ -112,6 +115,7 @@ enum ENUM_EVENT_TYPE
 	EVENT_TYPE_NONE			= 0,
 	EVENT_TYPE_HTTP_RESPONSE,
 	EVENT_TYPE_TOUCH_PAD,
+	EVENT_TYPE_KEY_PAD,
 	EVENT_TYPE_MAX,
 };
 
@@ -139,6 +143,12 @@ struct stTouchData
 	int touchType;
 	int x;
 	int y;
+};
+
+struct stKeyData
+{
+	stKeyData(void): code(0){}
+	static unsigned char key;
 };
 
 struct stImageData

@@ -1,5 +1,3 @@
-
-
 #include <sys/ioctl.h>
 #include <sys/types.h>
 #include <math.h>
