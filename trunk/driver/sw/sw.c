@@ -18,7 +18,7 @@
 #define SW_NAME 			"SW"
 #define SW_MODULE_VERSIO	"SW V0.1"
 #define SW_PHY_ADDR			0x14802000
-#define SW_ADDR_RANGE 		0x3000
+#define SW_ADDR_RANGE 		0x1000
 #define TIMER_INTERVAL			(2*HZ/10)	
 
 //Global variable
