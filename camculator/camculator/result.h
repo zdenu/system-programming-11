@@ -12,6 +12,8 @@
 
 #include "define.h"
 #include "state.h"
+#include "WolframAlphaManager.h"
+#include <vector>
 
 
 class Result : public State
@@ -25,8 +27,26 @@ public:
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam);
 	
+	bool parseGifImages(TImageVector* pVector);
+	
+	virtual void disableTouchEvents(void);
+	virtual void enableTouchEvents(void);
+	
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);
+	
+private:
+	void removeImageList(void);
+
+private:
+	bool isResultExist;
+	std::vector<dc_t*> pImgList;
+	int totalWidth;
+	int totalHeight;
+	dc_t* pResultDc;
+	
+	int currentCursor;
+
 };
 
 

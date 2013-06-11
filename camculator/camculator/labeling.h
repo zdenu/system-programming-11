@@ -11,6 +11,7 @@
 
 #include "define.h"
 #include "state.h"
+#include <string>
 
 class Labeling : public State
 {
@@ -25,6 +26,8 @@ public:
 	
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);
+	
+	std::string formula;
 };
 
 

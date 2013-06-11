@@ -13,13 +13,11 @@ public:
 public:
 	bool init();
 	void close();
-	void keysignal(int sig);
-	void swsignal(int sig);
+	static void keysignal(int sig);
+	static void swsignal(int sig);
 	
-private:
-
-private:
-	int		eventFd;
-	int 		sweventFd;
+public:
+	static int	eventFd;
+	static int 	sweventFd;
 };
 

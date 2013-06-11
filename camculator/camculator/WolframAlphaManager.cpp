@@ -11,6 +11,7 @@
 #include "HttpConnector.h"
 #include "tinyxml/tinyxml.h"
 #include "camculator.h"
+#include "util.h"
 
 WolframAlphaManager::stMark WolframAlphaManager::mark[4] =
 {
@@ -64,21 +65,19 @@ bool WolframAlphaManager::parseXmlResponse(char* pData, TUrlVector& urlVector)
 		const char* id		= pNode->ToElement()->Attribute("id");
 		printf("%s\n", scanner);
 		
-		// 각 연산별로 조건이 다르므로 일단 이걸로 처리해보고 넣는다.
-		if (strcmp(scanner, "Identity") == 0)
-		{
-			if ( (strcmp(id, "Input") == 0) || (strcmp(id, "Result") == 0) )
-			{
+//		// 각 연산별로 조건이 다르므로 일단 이걸로 처리해보고 넣는다.
+//		if (strcmp(scanner, "Identity") == 0)
+//		{
+//			if ( (strcmp(id, "Input") == 0) || (strcmp(id, "Result") == 0) )
+//			{
 				const char* url = pNode->FirstChild("subpod")->FirstChild("img")->ToElement()->Attribute("src");
-				
 				stUrlInfo info;
-				
 				info.id = id;
 				info.url = url;
 				
 				urlVector.push_back(info);
-			}
-		}
+//			}
+//		}
 		
 		pNode = pNode->NextSibling("pod");
 	}
@@ -135,32 +134,35 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 	
 	for (int i = 0 ; i < urlVector.size() ; ++i)
 	{
-		stImageData data;
+		stImageData* data = new stImageData;
 		
 		parseFromURL(urlVector[i], host, request);
 		conn.HttpRequest(host.c_str(), request.c_str(), NULL);
 		
-		data.size = static_cast<int32_t>(conn.GetDataSize());
-		data.pBuffer = new char[data.size];
 		
-		memcpy(data.pBuffer, conn.GetData(), data.size);
+		char* pOutBuffer = NULL;
+		int resSize = 0;
 		
-		// get gif datas.
+		char name[30] = {"\0"};
+		sprintf(name, "%d.gif", i);
+		FILE* fp = ::fopen(name, "wb+");
+		fwrite(conn.GetData(), conn.GetDataSize(), 1, fp);
+		
+		Util::GIF2RGB(name,
+					  &data->pBuffer,
+					  data->size,
+					  data->width,
+					  data->height);
+		
 		pVector->push_back(data);
 		
-		//		char name[30] = {"\0"};
-		//		sprintf(name, "test%d.gif", i);
-		//		FILE* fp = fopen(name, "wb+");
-		//		fwrite(buffer, dataSize, 1, fp);
-		//		fclose(fp);
-		//		Util::dumpMemory(buffer, (int)dataSize);
-		//		int errCode = 0;
-		//		//		GifFileType* pGifFile = DGifOpenFileName(name, &errCode);
-		//
-		//		GIF2RGB(1, name, true, "output.txt");
+		printf("push image to vector: %s\n", name);
 	}
+	pEvent->pData = pVector;
 	
 	Camculator::get().pushEvent(pEvent);
+	
+	printf("image list get complete\n");
 	
 	// 필요한 이미지들을 request 한다.
 	// 모든 이미지들을 받아온 후에 camculator event queue에 push한다.
