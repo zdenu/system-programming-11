@@ -16,7 +16,7 @@ int main()
         }
 
         while(value != 0) {
-                write(fd,"123456",12);
+                write(fd,"      ",6);
         }
 
 	close(fd);

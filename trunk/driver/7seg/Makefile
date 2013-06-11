@@ -18,7 +18,7 @@ TEST_SRCS = test.c
 all : $(MODULE_OBJS) $(TEST_TARGET)
 
 $(MODULE_OBJS) : $(MODULE_SRCS)
-	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules
+	$(MAKE) -C $(KDIR) SUBDIRS=$(PWD) modules 
 
 $(TEST_TARGET) : $(TEST_SRCS)
 	$(CC) $(TEST_SRCS) -o $@
