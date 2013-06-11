@@ -16,6 +16,7 @@
 #include "labeling.h"
 #include "result.h"
 
+#include "WolframAlphaManager.h"
 #include "opencv.h"
 #include "mp3.h"
 
@@ -108,11 +109,11 @@ bool Camculator::init(void)
 	interface_splash();
 	
 	isRunning = true;
-	
 	// draw home screen.
 	pState[SCREEN_TYPE_HOME]->init(dc_buffer, font14, SCREEN_TYPE_HOME);
 	currentState = SCREEN_TYPE_HOME;
 	pCurrentState = pState[SCREEN_TYPE_HOME];
+	pCurrentState->enableTouchEvents();
 	pCurrentState->makeScreen(dc_buffer, dc_screen, NULL);
 	
 }
@@ -145,6 +146,7 @@ void Camculator::main(void)
 				}
 			}
 			
+			delete pEv->pData;
 			delete pEv;
 		}
 		else
@@ -451,6 +453,8 @@ void Camculator::initTouchEvents(void)
 	pTouchHandler->addTouchevent(254, 191, 63, 49, TOUCH_EVENT_MAIN_RESULT);
 	pTouchHandler->addTouchevent(276, 0, 44, 44, TOUCH_EVENT_MAIN_OK);
 	pTouchHandler->addTouchevent(0, 49, 320, 142, TOUCH_EVENT_CROP_CLICK);
+	pTouchHandler->addTouchevent(0, 49, 320, 71, TOUCH_EVENT_RESULT_PREV);
+	pTouchHandler->addTouchevent(0, 120, 320, 71, TOUCH_EVENT_RESULT_NEXT);
 	
 //	pTouchHandler->addTouchevent(268, 30, 30, 30, TOUCH_EVENT_SETTING_CLOSE);
 //	pTouchHandler->addTouchevent(136, 69, 170, 30, TOUCH_EVENT_SETTING_FONT14);

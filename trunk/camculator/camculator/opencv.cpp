@@ -166,11 +166,11 @@ IplImage* OpenCV::img_resizeto_screen(IplImage* src_img)
 }
 
 
-bool OpenCV::Labeling(unsigned short *pData, int width, int height, char *pRes)
+bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 {
 //	IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
 	
-	IplImage* pRgbImg = rgb565to888(pData, width, height);
+	IplImage* pRgbImg = rgb565to888((unsigned short*)pData->mapped, width, height);
     IplImage* pGrayImg = cvCreateImage(cvGetSize(pRgbImg),IPL_DEPTH_8U,1);
 	
 	
@@ -531,6 +531,7 @@ bool OpenCV::Labeling(unsigned short *pData, int width, int height, char *pRes)
     if(definedIntEndFlg){
     	formula += " from " + definedIntVariable + "=" + definedInt[1] + " to " + definedInt[0];
     }
+	printf("template matching complete.\n");
 	//printf("\n");
 	//*pMatGr = pLabeledImg;
 	pLabeledImg = img_resizeto_screen(pLabeledImg);
@@ -539,6 +540,7 @@ bool OpenCV::Labeling(unsigned short *pData, int width, int height, char *pRes)
 	cvSaveImage("lable_result.bmp", pLabeledImg);
 	
 	printf("%s\n", formula.c_str());
+	strData.append(formula);
 	//waitKey(0);
 	cvReleaseImage(&pGrayImg);
 	cvReleaseImage(&pLabeledImg);

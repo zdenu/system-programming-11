@@ -7,8 +7,12 @@
 //
 
 #include "result.h"
+#include "camculator.h"
+#include "touch.h"
 
 Result::Result()
+:isResultExist(false)
+, currentCursor(0)
 {
 }
 
@@ -31,15 +35,42 @@ bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	this->makeBackground(dc_buffer, pParam);
 	State::makeScreen(dc_buffer, dc_screen, pParam);
 	
-	
-	if (pParam != NULL)
+	if (!isResultExist)
 	{
 		// draw now loading....
+		
 	}
+	else
+	{
+		gx_bitblt(dc_buffer,
+				  USABLE_POINT_START_X,
+				  USABLE_POINT_START_Y,
+				  pResultDc,
+				  0,
+				  currentCursor,
+				  320,
+				  USABLE_POINT_END_Y - USABLE_POINT_START_Y);
+		// if result exist.
+	}
+	
 	return true;
 }
+
+
 int Result::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam)
 {
+	if (pTouchEvent->touchType == TOUCH_EVENT_RESULT_NEXT)
+	{
+		currentCursor += RESULT_TOUCH_CURSOR_VALUE;
+		if (currentCursor > pResultDc->height - (USABLE_POINT_END_Y - USABLE_POINT_START_Y))
+			currentCursor = pResultDc->height - (USABLE_POINT_END_Y - USABLE_POINT_START_Y);
+	}
+	else if (pTouchEvent->touchType == TOUCH_EVENT_RESULT_PREV)
+	{
+		currentCursor -= RESULT_TOUCH_CURSOR_VALUE;
+		if (currentCursor < 0)
+			currentCursor = 0;
+	}
 	return true;
 }
 
@@ -53,3 +84,67 @@ bool Result::makeBackground(dc_t* dc_buffer, void* pParam)
 	
 	return true;
 }
+
+bool Result::parseGifImages(TImageVector* pVector)
+{
+	if (pVector == NULL)
+		return false;
+	
+	removeImageList();
+	totalHeight = 0;
+	totalWidth = 0;
+	
+	for (int i = 0 ; i < pVector->size() ; ++i)
+	{
+		stImageData* pData = pVector->at(i);
+		
+		// copy to dc_t.
+		dc_t* pImg = gx_png_create(pData->width, pData->height);
+		memcpy(pImg->mapped, pData->pBuffer, pData->size);
+		
+		pImgList.push_back(pImg);
+		
+		totalHeight += pData->height;
+		
+		// delete pData.
+		delete pData;
+	}
+	
+	pResultDc = gx_png_create(320, totalHeight);
+	int x = 0, y = 0;
+	int width = 0;
+	int height = 0;
+	
+	for (int i = 0 ; i < pImgList.size() ; ++i)
+	{
+		x = (320 - pImgList[i]->width) / 2;
+		gx_bitblt(pResultDc, x, y, pImgList[i], 0, 0, pImgList[i]->width, pImgList[i]->height);
+		
+		y += pImgList[i]->height;
+	}
+	
+	isResultExist = true;
+	
+	return true;
+}
+
+void Result::removeImageList(void)
+{
+	if (!pImgList.empty())
+	{
+		for (int i = 0 ; i < pImgList.size() ; ++i)
+			gx_png_close((dc_t*)pImgList[i]);
+	}
+}
+
+void Result::disableTouchEvents(void)
+{
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_RESULT_PREV);
+	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_RESULT_NEXT);
+}
+void Result::enableTouchEvents(void)
+{
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_RESULT_PREV);
+	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_RESULT_NEXT);
+}
+

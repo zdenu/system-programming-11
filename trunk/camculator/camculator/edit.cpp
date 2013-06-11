@@ -7,6 +7,8 @@
 //
 #include "define.h"
 #include "edit.h"
+//#include <algorithm>
+#include <ctype.h>
 
 #include "WolframAlphaManager.h"
 using namespace std;
@@ -43,24 +45,37 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
 	this->makeBackground(dc_buffer, pParam);
 	State::makeScreen(dc_buffer, dc_screen, pParam);
-	//Line Max 32char
-	string tmp(txt);
-	tmp.insert(cursor,"|",0,1);
-	//replace space
-	//replace_if(tmp.begin(), tmp.end(), bind2nd(equal_to<char>(), ' '), '_');
-	string l1,l2,l3,l4;
-	l1 = tmp.substr(0,32);
-	l2 = tmp.substr(33,32);
-	l3 = tmp.substr(65,32);
-	l4 = tmp.substr(97,32);
-	//line1 
-	gx_text_out( dc_buffer, 9, 75 , l1.c_Str());
-	//line2
-	gx_text_out( dc_buffer, 9, 108, l2.c_Str());
-	//line3
-	gx_text_out( dc_buffer, 9, 145, l3.c_Str());
-	//line4
-	gx_text_out( dc_buffer, 9, 178, l4.c_Str());
+
+	if (pParam != NULL)
+	{
+		stFormulaData* pFormula = (stFormulaData*)pParam;
+		
+		txt.clear();
+		txt.append(pFormula->formula);
+		gx_text_out( dc_buffer, 9, 75 , (char*)txt.c_str());
+		
+	}
+	else
+	{
+		//Line Max 32char
+		string tmp(txt);
+		tmp.insert(cursor,"|",0,1);
+		//replace space
+		//replace_if(tmp.begin(), tmp.end(), bind2nd(equal_to<char>(), ' '), '_');
+		string l1,l2,l3,l4;
+		l1 = tmp.substr(0,32);
+		l2 = tmp.substr(33,32);
+		l3 = tmp.substr(65,32);
+		l4 = tmp.substr(97,32);
+		//line1
+		gx_text_out( dc_buffer, 9, 75 , (char*)l1.c_str());
+		//line2
+		gx_text_out( dc_buffer, 9, 108, (char*)l2.c_str());
+		//line3
+		gx_text_out( dc_buffer, 9, 145, (char*)l3.c_str());
+		//line4
+		gx_text_out( dc_buffer, 9, 178, (char*)l4.c_str());
+	}
 
 	return true;
 }
@@ -69,19 +84,40 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 {
 	if(pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
 	{
-		char expression[1024] = {"\0"};
-		expression = txt.c_str();
-		// send http request.
+//		// send http request.
+		WolframAlphaManager::get().sendRequest(txt.c_str(), txt.length());
+		
 		
 	}
        
 	return true;
 }
-int Edit::inputKey(int keymode, string n1 ,string n2,string n3, string a1, string a2, string a3 ,string s1,string s2,string s3){
-	if(shift){
-		transform( a1.begin(), a1.end(), a1.begin(), toupper );
-		transform( a2.begin(), a2.end(), a2.begin(), toupper );
-		transform( a3.begin(), a3.end(), a3.begin(), toupper );
+
+char* Edit::stringToUpper( std::string& str )
+{
+	std::string temp;
+	char* pStr = &str[0];
+	
+	while ((*pStr) != '\0')
+	{
+		(*pStr) = toupper(*pStr);
+		pStr++;
+	}
+	
+	return NULL;
+//	return str;
+}
+
+int Edit::inputKey(string n1 ,string n2,string n3, string a1, string a2, string a3 ,string s1,string s2,string s3){
+	if(shift)
+	{
+		
+		stringToUpper(a1);
+		stringToUpper(a2);
+		stringToUpper(a3);
+//		std::transform( a1.begin(), a1.end(), a1.begin(), toupper );
+//		transform( a2.begin(), a2.end(), a2.begin(), toupper );
+//		transform( a3.begin(), a3.end(), a3.begin(), toupper );
 	}
 		
 	switch(keymode) {
@@ -154,12 +190,12 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam)
 	  | 9  |10 |11| 12 |
 	  | 13 |14 |15| 16 |
 	*/
-	if(key != bkey || step == 0){
+	if(pKeyEvent->key != bkey || step == 0){
 		if(cursor < txt.length())
 			cursor++;
-		bkey = key;
+		bkey = pKeyEvent->key;
 	}
-	switch(key){
+	switch(pKeyEvent->key){
 	 case 1:
 		//7 abc +
 			this->inputKey("0","0","0","a","b","c","+","+","+");

@@ -23,18 +23,28 @@ public:
 	virtual bool init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state);
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam);
-	virtual int dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam)
+	virtual int dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam);
 	
 	
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);
-	int inputKey(int keymode, string n1 ,string n2,string n3, string a1, string a2, string a3 ,string s1,string s2,string s3)
+	int inputKey(std::string n1,
+				 std::string n2,
+				 std::string n3,
+				 std::string a1,
+				 std::string a2,
+				 std::string a3,
+				 std::string s1,
+				 std::string s2,
+				 std::string s3);
+	
+	char* stringToUpper( std::string& str );
 
 private:
 	int	keymode;
 	int	step;
 	bool  shift;
-	string txt;
+	std::string txt;
 	int cursor;
 	unsigned char bkey;
 };

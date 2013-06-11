@@ -37,7 +37,7 @@ public:
 	
 public:
 	bool init(void);
-	bool Labeling(unsigned short* pData, int width, int height, char* pRes);
+	bool Labeling(dc_t* pData, int width, int height, std::string& strData);
 	
 protected:
 	IplImage* rgb565to888(unsigned short *rgb565Data ,int width, int height);

@@ -45,6 +45,8 @@
 		22885E801765E5B5001D6425 /* opencv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E7F1765E5B4001D6425 /* opencv.cpp */; };
 		22885E841765E5C5001D6425 /* BlobLabeling.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E821765E5C5001D6425 /* BlobLabeling.cpp */; };
 		22885E881765F304001D6425 /* mp3.c in Sources */ = {isa = PBXBuildFile; fileRef = 22885E861765F304001D6425 /* mp3.c */; };
+		22885E911766F67A001D6425 /* keypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E8F1766F676001D6425 /* keypad.cpp */; };
+		22885E941767008A001D6425 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E931767008A001D6425 /* util.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -143,6 +145,10 @@
 		22885E851765E9B5001D6425 /* opencv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = opencv.h; sourceTree = "<group>"; };
 		22885E861765F304001D6425 /* mp3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mp3.c; sourceTree = "<group>"; };
 		22885E871765F304001D6425 /* mp3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mp3.h; sourceTree = "<group>"; };
+		22885E8F1766F676001D6425 /* keypad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = keypad.cpp; sourceTree = "<group>"; };
+		22885E901766F678001D6425 /* keypad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keypad.h; sourceTree = "<group>"; };
+		22885E921766FBE0001D6425 /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		22885E931767008A001D6425 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +189,8 @@
 				226D74B117604E9E004E5697 /* util */,
 				226D747A17604E1D004E5697 /* touch.cpp */,
 				226D747B17604E1D004E5697 /* touch.h */,
+				22885E8F1766F676001D6425 /* keypad.cpp */,
+				22885E901766F678001D6425 /* keypad.h */,
 				22885E7F1765E5B4001D6425 /* opencv.cpp */,
 				22885E851765E9B5001D6425 /* opencv.h */,
 				226D746D17604DB6004E5697 /* main.cpp */,
@@ -241,6 +249,8 @@
 				226D74B217604EE8004E5697 /* lock.h */,
 				226D74B317604EE8004E5697 /* singleton.h */,
 				226D74B417604EE8004E5697 /* thread.h */,
+				22885E921766FBE0001D6425 /* util.h */,
+				22885E931767008A001D6425 /* util.cpp */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -398,6 +408,8 @@
 				22885E801765E5B5001D6425 /* opencv.cpp in Sources */,
 				22885E841765E5C5001D6425 /* BlobLabeling.cpp in Sources */,
 				22885E881765F304001D6425 /* mp3.c in Sources */,
+				22885E911766F67A001D6425 /* keypad.cpp in Sources */,
+				22885E941767008A001D6425 /* util.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@ struct stUrlInfo
 
 typedef std::vector<stUrlInfo> TUrlVector;
 typedef std::vector<std::string> TImgNameVector;
-typedef std::vector<stImageData> TImageVector;
+typedef std::vector<stImageData*> TImageVector;
 class WolframAlphaManager : public Singleton<WolframAlphaManager>
 {
 public:

@@ -7,9 +7,12 @@
 //
 
 #include "labeling.h"
+#include "camculator.h"
+#include "opencv.h"
 
 Labeling::Labeling()
 {
+	formula.clear();
 }
 
 Labeling::~Labeling()
@@ -30,30 +33,49 @@ bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
 	// TODO : Show On Loading.....
 	
+	bmp_t* labelingData = NULL;
+	if (pParam != NULL)
+	{
+		stCropData* pCropData = (stCropData*)pParam;
+		Camculator::get().getOpenCV()->Labeling(pCropData->dc_crop,
+												pCropData->dc_crop->width,
+												pCropData->dc_crop->height,
+												formula);
+		
+		printf("Labeling complete\n");
+		
+		labelingData = (bmp_t*)gx_bmp_open((char*)"lable_result.bmp");
+	}
 	
-	// TODO : send data to open CV.
 	
 	
 	this->makeBackground(dc_buffer, pParam);
 	State::makeScreen(dc_buffer, dc_screen, pParam);
-	
-	if (pParam != NULL)
+	if (labelingData != NULL)
 	{
-//		stCameraData* pCamData = (stCameraData*)pParam;
-//		int startX = (320 - (pCamData->dc_camera->width)) / 2;
-//		int startY = (240 - (pCamData->dc_camera->height)) / 2;
-//		
-//		gx_bitblt(dc_buffer, startX, startY, pCamData->dc_camera, 0, 0, pCamData->dc_camera->width, pCamData->dc_camera->height);
-		
-		// TODO : show on Loading...
-		
-		
+		int destX = (USABLE_POINT_END_X - labelingData->width) / 2;
+		int destY = (((USABLE_POINT_END_Y - USABLE_POINT_START_X) - labelingData->height) / 2) + USABLE_POINT_START_X;
+	
+		gx_bitblt(dc_buffer, destX, destY, (dc_t*)labelingData, 0, 0, labelingData->width, labelingData->height);
 	}
 	
 	return true;
 }
 int Labeling::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam)
 {
+
+	if (pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
+	{
+		if (!formula.empty())
+		{
+			// send formula to edit.
+			stFormulaData* pFormula = new stFormulaData;
+			pFormula->formula.append(formula);
+			(*pParam) = pFormula;
+		}
+	}
+	
+	
 	return true;
 }
 

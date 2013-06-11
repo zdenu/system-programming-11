@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-
+#include <string>
 #include <string>
 
 #include "gx.h"
@@ -34,6 +34,13 @@ typedef UCHAR			BYTE;
 #define FALSE	0
 #define INVALID_DATA	-1
 #define INVALID_HANDLE	0
+
+#define RESULT_TOUCH_CURSOR_VALUE	10
+
+#define USABLE_POINT_START_X		0
+#define USABLE_POINT_START_Y		48
+#define USABLE_POINT_END_X			320
+#define USABLE_POINT_END_Y			191
 
 #define MAX_TOUCH_EVENT		10
 #define EVENT_BUF_NUM		64
@@ -93,6 +100,8 @@ enum ENUM_TOUCH_EVENT
 	TOUCH_EVENT_MAIN_OK,				// mode, state	//
 	
 	TOUCH_EVENT_CROP_CLICK,
+	TOUCH_EVENT_RESULT_PREV,
+	TOUCH_EVENT_RESULT_NEXT,
 	
 	// used in setting.
 	TOUCH_EVENT_SETTING_OPEN,			// mode, state
@@ -148,15 +157,17 @@ struct stTouchData
 
 struct stKeyData
 {
-	stKeyData(void): code(0){}
-	static unsigned char key;
+	stKeyData(void): key(0){}
+	unsigned char key;
 };
 
 struct stImageData
 {
 	stImageData(void) : pBuffer(NULL), size(NULL){}
-	~stImageData(void) { if (pBuffer != NULL) delete [] pBuffer; }
+	~stImageData(void) { if (pBuffer != NULL) free(pBuffer); }
 	char*	pBuffer;
+	int32_t	width;
+	int32_t height;
 	int32_t size;
 };
 
@@ -175,6 +186,14 @@ struct stCropData
 	
 	dc_t* dc_crop;
 };
+
+struct stFormulaData
+{
+	stFormulaData(void){}
+	
+	std::string formula;
+};
+
 
 #pragma pack()
 

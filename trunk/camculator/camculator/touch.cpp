@@ -52,7 +52,7 @@ int TouchHandler::addTouchevent(int x, int y, int width, int height, int evType)
 	eventArray[evType].y = y;
 	eventArray[evType].w = width;
 	eventArray[evType].h = height;
-	eventArray[evType].enable = 1;
+	eventArray[evType].enable = 0;
 	touch_evnet_cnt++;
 
 	return evType;
