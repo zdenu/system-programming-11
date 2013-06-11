@@ -49,9 +49,9 @@ bool OpenCV::init(void)
 
 IplImage* OpenCV::rgb565to888(dc_t *rgb565Data ,int width, int height)
 {
-  	 Mat mat(height,width,CV_8UC3);
+//  	 Mat mat(height,width,CV_8UC3);
+	 Mat* pMat = new Mat(height,width,CV_8UC3);
 	 color_t     clr_get;
-	 IplImage rgb888Image;
     int rgb565Step = width;
    // float factor5Bit = 255.0 / 31.0;
    // float factor6Bit = 255.0 / 63.0;
@@ -74,14 +74,17 @@ IplImage* OpenCV::rgb565to888(dc_t *rgb565Data ,int width, int height)
 		    rgb888Data[i*rgb888Image->widthStep + (j + 1)] = g8;
 		    rgb888Data[i*rgb888Image->widthStep + (j + 2)] = b8;*/
 			gx_get_pixel( rgb565Data, j,i, &clr_get);
-			mat.at<Vec3b>(i,j)[2] = clr_get.red;
-			mat.at<Vec3b>(i,j)[1] = clr_get.green;
-			mat.at<Vec3b>(i,j)[0] = clr_get.blue;
+			pMat->at<Vec3b>(i,j)[2] = clr_get.red;
+			pMat->at<Vec3b>(i,j)[1] = clr_get.green;
+			pMat->at<Vec3b>(i,j)[0] = clr_get.blue;
 		}
 	}
 	printf("2\n");
-	rgb888Image = mat;
-	return &rgb888Image;
+	IplImage* pRgb888Image = (IplImage*)pMat;
+//	rgb888Image = Mat(mat);
+	printf("3\n");
+
+	return pRgb888Image;
 }
 
 int OpenCV::matching(IplImage *srcImage, double* error)
