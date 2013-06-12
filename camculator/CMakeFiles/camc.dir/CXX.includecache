@@ -222,6 +222,14 @@ BlobLabeling.h
 gx.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
 
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/result.cpp
+result.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/result.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+touch.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h
+
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/result.h
 define.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
