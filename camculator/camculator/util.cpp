@@ -145,7 +145,7 @@ namespace Util
 		int Error;
 		if ((GifFile = DGifOpenFileName(FileName, &Error)) == NULL)
 		{
-			printf("cannot open gif file %s\n", FileName);
+			printf("cannot open gif file : %s\n", FileName);
 			return false;
 		}
 
