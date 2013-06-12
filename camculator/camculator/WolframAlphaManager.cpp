@@ -136,30 +136,25 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 	
 	for (int i = 0 ; i < urlVector.size() ; ++i)
 	{
-		stImageData* data = new stImageData;
 		HttpConnector imgConn;
-		
 		parseFromURL(urlVector[i], host, request);
 		imgConn.HttpRequest(host.c_str(), request.c_str(), NULL);
 		
-		
-		char* pOutBuffer = NULL;
-		int resSize = 0;
 		
 		char name[30] = {"\0"};
 		sprintf(name, "%d.gif", i);
 		FILE* fp = ::fopen(name, "wb+");
 		fwrite(imgConn.GetData(), imgConn.GetDataSize(), 1, fp);
-		
+	
+		stImageData* data = new stImageData;
+		data->pVector = new TRGBVector;
 		Util::GIF2RGB(name,
-					  &data->pBuffer,
+					  data->pVector,
 					  data->size,
 					  data->width,
 					  data->height);
-		
+				
 		pVector->push_back(data);
-		
-		printf("push image to vector: %s\n", name);
 	}
 	pEvent->pData = pVector;
 	

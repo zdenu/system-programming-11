@@ -13,6 +13,7 @@
 #include "giflib/gif_lib.h"
 #include "giflib/gif_lib_private.h"
 #include <stdarg.h>
+#include "WolframAlphaManager.h"
 
 namespace Util
 {
@@ -21,8 +22,9 @@ namespace Util
 	void GifQprintf(char *Format, ...);
 	void PrintGifError(int ErrorCode);
 	
-	void DumpScreen2RGB(char** pOutBuffer,
+	void DumpScreen2RGB(
 						int& outSize,
+						TRGBVector* pRGBBuffer,
 						ColorMapObject *ColorMap,
 						GifRowType *ScreenBuffer,
 						int ScreenWidth,
@@ -30,7 +32,7 @@ namespace Util
 
 	
 	bool GIF2RGB(char *FileName,
-				 char** pOutBuffer,
+				 TRGBVector* pRGBBuffer,
 				 int& outSize,
 				 int& width,
 				 int& height)

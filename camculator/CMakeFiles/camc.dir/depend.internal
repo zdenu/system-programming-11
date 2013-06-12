@@ -4147,12 +4147,16 @@ CMakeFiles/camc.dir/camculator/util.cpp.o
  ./gxlib/gxmosaic.h
  ./gxlib/gxpanel.h
  ./gxlib/gxpng.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/singleton.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/thread.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.cpp
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.h
  /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
  /usr/local/arm/arm-none-linux-gnueabi/include/alloca.h
  /usr/local/arm/arm-none-linux-gnueabi/include/asm/sigcontext.h
+ /usr/local/arm/arm-none-linux-gnueabi/include/assert.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/confname.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/endian.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/environments.h

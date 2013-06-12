@@ -4146,12 +4146,16 @@ CMakeFiles/camc.dir/camculator/util.cpp.o: ./gxlib/gxlayer.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: ./gxlib/gxmosaic.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: ./gxlib/gxpanel.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: ./gxlib/gxpng.h
+CMakeFiles/camc.dir/camculator/util.cpp.o: camculator/WolframAlphaManager.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: camculator/define.h
+CMakeFiles/camc.dir/camculator/util.cpp.o: camculator/singleton.h
+CMakeFiles/camc.dir/camculator/util.cpp.o: camculator/thread.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: camculator/util.cpp
 CMakeFiles/camc.dir/camculator/util.cpp.o: camculator/util.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/alloca.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/asm/sigcontext.h
+CMakeFiles/camc.dir/camculator/util.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/assert.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/confname.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/endian.h
 CMakeFiles/camc.dir/camculator/util.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/environments.h

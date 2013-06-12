@@ -90,8 +90,9 @@ namespace Util
 			fprintf(stderr, "GIF-LIB undefined error %d.\n", ErrorCode);
 	}
 	
-	void DumpScreen2RGB(char** pOutBuffer,
+	void DumpScreen2RGB(
 						int& outSize,
+						TRGBVector* pRGBBuffer,
 						ColorMapObject *ColorMap,
 						GifRowType *ScreenBuffer,
 						int ScreenWidth,
@@ -102,34 +103,23 @@ namespace Util
 		
 		unsigned char *Buffer, *BufferP;
 		
-		(*pOutBuffer) = (char*)malloc(ScreenWidth * sizeof(USHORT) * ScreenHeight);
-		if ((*pOutBuffer) == NULL)
-			return;
-		
-		if ((Buffer = (unsigned char *) malloc(ScreenWidth * sizeof(USHORT))) == NULL)
+		if ((Buffer = (unsigned char *) malloc(ScreenWidth * 3)) == NULL)
 			return ;
 		
 		for (int i = 0; i < ScreenHeight; i++)
 		{
 			GifRow = ScreenBuffer[i];
-			BufferP = Buffer;
-			
 			for (int j = 0; j < ScreenWidth; j++)
 			{
 				ColorMapEntry = &ColorMap->Colors[GifRow[j]];
-//				*BufferP++ = ColorMapEntry->Red;
-//				*BufferP++ = ColorMapEntry->Green;
-//				*BufferP++ = ColorMapEntry->Blue;
-//				
-				unsigned short pixel = MAKE_PIXEL(ColorMapEntry->Red,
-										 		  ColorMapEntry->Green,
-										 		  ColorMapEntry->Blue);
-
-				memcpy(BufferP, &pixel, sizeof(unsigned short));
-				BufferP += sizeof(unsigned short);
+				
+				stRGBData rgbData;
+				rgbData.r = ColorMapEntry->Red;
+				rgbData.g = ColorMapEntry->Green;
+				rgbData.b = ColorMapEntry->Blue;
+				pRGBBuffer->push_back(rgbData);
 			}
 			
-			memcpy((*pOutBuffer) + (i * (ScreenWidth * sizeof(USHORT))), Buffer, ScreenWidth);
 		}
 		
 		free((char *) Buffer);
@@ -137,7 +127,7 @@ namespace Util
 	
 	
 	bool GIF2RGB(char *FileName,
-				 char** pOutBuffer,
+				 TRGBVector* pRGBBuffer,
 				 int& outSize,
 				 int& width,
 				 int& height)
@@ -248,12 +238,16 @@ namespace Util
 			return false;
 		}
 		
-		DumpScreen2RGB(pOutBuffer,
+		DumpScreen2RGB(
 					   outSize,
+					   pRGBBuffer,
 					   ColorMap,
 					   ScreenBuffer,
 					   GifFile->SWidth,
 					   GifFile->SHeight);
+		
+		width = GifFile->SWidth;
+		height = GifFile->SHeight;
 		
 		(void)free(ScreenBuffer);
 		
