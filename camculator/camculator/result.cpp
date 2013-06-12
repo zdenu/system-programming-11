@@ -9,6 +9,7 @@
 #include "result.h"
 #include "camculator.h"
 #include "touch.h"
+	using namespace std;
 
 Result::Result()
 :isResultExist(false)
@@ -73,9 +74,11 @@ int Result::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void**
 	}
 	return true;
 }
-bool Result::writeHistory(string newhistory)
+
+bool Result::writeHistory(std::string newhistory)
 {
 	string history[3];
+
 	char inputString[200];
 	ifstream inFile(HISTORY_FILE);
 		if( !inFile.is_open() )

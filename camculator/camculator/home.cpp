@@ -7,7 +7,7 @@
 //
 
 #include "home.h"
-
+using namespace std;
 
 Home::Home()
 {
@@ -70,9 +70,9 @@ bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		return false;
 
 	this->readHistory();
-	gx_text_out( dc_buffer, 58, 115, history[0].c_str());
-	gx_text_out( dc_buffer, 58, 146, history[1].c_str());
-	gx_text_out( dc_buffer, 58, 175, history[2].c_str());
+	gx_text_out( dc_buffer, 58, 115, (char *)history[0].c_str());
+	gx_text_out( dc_buffer, 58, 146, (char *)history[1].c_str());
+	gx_text_out( dc_buffer, 58, 175, (char *)history[2].c_str());
 	
 }
 
