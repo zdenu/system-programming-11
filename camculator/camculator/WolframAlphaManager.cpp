@@ -140,11 +140,15 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 		parseFromURL(urlVector[i], host, request);
 		imgConn.HttpRequest(host.c_str(), request.c_str(), NULL);
 		
+		int size = static_cast<int32_t>(imgConn.GetDataSize());
+		char* pBuffer = new char[size];
+		
+		memcpy(pBuffer, imgConn.GetData(), size);
 		
 		char name[30] = {"\0"};
 		sprintf(name, "%d.gif", i);
 		FILE* fp = ::fopen(name, "wb+");
-		fwrite(imgConn.GetData(), imgConn.GetDataSize(), 1, fp);
+		fwrite(pBuffer, size, 1, fp);
 	
 		stImageData* data = new stImageData;
 		data->pVector = new TRGBVector;
@@ -155,6 +159,7 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 					  data->height);
 				
 		pVector->push_back(data);
+		delete pBuffer;
 	}
 	pEvent->pData = pVector;
 	
