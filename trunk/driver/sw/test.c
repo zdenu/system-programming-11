@@ -26,16 +26,13 @@ int main(void)
 		exit(1);
 	}
 	
-	(void)signal(SIGUSR1, usrsignal);
+	(void)signal(SIGUSR2, usrsignal);
 	id = getpid();
 	write(dev, &id, 4);
 	printf("press the sw button!\n");
 	
 	while(quit) {
-		if(vkey == 0x01) {
-			printf("Exit Program!! (key = %d)\n", vkey);
-			quit = 0;
-		}
+	//	printf("Exit Program!! (key = %d)\n", vkey);
 	}
 	close(dev);
 	return 0;

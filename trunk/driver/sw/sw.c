@@ -22,54 +22,55 @@
 #define TIMER_INTERVAL			(2*HZ/10)	
 
 //Global variable
-static int sw_usage = 0;
-static int sw_major = 0;
+static int SW_usage = 0;
+static int SW_major = 0;
 static struct timer_list mytimer;
 static unsigned char value;
 static pid_t id;
-static unsigned int  sw_ioremap;
-static unsigned char *sw_addr;
+static unsigned int  SW_ioremap;
+static unsigned char *SW_addr;
 
 // define functions...
-int sw_open(struct inode *minode, struct file *mfile)
+int SW_open(struct inode *minode, struct file *mfile)
 {
-	if(sw_usage != 0) return -EBUSY;
-		
-	sw_ioremap = (unsigned int)ioremap(SW_PHY_ADDR,SW_ADDR_RANGE);
+	if(SW_usage != 0) return -EBUSY;
+	
+	SW_ioremap = (unsigned int)ioremap(SW_PHY_ADDR,SW_ADDR_RANGE);
 
-	if(!check_mem_region(sw_ioremap, SW_ADDR_RANGE))
-		request_region(sw_ioremap, SW_ADDR_RANGE, SW_NAME);
+	if(!check_mem_region(SW_ioremap, SW_ADDR_RANGE))
+		request_region(SW_ioremap, SW_ADDR_RANGE, SW_NAME);
 	else
 		printk("driver: unable to register this!\n");
-	sw_usage = 1;
+	SW_usage = 1;
+
+	SW_addr =  (unsigned char *)(SW_ioremap);
+
 	return 0;
 }
 	
-int sw_release(struct inode *minode, struct file *mfile)
+int SW_release(struct inode *minode, struct file *mfile)
 {
-	release_region(sw_ioremap, SW_ADDR_RANGE);
-	iounmap((unsigned char *)sw_ioremap);
+	release_region(SW_ioremap, SW_ADDR_RANGE);
+	iounmap((unsigned char *)SW_ioremap);
 	del_timer(&mytimer);
-	sw_usage = 0;
+	SW_usage = 0;
 	return 0;
 }
 
 void mypollingfunction(unsigned long data)
 {
-	int j=1,k,i;
-	value =0;
-   value = *sw_addr & 0x07;
-	if(value != 0x00) goto stop_poll;
-
+   value = (*SW_addr & 0x07);
+	if(value != 7) goto stop_poll;
+	
 	stop_poll:
-		if(value>0) {
+		if(value!=7) {
 			kill_proc(id,SIGUSR2,1);
 		}
 		mytimer.expires = get_jiffies_64() + TIMER_INTERVAL;
 		add_timer(&mytimer);
 }
 
-ssize_t sw_write(struct file *inode, const char *gdata, size_t length, loff_t *off_what)
+ssize_t SW_write(struct file *inode, const char *gdata, size_t length, loff_t *off_what)
 {
 	get_user(id,(int *)gdata);
 	
@@ -80,7 +81,7 @@ ssize_t sw_write(struct file *inode, const char *gdata, size_t length, loff_t *o
 	return length;
 }
 
-ssize_t sw_read(struct file *inode, char *gdata, size_t length, loff_t *off_what)
+ssize_t SW_read(struct file *inode, char *gdata, size_t length, loff_t *off_what)
 {
 	int ret;
 	ret = copy_to_user(gdata, &value, 1);
@@ -88,41 +89,41 @@ ssize_t sw_read(struct file *inode, char *gdata, size_t length, loff_t *off_what
 	return length;
 }
 
-struct file_operations sw_fops = {
-	.owner		= THIS_MODULE,
-	.read		= sw_read,
-	.write		= sw_write,
-	.open		= sw_open,
-	.release	= sw_release,
+struct file_operations SW_fops = {
+	.owner	= THIS_MODULE,
+	.read		= SW_read,
+	.write	= SW_write,
+	.open		= SW_open,
+	.release	= SW_release,
 };
 
 
-int sw_init(void) 
+int SW_init(void) 
 {
 	int result;
-	result = register_chrdev(SW_MAJOR, SW_NAME, &sw_fops);
+	result = register_chrdev(SW_MAJOR, SW_NAME, &SW_fops);
 	
 	if(result < 0) {
 		printk(KERN_WARNING"Can't get any major\n");
 		return result;
 	}
-	sw_major = result;
+	SW_major = result;
 		
-	printk("init module, sw major number : %d\n", result);
+	printk("init module, SW major number : %d\n", result);
 	
 	
 	return 0;
 }
 
-void sw_exit(void) 
+void SW_exit(void) 
 {
 
-	unregister_chrdev(sw_major, SW_NAME);
+	unregister_chrdev(SW_major, SW_NAME);
 	
 }
 
-module_init(sw_init);
-module_exit(sw_exit);
+module_init(SW_init);
+module_exit(SW_exit);
 
 MODULE_AUTHOR(DRIVER_AUTHOR); 
 MODULE_DESCRIPTION(DRIVER_DESC); 
