@@ -33,6 +33,9 @@ bool KeyHandler::init()
 
 	signal(SIGUSR1, &KeyHandler::keysignal);
 	signal(SIGUSR2, &KeyHandler::swsignal);
+	
+	pid_t pId = getpid();
+	write(eventFd, &pId, sizeof(pid_t));
 	return true;
 }
 

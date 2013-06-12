@@ -225,7 +225,10 @@ void Camculator::interfaceDispatcher(stEvent* pEv)
 
 void Camculator::httpResponseDispatcher(stEvent* pEv)
 {
-	
+	if (pCurrentState->getScreenType() == SCREEN_TYPE_RESULT)
+	{
+		Result* pEdit = (Result*)pCurrentState;
+	}
 }
 
 void Camculator::keypadDispatcher(stEvent* pEv)

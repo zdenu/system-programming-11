@@ -148,16 +148,6 @@ string
 gx.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
 
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.cpp
-define.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
-edit.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.h
-ctype.h
--
-WolframAlphaManager.h
-/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
-
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.h
 define.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
