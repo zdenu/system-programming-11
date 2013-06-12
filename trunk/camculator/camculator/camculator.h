@@ -9,6 +9,7 @@
 #ifndef camculator_camculator_h
 #define camculator_camculator_h
 
+#include <string>
 #include <queue>
 #include "singleton.h"
 #include "gx.h"
@@ -45,6 +46,8 @@ public:
 	
 	TouchHandler* getTouchHandler(void) { return pTouchHandler; }
 	OpenCV* getOpenCV(void) { return pOpenCV; }
+
+	void interface_loading(int mode);
 	
 private:
 	void initSettingLayout(void);
@@ -60,7 +63,6 @@ private:
 	
 	void interface_Background(int mode);
 	void interface_layout(int mode, int state);
-	void interface_loading(int mode);
 	
 	void interface_alert(char* msg);
 	void interface_info(void);
@@ -70,7 +72,7 @@ private:
 	int getNextScreenType(int mode);
 	
 	void disableSettingEvent(void);
-	string replaceAll(const string &str, const string &pattern, const string &replace);
+	std::string replaceAll(const std::string &str, const std::string &pattern, const std::string &replace);
 	
 private:
 	State* pCurrentState;

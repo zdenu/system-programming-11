@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Christopher Kim. All rights reserved.
 //
 
-#include "Define.h"
+#include "define.h"
 #include "WolframAlphaManager.h"
 #include "HttpConnector.h"
 #include "tinyxml/tinyxml.h"

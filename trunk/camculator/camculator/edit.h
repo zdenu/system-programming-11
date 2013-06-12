@@ -24,7 +24,7 @@ public:
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam);
 	virtual int dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam);
-	
+	std::string replaceAll(const std::string &str, const std::string &pattern, const std::string &replace);
 	
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);

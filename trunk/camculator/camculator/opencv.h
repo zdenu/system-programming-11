@@ -32,7 +32,7 @@ using namespace std;
 class OpenCV
 {
 public:
-	OpenCV():definedIntStartFlg(0), definedIntEndFlg(0){}
+	OpenCV(){}
 	~OpenCV(){}
 	
 public:
@@ -47,8 +47,6 @@ protected:
 private:
 	IplImage *tImage[TEMPLATE_NUM][2];
 	int objCenterPosition[TEMPLATE_NUM][2];
-
-
 };
 
 

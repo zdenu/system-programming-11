@@ -41,6 +41,23 @@ bool Edit::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 	
 	return true;
 }
+
+
+std::string Edit::replaceAll(const std::string &str, const std::string &pattern, const std::string &replace)
+{
+	string result = str;
+	string::size_type pos = 0;
+	string::size_type offset = 0;
+
+	while((pos = result.find(pattern, offset)) != string::npos)
+	{
+		result.replace(result.begin() + pos, result.begin() + pos + pattern.size(), replace);
+		offset = pos + replace.size();
+	}
+
+	return result.c_str();
+}
+
 bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
 	this->makeBackground(dc_buffer, pParam);
@@ -62,7 +79,7 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		tmp.insert(cursor,"|",0,1);
 		//replace space
 		//replace_if(tmp.begin(), tmp.end(), bind2nd(equal_to<char>(), ' '), '_');
-		tmp = Camculator::get().replaceAll(tmp, " ", "_");
+		this->replaceAll(tmp, " ", "_");
 		string l1,l2,l3,l4;
 		l1 = tmp.substr(0,32);
 		l2 = tmp.substr(33,32);

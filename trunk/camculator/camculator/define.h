@@ -76,7 +76,7 @@ typedef UCHAR			BYTE;
 #define RESULT		5
 
 
-#define START		1
+#define START		0
 #define STEP0		1
 #define STEP1		2
 #define STEP2		3

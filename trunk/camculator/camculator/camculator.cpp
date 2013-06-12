@@ -118,7 +118,7 @@ bool Camculator::init(void)
 	
 }
 
-string Camculator::replaceAll(const string &str, const string &pattern, const string &replace)
+std::string Camculator::replaceAll(const std::string &str, const std::string &pattern, const std::string &replace)
 {
 	string result = str;
 	string::size_type pos = 0;
@@ -130,7 +130,7 @@ string Camculator::replaceAll(const string &str, const string &pattern, const st
 		offset = pos + replace.size();
 	}
 
-	return result;
+	return result.c_str();
 }
 
 
@@ -385,7 +385,7 @@ void Camculator::interface_loading(int mode)
 				gx_png_close((dc_t*)png);
 			}
 			break;
-		case STEP1 : 
+		case STEP0 : 
 			png = (png_t*)gx_png_open( "interface/background/loading0001.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0001.png");                                         // 실행 중 에러 내용을 출력

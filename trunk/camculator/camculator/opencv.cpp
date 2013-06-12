@@ -1,4 +1,5 @@
 #include "opencv.h"
+#include "camculator.h"
 
 bool OpenCV::init(void)
 {
@@ -146,8 +147,8 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 {
 //	IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
 	string definedInt[2];
-	int definedIntStartFlg;
-	int definedIntEndFlg;
+	int definedIntStartFlg = 0;
+	int definedIntEndFlg = 0;
 	string definedIntVariable;
 	bool bsquare=false;
 
