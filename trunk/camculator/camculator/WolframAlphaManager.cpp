@@ -151,7 +151,9 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 		char name[30] = {"\0"};
 		sprintf(name, "%d.gif", i);
 		FILE* fp = ::fopen(name, "wb+");
-		fwrite(pBuffer, size, 1, fp);
+		size_t elements = fwrite(imgConn.GetData(), 1, imgConn.GetDataSize(), fp);
+		fclose(fp);
+		printf("Write Element Coutnts : %d\n", elements);
 	
 		stImageData* data = new stImageData;
 		data->pVector = new TRGBVector;

@@ -39,6 +39,7 @@ private:
 	void removeImageList(void);
 
 private:
+	int loadingState;
 	bool isResultExist;
 	std::vector<dc_t*> pImgList;
 	int totalWidth;

@@ -16,6 +16,7 @@ using namespace std;
 Result::Result()
 :isResultExist(false)
 , currentCursor(0)
+, loadingState(0)
 {
 }
 
@@ -31,6 +32,7 @@ bool Result::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 	
 	title = (png_t*)gx_png_open( "interface/title/result.png");
 	button = (png_t*)gx_png_open( "interface/button/send.png");
+	loadingState = START;
 
 	
 
@@ -43,11 +45,16 @@ bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	
 	if (!isResultExist)
 	{
-		// draw now loading....
+		Camculator::get().interface_loading(loadingState);
+		loadingState++;
 		
+		if (loadingState == STEP7)
+			loadingState = STEP0;
 	}
 	else
 	{
+		Camculator::get().interface_loading(END);
+		
 		gx_bitblt(dc_buffer,
 				  USABLE_POINT_START_X,
 				  USABLE_POINT_START_Y,
