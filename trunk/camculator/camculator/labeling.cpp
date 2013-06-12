@@ -11,6 +11,7 @@
 #include "opencv.h"
 
 Labeling::Labeling()
+: labelingData(NULL)
 {
 	formula.clear();
 }
@@ -33,7 +34,6 @@ bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
 	// TODO : Show On Loading.....
 	
-	bmp_t* labelingData = NULL;
 	if (pParam != NULL)
 	{
 		stCropData* pCropData = (stCropData*)pParam;
