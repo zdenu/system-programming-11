@@ -85,6 +85,12 @@ int OpenCV::matching(IplImage *srcImage, double* error)
 	}
 	
 	for(int i = 0; i < TEMPLATE_NUM ; i++){
+		if(i>10)	
+			Camculator::get().interface_loading(STEP2);
+		else if(i>20)		
+			Camculator::get().interface_loading(STEP3);
+		else if(i>30)			
+			Camculator::get().interface_loading(STEP4);
 		for(int j = 0; j < TEMPLATE_FONT; j++){
 			if(tImage[i][j] != NULL){
 				IplImage *srcImageResize = cvCreateImage(cvSize(tImage[i][j]->width+1,tImage[i][j]->height+1), 8, 1);
@@ -150,7 +156,8 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
     //int rgb565Step = width;
    // float factor5Bit = 255.0 / 31.0;
    // float factor6Bit = 255.0 / 63.0;
-    for(int i = 0; i < height; i++)
+Camculator::get().interface_loading(START);   
+	for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
 		{
@@ -175,7 +182,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	}
 	 IplImage rgbImage = mat;
 	 //IplImage* rgbImage = &rgb888Image;
-
+	Camculator::get().interface_loading(STEP1);
 
 	 IplImage* pRgbImg = &rgbImage;
     IplImage* pGrayImg = cvCreateImage(cvGetSize(pRgbImg),IPL_DEPTH_8U,1);
@@ -189,7 +196,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	string formula;
 	string strTemp = "";
 	string outFormula;
-	Camculator::get().interface_loading(START);
+	
 	cvSaveImage("original.bmp", pRgbImg);
 	//밝게
 	cvAddS(pRgbImg, CV_RGB(100,100,100), pRgbImg, NULL);
@@ -203,7 +210,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	pGrayImg = img_resize(pGrayImg, 700);
 	//imshow( "RESIZE", pGrayImg ); //arm에선 작동안함..
 
-	Camculator::get().interface_loading(STEP1);
+	Camculator::get().interface_loading(STEP2);
 
 	printf ("Binary Process\n" );
 	//binary Process 반전
@@ -211,7 +218,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	cvAdaptiveThreshold(pGrayImg, pGrayImg, 255, CV_ADAPTIVE_THRESH_MEAN_C, CV_THRESH_BINARY_INV, 51, 10);
 	//threshold(pGrayImg, pGrayImg, 127, 255, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
 	//imshow( "Binary", pGrayImg );
-	
+	Camculator::get().interface_loading(STEP3);
 	  //여백 넣기
     IplImage* pGrayImg2 = cvCreateImage(cvSize(pGrayImg->width+20, pGrayImg->height+20), 8, pGrayImg->nChannels);
 	 //cvSet(pGrayImg2,CV_RGB(255,255,255));
@@ -230,7 +237,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
     element1 = cvCreateStructuringElementEx (3, 3, 2, 2, CV_SHAPE_RECT, NULL);
     IplConvKernel *element2;
     element2 = cvCreateStructuringElementEx (3, 3, 2, 2, CV_SHAPE_RECT, NULL); // 필터의 크기를 5x5로 설정
-	
+	Camculator::get().interface_loading(STEP4);
 	printf( "Filter Process\n" );
 	// 팽창/
     cvDilate( pGrayImg2, pGrayImg2, element1, 1);
@@ -244,15 +251,15 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	cvNot(pGrayImg2,pGrayImg2_inv);
 	cvCvtColor( pGrayImg2_inv, pLabeledImg, CV_GRAY2RGB);
 	
-	Camculator::get().interface_loading(STEP2);
-
+	Camculator::get().interface_loading(STEP5);
+	
 	printf ("Labeling Process\n" );
 	CBlobLabeling blob;
 	blob.SetParam( pGrayImg2, 5 );
 	
 	blob.DoLabeling();
 	CvScalar color = cvScalar(255, 0, 0);
-	
+	Camculator::get().interface_loading(STEP6);
 	cvSaveImage("binary.bmp", pGrayImg2);
 	
 	//템플릿 이진화.
@@ -265,13 +272,13 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	 }
 	 }
 	 */
-	Camculator::get().interface_loading(STEP3);
+	Camculator::get().interface_loading(STEP7);
 	printf( "Templete matching...\n" );
     for(int i = 0; i < blob.m_nBlobs; i++)
-    {
+    {	
     	CvPoint pt1 = cvPoint(blob.m_recBlobs[i].x-5, blob.m_recBlobs[i].y-5);
     	CvPoint pt2 = cvPoint(pt1.x + blob.m_recBlobs[i].width + 10, pt1.y + blob.m_recBlobs[i].height + 10);
-		
+		Camculator::get().interface_loading(STEP0);	
     	if((blob.m_recBlobs[i].x-5<= 0)||(blob.m_recBlobs[i].y-5<= 0)){
     		//size error
     	} else{
@@ -288,10 +295,12 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 			//여기서 위치정보 판별
 			objCenterPosition[i][0] = (pt2.x-pt1.x)/2 + pt1.x;
 			objCenterPosition[i][1] = (pt2.y-pt1.y)/2 + pt1.y;
+
+			Camculator::get().interface_loading(STEP1);
 			nMatchValue = matching(pLabeledImg_obj, &error);
 			
 			cvDrawRect(pLabeledImg, pt1, pt2, color ,6);
-			
+			Camculator::get().interface_loading(STEP5);
 			//CvFont point_font;
 			//cvInitFont(&point_font,CV_FONT_HERSHEY_SIMPLEX, 1, 1, 0, 1, 8);
 			char text[20];
@@ -306,8 +315,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 				bsquare = false;
 				formula += " ";
 			}
-			
-			
+		
 			switch(nMatchValue){
 					
 				case 0:
@@ -547,7 +555,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 					formula +=  "root ";
 					break;
 			}
-			
+			Camculator::get().interface_loading(STEP6);
 			//printf("%s",letter);
 			if(((objCenterPosition[0][1]-objCenterPosition[i][1])>40)&&definedIntStartFlg){ // 정적분
 				strTemp = formula.substr(formula.length()-10,formula.length()-1);
@@ -586,6 +594,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
     if(definedIntEndFlg){
     	formula += " from " + definedIntVariable + "=" + definedInt[1] + " to " + definedInt[0];
     }
+	Camculator::get().interface_loading(STEP7);
 	printf("template matching complete.\n");
 	//printf("\n");
 	//*pMatGr = pLabeledImg;
