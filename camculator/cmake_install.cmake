@@ -1,4 +1,4 @@
-# Install script for directory: /home/passa/systemprograming/system-programming-11/camculator
+# Install script for directory: /Users/laogram/Project/private/system-programming-11/trunk/camculator
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,18 +27,13 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/passa/systemprograming/system-programming-11/camculator/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/Users/laogram/Project/private/system-programming-11/trunk/camculator/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/passa/systemprograming/system-programming-11/camculator/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/Users/laogram/Project/private/system-programming-11/trunk/camculator/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)
