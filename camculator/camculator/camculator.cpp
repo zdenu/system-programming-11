@@ -59,6 +59,7 @@ Camculator::~Camculator()
 
 bool Camculator::init(void)
 {
+	WolframAlphaManager::createSingleton();
 	if  ( GX_SUCCESS != gx_open(const_cast<char*>(FRAME_BUFFER_DEVICE)) )
 	{
 		printf("Frame buffer device load open error.\n");

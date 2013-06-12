@@ -24,6 +24,7 @@ int main(int argc, const char * argv[])
 	Camculator::get().init();
 	Camculator::get().main();
 	
+	WolframAlphaManager::destroySingleton();
 	Camculator::destroySingleton();
 
     return 0;
