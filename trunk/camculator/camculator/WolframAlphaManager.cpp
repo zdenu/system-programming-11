@@ -140,6 +140,9 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 		parseFromURL(urlVector[i], host, request);
 		imgConn.HttpRequest(host.c_str(), request.c_str(), NULL);
 		
+		printf("Data : %s\n", imgConn.GetData());
+		printf("Size : %d\n", imgConn.GetDataSize());
+		
 		int size = static_cast<int32_t>(imgConn.GetDataSize());
 		char* pBuffer = new char[size];
 		
