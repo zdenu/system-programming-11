@@ -143,6 +143,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	int definedIntStartFlg;
 	int definedIntEndFlg;
 	string definedIntVariable;
+	bool bsquare=false;
 
 	 Mat mat(height,width,CV_8UC3);
 	 color_t     clr_get;
@@ -188,7 +189,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	string formula;
 	string strTemp = "";
 	string outFormula;
-	
+	Camculator::get().interface_loading(START);
 	cvSaveImage("original.bmp", pRgbImg);
 	//밝게
 	cvAddS(pRgbImg, CV_RGB(100,100,100), pRgbImg, NULL);
@@ -201,7 +202,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	//300 , 400, 500 ,700 ,800 ~ height resize for templete
 	pGrayImg = img_resize(pGrayImg, 700);
 	//imshow( "RESIZE", pGrayImg ); //arm에선 작동안함..
-	
+
+	Camculator::get().interface_loading(STEP1);
+
 	printf ("Binary Process\n" );
 	//binary Process 반전
     //cvThreshold(pGrayImg, pGrayImg, 127.0, 255.0, CV_THRESH_BINARY_INV | CV_THRESH_OTSU);
@@ -241,6 +244,8 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	cvNot(pGrayImg2,pGrayImg2_inv);
 	cvCvtColor( pGrayImg2_inv, pLabeledImg, CV_GRAY2RGB);
 	
+	Camculator::get().interface_loading(STEP2);
+
 	printf ("Labeling Process\n" );
 	CBlobLabeling blob;
 	blob.SetParam( pGrayImg2, 5 );
@@ -260,6 +265,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	 }
 	 }
 	 */
+	Camculator::get().interface_loading(STEP3);
 	printf( "Templete matching...\n" );
     for(int i = 0; i < blob.m_nBlobs; i++)
     {
@@ -291,8 +297,14 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 			char text[20];
 			char letter[5];
 			
-			if((objCenterPosition[0][1]-objCenterPosition[i][1])>20){ // 자승 처리
+			if((objCenterPosition[0][1]-objCenterPosition[i][1])>30){ // 자승 처리
+				if(!bsquare){				
 				formula += "^";
+				bsquare = true;
+				}
+			} else if(bsquare){
+				bsquare = false;
+				formula += " ";
 			}
 			
 			
@@ -426,17 +438,19 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 						formula.erase(formula.length() -2 ,2 );
 						}
 						formula +=  "i";
+						bsquare = false;
 					}
 					else
 						formula +=  ".";
 					
-					if(formula.length()>=6){
-						strTemp = formula.substr(formula.length()-6,formula.length());
-						if(strTemp == ".^.^.^"){
-							if(formula.length()>6) {
-						formula.erase(formula.length() -6 ,6 );
+					if(formula.length()>=4){
+						strTemp = formula.substr(formula.length()-4,formula.length());
+						if(strTemp == ".^.."){
+							if(formula.length()>4) {
+						formula.erase(formula.length() -4 ,4 );
 						}
 							formula +=  "integral";
+							bsquare = false;
 							objCenterPosition[0][0] = objCenterPosition[i-1][0];
 						}
 						
@@ -586,5 +600,6 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	//waitKey(0);
 	cvReleaseImage(&pGrayImg2);
 	cvReleaseImage(&pLabeledImg);
+	Camculator::get().interface_loading(END);
 	return 0;
 }

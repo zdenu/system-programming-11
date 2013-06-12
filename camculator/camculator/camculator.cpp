@@ -359,17 +359,97 @@ void Camculator::interface_loading(int mode)
 	switch(mode) {
 		case START :
 			gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
-			png = (png_t*)gx_png_open( "interface/background/loading.png");
+			png = (png_t*)gx_png_open( "interface/background/loading0001.png");
 			if ( NULL == png)
-				gx_print_error(8, "interface/background/loading.png");                                         // 실행 중 에러 내용을 출력
+				gx_print_error(8, "interface/background/loading0001.png");                                         // 실행 중 에러 내용을 출력
 			else
 			{
-				gx_bitblt( dc_screen, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP1 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0001.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0001.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP1 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0002.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0002.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP2 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0003.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0003.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP3 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0004.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0004.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP4 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0005.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0005.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP5 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0006.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0006.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP6 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0007.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0007.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
+				gx_png_close((dc_t*)png);
+			}
+			break;
+		case STEP7 : 
+			png = (png_t*)gx_png_open( "interface/background/loading0008.png");
+			if ( NULL == png)
+				gx_print_error(8, "interface/background/loading0008.png");                                         // 실행 중 에러 내용을 출력
+			else
+			{
+				gx_bitblt( dc_buffer, 0, 0, ( dc_t *)png, 0, 0, png->width, png->height);
 				gx_png_close((dc_t*)png);
 			}
 			break;
 		case END :
-			gx_bitblt( dc_screen, 0, 0, before_screen, 0, 0, 320, 240);
+			gx_bitblt( dc_buffer, 0, 0, before_screen, 0, 0, 320, 240);
 			break;
 	}
 }
