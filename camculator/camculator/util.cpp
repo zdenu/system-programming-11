@@ -130,8 +130,6 @@ namespace Util
 			}
 			
 			memcpy((*pOutBuffer) + (i * (ScreenWidth * sizeof(USHORT))), Buffer, ScreenWidth);
-//			if (fwrite(Buffer, ScreenWidth, 1, f[0]) != 1)
-//				return;
 		}
 		
 		free((char *) Buffer);
