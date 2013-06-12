@@ -38,6 +38,7 @@ bool KeyHandler::init()
 
 void KeyHandler::keysignal(int sig)
 {
+	printf("KeySignal CALLED!!!!!!!!!!!!!(%d)\n", sig);
 	size_t read_bytes;
 	static unsigned char vkey;
    read_bytes = read(eventFd, &vkey, 1);
@@ -50,8 +51,11 @@ void KeyHandler::keysignal(int sig)
 	pEv->pData = pKeyData;																
 	Camculator::get().pushEvent(pEv);
 }
+
+
 void KeyHandler::swsignal(int sig)
 {
+	printf("SWSignal CALLED!!!!!!!!!!!!!(%d)\n", sig);
 	size_t read_bytes;
 	static unsigned char vSw;
    read_bytes = read(sweventFd, &vSw, 1);
