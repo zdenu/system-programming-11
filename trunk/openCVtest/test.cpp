@@ -147,6 +147,7 @@ int main( int argc, char** argv )
 	 string definedIntVariable;
 	 IplImage* pRgbImg = cvLoadImage(argv[1], 1 );
     IplImage* pGrayImg = cvCreateImage(cvGetSize(pRgbImg),IPL_DEPTH_8U,1);
+	 bool bsquare=false;
 	  
 
     IplImage labeledImg;
@@ -316,10 +317,16 @@ int main( int argc, char** argv )
 			char text[20];
 			string letter = "";
 			
-			if((objCenterPosition[0][1]-objCenterPosition[i][1])>20){ // 자승 처리
+			if((objCenterPosition[0][1]-objCenterPosition[i][1])>30){ // 자승 처리
+				if(!bsquare){				
 				formula += "^";
+				bsquare = true;
+				}
+			} else if(bsquare){
+				bsquare = false;
+				formula += " ";
 			}
-
+			printf("%d ",objCenterPosition[i][1]);
 			
 			switch(nMatchValue){
 
@@ -461,6 +468,7 @@ int main( int argc, char** argv )
 						formula.erase(formula.length() -2 ,2 );
 						}
 						formula +=  "i";
+						bsquare = false;
 					}
 					else
 						formula +=  ".";

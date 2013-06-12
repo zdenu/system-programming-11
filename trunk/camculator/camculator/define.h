@@ -70,8 +70,17 @@ typedef UCHAR			BYTE;
 #define LABELING	3
 #define EDIT		4
 #define RESULT		5
+
 #define START		1
-#define END			0
+#define STEP0		1
+#define STEP1		2
+#define STEP2		3
+#define STEP3		4
+#define STEP4		5
+#define STEP5		6
+#define STEP6		7
+#define STEP7		8
+#define END			9
 
 enum ENUM_SCREEN_TYPE
 {
