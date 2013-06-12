@@ -53,10 +53,11 @@ bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	State::makeScreen(dc_buffer, dc_screen, pParam);
 	if (labelingData != NULL)
 	{
+		printf("labeling is not NULL.\n");
 		int destX = (USABLE_POINT_END_X - labelingData->width) / 2;
 		int destY = (((USABLE_POINT_END_Y - USABLE_POINT_START_X) - labelingData->height) / 2) + USABLE_POINT_START_X;
 	
-		gx_bitblt(dc_buffer, destX, destY, (dc_t*)labelingData, 0, 0, labelingData->width, labelingData->height);
+		gx_bitblt(dc_buffer, 0, 50, (dc_t*)labelingData, 0, 0, labelingData->width, labelingData->height);
 	}
 	
 	return true;
