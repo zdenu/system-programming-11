@@ -227,7 +227,11 @@ void Camculator::httpResponseDispatcher(stEvent* pEv)
 {
 	if (pCurrentState->getScreenType() == SCREEN_TYPE_RESULT)
 	{
-		Result* pEdit = (Result*)pCurrentState;
+		Result* pResult = (Result*)pCurrentState;
+		TImageVector* pImgVector = (TImageVector*)(pEv->pData);
+		pResult->parseGifImages(pImgVector);
+		pResult->makeScreen(dc_buffer, dc_screen, NULL);
+		
 	}
 }
 
