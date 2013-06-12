@@ -469,6 +469,7 @@ void Camculator::interface_loading(int mode)
 			gx_bitblt( dc_buffer, 0, 0, before_screen, 0, 0, 320, 240);
 			break;
 	}
+	gx_bitblt( dc_screen, 0, 0, dc_buffer, 0, 0, 320, 240);
 }
 
 //void Camculator::interface_setting(int mode)
