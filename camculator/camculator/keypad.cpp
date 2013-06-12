@@ -21,21 +21,24 @@ KeyHandler::~KeyHandler()
 
 bool KeyHandler::init()
 {
-	if((eventFd = open(KEY_EVENT_DEVICE, O_RDONLY)) < 0) {
+	if((eventFd = open(KEY_EVENT_DEVICE, O_RDWR)) < 0) {
 			return false;
 	 }
 	printf("open : [%s] \n", KEY_EVENT_DEVICE);
 	
-	if((sweventFd = open(SW_EVENT_DEVICE, O_RDONLY)) < 0) {
+	if((sweventFd = open(SW_EVENT_DEVICE, O_RDWR)) < 0) {
 			return false;
 	 }
 	printf("open : [%s] \n", SW_EVENT_DEVICE);
+
 
 	signal(SIGUSR1, &KeyHandler::keysignal);
 	signal(SIGUSR2, &KeyHandler::swsignal);
 	
 	pid_t pId = getpid();
 	write(eventFd, &pId, sizeof(pid_t));
+	write(sweventFd, &pId, sizeof(pid_t));
+
 	return true;
 }
 

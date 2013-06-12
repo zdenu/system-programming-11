@@ -52,6 +52,10 @@ typedef UCHAR			BYTE;
 #define SW_EVENT_DEVICE		"/dev/sw"
 #define CAMERA_DEVICE			"/dev/camera"
 
+#define ADDRESSOFLED		0x14805000	// led addr.
+#define ADDRESSOFSW		0x14803000	// dip sw addr
+#define ADDRESSOFBZ		0x14808000 // buzzer addr	
+
 #define FONT_MALGUN_14			"/mnt/usb/font/14pt/malgun14.bdf"
 #define FONT_MALGUN_18			"/mnt/usb/font/18pt/malgun18.bdf"
 

@@ -7,6 +7,7 @@
 //
 #include "define.h"
 #include "edit.h"
+#include "mp3.h"
 //#include <algorithm>
 #include <ctype.h>
 
@@ -30,6 +31,7 @@ Edit::~Edit()
 bool Edit::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("edit init start.\n");
+	MP3_play("/mnt/usb/sound/ko/edit.mp3");
 	State::init(dc_buffer, pFont, state);
 	
 	if (back != NULL)
@@ -76,10 +78,12 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	{
 		//Line Max 32char
 		string tmp(txt);
+		if(cursor>=tmp.length())
+			cursor--;
 		tmp.insert(cursor,"|",0,1);
 		//replace space
 		//replace_if(tmp.begin(), tmp.end(), bind2nd(equal_to<char>(), ' '), '_');
-		this->replaceAll(tmp, " ", "_");
+		tmp = this->replaceAll(tmp, " ", "_");
 
 		std::string line[4];
 		int index = 0, len = 0;
@@ -120,6 +124,37 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	return true;
 }
 
+bool Edit::writeHistory(const char* newhistory)
+{
+	char history[3][200]={""};
+	FILE *fp;
+	int i=0;
+	if ((fp = fopen (HISTORY_FILE, "r")) == NULL)
+	{
+		printf ("open 실패..\n");
+		return false;
+	}
+	while(fscanf(fp,"%s",history[i]) != EOF)
+	{
+		i++;
+		if(i==4)
+			break;
+	}
+	fclose(fp);
+	
+	if ((fp = fopen (HISTORY_FILE, "w")) == NULL)
+	{
+		printf ("open 실패\n");
+		return false;
+	}
+	fprintf(fp,"%s\n",newhistory);
+	for(i=0;i<2;i++){
+		fprintf(fp,"%s\n",history[i]);
+	}
+	fclose(fp);
+	return true;
+}
+
 int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam)
 {
 	if(pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
@@ -127,7 +162,7 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 //		// send http request.
 		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
 		
-		
+		writeHistory(txt.c_str());
 	}
        
 	return true;
@@ -230,7 +265,7 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 	  | 9  |10 |11| 12 |
 	  | 13 |14 |15| 16 |
 	*/
-	if(pKeyEvent->key != bkey || step == 0){
+	if((pKeyEvent->key != bkey || step == 0 ) && pKeyEvent->key<14){
 		if(cursor < txt.length())
 			cursor++;
 		bkey = pKeyEvent->key;

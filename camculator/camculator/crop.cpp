@@ -11,6 +11,7 @@
 #include "gx.h"
 #include "camculator.h"
 #include "touch.h"
+#include "mp3.h"
 
 
 Crop::Crop()
@@ -32,6 +33,7 @@ Crop::~Crop()
 bool Crop::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("crop init start.\n");
+	MP3_play("/mnt/usb/sound/ko/crop1.mp3");
 	State::init(dc_buffer, pFont, state);
 	
 	title = (png_t*)gx_png_open( "interface/title/crop.png");
@@ -114,6 +116,7 @@ int Crop::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 			firstX = pTouchEvent->x;
 			firstY = pTouchEvent->y;
 			touchCnt = 1;
+			MP3_play("/mnt/usb/sound/ko/crop2.mp3");
 		}
 		else if(touchCnt == 1)
 		{
@@ -123,6 +126,7 @@ int Crop::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 		}
 		else if (touchCnt == 2)
 		{
+			MP3_play("/mnt/usb/sound/ko/crop0.mp3");
 			resetCropPoints();
 			firstX = pTouchEvent->x;
 			firstY = pTouchEvent->y;

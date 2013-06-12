@@ -3,6 +3,7 @@
 
 #include "touch.h"
 #include "keypad.h"
+#include "ioutil.h"
 
 
 #include "gxjpg.h"
@@ -84,13 +85,23 @@ bool Camculator::init(void)
 	
 	pKeyHandler = new KeyHandler;
 	pKeyHandler->init();
+
+	pIOutil = new IOutil;
+	pIOutil->init();
 	
 	pOpenCV = new OpenCV;
 	pOpenCV->init();
-		
+	
 	printf( "running....\n");
-	printf( "screen widht= %d\n"      , dc_screen->width);
+	pIOutil->Buzzer(100);
+	pIOutil->LED_ON(0xAA);
+	pIOutil->textlcd("welcome camculator");
+	pIOutil->fnd("123456");
+
+	printf( "screen [%d,%d]\n"      , dc_screen->width, dc_screen->height);
 	printf( "screen color depth= %d\n", dc_screen->colors);
+
+	printf("Resize factor : %d\n",pIOutil->SW_read()*100);
 	
 	// TODO: create each states.
 	pState[SCREEN_TYPE_HOME]	= new Home;
@@ -101,6 +112,8 @@ bool Camculator::init(void)
 	pState[SCREEN_TYPE_RESULT]	= new Result;
 	
 	printf("create states complete.\n");
+	pIOutil->Buzzer(100);
+	
 	
 	for (int i = 0 ; i < SCREEN_TYPE_MAX ; ++i)
 	{
@@ -110,12 +123,13 @@ bool Camculator::init(void)
 			printf("%d state init complete.\n", i);
 		}
 	}
-
+	
 	interface_splash();
 	
 	isRunning = true;
 	// draw home screen.
 	pState[SCREEN_TYPE_HOME]->init(dc_buffer, font14, SCREEN_TYPE_HOME);
+	MP3_play("/mnt/usb/sound/ko/welcome.mp3");
 	currentState = SCREEN_TYPE_HOME;
 	pCurrentState = pState[SCREEN_TYPE_HOME];
 	pCurrentState->enableTouchEvents();
@@ -402,8 +416,11 @@ void Camculator::interface_layout(int mode, int state)
 void Camculator::interface_loading(int mode)
 {
 	png_t   *png;
+	if(mode != START)
+		gx_bitblt( dc_buffer, 0, 0, (dc_t*)before_screen, 0, 0, 320, 240);
 	switch(mode) {
 		case START :
+			pIOutil->LED_ON(0x00);
 			gx_bitblt( before_screen, 0, 0, (dc_t*)dc_screen, 0, 0, 320, 240);
 			png = (png_t*)gx_png_open( "interface/background/loading0001.png");
 			if ( NULL == png)
@@ -415,6 +432,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP0 : 
+			pIOutil->LED_ON(0x00);
 			png = (png_t*)gx_png_open( "interface/background/loading0001.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0001.png");                                         // 실행 중 에러 내용을 출력
@@ -425,6 +443,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP1 : 
+			pIOutil->LED_ON(0x01);
 			png = (png_t*)gx_png_open( "interface/background/loading0002.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0002.png");                                         // 실행 중 에러 내용을 출력
@@ -435,6 +454,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP2 : 
+			pIOutil->LED_ON(0x02);
 			png = (png_t*)gx_png_open( "interface/background/loading0003.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0003.png");                                         // 실행 중 에러 내용을 출력
@@ -445,6 +465,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP3 : 
+			pIOutil->LED_ON(0x04);
 			png = (png_t*)gx_png_open( "interface/background/loading0004.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0004.png");                                         // 실행 중 에러 내용을 출력
@@ -455,6 +476,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP4 : 
+			pIOutil->LED_ON(0x08);
 			png = (png_t*)gx_png_open( "interface/background/loading0005.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0005.png");                                         // 실행 중 에러 내용을 출력
@@ -465,6 +487,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP5 : 
+			pIOutil->LED_ON(0x0F);
 			png = (png_t*)gx_png_open( "interface/background/loading0006.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0006.png");                                         // 실행 중 에러 내용을 출력
@@ -475,6 +498,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP6 : 
+			pIOutil->LED_ON(0x20);
 			png = (png_t*)gx_png_open( "interface/background/loading0007.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0007.png");                                         // 실행 중 에러 내용을 출력
@@ -485,6 +509,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case STEP7 : 
+			pIOutil->LED_ON(0x40);
 			png = (png_t*)gx_png_open( "interface/background/loading0008.png");
 			if ( NULL == png)
 				gx_print_error(8, "interface/background/loading0008.png");                                         // 실행 중 에러 내용을 출력
@@ -495,6 +520,7 @@ void Camculator::interface_loading(int mode)
 			}
 			break;
 		case END :
+			pIOutil->LED_ON(0x80);
 			gx_bitblt( dc_buffer, 0, 0, before_screen, 0, 0, 320, 240);
 			break;
 	}

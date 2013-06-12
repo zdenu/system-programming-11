@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include "gx.h"
 #include "camera.h"
+#include "mp3.h"
 
 Camera::Camera(void)
 : cameraFd(INVALID_DATA)
@@ -22,6 +23,7 @@ Camera::~Camera(void)
 bool Camera::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("camera init start.\n");
+	MP3_play("/mnt/usb/sound/ko/camera.mp3");
 	State::init(dc_buffer, pFont, state);
 
 	// camera doesn't use background png.
@@ -77,6 +79,7 @@ int Camera::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void**
 		read(cameraFd, pCamData->dc_camera->mapped, SCREEN_BUFFER_SIZE);
 		
 		(*pParam) = pCamData;
+		MP3_play("/mnt/usb/sound/shot.mp3");
 	}
 	
 	return true;
