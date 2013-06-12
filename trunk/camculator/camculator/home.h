@@ -23,7 +23,7 @@ public:
 	virtual bool init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state);
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam);
-	std::string history[3];
+	char history[3][200];
 
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);

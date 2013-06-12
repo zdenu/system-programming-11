@@ -21,6 +21,7 @@ typedef std::queue<stEvent*>	TEventQueue;
 class OpenCV;
 class TouchHandler;
 class KeyHandler;
+class IOutil;
 
 class Camculator : public Singleton<Camculator>
 {
@@ -44,6 +45,8 @@ public:
 	
 	dc_t* getScreen(void) { return dc_screen; }
 	dc_t* getBeforeScreen(void) { return before_screen; }
+
+	IOutil*			pIOutil;
 	
 	TouchHandler* getTouchHandler(void) { return pTouchHandler; }
 	OpenCV* getOpenCV(void) { return pOpenCV; }
@@ -84,6 +87,8 @@ private:
 	KeyHandler*		pKeyHandler;
 	TouchHandler*	pTouchHandler;
 	OpenCV*			pOpenCV;
+	
+	
 
 	Lock		queueLock;
 	TEventQueue	eventQueue;

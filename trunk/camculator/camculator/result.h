@@ -27,7 +27,6 @@ public:
 	virtual bool makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam);
 	virtual int dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** pParam);
 
-	bool writeHistory(std::string newhistory);	
 	bool parseGifImages(TImageVector* pVector);
 	
 	virtual void disableTouchEvents(void);

@@ -1,5 +1,6 @@
 #include "opencv.h"
 #include "camculator.h"
+#include "ioutil.h"
 
 bool OpenCV::init(void)
 {
@@ -151,6 +152,11 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	int definedIntEndFlg = 0;
 	string definedIntVariable;
 	bool bsquare=false;
+	
+	int resize = Camculator::get().pIOutil->SW_read()*100;
+	if(resize= 0)
+		resize = 400;
+	printf("Resize factor : %d\n",resize);
 
 	if(height<0)
 		height = 0-height;	
@@ -215,7 +221,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	
 	printf( "Image resize Process\n" );
 	//300 , 400, 500 ,700 ,800 ~ height resize for templete
-	pGrayImg = img_resize(pGrayImg, 400);
+	pGrayImg = img_resize(pGrayImg, resize);
 	//imshow( "RESIZE", pGrayImg ); //arm에선 작동안함..
 
 	Camculator::get().interface_loading(STEP2);
