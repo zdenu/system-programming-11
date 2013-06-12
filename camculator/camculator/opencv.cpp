@@ -314,7 +314,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 			char text[20];
 			char letter[5];
 			
-			if((objCenterPosition[0][1]-objCenterPosition[i][1])>30){ // 자승 처리
+			if((objCenterPosition[0][1]-objCenterPosition[i][1]) > 40){ // 자승 처리
 				if(!bsquare){				
 				formula += "^";
 				bsquare = true;

@@ -2043,6 +2043,7 @@ CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/crop.h
 CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/define.h
 CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/edit.h
 CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/home.h
+CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/keypad.h
 CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/labeling.h
 CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/lock.h
 CMakeFiles/camc.dir/camculator/camculator.cpp.o: camculator/mp3.h

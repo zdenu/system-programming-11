@@ -2,6 +2,7 @@
 #include "camculator.h"
 
 #include "touch.h"
+#include "keypad.h"
 
 
 #include "gxjpg.h"
@@ -80,6 +81,9 @@ bool Camculator::init(void)
 	pTouchHandler->init(dc_screen);
 	initTouchEvents();
 	
+	pKeyHandler = new KeyHandler;
+	pKeyHandler->init();
+	
 	pOpenCV = new OpenCV;
 	pOpenCV->init();
 		
@@ -157,6 +161,10 @@ void Camculator::main(void)
 					// go to screen type
 					break;
 				}
+				case EVENT_TYPE_KEY_PAD:
+				{
+					keypadDispatcher(pEv);
+				}
 				default:
 				{
 					break;
@@ -218,6 +226,19 @@ void Camculator::interfaceDispatcher(stEvent* pEv)
 void Camculator::httpResponseDispatcher(stEvent* pEv)
 {
 	
+}
+
+void Camculator::keypadDispatcher(stEvent* pEv)
+{
+	if (pCurrentState->getScreenType() == SCREEN_TYPE_EDIT)
+	{
+		Edit* pEdit = (Edit*)pCurrentState;
+		stKeyData* pKeyData = (stKeyData*)(pEv->pData);
+		
+		pEdit->dispatchKeyEvent(dc_buffer, pKeyData);
+		
+		pEdit->makeScreen(dc_buffer, dc_screen, NULL);
+	}
 }
 
 
