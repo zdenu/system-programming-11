@@ -79,18 +79,18 @@ bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 bool Home::readHistory()
 {
 	char inputString[200];
-	ifstream inFile(HISTORY_FILE);
-		if( !inFile.is_open() )
-		{
-			return false;
-		}
-		int i=0;
-        while(!inFile.eof() && i<3){
-            inFile.getline(inputString, 100);
-            history[i] = inputString;
-				i++;
-        }
-   inFile.close();
+//	ifstream inFile(HISTORY_FILE);
+//		if( !inFile.is_open() )
+//		{
+//			return false;
+//		}
+//		int i=0;
+//        while(!inFile.eof() && i<3){
+//            inFile.getline(inputString, 100);
+//            history[i] = inputString;
+//				i++;
+//        }
+//   inFile.close();
 	return true;
 }
 

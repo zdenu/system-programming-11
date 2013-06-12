@@ -42,8 +42,76 @@ bool WolframAlphaManager::sendRequest(const char* expression, int size)
 	memcpy(pBuf, expression, size);
 	
 	reqThreadHandle.start(this, &WolframAlphaManager::reqThread, (void*)expression);
-	
+
+	return true;
 }
+
+
+bool WolframAlphaManager::testSendRequest(const char *expression, int size)
+{
+//	char* expression = (char*)pParam;
+	std::string req = "/v2/query?input=";
+	req.append(expression);
+	req.append("&appid=");
+	req.append(WOLFRAM_ALPHA_APP_ID);
+	
+	HttpConnector conn;
+	
+	if ( HTTP_REQUEST_FAIL ==
+		conn.HttpRequest(WOLFRAM_ALPHA_HOST, req.c_str(), NULL))
+		return false;
+	
+	TUrlVector urlVector;
+	parseXmlResponse(conn.GetData(), urlVector);
+	
+	std::string host;
+	std::string request;
+	
+	stEvent* pEvent = new stEvent;
+	TImageVector* pVector = new TImageVector;
+	pEvent->eventType = EVENT_TYPE_HTTP_RESPONSE;
+	
+	for (int i = 0 ; i < urlVector.size() ; ++i)
+	{
+		stImageData* data = new stImageData;
+		
+		parseFromURL(urlVector[i], host, request);
+		conn.HttpRequest(host.c_str(), request.c_str(), NULL);
+		
+		
+		char* pOutBuffer = NULL;
+		int resSize = 0;
+		
+		char name[30] = {"\0"};
+		sprintf(name, "%d.gif", i);
+		FILE* fp = ::fopen(name, "wb+");
+		fwrite(conn.GetData(), conn.GetDataSize(), 1, fp);
+		
+		Util::GIF2RGB(name,
+					  &data->pBuffer,
+					  data->size,
+					  data->width,
+					  data->height);
+		
+		pVector->push_back(data);
+		
+		printf("push image to vector: %s\n", name);
+	}
+	pEvent->pData = pVector;
+	
+	
+	for (int i = 0 ; i < pVector->size() ; ++i)
+	{
+		delete pVector->at(i);
+	}
+	delete pVector;
+	delete pEvent;
+	
+//	Camculator::get().pushEvent(pEvent);
+	
+	printf("image list get complete.\n");
+}
+
 
 bool WolframAlphaManager::parseXmlResponse(char* pData, TUrlVector& urlVector)
 {
@@ -135,9 +203,10 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 	for (int i = 0 ; i < urlVector.size() ; ++i)
 	{
 		stImageData* data = new stImageData;
+		HttpConnector imgConn;
 		
 		parseFromURL(urlVector[i], host, request);
-		conn.HttpRequest(host.c_str(), request.c_str(), NULL);
+		imgConn.HttpRequest(host.c_str(), request.c_str(), NULL);
 		
 		
 		char* pOutBuffer = NULL;
@@ -146,7 +215,7 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 		char name[30] = {"\0"};
 		sprintf(name, "%d.gif", i);
 		FILE* fp = ::fopen(name, "wb+");
-		fwrite(conn.GetData(), conn.GetDataSize(), 1, fp);
+		fwrite(imgConn.GetData(), imgConn.GetDataSize(), 1, fp);
 		
 		Util::GIF2RGB(name,
 					  &data->pBuffer,

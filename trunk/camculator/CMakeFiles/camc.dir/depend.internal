@@ -1926,7 +1926,6 @@ CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o
  ./gxlib/gxmosaic.h
  ./gxlib/gxpanel.h
  ./gxlib/gxpng.h
- /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/Define.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.cpp
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
@@ -3133,12 +3132,14 @@ CMakeFiles/camc.dir/camculator/main.cpp.o
  ./gxlib/gxmosaic.h
  ./gxlib/gxpanel.h
  ./gxlib/gxpng.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/lock.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/singleton.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/thread.h
  /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
  /usr/local/arm/arm-none-linux-gnueabi/include/alloca.h
  /usr/local/arm/arm-none-linux-gnueabi/include/asm/sigcontext.h
@@ -3219,13 +3220,20 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o
  ./gxlib/gxpanel.h
  ./gxlib/gxpng.h
  ./opencv/BlobLabeling.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/lock.h
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.cpp
  /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/singleton.h
+ /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
  /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
  /usr/local/arm/arm-none-linux-gnueabi/include/alloca.h
  /usr/local/arm/arm-none-linux-gnueabi/include/asm/sigcontext.h
  /usr/local/arm/arm-none-linux-gnueabi/include/assert.h
+ /usr/local/arm/arm-none-linux-gnueabi/include/bits/confname.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/endian.h
+ /usr/local/arm/arm-none-linux-gnueabi/include/bits/environments.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/huge_val.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/huge_valf.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/huge_vall.h
@@ -3240,6 +3248,7 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/nan.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/posix1_lim.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/posix2_lim.h
+ /usr/local/arm/arm-none-linux-gnueabi/include/bits/posix_opt.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/pthreadtypes.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/sched.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/select.h
@@ -3265,6 +3274,7 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/time.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/types.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/typesizes.h
+ /usr/local/arm/arm-none-linux-gnueabi/include/bits/unistd.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/waitflags.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/waitstatus.h
  /usr/local/arm/arm-none-linux-gnueabi/include/bits/wchar-ldbl.h
@@ -3344,6 +3354,7 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o
  /usr/local/arm/arm-none-linux-gnueabi/include/sys/ucontext.h
  /usr/local/arm/arm-none-linux-gnueabi/include/sys/user.h
  /usr/local/arm/arm-none-linux-gnueabi/include/time.h
+ /usr/local/arm/arm-none-linux-gnueabi/include/unistd.h
  /usr/local/arm/arm-none-linux-gnueabi/include/wchar.h
  /usr/local/arm/arm-none-linux-gnueabi/include/wctype.h
  /usr/local/arm/arm-none-linux-gnueabi/include/xlocale.h
