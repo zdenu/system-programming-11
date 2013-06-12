@@ -69,7 +69,7 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		
 		txt.clear();
 		txt.append(pFormula->formula);
-		gx_text_out( dc_buffer, 9, 75 , (char*)txt.c_str());
+		gx_text_out( dc_buffer, 9, 75, (char*)txt.c_str());
 		
 	}
 	else
@@ -221,7 +221,7 @@ int Edit::inputKey(string n1 ,string n2,string n3, string a1, string a2, string 
 }
 
 
-int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent, void** pParam)
+int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 {
 	//0 : num, 1: alphabet, 2 : symbol
 	/*

@@ -20,6 +20,7 @@ typedef std::queue<stEvent*>	TEventQueue;
 
 class OpenCV;
 class TouchHandler;
+class KeyHandler;
 
 class Camculator : public Singleton<Camculator>
 {
@@ -56,6 +57,7 @@ private:
 	
 	void interfaceDispatcher(stEvent* pEv);
 	void httpResponseDispatcher(stEvent* pEv);
+	void keypadDispatcher(stEvent* pEv);
 	
 	void interface_movie( char* file, int max, int fps);
 	void interface_splash(void);
@@ -79,9 +81,9 @@ private:
 	
 	State* pState[SCREEN_TYPE_MAX];
 	
+	KeyHandler*		pKeyHandler;
 	TouchHandler*	pTouchHandler;
 	OpenCV*			pOpenCV;
-	
 
 	Lock		queueLock;
 	TEventQueue	eventQueue;
