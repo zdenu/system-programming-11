@@ -73,7 +73,31 @@ int Result::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void**
 	}
 	return true;
 }
-
+bool Result::writeHistory(string newhistory)
+{
+	string history[3];
+	char inputString[200];
+	ifstream inFile(HISTORY_FILE);
+		if( !inFile.is_open() )
+		{
+			return false;
+		}
+		int i=0;
+        while(!inFile.eof() && i<3){
+            inFile.getline(inputString, 100);
+            history[i] = inputString;
+				i++;
+        }
+   inFile.close();
+	
+	ofstream outFile("output.txt");
+	outFile << newhistory.c_str() << i<<endl;
+      for(int i = 0 ; i < 2 ; i++){
+                outFile << history[i].c_str()<<endl;
+        }
+   outFile.close();
+	return true;
+}
 bool Result::makeBackground(dc_t* dc_buffer, void* pParam)
 {
 	State::makeBackground(dc_buffer, pParam);

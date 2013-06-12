@@ -81,18 +81,23 @@ bool Crop::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 //	}
 //	else
 	{
-		dc_buffer->pen_color     = gx_color( 255, 0, 0, 255);
-		dc_buffer->brush_color   = gx_color( 255, 0, 0, 0);
+		
 		
 		if (touchCnt == 1)
 		{
 			// set pixel to firstX, firstY.
+			dc_buffer->pen_color     = gx_color( 255, 0, 0, 255);
+			dc_buffer->brush_color   = gx_color( 255, 0, 0, 255);
+
 			gx_set_pixel(dc_buffer, firstX, firstY, dc_buffer->pen_color);
 			gx_circle(dc_buffer, firstX, firstY, 3);
 		}
 		else if (touchCnt == 2)
 		{
-			gx_circle(dc_buffer, secondX, secondY, 3);
+			dc_buffer->pen_color     = gx_color( 0, 0, 255, 255);
+			dc_buffer->brush_color   = gx_color( 255, 0, 0, 0);
+
+			//gx_circle(dc_buffer, secondX, secondY, 3);
 			gx_rectangle(dc_buffer, firstX, firstY, secondX, secondY);
 		}
 	}
