@@ -52,8 +52,8 @@ typedef UCHAR			BYTE;
 #define SW_EVENT_DEVICE		"/dev/sw"
 #define CAMERA_DEVICE			"/dev/camera"
 
-#define FONT_MALGUN_14			"font/14pt/malgun14.bdf"
-#define FONT_MALGUN_18			"font/18pt/malgun18.bdf"
+#define FONT_MALGUN_14			"/mnt/usb/font/14pt/malgun14.bdf"
+#define FONT_MALGUN_18			"/mnt/usb/font/18pt/malgun18.bdf"
 
 #define WOLFRAM_ALPHA_APP_ID	"EUGLWW-4XTP6Q3GK2"
 #define WOLFRAM_ALPHA_HOST		"api.wolframalpha.com"

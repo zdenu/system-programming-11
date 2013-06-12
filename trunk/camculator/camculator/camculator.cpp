@@ -710,7 +710,7 @@ void Camculator::interface_movie( char* file, int max, int fps)
 void Camculator::interface_splash(void)
 {
 	MP3_play("/mnt/usb/sound/boot.mp3");
-	interface_movie("interface/intro/intro", 99 , 24);
+	interface_movie("/mnt/usb/intro/intro", 99 , 24);
 	sleep(2);
 }
 
