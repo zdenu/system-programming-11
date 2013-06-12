@@ -62,6 +62,7 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		tmp.insert(cursor,"|",0,1);
 		//replace space
 		//replace_if(tmp.begin(), tmp.end(), bind2nd(equal_to<char>(), ' '), '_');
+		tmp = Camculator::get().replaceAll(tmp, " ", "_");
 		string l1,l2,l3,l4;
 		l1 = tmp.substr(0,32);
 		l2 = tmp.substr(33,32);

@@ -22,7 +22,9 @@ bool Home::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("home init start.\n");
 	State::init(dc_buffer, pFont, state);
-	
+	history[0]="";	
+	history[1]="";
+	history[2]="";
 	if (back != NULL)
 	{
 		gx_png_close((dc_t*)back);
@@ -66,11 +68,30 @@ bool Home::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	
 	if (State::makeScreen(dc_buffer, dc_screen, pParam) == false)
 		return false;
+
+	this->readHistory();
+	gx_text_out( dc_buffer, 58, 115, history[0].c_str());
+	gx_text_out( dc_buffer, 58, 146, history[1].c_str());
+	gx_text_out( dc_buffer, 58, 175, history[2].c_str());
 	
-	gx_text_out( dc_buffer, 58, 115, (char*)"lim (15x^2/621x)");
-	gx_text_out( dc_buffer, 58, 146, (char*)"integral(4x+2)");
-	gx_text_out( dc_buffer, 58, 175, (char*)"sum(4x*8)");
-	
+}
+
+bool Home::readHistory()
+{
+	char inputString[200];
+	ifstream inFile(HISTORY_FILE);
+		if( !inFile.is_open() )
+		{
+			return false;
+		}
+		int i=0;
+        while(!inFile.eof() && i<3){
+            inFile.getline(inputString, 100);
+            history[i] = inputString;
+				i++;
+        }
+   inFile.close();
+	return true;
 }
 
 

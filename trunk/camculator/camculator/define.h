@@ -55,6 +55,10 @@ typedef UCHAR			BYTE;
 #define FONT_MALGUN_14			"/mnt/usb/font/14pt/malgun14.bdf"
 #define FONT_MALGUN_18			"/mnt/usb/font/18pt/malgun18.bdf"
 
+
+#define HISTORY_FILE	"history.txt"
+#define SETTING_FILE	"setting.txt"
+
 #define WOLFRAM_ALPHA_APP_ID	"EUGLWW-4XTP6Q3GK2"
 #define WOLFRAM_ALPHA_HOST		"api.wolframalpha.com"
 
@@ -70,6 +74,7 @@ typedef UCHAR			BYTE;
 #define LABELING	3
 #define EDIT		4
 #define RESULT		5
+
 
 #define START		1
 #define STEP0		1

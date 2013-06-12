@@ -70,6 +70,7 @@ private:
 	int getNextScreenType(int mode);
 	
 	void disableSettingEvent(void);
+	string replaceAll(const string &str, const string &pattern, const string &replace);
 	
 private:
 	State* pCurrentState;
@@ -96,7 +97,7 @@ private:
 	
 	font_t* font14;
 	font_t* font18;
-	
+
 	
 	bool isRunning;
 

@@ -151,12 +151,19 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	string definedIntVariable;
 	bool bsquare=false;
 
+	if(height<0)
+		height = 0-height;	
+	if(width<0)
+		width = 0-width;
+
 	 Mat mat(height,width,CV_8UC3);
 	 color_t     clr_get;
     //int rgb565Step = width;
    // float factor5Bit = 255.0 / 31.0;
    // float factor6Bit = 255.0 / 63.0;
-Camculator::get().interface_loading(START);   
+	Camculator::get().interface_loading(START);   
+	
+
 	for(int i = 0; i < height; i++)
 	{
 		for(int j = 0; j < width; j++)
@@ -199,7 +206,7 @@ Camculator::get().interface_loading(START);
 	
 	cvSaveImage("original.bmp", pRgbImg);
 	//밝게
-	cvAddS(pRgbImg, CV_RGB(100,100,100), pRgbImg, NULL);
+//	cvAddS(pRgbImg, CV_RGB(100,100,100), pRgbImg, NULL);
 
 	//흑백 변환
 	printf( "Gray scale Process\n" );
@@ -207,7 +214,7 @@ Camculator::get().interface_loading(START);
 	
 	printf( "Image resize Process\n" );
 	//300 , 400, 500 ,700 ,800 ~ height resize for templete
-	pGrayImg = img_resize(pGrayImg, 700);
+	pGrayImg = img_resize(pGrayImg, 400);
 	//imshow( "RESIZE", pGrayImg ); //arm에선 작동안함..
 
 	Camculator::get().interface_loading(STEP2);
