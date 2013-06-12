@@ -15,7 +15,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <string>
-#include <string>
+#include <vector>
 
 #include "gx.h"
 
@@ -175,16 +175,6 @@ struct stKeyData
 	unsigned char key;
 };
 
-struct stImageData
-{
-	stImageData(void) : pBuffer(NULL), size(NULL){}
-	~stImageData(void) { if (pBuffer != NULL) free(pBuffer); }
-	char*	pBuffer;
-	int32_t	width;
-	int32_t height;
-	int32_t size;
-};
-
 struct stCameraData
 {
 	stCameraData(void) : dc_camera(NULL){}
@@ -200,6 +190,27 @@ struct stCropData
 	
 	dc_t* dc_crop;
 };
+
+struct stRGBData
+{
+	stRGBData(void) : r(0), g(0), b(0) {}
+	BYTE r;
+	BYTE g;
+	BYTE b;
+};
+
+typedef std::vector<stRGBData>	TRGBVector;
+
+struct stImageData
+{
+	stImageData(void) : pVector(NULL), size(NULL){}
+	~stImageData(void) { if (pVector != NULL) delete pVector; }
+	TRGBVector* pVector;
+	int32_t	width;
+	int32_t height;
+	int32_t size;
+};
+
 
 struct stFormulaData
 {

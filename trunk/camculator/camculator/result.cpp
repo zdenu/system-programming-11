@@ -127,8 +127,19 @@ bool Result::parseGifImages(TImageVector* pVector)
 		
 		// copy to dc_t.
 		dc_t* pImg = gx_png_create(pData->width, pData->height);
-		memcpy(pImg->mapped, pData->pBuffer, pData->size);
-		
+		int idx = 0;
+		for (int j = 0 ; j < pData->height; ++j)
+		{
+			for (int k = 0 ; k < pData->width ; ++k)
+			{
+				gx_set_pixel(pImg, k, j, gx_color(pData->pVector->at(idx).r,
+												  pData->pVector->at(idx).g,
+												  pData->pVector->at(idx).b,
+												  255));
+				
+				idx++;
+			}
+		}
 		pImgList.push_back(pImg);
 		
 		totalHeight += pData->height;

@@ -58,6 +58,28 @@ cv.h
 highgui.h
 -
 
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.h
+sys/socket.h
+-
+map
+-
+string
+-
+
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.cpp
+define.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+WolframAlphaManager.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
+HttpConnector.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/HttpConnector.h
+tinyxml/tinyxml.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/tinyxml/tinyxml.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+util.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.h
+
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
 string
 -
@@ -118,11 +140,41 @@ lock.h
 state.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
 
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.cpp
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+fcntl.h
+-
+sys/ioctl.h
+-
+sys/types.h
+-
+gx.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
+camera.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.h
+
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camera.h
 define.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
 state.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
+
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.cpp
+define.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+crop.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.h
+gx.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+touch.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h
 
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/crop.h
 define.h
@@ -143,16 +195,30 @@ unistd.h
 -
 string
 -
-string
+vector
 -
 gx.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
+
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.cpp
+define.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+edit.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.h
+ctype.h
+-
+WolframAlphaManager.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
 
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/edit.h
 define.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
 state.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
+
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/home.cpp
+home.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/home.h
 
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/home.h
 define.h
@@ -188,6 +254,14 @@ signal.h
 gx.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
 
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/labeling.cpp
+labeling.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/labeling.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+opencv.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.h
+
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/labeling.h
 define.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
@@ -200,7 +274,21 @@ string
 pthread.h
 -
 
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/main.cpp
+define.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+WolframAlphaManager.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
+
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/mp3.h
+
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.cpp
+opencv.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
 
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/opencv.h
 opencv2/core/core.hpp
@@ -248,6 +336,14 @@ assert.h
 stddef.h
 -
 
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.cpp
+state.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
+touch.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/state.h
 define.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
@@ -262,6 +358,26 @@ stdint.h
 iostream
 -
 
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.cpp
+sys/ioctl.h
+-
+sys/types.h
+-
+math.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+unistd.h
+-
+define.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+touch.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h
+camculator.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/camculator.h
+
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/touch.h
 linux/input.h
 -
@@ -269,6 +385,22 @@ thread.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/thread.h
 gx.h
 /Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/gx.h
+
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.cpp
+util.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.h
+
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/util.h
+define.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/define.h
+giflib/gif_lib.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/giflib/gif_lib.h
+giflib/gif_lib_private.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/giflib/gif_lib_private.h
+stdarg.h
+-
+WolframAlphaManager.h
+/Users/laogram/Project/private/system-programming-11/trunk/camculator/camculator/WolframAlphaManager.h
 
 /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
 bits/types.h
@@ -546,6 +678,12 @@ linux/thread_info.h
 asm/arch/smp.h
 -
 
+/usr/local/arm/arm-none-linux-gnueabi/include/asm/socket.h
+asm/sockios.h
+-
+
+/usr/local/arm/arm-none-linux-gnueabi/include/asm/sockios.h
+
 /usr/local/arm/arm-none-linux-gnueabi/include/asm/spinlock.h
 
 /usr/local/arm/arm-none-linux-gnueabi/include/asm/spinlock_types.h
@@ -685,6 +823,22 @@ bits/wordsize.h
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/sigstack.h
 
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/sigthread.h
+
+/usr/local/arm/arm-none-linux-gnueabi/include/bits/sockaddr.h
+
+/usr/local/arm/arm-none-linux-gnueabi/include/bits/socket.h
+stddef.h
+-
+limits.h
+-
+sys/types.h
+-
+bits/sockaddr.h
+-
+asm/socket.h
+-
+
+/usr/local/arm/arm-none-linux-gnueabi/include/bits/socket2.h
 
 /usr/local/arm/arm-none-linux-gnueabi/include/bits/stat.h
 
@@ -2346,6 +2500,18 @@ time.h
 bits/time.h
 -
 
+/usr/local/arm/arm-none-linux-gnueabi/include/sys/socket.h
+features.h
+-
+sys/uio.h
+-
+stddef.h
+-
+bits/socket.h
+-
+bits/socket2.h
+-
+
 /usr/local/arm/arm-none-linux-gnueabi/include/sys/stat.h
 features.h
 -
@@ -2400,6 +2566,14 @@ signal.h
 sys/procfs.h
 -
 bits/sigcontext.h
+-
+
+/usr/local/arm/arm-none-linux-gnueabi/include/sys/uio.h
+features.h
+-
+sys/types.h
+-
+bits/uio.h
 -
 
 /usr/local/arm/arm-none-linux-gnueabi/include/sys/user.h
@@ -2481,4 +2655,46 @@ xlocale.h
 -
 
 /usr/local/arm/arm-none-linux-gnueabi/include/xlocale.h
+
+giflib/gif_hash.h
+unistd.h
+-
+stdint.h
+-
+
+giflib/gif_lib.h
+stdbool.h
+-
+
+giflib/gif_lib_private.h
+gif_lib.h
+giflib/gif_lib.h
+gif_hash.h
+giflib/gif_hash.h
+
+tinyxml/tinystr.h
+assert.h
+-
+string.h
+-
+
+tinyxml/tinyxml.h
+ctype.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+string
+-
+iostream
+-
+sstream
+-
+tinystr.h
+tinyxml/tinystr.h
 
