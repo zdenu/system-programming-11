@@ -32,7 +32,6 @@ public:
 	
 public:
 	bool sendRequest(const char* expression, int size);
-	bool testSendRequest(const char* expression, int size);
 	
 public:
 //	const char* getRequest(void) { return request.c_str(); }
