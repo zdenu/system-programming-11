@@ -234,7 +234,7 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	 cvSetImageROI(pGrayImg, cvRect(10,10,pGrayImg->width-20,pGrayImg->height-20));
 	 cvCopy(pGrayImg,pGrayImg2);
 	 cvResetImageROI(pGrayImg2);
-	 imshow( "ADD ", pGrayImg2 );
+//	 imshow( "ADD ", pGrayImg2 );
 	 cvReleaseImage(&pGrayImg);
 
     IplImage* pLabeledImg = cvCreateImage(cvSize(pGrayImg2->width, pGrayImg2->height), 8, 3);
