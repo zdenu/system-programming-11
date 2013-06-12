@@ -6,6 +6,7 @@
 #include <linux/types.h>
 #include <asm/fcntl.h>
 #include <linux/ioport.h>
+#include <linux/delay.h>
 
 #include <asm/ioctl.h>
 #include <asm/hardware.h>
@@ -107,29 +108,26 @@ ssize_t segment_write(struct file *inode, const char *gdata, size_t length, loff
 
 	unsigned char data[6];
 	unsigned char digit[6]={0x20, 0x10, 0x08, 0x04, 0x02, 0x01};
-	unsigned int i,j,num,ret,k;
+	unsigned int i,j,ret;
 	unsigned char key[6];
-	unsigned int count=0,temp1,temp2;
 
 	ret = copy_from_user(&key,gdata,6);
 	if (ret < 0) return -1;
-	count = 100000;
-	while(count>0) {
+
 		data[5]=Getsegmentcode(key[5]);
 		data[4]=Getsegmentcode(key[4]);
 		data[3]=Getsegmentcode(key[3]);
 		data[2]=Getsegmentcode(key[2]);
 		data[1]=Getsegmentcode(key[1]);
 		data[0]=Getsegmentcode(key[0]);
+
 		for(j=0;j<100;j++) {
 			for(i=0;i<6;i++) { 
 				*segment_grid = ~digit[i];
 				*segment_data = data[i];
-				for(k=0;k<65536;k++);
+				mdelay(1);
 			}
 		}
-		count--;
-	}
 	return 1;
 }
 			
