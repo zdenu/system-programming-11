@@ -102,11 +102,11 @@ namespace Util
 		
 		unsigned char *Buffer, *BufferP;
 		
-		(*pOutBuffer) = (char*)malloc(ScreenWidth * ScreenHeight);
+		(*pOutBuffer) = (char*)malloc(ScreenWidth * sizeof(USHORT) * ScreenHeight);
 		if ((*pOutBuffer) == NULL)
 			return;
 		
-		if ((Buffer = (unsigned char *) malloc(ScreenWidth)) == NULL)
+		if ((Buffer = (unsigned char *) malloc(ScreenWidth * sizeof(USHORT))) == NULL)
 			return ;
 		
 		for (int i = 0; i < ScreenHeight; i++)
@@ -117,13 +117,19 @@ namespace Util
 			for (int j = 0; j < ScreenWidth; j++)
 			{
 				ColorMapEntry = &ColorMap->Colors[GifRow[j]];
-				*BufferP++ = MAKE_PIXEL(ColorMapEntry->Red,
-										ColorMapEntry->Green,
-										ColorMapEntry->Blue);
-			
+//				*BufferP++ = ColorMapEntry->Red;
+//				*BufferP++ = ColorMapEntry->Green;
+//				*BufferP++ = ColorMapEntry->Blue;
+//				
+				unsigned short pixel = MAKE_PIXEL(ColorMapEntry->Red,
+										 		  ColorMapEntry->Green,
+										 		  ColorMapEntry->Blue);
+
+				memcpy(BufferP, &pixel, sizeof(unsigned short));
+				BufferP += sizeof(unsigned short);
 			}
 			
-			memcpy((*pOutBuffer) + (i * ScreenWidth), Buffer, ScreenWidth);
+			memcpy((*pOutBuffer) + (i * (ScreenWidth * sizeof(USHORT))), Buffer, ScreenWidth);
 //			if (fwrite(Buffer, ScreenWidth, 1, f[0]) != 1)
 //				return;
 		}

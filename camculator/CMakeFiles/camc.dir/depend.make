@@ -1925,7 +1925,6 @@ CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: ./gxlib/gxlayer.h
 CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: ./gxlib/gxmosaic.h
 CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: ./gxlib/gxpanel.h
 CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: ./gxlib/gxpng.h
-CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: camculator/Define.h
 CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: camculator/HttpConnector.h
 CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: camculator/WolframAlphaManager.cpp
 CMakeFiles/camc.dir/camculator/WolframAlphaManager.cpp.o: camculator/WolframAlphaManager.h
@@ -3132,12 +3131,14 @@ CMakeFiles/camc.dir/camculator/main.cpp.o: ./gxlib/gxlayer.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: ./gxlib/gxmosaic.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: ./gxlib/gxpanel.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: ./gxlib/gxpng.h
+CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/WolframAlphaManager.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/camculator.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/define.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/lock.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/main.cpp
 CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/singleton.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/state.h
+CMakeFiles/camc.dir/camculator/main.cpp.o: camculator/thread.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/alloca.h
 CMakeFiles/camc.dir/camculator/main.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/asm/sigcontext.h
@@ -3218,13 +3219,20 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o: ./gxlib/gxmosaic.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: ./gxlib/gxpanel.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: ./gxlib/gxpng.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: ./opencv/BlobLabeling.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: camculator/camculator.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: camculator/define.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: camculator/lock.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: camculator/opencv.cpp
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: camculator/opencv.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: camculator/singleton.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: camculator/state.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/_G_config.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/alloca.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/asm/sigcontext.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/assert.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/confname.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/endian.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/environments.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/huge_val.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/huge_valf.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/huge_vall.h
@@ -3239,6 +3247,7 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnuea
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/nan.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/posix1_lim.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/posix2_lim.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/posix_opt.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/pthreadtypes.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/sched.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/select.h
@@ -3264,6 +3273,7 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnuea
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/time.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/types.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/typesizes.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/unistd.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/waitflags.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/waitstatus.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/bits/wchar-ldbl.h
@@ -3343,6 +3353,7 @@ CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnuea
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/sys/ucontext.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/sys/user.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/time.h
+CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/unistd.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/wchar.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/wctype.h
 CMakeFiles/camc.dir/camculator/opencv.cpp.o: /usr/local/arm/arm-none-linux-gnueabi/include/xlocale.h
