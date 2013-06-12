@@ -26,7 +26,8 @@ public:
 	
 protected:
 	virtual bool makeBackground(dc_t* dc_buffer, void* pParam);
-	
+
+	bmp_t* labelingData;
 	std::string formula;
 };
 

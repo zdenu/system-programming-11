@@ -82,37 +82,40 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		this->replaceAll(tmp, " ", "_");
 
 		std::string line[4];
-
-//		string l1,l2,l3,l4;
-//		int delimiterLength = 0;
-//		
-//		int idx = 0;
-//		for (int i = 0 ; i < 4 ; ++i)
-//		{
-//			if (tmp.length() < 32)
-//			{
-//				line[i] = tmp.substr(idx, std::string::npos);
-//				break;
-//			}
-//			else
-//			{
-//				line[i] = tmp.substr()
-//			}
-//		}
-//			
+		int index = 0, len = 0;
+		for (int i = 0 ; i < 4 ; ++i)
+		{
+			if ((tmp.length() - index) <= 32)
+				len = std::string::npos;
+			else
+				len = 32;
+			
+			line[i] = tmp.substr(index, len);
+			index += len;
+			
+			if (len == std::string::npos)
+				break;
+		}
 //		l1 = tmp.substr(0,32);
 //		l2 = tmp.substr(33,32);
 //		l3 = tmp.substr(65,32);
 //		l4 = tmp.substr(97,32);
 		//line1
-		gx_text_out( dc_buffer, 9, 75 , (char*)tmp.c_str());
-//		//line2
-//		gx_text_out( dc_buffer, 9, 108, (char*)l2.c_str());
-//		//line3
-//		gx_text_out( dc_buffer, 9, 145, (char*)l3.c_str());
-//		//line4
-//		gx_text_out( dc_buffer, 9, 178, (char*)l4.c_str());
+		
+		for (int i = 0 ; i < 4 ; ++i)
+		{
+			if (!line[i].empty())
+				gx_text_out( dc_buffer, 9, 75 + (i * 33), (char*)line[i].c_str());
+		}
 	}
+				
+				//		//line2
+				//		gx_text_out( dc_buffer, 9, 108, (char*)l2.c_str());
+				//		//line3
+				//		gx_text_out( dc_buffer, 9, 145, (char*)l3.c_str());
+				//		//line4
+				//		gx_text_out( dc_buffer, 9, 178, (char*)l4.c_str());
+
 
 	return true;
 }
