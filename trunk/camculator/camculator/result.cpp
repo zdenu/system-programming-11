@@ -171,11 +171,15 @@ void Result::removeImageList(void)
 
 void Result::disableTouchEvents(void)
 {
+
+	State::disableTouchEvents();
 	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_RESULT_PREV);
 	Camculator::get().getTouchHandler()->disableTouchEvent(TOUCH_EVENT_RESULT_NEXT);
 }
 void Result::enableTouchEvents(void)
 {
+	State::enableTouchEvents()
+	;
 	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_RESULT_PREV);
 	Camculator::get().getTouchHandler()->enableTouchEvent(TOUCH_EVENT_RESULT_NEXT);
 }
