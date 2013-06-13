@@ -47,6 +47,7 @@
 		22885E881765F304001D6425 /* mp3.c in Sources */ = {isa = PBXBuildFile; fileRef = 22885E861765F304001D6425 /* mp3.c */; };
 		22885E911766F67A001D6425 /* keypad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E8F1766F676001D6425 /* keypad.cpp */; };
 		22885E941767008A001D6425 /* util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22885E931767008A001D6425 /* util.cpp */; };
+		22B42DBB17696DCA00F0C796 /* ioutil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22B42DB917696DCA00F0C796 /* ioutil.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -149,6 +150,8 @@
 		22885E901766F678001D6425 /* keypad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keypad.h; sourceTree = "<group>"; };
 		22885E921766FBE0001D6425 /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		22885E931767008A001D6425 /* util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = util.cpp; sourceTree = "<group>"; };
+		22B42DB917696DCA00F0C796 /* ioutil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ioutil.cpp; sourceTree = "<group>"; };
+		22B42DBA17696DCA00F0C796 /* ioutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioutil.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 				226D74B417604EE8004E5697 /* thread.h */,
 				22885E921766FBE0001D6425 /* util.h */,
 				22885E931767008A001D6425 /* util.cpp */,
+				22B42DB917696DCA00F0C796 /* ioutil.cpp */,
+				22B42DBA17696DCA00F0C796 /* ioutil.h */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -410,6 +415,7 @@
 				22885E881765F304001D6425 /* mp3.c in Sources */,
 				22885E911766F67A001D6425 /* keypad.cpp in Sources */,
 				22885E941767008A001D6425 /* util.cpp in Sources */,
+				22B42DBB17696DCA00F0C796 /* ioutil.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
