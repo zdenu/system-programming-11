@@ -10,6 +10,7 @@
 #include "camculator.h"
 #include "opencv.h"
 #include "mp3.h"
+#include "ioutil.h"
 
 Labeling::Labeling()
 : labelingData(NULL)
@@ -24,6 +25,7 @@ Labeling::~Labeling()
 bool Labeling::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("labeling init start.\n");
+	Camculator::get().pIOutil->textlcd("Labeing... please touch ok");
 	State::init(dc_buffer, pFont, state);
 	
 	title = (png_t*)gx_png_open( "interface/title/labeling.png");

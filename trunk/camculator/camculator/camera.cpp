@@ -4,10 +4,11 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
+#include "camculator.h"
 #include "gx.h"
 #include "camera.h"
 #include "mp3.h"
-
+#include "ioutil.h"
 Camera::Camera(void)
 : cameraFd(INVALID_DATA)
 , dc_camera(NULL)
@@ -23,6 +24,7 @@ Camera::~Camera(void)
 bool Camera::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("camera init start.\n");
+	Camculator::get().pIOutil->textlcd("Cameara... Please take photo");
 	MP3_play("/mnt/usb/sound/ko/camera.mp3");
 	State::init(dc_buffer, pFont, state);
 
@@ -39,6 +41,7 @@ bool Camera::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 	
 	title = (png_t*)gx_png_open((char*)"interface/title/camera.png");
 	button = (png_t*)gx_png_open((char*)"interface/button/camera.png");
+
 }
 
 bool Camera::makeBackground(dc_t *dc_buffer, void* pParam)

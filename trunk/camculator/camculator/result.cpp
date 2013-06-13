@@ -5,7 +5,7 @@
 //  Created by Christopher Kim on 6/8/13.
 //  Copyright (c) 2013 Christopher Kim. All rights reserved.
 //
-
+#include "define.h"
 #include "result.h"
 #include "camculator.h"
 #include "touch.h"
@@ -27,6 +27,7 @@ Result::~Result()
 bool Result::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("result init start.\n");
+//	Camculator::get().pIOutil->textlcd("Result... calcurate result");
 	MP3_play("/mnt/usb/sound/ko/result2.mp3");
 	State::init(dc_buffer, pFont, state);
 	

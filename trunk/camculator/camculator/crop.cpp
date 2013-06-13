@@ -12,7 +12,7 @@
 #include "camculator.h"
 #include "touch.h"
 #include "mp3.h"
-
+#include "ioutil.h"
 
 Crop::Crop()
 : isPhotoExist(false)
@@ -34,6 +34,7 @@ bool Crop::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("crop init start.\n");
 	MP3_play("/mnt/usb/sound/ko/crop1.mp3");
+	Camculator::get().pIOutil->textlcd("Crop... please make area");
 	State::init(dc_buffer, pFont, state);
 	
 	title = (png_t*)gx_png_open( "interface/title/crop.png");

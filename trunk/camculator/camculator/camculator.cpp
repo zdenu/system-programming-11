@@ -99,6 +99,7 @@ bool Camculator::init(void)
 	pIOutil->textlcd("welcome camculator");
 	pIOutil->fnd_init("      ");
 	pIOutil->fnd("123456");
+	pIOutil->fnd_kill();
 
 	printf( "screen [%d,%d]\n"      , dc_screen->width, dc_screen->height);
 	printf( "screen color depth= %d\n", dc_screen->colors);
