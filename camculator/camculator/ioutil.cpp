@@ -38,12 +38,12 @@ bool IOutil::init()
 	}
 	printf("open : [/dev/textlcd] \n");
 
-	fd_dot = open("/dev/dotmatrix", O_WRONLY);
-	if(fd_dot < 0)  {
-			printf("Dotmatrix device open error\n");
-  			return false;
-	}
-	printf("open : [/dev/dotmatrix] \n");
+//	fd_dot = open("/dev/dotmatrix", O_WRONLY);
+//	if(fd_dot < 0)  {
+//			printf("Dotmatrix device open error\n");
+//  			return false;
+//	}
+//	printf("open : [/dev/dotmatrix] \n");
 
 	fd_fnd = open("/dev/7segment", O_WRONLY);
 	if(fd_fnd < 0)  {
@@ -93,7 +93,7 @@ void IOutil::textlcd(char* argv)
 
 void IOutil::dotmatrix(int mode)
 {
-	write(fd_dot,&mode,1);
+//	write(fd_dot,&mode,1);
 }
 
 void IOutil::fnd(const char* str)
@@ -127,7 +127,7 @@ void IOutil::closed(){
 	munmap(pdsw,2);
 	close(fd_mem);
 	close(fd_textlcd);
-	close(fd_dot);
+//	close(fd_dot);
 	close(fd_fnd);
 }
 
