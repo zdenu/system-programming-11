@@ -8,8 +8,12 @@
 #include "keypad.h"
 #include "camculator.h"
 
-int	KeyHandler::eventFd = INVALID_DATA;
-int KeyHandler::sweventFd = INVALID_DATA;
+
+static int	keyEventFd = 0;
+static int 	sweventFd = 0;
+
+static void keysignal(int sig);
+static void swsignal(int sig);
 
 KeyHandler::KeyHandler()
 {
@@ -21,7 +25,7 @@ KeyHandler::~KeyHandler()
 
 bool KeyHandler::init()
 {
-	if((eventFd = open(KEY_EVENT_DEVICE, O_RDWR)) < 0) {
+	if((keyEventFd = open(KEY_EVENT_DEVICE, O_RDWR)) < 0) {
 			return false;
 	 }
 	printf("open : [%s] \n", KEY_EVENT_DEVICE);
@@ -32,22 +36,22 @@ bool KeyHandler::init()
 	printf("open : [%s] \n", SW_EVENT_DEVICE);
 
 
-	signal(SIGUSR1, this->keysignal);
-	signal(SIGUSR2, this->swsignal);
+	signal(SIGUSR1, keysignal);
+	signal(SIGUSR2, swsignal);
 	
 	pid_t pId = getpid();
-	write(eventFd, &pId, sizeof(pid_t));
+	write(keyEventFd, &pId, sizeof(pid_t));
 	write(sweventFd, &pId, sizeof(pid_t));
 
 	return true;
 }
 
-void KeyHandler::keysignal(int sig)
+void keysignal(int sig)
 {
 	printf("KeySignal CALLED!!!!!!!!!!!!!(%d)\n", sig);
 	size_t read_bytes;
 	static unsigned char vkey;
-   read_bytes = read(eventFd, &vkey, 1);
+   read_bytes = read(keyEventFd, &vkey, 1);
 
 	stEvent* pEv = new stEvent;
 	stKeyData* pKeyData = new stKeyData;
@@ -59,7 +63,7 @@ void KeyHandler::keysignal(int sig)
 }
 
 
-void KeyHandler::swsignal(int sig)
+void swsignal(int sig)
 {
 	printf("SWSignal CALLED!!!!!!!!!!!!!(%d)\n", sig);
 	size_t read_bytes;
@@ -84,7 +88,8 @@ void KeyHandler::swsignal(int sig)
 
 void KeyHandler::close(void)
 {
-	::close(eventFd);
+	::close(keyEventFd);
+	::close(sweventFd);
 }
 
 
