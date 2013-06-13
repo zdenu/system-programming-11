@@ -83,7 +83,7 @@ bool Home::readHistory()
 		printf ("open 실패..\n");
 		return 0;
 	}
-	while(fscanf(fp,"%s",this->history[i]) != EOF)
+	while(fscanf(fp,"%s\n",this->history[i]) != EOF)
 	{
 		i++;
 		if(i==4)
