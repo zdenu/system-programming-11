@@ -22,7 +22,7 @@ Edit::Edit()
 	bkey = 0;
 	cursor = 0;
 	step = 0;
-	txt="integral x^2 dx"; // Formula
+	txt=""; // Formula
 	shift = false;
 }
 
@@ -169,6 +169,7 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 	{
 //		// send http request.
 		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
+		txt = this->replaceAll(txt, " ", "+");
 //		WolframAlphaManager::get().sendRequest(txt.c_str(), txt.length());
 		
 		//MP3_play("/mnt/usb/sound/ko/result1.mp3");
