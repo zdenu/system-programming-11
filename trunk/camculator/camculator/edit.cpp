@@ -74,15 +74,17 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		txt.clear();
 		txt.append(pFormula->formula);
 		gx_text_out( dc_buffer, 9, 75, (char*)txt.c_str());
-		
+		cursor = txt.length()-1;
 	}
 	else
 	{
 		//Line Max 32char
 		string tmp(txt);
-		if(cursor>=tmp.length())
-			cursor--;
-		tmp.insert(cursor,"|",0,1);
+		if(tmp.length()>0) {
+			tmp.insert(cursor+1,"|",0,1);
+		} else {
+			tmp.append("|");
+		}
 		//replace space
 		//replace_if(tmp.begin(), tmp.end(), bind2nd(equal_to<char>(), ' '), '_');
 		tmp = this->replaceAll(tmp, " ", "_");
@@ -187,9 +189,8 @@ char* Edit::stringToUpper( std::string& str )
 }
 
 int Edit::inputKey(string n1 ,string n2,string n3, string a1, string a2, string a3 ,string s1,string s2,string s3){
-	if(shift)
+	if(shift && step == 1)
 	{
-		
 		stringToUpper(a1);
 		stringToUpper(a2);
 		stringToUpper(a3);
@@ -336,9 +337,11 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 		break;
      case 15:
 		// back space
-		if(cursor>0){
-		txt.erase(cursor-1,1);
-		cursor--;
+		if(txt.length()>1){
+			txt.erase(cursor-1,1);
+			cursor--;
+		} else if(txt.length() == 1){
+			txt.clear();
 		}
 		break;
      case 16:
@@ -349,7 +352,7 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 		break;
 		case 17: //sw1 ->
 		step = 0;
-		if(cursor<txt.length()){
+		if(cursor<txt.length()-1){
 			cursor++;
 		}
 		break;
@@ -370,6 +373,9 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 		step = 0;
 		break;
 	}
+/*	if(cursor>txt.length())
+			cursor--;
+*/
 	if(txt.length()>6)
 		Camculator::get().pIOutil->fnd(txt.substr(txt.length()-6,txt.length()).c_str());
 	else 
