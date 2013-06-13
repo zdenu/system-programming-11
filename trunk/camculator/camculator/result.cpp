@@ -41,9 +41,6 @@ bool Result::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 }
 bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 {
-	this->makeBackground(dc_buffer, pParam);
-	State::makeScreen(dc_buffer, dc_screen, pParam);
-	
 	if (!isResultExist)
 	{
 		Camculator::get().interface_loading(loadingState);
@@ -59,6 +56,8 @@ bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 			loadingState = END;
 			Camculator::get().interface_loading(loadingState);
 		}
+		this->makeBackground(dc_buffer, pParam);
+		State::makeScreen(dc_buffer, dc_screen, pParam);
 		
 		gx_bitblt(dc_buffer,
 				  USABLE_POINT_START_X,
