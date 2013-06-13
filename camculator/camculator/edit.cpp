@@ -8,6 +8,8 @@
 #include "define.h"
 #include "edit.h"
 #include "mp3.h"
+#include "camculator.h"
+#include "ioutil.h"
 //#include <algorithm>
 #include <ctype.h>
 
@@ -162,6 +164,7 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 //		// send http request.
 		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
 		
+		MP3_play("/mnt/usb/sound/ko/result1.mp3");
 		writeHistory(txt.c_str());
 	}
        
@@ -367,6 +370,11 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 		step = 0;
 		break;
 	}
+	if(txt.length()>6)
+		Camculator::get().pIOutil->fnd(txt.substr(txt.length()-6,txt.length()).c_str());
+	else 
+		Camculator::get().pIOutil->fnd(txt.substr(txt.length()-6,txt.length()).c_str());
+	
 	return 0;
 }
 

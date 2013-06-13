@@ -50,6 +50,7 @@ Camculator::Camculator()
 , isSettingInitialized(false)
 , pTouchHandler(NULL)
 , pOpenCV(NULL)
+, pIOutil(NULL)
 {
 	memset(pState, 0x00, sizeof(pState));
 }
@@ -96,6 +97,7 @@ bool Camculator::init(void)
 	pIOutil->Buzzer(100);
 	pIOutil->LED_ON(0xAA);
 	pIOutil->textlcd("welcome camculator");
+	pIOutil->fnd_init("      ");
 	pIOutil->fnd("123456");
 
 	printf( "screen [%d,%d]\n"      , dc_screen->width, dc_screen->height);
