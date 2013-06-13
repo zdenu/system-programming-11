@@ -24,9 +24,8 @@ Labeling::~Labeling()
 bool Labeling::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("labeling init start.\n");
-	MP3_play("/mnt/usb/sound/ko/labeling.mp3");
 	State::init(dc_buffer, pFont, state);
-		
+	
 	title = (png_t*)gx_png_open( "interface/title/labeling.png");
 	button = (png_t*)gx_png_open( "interface/button/check.png");
 	
@@ -37,7 +36,9 @@ bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	// TODO : Show On Loading.....
 	
 	if (pParam != NULL)
-	{
+	{	
+		MP3_play("/mnt/usb/sound/ko/labeling1.mp3");
+		sleep(1);
 		stCropData* pCropData = (stCropData*)pParam;
 		Camculator::get().getOpenCV()->Labeling(pCropData->dc_crop,
 												pCropData->dc_crop->width,
@@ -45,7 +46,7 @@ bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 												formula);
 		
 		printf("Labeling complete\n");
-		
+		MP3_play("/mnt/usb/sound/ko/labeling2.mp3");
 		labelingData = (bmp_t*)gx_bmp_open((char*)"lable_result.bmp");
 	}
 	

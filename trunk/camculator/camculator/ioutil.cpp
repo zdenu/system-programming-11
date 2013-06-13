@@ -3,6 +3,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <pthread.h>
 #include "define.h"
 #include "ioutil.h"
 #include "camculator.h"
@@ -11,6 +12,7 @@ int		IOutil::fd_mem = INVALID_DATA;
 int		IOutil::fd_textlcd = INVALID_DATA;
 int		IOutil::fd_dot = INVALID_DATA;
 int		IOutil::fd_fnd = INVALID_DATA;
+char		IOutil::fndstr[7] = {"      "};
 
 IOutil::IOutil()
 {
@@ -93,9 +95,29 @@ void IOutil::dotmatrix(int mode)
 	write(fd_dot,&mode,1);
 }
 
-void IOutil::fnd(char* str)
+void IOutil::fnd(const char* str)
 {
-	  write(fd_fnd, str ,6);
+	strcpy(fndstr,str);
+}
+
+void IOutil::fnd_init(const char* str)
+{
+	printf("7 segment Thread is running...\n");
+	 strcpy(fndstr,str);
+	 pthread_create(&tid, NULL, &IOutil::t_fnd, NULL);
+}
+
+void IOutil::fnd_kill()
+{
+	pthread_cancel(tid);
+}
+
+void* IOutil::t_fnd(void *pram)
+{
+	while(true){
+		write(fd_fnd, fndstr ,6);
+		usleep(10000);
+	}
 }
 
 void IOutil::closed(){

@@ -18,7 +18,9 @@ public:
 	void Buzzer(int time);
 	void textlcd(char* argv);
 	void dotmatrix(int mode);
-	void fnd(char* str);
+	void fnd(const char* str);
+	void fnd_init(const char* str);
+	void fnd_kill();
 
 public:
 	static int  fd_mem;
@@ -28,5 +30,10 @@ public:
 	unsigned char *pled;
 	unsigned short *pdsw;
 	unsigned char *pbzr;
+	static char fndstr[7];
+	pthread_t tid;
+
+private :
+	static void* t_fnd(void *param);
 };
 
