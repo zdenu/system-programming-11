@@ -40,7 +40,7 @@ bool WolframAlphaManager::sendRequest(const char* expression, int size)
 	
 	char* pBuf = new char[size];
 	memcpy(pBuf, expression, size);
-	
+	printf("Send Request to wolframAlpha.\n");
 	reqThreadHandle.start(this, &WolframAlphaManager::reqThread, (void*)expression);
 
 	return true;
@@ -122,7 +122,10 @@ void* WolframAlphaManager::reqThread(Thread<WolframAlphaManager>* pInstance, voi
 	
 	if ( HTTP_REQUEST_FAIL ==
 		conn.HttpRequest(WOLFRAM_ALPHA_HOST, req.c_str(), NULL))
+	{
+		printf("XML Http request is fail.\n");
 		return false;
+	}
 	
 	TUrlVector urlVector;
 	parseXmlResponse(conn.GetData(), urlVector);
