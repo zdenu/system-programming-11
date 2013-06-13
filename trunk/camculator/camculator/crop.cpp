@@ -33,7 +33,7 @@ Crop::~Crop()
 bool Crop::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("crop init start.\n");
-	MP3_play("/mnt/usb/sound/ko/crop1.mp3");
+	MP3_play("/mnt/usb/sound/ko/crop.mp3");
 	Camculator::get().pIOutil->textlcd("Crop... please make area");
 	State::init(dc_buffer, pFont, state);
 	
@@ -127,7 +127,7 @@ int Crop::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 		}
 		else if (touchCnt == 2)
 		{
-			MP3_play("/mnt/usb/sound/ko/crop0.mp3");
+			//MP3_play("/mnt/usb/sound/ko/crop0.mp3");
 			resetCropPoints();
 			firstX = pTouchEvent->x;
 			firstY = pTouchEvent->y;

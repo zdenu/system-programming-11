@@ -153,9 +153,9 @@ bool OpenCV::Labeling(dc_t *pData, int width, int height, std::string& strData)
 	string definedIntVariable;
 	bool bsquare=false;
 	
-	int resize = Camculator::get().pIOutil->SW_read()*100;
-	if(resize= 0)
-		resize = 400;
+	//int resize = Camculator::get().pIOutil->SW_read()*100;
+	//if(resize= 0)
+	int	resize = 400;
 	printf("Resize factor : %d\n",resize);
 
 	if(height<0)
