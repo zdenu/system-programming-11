@@ -168,9 +168,9 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 	if(pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
 	{
 //		// send http request.
-		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
-		txt = this->replaceAll(txt, " ", "+");
-//		WolframAlphaManager::get().sendRequest(txt.c_str(), txt.length());
+//		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
+		replaceAll(txt, " ", "+");
+		WolframAlphaManager::get().sendRequest(txt.c_str(), txt.length());
 		
 		//MP3_play("/mnt/usb/sound/ko/result1.mp3");
 		writeHistory(txt.c_str());
