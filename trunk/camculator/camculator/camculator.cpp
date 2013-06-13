@@ -97,9 +97,9 @@ bool Camculator::init(void)
 	pIOutil->Buzzer(100);
 	pIOutil->LED_ON(0xAA);
 	pIOutil->textlcd("welcome camculator");
-//	pIOutil->fnd_init("      ");
-	//pIOutil->fnd("123456");
-//	pIOutil->fnd_kill();
+	pIOutil->fnd_init("      ");
+	pIOutil->fnd("camcu1");
+	pIOutil->fnd_kill();
 
 	printf( "screen [%d,%d]\n"      , dc_screen->width, dc_screen->height);
 	printf( "screen color depth= %d\n", dc_screen->colors);
@@ -132,7 +132,7 @@ bool Camculator::init(void)
 	isRunning = true;
 	// draw home screen.
 	pState[SCREEN_TYPE_HOME]->init(dc_buffer, font14, SCREEN_TYPE_HOME);
-	MP3_play("/mnt/usb/sound/ko/welcome.mp3");
+	//MP3_play("/mnt/usb/sound/ko/welcome.mp3");
 	currentState = SCREEN_TYPE_HOME;
 	pCurrentState = pState[SCREEN_TYPE_HOME];
 	pCurrentState->enableTouchEvents();
