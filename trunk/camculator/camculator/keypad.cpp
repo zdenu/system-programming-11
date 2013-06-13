@@ -32,8 +32,8 @@ bool KeyHandler::init()
 	printf("open : [%s] \n", SW_EVENT_DEVICE);
 
 
-	signal(SIGUSR1, &KeyHandler::keysignal);
-	signal(SIGUSR2, &KeyHandler::swsignal);
+	signal(SIGUSR1, this->keysignal);
+	signal(SIGUSR2, this->swsignal);
 	
 	pid_t pId = getpid();
 	write(eventFd, &pId, sizeof(pid_t));
