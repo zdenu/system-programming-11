@@ -12,12 +12,7 @@ public:
 	
 public:
 	bool init();
-	void close();
-	static void keysignal(int sig);
-	static void swsignal(int sig);
-	
+	void close();	
 public:
-	static int	eventFd;
-	static int 	sweventFd;
 };
 
