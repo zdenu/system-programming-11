@@ -131,13 +131,15 @@ bool Camculator::init(void)
 	
 	isRunning = true;
 	// draw home screen.
+	printf("1");
 	pState[SCREEN_TYPE_HOME]->init(dc_buffer, font14, SCREEN_TYPE_HOME);
-	//MP3_play("/mnt/usb/sound/ko/welcome.mp3");
+		printf("2");
+	MP3_play("/mnt/usb/sound/ko/welcome.mp3");
 	currentState = SCREEN_TYPE_HOME;
 	pCurrentState = pState[SCREEN_TYPE_HOME];
 	pCurrentState->enableTouchEvents();
 	pCurrentState->makeScreen(dc_buffer, dc_screen, NULL);
-	
+		printf("3");
 	
 }
 
