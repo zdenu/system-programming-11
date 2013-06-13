@@ -43,6 +43,7 @@ bool IOutil::init()
 			printf("Dotmatrix device open error\n");
   			return false;
 	}
+	printf("open : [/dev/dotmatrix] \n");
 
 	fd_fnd = open("/dev/7segment", O_WRONLY);
 	if(fd_fnd < 0)  {
