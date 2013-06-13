@@ -54,7 +54,11 @@ bool Result::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	}
 	else
 	{
-		Camculator::get().interface_loading(END);
+		if (loadingState != END)
+		{
+			loadingState = END;
+			Camculator::get().interface_loading(loadingState);
+		}
 		
 		gx_bitblt(dc_buffer,
 				  USABLE_POINT_START_X,
