@@ -170,7 +170,7 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 //		// send http request.
 		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
 		
-		MP3_play("/mnt/usb/sound/ko/result1.mp3");
+		//MP3_play("/mnt/usb/sound/ko/result1.mp3");
 		writeHistory(txt.c_str());
 	}
        

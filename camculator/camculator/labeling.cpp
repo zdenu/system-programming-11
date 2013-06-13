@@ -39,7 +39,7 @@ bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	
 	if (pParam != NULL)
 	{	
-		MP3_play("/mnt/usb/sound/ko/labeling1.mp3");
+	//MP3_play("/mnt/usb/sound/ko/labeling1.mp3");
 		sleep(3);
 		stCropData* pCropData = (stCropData*)pParam;
 		Camculator::get().getOpenCV()->Labeling(pCropData->dc_crop,
@@ -48,7 +48,7 @@ bool Labeling::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 												formula);
 		
 		printf("Labeling complete\n");
-		MP3_play("/mnt/usb/sound/ko/labeling2.mp3");
+		MP3_play("/mnt/usb/sound/ko/label2.mp3");
 		labelingData = (bmp_t*)gx_bmp_open((char*)"lable_result.bmp");
 	}
 	
