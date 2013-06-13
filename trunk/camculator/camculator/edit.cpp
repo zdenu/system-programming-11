@@ -34,9 +34,7 @@ Edit::~Edit()
 bool Edit::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("edit init start.\n");
-	MP3_play("/mnt/usb/sound/ko/edit.mp3");
-	Camculator::get().pIOutil->fnd_init("      ");
-	Camculator::get().pIOutil->textlcd("Edit... Please use keypad");
+
 	State::init(dc_buffer, pFont, state);
 	
 	if (back != NULL)
@@ -78,6 +76,9 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		txt.append(pFormula->formula);
 		gx_text_out( dc_buffer, 9, 75, (char*)txt.c_str());
 		cursor = txt.length()-1;
+		MP3_play("/mnt/usb/sound/ko/edit.mp3");
+		Camculator::get().pIOutil->fnd_init("      ");
+		Camculator::get().pIOutil->textlcd("Edit... Please use keypad");
 	}
 	else
 	{
