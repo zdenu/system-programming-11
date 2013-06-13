@@ -179,6 +179,7 @@ void Camculator::main(void)
 				case EVENT_TYPE_HTTP_RESPONSE:
 				{
 					// go to screen type
+					httpResponseDispatcher(pEv);
 					break;
 				}
 				case EVENT_TYPE_KEY_PAD:
@@ -247,10 +248,12 @@ void Camculator::httpResponseDispatcher(stEvent* pEv)
 {
 	if (pCurrentState->getScreenType() == SCREEN_TYPE_RESULT)
 	{
+		printf("http Response Dispatcher Start.\n");
 		Result* pResult = (Result*)pCurrentState;
 		TImageVector* pImgVector = (TImageVector*)(pEv->pData);
 		pResult->parseGifImages(pImgVector);
 		pResult->makeScreen(dc_buffer, dc_screen, NULL);
+		printf("http Response Dispatcher End.\n");
 		
 	}
 }

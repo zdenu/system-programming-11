@@ -111,6 +111,8 @@ bool Result::parseGifImages(TImageVector* pVector)
 	totalHeight = 0;
 	totalWidth = 0;
 	
+	printf("start parse gif images.\n");
+	
 	for (int i = 0 ; i < pVector->size() ; ++i)
 	{
 		stImageData* pData = pVector->at(i);
@@ -150,6 +152,8 @@ bool Result::parseGifImages(TImageVector* pVector)
 		
 		y += pImgList[i]->height;
 	}
+	
+	printf("end parse gif images.\n");
 	
 	isResultExist = true;
 	
