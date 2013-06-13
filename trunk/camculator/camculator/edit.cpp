@@ -167,7 +167,7 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 {
 	if(pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
 	{
-//		// send http request.txt.c_str(), txt.length()
+//		// send http request.
 		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
 //		WolframAlphaManager::get().sendRequest(txt.c_str(), txt.length());
 		
