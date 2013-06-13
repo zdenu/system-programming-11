@@ -97,9 +97,9 @@ bool Camculator::init(void)
 	pIOutil->Buzzer(100);
 	pIOutil->LED_ON(0xAA);
 	pIOutil->textlcd("welcome camculator");
-	pIOutil->fnd_init("      ");
-	pIOutil->fnd("123456");
-	pIOutil->fnd_kill();
+//	pIOutil->fnd_init("      ");
+	//pIOutil->fnd("123456");
+//	pIOutil->fnd_kill();
 
 	printf( "screen [%d,%d]\n"      , dc_screen->width, dc_screen->height);
 	printf( "screen color depth= %d\n", dc_screen->colors);
@@ -137,6 +137,7 @@ bool Camculator::init(void)
 	pCurrentState = pState[SCREEN_TYPE_HOME];
 	pCurrentState->enableTouchEvents();
 	pCurrentState->makeScreen(dc_buffer, dc_screen, NULL);
+	
 	
 }
 
