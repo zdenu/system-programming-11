@@ -98,7 +98,8 @@ bool Camculator::init(void)
 	pIOutil->LED_ON(0xAA);
 	pIOutil->textlcd("welcome camculator");
 	pIOutil->fnd_init("      ");
-	pIOutil->fnd("camcu1");
+	pIOutil->fnd("123456");
+	sleep(1);
 	pIOutil->fnd_kill();
 
 	printf( "screen [%d,%d]\n"      , dc_screen->width, dc_screen->height);

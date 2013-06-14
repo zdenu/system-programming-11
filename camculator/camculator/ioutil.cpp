@@ -86,6 +86,55 @@ void IOutil::Buzzer(int time){
 	*pbzr = 0x00;
 }
 
+void IOutil:maketextlcd(char* argv)
+{
+	int k, i;
+	struct strcommand_varible strcommand;
+	char remain[32];
+	char remain2[32];
+	strcommand.rows = 0;		
+	strcommand.nfonts = 0;		
+	strcommand.display_enable = 1;		
+	strcommand.cursor_enable = 0;		
+	strcommand.nblink = 0;		
+	strcommand.set_screen = 0;		
+	strcommand.set_rightshit = 1;		
+	strcommand.increase = 1;		
+	strcommand.nshift = 0;		
+	strcommand.pos = 0;		
+	strcommand.command = 1;		
+	strcommand.strlength = 16;		
+
+	ioctl(fd_textlcd,TEXTLCD_CLEAR,&strcommand,32);
+	strcommand.pos = 0;
+	
+	for(i=0;i<32;i++)
+	{
+			remain[i]=' ';
+			remain2[i]=' ';
+	
+	}	
+	if(strlen(argv) > 16)
+	{
+		for(k=0;k<16;k++) {
+			remain[k] = argv[k];
+			remain2[k] = argv[k+8];
+		}
+	}	else
+		{
+		write(fd_textlcd,argv,strlen(argv));
+		return 0;
+	}
+		
+		write(fd_textlcd,remain,32);
+	
+		strcommand.pos = 40;
+		write(fd_textlcd,remain2,40/*strlen(remain2)*/);
+		strcommand.pos = 0;
+
+		return 0;
+}
+
 void IOutil::textlcd(char* argv)
 {
 	write(fd_textlcd,argv,strlen(argv));
@@ -93,7 +142,12 @@ void IOutil::textlcd(char* argv)
 
 void IOutil::dotmatrix(int mode)
 {
-//	write(fd_dot,&mode,1);
+	if(mode == 0)
+		write(fd_dot,"number",5);
+	else if (mode == 1)
+		write(fd_dot,"alphabet",5);
+	else if(mode ==2)	
+		write(fd_dot,"arith",5);
 }
 
 void IOutil::fnd(const char* str)
