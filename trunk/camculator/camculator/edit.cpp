@@ -120,7 +120,6 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 				gx_text_out( dc_buffer, 9, 75 + (i * 33), (char*)line[i].c_str());
 		}
 	}
-				
 				//		//line2
 				//		gx_text_out( dc_buffer, 9, 108, (char*)l2.c_str());
 				//		//line3
@@ -345,7 +344,7 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
      case 15:
 		// back space
 		if(txt.length()>1){
-			txt.erase(cursor-1,1);
+			txt.erase(cursor,1);
 			cursor--;
 		} else if(txt.length() == 1){
 			txt.clear();
@@ -357,13 +356,13 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 			txt.erase(cursor,1);
 		}
 		break;
-		case 17: //sw1 ->
+		case 18: //sw1 ->
 		step = 0;
 		if(cursor<txt.length()-1){
 			cursor++;
 		}
 		break;
-		case 18://sw2 <-
+		case 17://sw2 <-
 		step = 0;
 		if(cursor>0){
 			cursor--;
@@ -371,23 +370,23 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 		break;
 		case 19://sw3
 		//mode
-		step = 0;
 		if(keymode<3){
 			keymode++;	
 		} else {
 			keymode = 0;		
 		}
+		Camculator::get().pIOutil->dotmatrix(keymode);
 		step = 0;
 		break;
 	}
 /*	if(cursor>txt.length())
 			cursor--;
 */
-	if(txt.length()>6)
+	/*if(txt.length()>6)
 		Camculator::get().pIOutil->fnd(txt.substr(txt.length()-6,txt.length()).c_str());
 	else 
 		Camculator::get().pIOutil->fnd(txt.substr(txt.length()-6,txt.length()).c_str());
-	
+	*/
 	return 0;
 }
 
