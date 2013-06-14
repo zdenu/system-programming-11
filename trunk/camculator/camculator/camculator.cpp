@@ -94,7 +94,7 @@ bool Camculator::init(void)
 	pOpenCV->init();
 	
 	printf( "running....\n");
-	pIOutil->Buzzer(100);
+//	pIOutil->Buzzer(100);
 	pIOutil->LED_ON(0xAA);
 	pIOutil->textlcd("welcome camculator");
 	pIOutil->fnd_init("      ");
