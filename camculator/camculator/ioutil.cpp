@@ -87,7 +87,7 @@ void IOutil::Buzzer(int time){
 	*pbzr = 0x00;
 }
 
-void IOutil:maketextlcd(char* argv)
+void IOutil::maketextlcd(char* argv)
 {
 	int k, i;
 	struct strcommand_varible strcommand;
@@ -124,7 +124,7 @@ void IOutil:maketextlcd(char* argv)
 	}	else
 		{
 		write(fd_textlcd,argv,strlen(argv));
-		return 0;
+		return;
 	}
 		
 		write(fd_textlcd,remain,32);
@@ -133,7 +133,7 @@ void IOutil:maketextlcd(char* argv)
 		write(fd_textlcd,remain2,40/*strlen(remain2)*/);
 		strcommand.pos = 0;
 
-		return 0;
+		return;
 }
 
 void IOutil::textlcd(char* argv)
