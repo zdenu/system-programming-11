@@ -24,7 +24,7 @@ Camera::~Camera(void)
 bool Camera::init(dc_t* dc_buffer, font_t* pFont, ENUM_SCREEN_TYPE state)
 {
 	printf("camera init start.\n");
-	//Camculator::get().pIOutil->textlcd("Cameara... Please take photo");
+	//
 	//MP3_play("/mnt/usb/sound/ko/camera.mp3");
 	State::init(dc_buffer, pFont, state);
 

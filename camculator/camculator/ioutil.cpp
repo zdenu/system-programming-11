@@ -7,6 +7,7 @@
 #include "define.h"
 #include "ioutil.h"
 #include "camculator.h"
+#include "textlcd.h"
 
 int		IOutil::fd_mem = INVALID_DATA;
 int		IOutil::fd_textlcd = INVALID_DATA;
