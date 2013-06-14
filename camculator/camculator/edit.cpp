@@ -78,7 +78,7 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		cursor = txt.length()-1;
 		MP3_play("/mnt/usb/sound/ko/edit.mp3");
 		//Camculator::get().pIOutil->fnd_init("      ");
-		Camculator::get().pIOutil->textlcd("Edit... Please use keypad");
+		
 	}
 	else
 	{
@@ -171,7 +171,8 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 		replaceAll(txt, " ", "+");
 		printf("request formula: %s\n", txt.c_str());
 		WolframAlphaManager::get().sendRequest(txt.c_str(), txt.length());
-		
+
+		Camculator::get().pIOutil->textlcd("Result... you can scroll");
 		//MP3_play("/mnt/usb/sound/ko/result1.mp3");
 		writeHistory(txt.c_str());
 	}
