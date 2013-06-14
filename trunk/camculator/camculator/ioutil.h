@@ -21,6 +21,7 @@ public:
 	void fnd(const char* str);
 	void fnd_init(const char* str);
 	void fnd_kill();
+	void maketextlcd(char* argv);
 
 public:
 	static int  fd_mem;
