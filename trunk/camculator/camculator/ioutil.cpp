@@ -39,12 +39,12 @@ bool IOutil::init()
 	}
 	printf("open : [/dev/textlcd] \n");
 
-//	fd_dot = open("/dev/dotmatrix", O_WRONLY);
-//	if(fd_dot < 0)  {
-//			printf("Dotmatrix device open error\n");
-//  			return false;
-//	}
-//	printf("open : [/dev/dotmatrix] \n");
+	fd_dot = open("/dev/dotmatrix", O_WRONLY);
+	if(fd_dot < 0)  {
+			printf("Dotmatrix device open error\n");
+  			return false;
+	}
+	printf("open : [/dev/dotmatrix] \n");
 
 	fd_fnd = open("/dev/7segment", O_WRONLY);
 	if(fd_fnd < 0)  {

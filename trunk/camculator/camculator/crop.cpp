@@ -143,6 +143,7 @@ int Crop::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 	else if (pTouchEvent->touchType == TOUCH_EVENT_MAIN_OK)
 	{
 		// crop and go to labeling.
+		Camculator::get().pIOutil->textlcd("Edit... Please use keypad");
 		stCropData* pCropData = new stCropData;
 		pCropData->dc_crop = gx_png_create(secondX - firstX, secondY - firstY);
 		// crop data.

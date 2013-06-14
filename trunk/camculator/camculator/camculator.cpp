@@ -366,6 +366,7 @@ void Camculator::interface_layout(int mode, int state)
 			case TOUCH_EVENT_MAIN_CAMERA:
 				title = (png_t*)gx_png_open( "interface/title/camera.png");
 				button = (png_t*)gx_png_open( "interface/button/camera.png");
+				pIOutil->textlcd("please take photo");
 				break;
 			case TOUCH_EVENT_MAIN_CROP:
 				title = (png_t*)gx_png_open( "interface/title/crop.png");
