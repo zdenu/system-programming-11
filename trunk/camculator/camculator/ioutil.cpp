@@ -138,7 +138,7 @@ void IOutil::maketextlcd(char* argv)
 
 void IOutil::textlcd(char* argv)
 {
-	write(fd_textlcd,argv,strlen(argv));
+	maketextlcd(argv);
 }
 
 void IOutil::dotmatrix(int mode)
