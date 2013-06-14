@@ -83,7 +83,7 @@ int Camera::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void**
 		
 		(*pParam) = pCamData;
 		MP3_play("/mnt/usb/sound/shot.mp3");
-		Camculator::get().pIOutil->textlcd("Crop...Please make rectangle.");
+		Camculator::get().pIOutil->textlcd("Please make rectangle.");
 	}
 	
 	return true;

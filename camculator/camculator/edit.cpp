@@ -77,7 +77,7 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 		gx_text_out( dc_buffer, 9, 75, (char*)txt.c_str());
 		cursor = txt.length()-1;
 		MP3_play("/mnt/usb/sound/ko/edit.mp3");
-		Camculator::get().pIOutil->fnd_init("      ");
+		//Camculator::get().pIOutil->fnd_init("      ");
 		
 	}
 	else
@@ -168,7 +168,7 @@ int Edit::dispatchTouchEvent(dc_t* dc_buffer, stTouchData* pTouchEvent, void** p
 	{
 //		// send http request.
 //		WolframAlphaManager::get().sendRequest("integral+x+dx+from+0+to+10", strlen("integral+x+dx+from+0+to+10"));
-		Camculator::get().pIOutil->fnd_kill();
+		//Camculator::get().pIOutil->fnd_kill();
 		replaceAll(txt, " ", "+");
 		printf("request formula: %s\n", txt.c_str());
 		WolframAlphaManager::get().sendRequest(txt.c_str(), txt.length());
@@ -384,11 +384,11 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 /*	if(cursor>txt.length())
 			cursor--;
 */
-	if(txt.length()>6)
+/*	if(txt.length()>6)
 		Camculator::get().pIOutil->fnd(txt.substr(txt.length()-6,txt.length()).c_str());
 	else 
 		Camculator::get().pIOutil->fnd(txt.substr(0,txt.length()).c_str());
-	
+	*/
 	return 0;
 }
 
