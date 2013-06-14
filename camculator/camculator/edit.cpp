@@ -84,7 +84,7 @@ bool Edit::makeScreen(dc_t* dc_buffer, dc_t* dc_screen, void* pParam)
 	{
 		//Line Max 32char
 		string tmp(txt);
-		if(tmp.length()>0 && cursor<tmp.length()) {
+		if(tmp.length()>0 && cursor<txt.length()) {
 			tmp.insert(cursor+1,"|",0,1);
 		} else {
 			tmp.append("|");
@@ -357,13 +357,13 @@ int Edit::dispatchKeyEvent(dc_t* dc_buffer, stKeyData* pKeyEvent)
 			txt.erase(cursor,1);
 		}
 		break;
-		case 18: //sw1 ->
+		case 17: //sw1 ->
 		step = 0;
 		if(cursor<txt.length()-1){
 			cursor++;
 		}
 		break;
-		case 17://sw2 <-
+		case 18://sw2 <-
 		step = 0;
 		if(cursor>0){
 			cursor--;
