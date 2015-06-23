@@ -1,0 +1,52 @@
+CMAKE\_MINIMUM\_REQUIRED( VERSION 2.6 )
+
+SET( CMAKE\_C\_COMPILER "arm-linux-gcc" )
+SET( CMAKE\_CXX\_COMPILER "arm-linux-g++" )
+SET( LDFLAGS "-L/usr/local/arm-linux-4.1.1/arm-iwmmxt-linux-gnueabi/lib
+" )
+SET( CPPFLAGS "-I/usr/local/arm-linux-4.1.1/arm-iwmmxt-linux-gnueabi/include
+" )
+SET( CFLAGS "-I/usr/local/arm-linux-4.1.1/arm-iwmmxt-linux-gnueabi/include
+" )
+SET( PROJECT\_NAME camc )
+
+PROJECT( ${PROJECT\_NAME} )
+
+IF( ${BUILD} MATCHES "release" )
+> SET( CMAKE\_BUILD\_TYPE Release )
+ELSE( ${BUILD} MATCHES "release" )
+> SET( BUILD "debug" )
+> SET( CMAKE\_BUILD\_TYPE Debug )
+ENDIF( ${BUILD} MATCHES "release" )
+
+SET( PROJECT\_DIRECTORY "${CMAKE\_CURRENT\_SOURCE\_DIR}" )
+SET( CURRENT\_DIRECTORY "." )
+SET( TINYXML\_DIRECTORY "${CURRENT\_DIRECTORY}/tinyxml" )
+SET( GXLIB\_DIRECTORY "${CURRENT\_DIRECTORY}/gxlib" )
+SET( CAMCULATOR\_DIRECTORY "${CURRENT\_DIRECTORY}/camculator" )
+SET( GIFLIB\_DIRECTORY "${CURRENT\_DIRECTORY}/giflib" )
+SET( OPENCV\_LABELING\_DIRECTORY "${CURRENT\_DIRECTORY}/opencv" )
+
+INCLUDE\_DIRECTORIES( ${CURRENT\_DIRECTORY} )
+INCLUDE\_DIRECTORIES( ${CAMCULATOR\_DIRECTORY} )
+INCLUDE\_DIRECTORIES( ${GXLIB\_DIRECTORY} )
+INCLUDE\_DIRECTORIES( ${GIFLIB\_DIRECTORY} )
+INCLUDE\_DIRECTORIES( ${OPENCV\_LABELING\_DIRECTORY} )
+INCLUDE\_DIRECTORIES( "/usr/local/arm/include" )
+INCLUDE\_DIRECTORIES( "/usr/local/arm/include/opencv" )
+INCLUDE\_DIRECTORIES( "/usr/local/arm/include/opencv2" )
+
+LINK\_DIRECTORIES( "/usr/local/arm-linux-4.1.1/arm-iwmmxt-linux-gnueabi/lib
+" )
+
+ADD\_DEFINITIONS( "-w" "-Os" )
+
+AUX\_SOURCE\_DIRECTORY( ${CAMCULATOR\_DIRECTORY} SRC )
+AUX\_SOURCE\_DIRECTORY( ${TINYXML\_DIRECTORY} TINYXML\_SRC )
+AUX\_SOURCE\_DIRECTORY( ${GXLIB\_DIRECTORY} GXLIB\_SRC )
+AUX\_SOURCE\_DIRECTORY( ${GIFLIB\_DIRECTORY} GIFLIB\_SRC )
+AUX\_SOURCE\_DIRECTORY( ${OPENCV\_LABELING\_DIRECTORY} OPENCV\_SRC )
+
+LINK\_LIBRARIES( pthread jpeg png z opencv\_highgui opencv\_imgproc opencv\_core rt )
+
+ADD\_EXECUTABLE( ${PROJECT\_NAME} ${SRC} ${GXLIB\_SRC} ${TINYXML\_SRC} ${GIFLIB\_SRC} ${OPENCV\_SRC} )
